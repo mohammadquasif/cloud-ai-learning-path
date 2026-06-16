@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certification Study Hub | Interactive Mock Tests</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --aws: #ff9900;
+      --claude: #8b5cf6;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    p.subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      max-width: 600px;
+    }
+    .cards {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 900px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 2rem;
+      width: 320px;
+      border: 1px solid #334155;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card.aws:hover { box-shadow: 0 10px 30px rgba(255, 153, 0, 0.15); border-color: rgba(255, 153, 0, 0.4); }
+    .card.claude:hover { box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2); border-color: rgba(139, 92, 246, 0.4); }
+    
+    .card-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .card.aws .card-title { color: var(--aws); }
+    .card.claude .card-title { color: var(--claude); }
+    
+    .card-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+    
+    .btn.aws { background: var(--aws); color: #000; }
+    .btn.claude { background: var(--claude); color: #fff; }
+    
+    .footer {
+      margin-top: 4rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .footer a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>☁️ Certification Study Hub</h1>
+  <p class="subtitle">Free, open-source, interactive mock tests to help you prepare for your cloud certifications.</p>
+
+  <div class="cards">
+    <!-- AWS Card -->
+    <div class="card aws">
+      <div>
+        <div class="card-title">AWS Cloud Practitioner</div>
+        <div class="card-desc">
+          Test your knowledge on AWS global infrastructure, core services, security, and billing with our interactive 65-question mock test.
+        </div>
+      </div>
+      <a href="aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="btn aws">Start 65-Q Test 🚀</a>
+    </div>
+
+    <!-- Claude Card -->
+    <div class="card claude">
+      <div>
+        <div class="card-title">Claude Architect Foundation</div>
+        <div class="card-desc">
+          Validate your understanding of Agentic Patterns, Tool Use, MCP Design, and Structured Outputs with our interactive 60-question mock test.
+        </div>
+      </div>
+      <a href="claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="btn claude">Start 60-Q Test 🚀</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    Created with ❤️ by the community. <br><br>
+    <a href="https://github.com/mohammadquasif/certification-study-hub">Return to GitHub Repository</a>
+  </div>
+
+</body>
+</html>

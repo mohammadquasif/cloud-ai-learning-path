@@ -98,9 +98,9 @@ Then:
 
 ## 🔥 Interactive Mock Test
 
-Take the full 60-question mock test with a timer, auto-scoring, and detailed results:
+Take the full 60-question mock test with a timer, auto-scoring, and detailed results directly in your browser:
 
-👉 **[Open the Mock Test](./mock-tests/caf-mock-test-60q.html)** — Download and open in your browser.
+👉 **[Take the Claude Mock Test Live](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/mock-tests/caf-mock-test-60q.html)**
 
 ---
 

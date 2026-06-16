@@ -85,9 +85,9 @@ Then:
 
 ## 🔥 Interactive Mock Test
 
-Take the full 65-question mock test with a timer, auto-scoring, and detailed results:
+Take the full 65-question mock test with a timer, auto-scoring, and detailed results directly in your browser:
 
-👉 **[Open the Mock Test](./mock-tests/ccp-mock-test-65q.html)** — Download and open in your browser.
+👉 **[Take the AWS Mock Test Live](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)**
 
 ---
 

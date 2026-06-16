@@ -171,11 +171,12 @@ All practice questions in this repo are **100% original**.
 - They are **not** copied from any real exam
 - Each question has a **detailed explanation**
 
-### 🔥 Interactive 65-Question Mock Test
+### 🔥 Interactive Mock Tests (Live on GitHub Pages)
 
-Download and open in your browser for a full timed experience:
+No need to download anything! You can take the full timed mock tests directly in your browser:
 
-👉 **[ccp-mock-test-65q.html](aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)** — 90 min timer, auto-scoring, and detailed review
+👉 **[AWS Cloud Practitioner 65-Q Mock Test](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)**
+👉 **[Claude Architect Foundation 60-Q Mock Test](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/mock-tests/caf-mock-test-60q.html)**
 
 Find more inside:
 - `aws-cloud-practitioner/practice-questions/`
