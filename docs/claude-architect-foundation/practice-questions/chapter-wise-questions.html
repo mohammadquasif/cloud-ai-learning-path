@@ -5,25 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chapter Wise Questions | Certification Study Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
-  
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="topbar">
     <div class="topbar-content">
-      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      <a href="../../index.html" class="logo">Certification Study Hub</a>
+      <div class="topbar-actions">
+        <a class="repo-link" href="https://github.com/mohammadquasif/certification-study-hub">Back to Repo</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open course navigation" aria-expanded="false" aria-controls="sidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="layout">
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h3>Claude Architect Foundation</h3>
       </div>
-      <nav class="sidebar-nav">
-        <div class="nav-group">
+      <nav class="sidebar-nav" aria-label="Course navigation">
+        <a href="../../claude-architect-foundation/00-certification-roadmap.html" class="nav-link">00 Certification Roadmap</a>
+<div class="nav-group">
         <div class="nav-group-title">01 Introduction To Claude</div>
         <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
 <a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
@@ -60,7 +70,8 @@
 <a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
 <a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
 
-      </div><div class="nav-group">
+      </div><a href="../../claude-architect-foundation/flashcards.html" class="nav-link">Flashcards</a>
+<div class="nav-group">
         <div class="nav-group-title">Mock Tests</div>
         <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
 
@@ -77,7 +88,7 @@
       </nav>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" id="main-content">
       <div class="content-container">
         <h1>Chapter-Wise Practice Questions — Claude Architect Foundation</h1>
 <blockquote>
@@ -298,8 +309,80 @@
 </ul>
 <p><strong>Answer:</strong> B | <strong>Category:</strong> Exploration Patterns</p>
 <hr>
+<p><strong>Q24.</strong> A backend team wants Claude Code to generate new API endpoints that match several exemplar endpoint implementations. Those examples are only useful when creating new endpoints, not for bug fixes, code review, or documentation edits. Where should this context live?</p>
+<ul>
+<li>A) Root CLAUDE.md, because examples are important</li>
+<li>B) Every developer&#39;s user-level CLAUDE.md</li>
+<li>C) A README that developers manually paste into each prompt</li>
+<li>D) A Skill that references the exemplar endpoints and is invoked on demand by slash command</li>
+</ul>
+<p><strong>Answer:</strong> D | <strong>Category:</strong> Skills vs CLAUDE.md</p>
+<hr>
+<p><strong>Q25.</strong> Existing developers see Claude Code enforce a service-layer rule, but a new developer who cloned the same repository does not. What is the most likely explanation?</p>
+<ul>
+<li>A) Claude Code ignores architecture rules for new developers</li>
+<li>B) The new developer must first run a longer session</li>
+<li>C) The repository has too many files for Claude to load the rule</li>
+<li>D) The rule exists in the original developers&#39; user-level <code>~/.claude/CLAUDE.md</code> files instead of the project-level CLAUDE.md</li>
+</ul>
+<p><strong>Answer:</strong> D | <strong>Category:</strong> Project vs User CLAUDE.md</p>
+<hr>
+<p><strong>Q26.</strong> Claude Code generates a refactor and explains the edge cases it considered. The same session then reviews the code and misses a subtle issue that human reviewers catch. What is the best workflow change?</p>
+<ul>
+<li>A) Ask the same session to review twice</li>
+<li>B) Use a second independent Claude Code instance that sees only the final diff, not the generator&#39;s reasoning</li>
+<li>C) Ask Claude to explain the design more thoroughly before reviewing</li>
+<li>D) Use batch processing because it removes all review bias</li>
+</ul>
+<p><strong>Answer:</strong> B | <strong>Category:</strong> Independent Review</p>
+<hr>
+<p><strong>Q27.</strong> A team has two review modes: a pre-merge hook that must respond in minutes, and a deep overnight architecture review that can take up to 24 hours. Which should use the Message Batches API?</p>
+<ul>
+<li>A) Deep overnight architecture review only</li>
+<li>B) Pre-merge hook only</li>
+<li>C) Both review modes</li>
+<li>D) Neither review mode</li>
+</ul>
+<p><strong>Answer:</strong> A | <strong>Category:</strong> Batch Review Routing</p>
+<hr>
+<p><strong>Q28.</strong> A documentation review prompt says &quot;check comments are accurate and up-to-date,&quot; but findings are inconsistent. What is the best fix?</p>
+<ul>
+<li>A) Flag every function without a docstring</li>
+<li>B) Add style examples for preferred comment tone</li>
+<li>C) Define a violation as a comment or docstring that makes a concrete claim contradicting actual code behavior</li>
+<li>D) Remove comment review entirely</li>
+</ul>
+<p><strong>Answer:</strong> C | <strong>Category:</strong> Review Criteria</p>
+<hr>
+<p><strong>Q29.</strong> A follow-up PR review repeats findings that were already fixed in earlier commits. What should the next review include?</p>
+<ul>
+<li>A) Prior findings and their current resolution status, with instructions to report only new or still-unaddressed issues</li>
+<li>B) Only the latest commit</li>
+<li>C) A text filter that deletes similar comments</li>
+<li>D) No historical context, to keep the review unbiased</li>
+</ul>
+<p><strong>Answer:</strong> A | <strong>Category:</strong> Duplicate Review Comments</p>
+<hr>
+<p><strong>Q30.</strong> A code review workflow requires Claude to inspect a file, request imported files using tools, inspect tests, and continue analysis. Why is the Message Batches API a poor fit?</p>
+<ul>
+<li>A) Batch cannot process source code</li>
+<li>B) Batch only supports PDFs</li>
+<li>C) Batch is always slower and less accurate</li>
+<li>D) Batch processing cannot execute tools mid-request and return results for Claude to continue reasoning</li>
+</ul>
+<p><strong>Answer:</strong> D | <strong>Category:</strong> Batch API Tool Limitation</p>
+<hr>
+<p><strong>Q31.</strong> A PR automation needs machine-readable findings with file paths, line numbers, severity, category, and suggested fix. What is the most reliable output strategy?</p>
+<ul>
+<li>A) Ask Claude to return JSON in prose</li>
+<li>B) Use structured JSON output with a schema, then parse the validated result for GitHub inline comments</li>
+<li>C) Ask Claude to write Markdown tables</li>
+<li>D) Put formatting examples in CLAUDE.md only</li>
+</ul>
+<p><strong>Answer:</strong> B | <strong>Category:</strong> Structured Review Output</p>
+<hr>
 <h2>📚 Cross-Domain Questions</h2>
-<p><strong>Q24.</strong> A conversation with Claude spans 45 turns covering 3 separate customer issues. As the conversation approaches turn 46, a support agent reports that Claude keeps &quot;forgetting&quot; key details from Turns 1–5. What is the best resolution?</p>
+<p><strong>Q32.</strong> A conversation with Claude spans 45 turns covering 3 separate customer issues. As the conversation approaches turn 46, a support agent reports that Claude keeps &quot;forgetting&quot; key details from Turns 1–5. What is the best resolution?</p>
 <ul>
 <li>A) Restart the conversation — context memory is too short for long support sessions</li>
 <li>B) Extract and store key facts from resolved issues (order IDs, issue types, resolutions) in an external data store; retrieve them via tools when referenced in later turns</li>
@@ -308,7 +391,7 @@
 </ul>
 <p><strong>Answer:</strong> B | <strong>Category:</strong> Context Management</p>
 <hr>
-<p><strong>Q25.</strong> An architect is designing a document processing pipeline. Documents arrive continuously, 80% are standard quarterly reports (no urgency), 20% are urgent regulatory filings (needed within 2 hours). Which architecture best balances cost and SLA compliance?</p>
+<p><strong>Q33.</strong> An architect is designing a document processing pipeline. Documents arrive continuously, 80% are standard quarterly reports (no urgency), 20% are urgent regulatory filings (needed within 2 hours). Which architecture best balances cost and SLA compliance?</p>
 <ul>
 <li>A) Process all documents through real-time API for reliability</li>
 <li>B) Process all documents through batch API for cost savings</li>
@@ -319,15 +402,15 @@
 <hr>
 <p><em>All questions are original scenarios created for certification-study-hub. Not sourced from any official exam materials.</em></p>
 
-        
+
         <div class="pagination">
           <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="page-link prev">
           <span class="page-link-label">Previous</span>
-          <span class="page-link-title">← Caf Mock Test 60q</span>
+          <span class="page-link-title">&larr; Caf Mock Test 60q</span>
         </a>
           <a href="../../claude-architect-foundation/README.html" class="page-link next">
           <span class="page-link-label">Next</span>
-          <span class="page-link-title">README →</span>
+          <span class="page-link-title">README &rarr;</span>
         </a>
         </div>
       </div>

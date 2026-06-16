@@ -5,25 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Review Workflows | Certification Study Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
-  
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="topbar">
     <div class="topbar-content">
-      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      <a href="../../index.html" class="logo">Certification Study Hub</a>
+      <div class="topbar-actions">
+        <a class="repo-link" href="https://github.com/mohammadquasif/certification-study-hub">Back to Repo</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open course navigation" aria-expanded="false" aria-controls="sidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="layout">
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h3>Claude Architect Foundation</h3>
       </div>
-      <nav class="sidebar-nav">
-        <div class="nav-group">
+      <nav class="sidebar-nav" aria-label="Course navigation">
+        <a href="../../claude-architect-foundation/00-certification-roadmap.html" class="nav-link">00 Certification Roadmap</a>
+<div class="nav-group">
         <div class="nav-group-title">01 Introduction To Claude</div>
         <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
 <a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
@@ -60,7 +70,8 @@
 <a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
 <a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
 
-      </div><div class="nav-group">
+      </div><a href="../../claude-architect-foundation/flashcards.html" class="nav-link">Flashcards</a>
+<div class="nav-group">
         <div class="nav-group-title">Mock Tests</div>
         <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
 
@@ -77,7 +88,7 @@
       </nav>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" id="main-content">
       <div class="content-container">
         <h1>Code Review Workflows — Independent Review &amp; Batch Analysis</h1>
 <blockquote>
@@ -218,6 +229,98 @@ Use when:
 • 50% cost savings for non-urgent reviews
 </code></pre>
 <hr>
+<h3>Exam Pattern: Batch Is Good for Deep Review, Not Blocking Hooks</h3>
+<p>If a review must finish while a developer is waiting to merge, use a real-time workflow. If the review can run overnight and results can arrive later, batch processing can be a good fit.</p>
+<table>
+<thead>
+<tr>
+<th>Review Mode</th>
+<th>Best API</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pre-merge hook</td>
+<td>Real-time Messages API</td>
+<td>Developer needs feedback in minutes</td>
+</tr>
+<tr>
+<td>Production hotfix review</td>
+<td>Real-time Messages API</td>
+<td>Time-sensitive and blocking</td>
+</tr>
+<tr>
+<td>Overnight deep architecture scan</td>
+<td>Message Batches API</td>
+<td>Can tolerate delayed results</td>
+</tr>
+<tr>
+<td>Weekly quality report</td>
+<td>Message Batches API</td>
+<td>Asynchronous and cost-sensitive</td>
+</tr>
+</tbody></table>
+<p><strong>Exam memory:</strong> Batch is not &quot;better review.&quot; Batch is &quot;cheaper asynchronous review when latency does not matter.&quot;</p>
+<hr>
+<h3>Exam Pattern: Batch Cannot Support Iterative Tool-Using Reviews</h3>
+<p>Some review workflows require Claude to inspect a file, request related files, read imports, inspect tests, and continue. That pattern needs a live tool loop.</p>
+<pre><code>Tool-using review loop:
+Claude reads diff
+Claude requests related file
+Application returns file content
+Claude requests tests
+Application returns test content
+Claude produces final finding
+</code></pre>
+<p>The Message Batches API is asynchronous. You submit the request and retrieve the result later. There is no live midpoint where the application can execute a requested tool and return the result so Claude can continue.</p>
+<p><strong>Correct decision:</strong> Use real-time Messages API or Claude Code interactive/headless workflows for iterative reviews. Use batch only for single-pass analysis where all needed input is already included.</p>
+<hr>
+<h3>Avoiding Duplicate Review Comments Across PR Iterations</h3>
+<p>Automated reviewers often run multiple times on the same pull request. Without memory of prior findings, Claude may repeat issues that were already fixed or already commented on.</p>
+<p><strong>Best pattern:</strong></p>
+<ol>
+<li>Include prior findings in the new review context.</li>
+<li>Include whether each finding appears fixed, unresolved, or unknown.</li>
+<li>Instruct Claude to report only new issues or still-unaddressed issues.</li>
+<li>Preserve stable finding IDs when possible, such as <code>file:line:category:fingerprint</code>.</li>
+</ol>
+<p><strong>Why not only review the latest commit?</strong> That can miss regressions in unchanged files or problems introduced by interactions between old and new code.</p>
+<p><strong>Why not only use a text-similarity filter?</strong> It may suppress a valid recurring issue or fail when the same issue is worded differently.</p>
+<hr>
+<h3>Structured Findings for Automated PR Comments</h3>
+<p>If review output will be consumed by automation, do not rely on &quot;please return JSON&quot; alone. Use structured output.</p>
+<p>For Claude Code automation, a strong pattern is:</p>
+<pre><code class="language-bash">claude -p &quot;Review this pull request for actionable findings only&quot; \
+  --output-format json \
+  --json-schema ./schemas/pr-review-findings.schema.json
+</code></pre>
+<p>The schema should require:</p>
+<ul>
+<li><code>file_path</code></li>
+<li><code>line_number</code></li>
+<li><code>severity</code></li>
+<li><code>category</code></li>
+<li><code>finding</code></li>
+<li><code>suggested_fix</code></li>
+<li><code>confidence</code></li>
+</ul>
+<p>The GitHub integration can then parse the validated JSON and post inline comments through the GitHub API.</p>
+<p><strong>Exam memory:</strong> Prompt examples help humans understand the desired shape. JSON schema enforces the shape for automation.</p>
+<hr>
+<h3>Comment and Docstring Review Criteria</h3>
+<p>The instruction &quot;check whether comments are accurate and up-to-date&quot; is too vague. It can cause inconsistent findings because Claude may interpret it as:</p>
+<ul>
+<li>flag every missing comment,</li>
+<li>flag old TODOs,</li>
+<li>flag style differences,</li>
+<li>or flag only comments that contradict behavior.</li>
+</ul>
+<p>Use explicit criteria:</p>
+<blockquote>
+<p>Flag a comment or docstring only when it makes a concrete claim about behavior, inputs, outputs, side effects, security constraints, or error handling that contradicts the actual code.</p>
+</blockquote>
+<p>This criteria separates true correctness issues from documentation preferences.</p>
+<hr>
 <h3>Avoiding Confirmation Bias — Practical Checklist</h3>
 <pre><code>┌────────────────────────────────────────────────────────────────┐
 │           INDEPENDENT REVIEW CHECKLIST                         │
@@ -303,6 +406,46 @@ Use when:
 <p><strong>Answer:</strong> C</p>
 <p><strong>Explanation:</strong> The problem is that mixing security and style findings in a combined report obscures critical security issues behind more numerous style findings. Separate structured schemas per pass ensure security severity is calibrated against security benchmarks (not style benchmarks), and the synthesis step can explicitly surface any security findings above a threshold — preventing them from being buried in volume.</p>
 <hr>
+<p><strong>Q4.</strong> A follow-up Claude Code review runs after new commits on the same pull request. It repeats findings that were already fixed after the first review, creating noisy duplicate comments. What is the best fix?</p>
+<ul>
+<li>A) Include prior review findings and their resolution status in context, and instruct Claude to report only new or still-unaddressed issues</li>
+<li>B) Review only the most recent commit</li>
+<li>C) Delete any output that looks similar to a previous comment using a text filter</li>
+<li>D) Run only one review per pull request</li>
+</ul>
+<p><strong>Answer:</strong> A</p>
+<p><strong>Explanation:</strong> Claude needs awareness of prior findings to avoid repetition. Reviewing only the latest commit can miss regressions, and text filters can hide legitimate recurring issues.</p>
+<hr>
+<p><strong>Q5.</strong> A code review workflow requires Claude to call tools during analysis: read one file, request imports, inspect tests, then continue reasoning. Why is the Message Batches API not appropriate?</p>
+<ul>
+<li>A) Batch processing cannot analyze code</li>
+<li>B) Batch processing is more expensive than real-time review</li>
+<li>C) Batch processing only supports image inputs</li>
+<li>D) The asynchronous batch model does not allow tool execution mid-request and return of tool results for Claude to continue</li>
+</ul>
+<p><strong>Answer:</strong> D</p>
+<p><strong>Explanation:</strong> Iterative tool use requires a live request-response loop. Batch jobs are submitted asynchronously and return results later, so they cannot pause for tool execution during processing.</p>
+<hr>
+<p><strong>Q6.</strong> A team needs automated inline GitHub comments with machine-readable <code>file_path</code>, <code>line_number</code>, <code>severity</code>, <code>category</code>, and <code>suggested_fix</code>. What is the most reliable implementation?</p>
+<ul>
+<li>A) Ask Claude to return JSON in plain text and parse whatever it outputs</li>
+<li>B) Use <code>--output-format json</code> with <code>--json-schema</code>, then parse validated JSON and post comments through the GitHub API</li>
+<li>C) Ask Claude to write a Markdown table and convert it to JSON later</li>
+<li>D) Put examples of JSON findings in CLAUDE.md</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> Automation needs schema-enforced structure. Prompt-only JSON and examples are helpful but not as reliable as structured output with a schema.</p>
+<hr>
+<p><strong>Q7.</strong> A prompt says &quot;check that comments are accurate and up-to-date,&quot; but Claude gives inconsistent findings. Which revision best improves consistency?</p>
+<ul>
+<li>A) Ask Claude to flag every function without a docstring</li>
+<li>B) Ask Claude to ignore comments because they are subjective</li>
+<li>C) Define a violation as a comment or docstring that makes a concrete claim contradicting actual code behavior</li>
+<li>D) Ask Claude to prefer shorter comments</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> The original instruction is ambiguous. Explicit criteria define what should and should not be flagged.</p>
+<hr>
 <h2>📌 Quick Revision Summary</h2>
 <ul>
 <li>Independent review = fresh session + code only; no generator context → avoids confirmation bias</li>
@@ -320,15 +463,15 @@ Use when:
 <hr>
 <p><em>Notes by certification-study-hub. Chapter 05 — Code Review Workflows.</em></p>
 
-        
+
         <div class="pagination">
           <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="page-link prev">
           <span class="page-link-label">Previous</span>
-          <span class="page-link-title">← Claude Md And Skills</span>
+          <span class="page-link-title">&larr; Claude Md And Skills</span>
         </a>
           <a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="page-link next">
           <span class="page-link-label">Next</span>
-          <span class="page-link-title">Exploration Patterns →</span>
+          <span class="page-link-title">Exploration Patterns &rarr;</span>
         </a>
         </div>
       </div>

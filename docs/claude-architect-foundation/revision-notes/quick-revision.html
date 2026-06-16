@@ -5,25 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quick Revision | Certification Study Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
-  
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="topbar">
     <div class="topbar-content">
-      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      <a href="../../index.html" class="logo">Certification Study Hub</a>
+      <div class="topbar-actions">
+        <a class="repo-link" href="https://github.com/mohammadquasif/certification-study-hub">Back to Repo</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open course navigation" aria-expanded="false" aria-controls="sidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="layout">
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h3>Claude Architect Foundation</h3>
       </div>
-      <nav class="sidebar-nav">
-        <div class="nav-group">
+      <nav class="sidebar-nav" aria-label="Course navigation">
+        <a href="../../claude-architect-foundation/00-certification-roadmap.html" class="nav-link">00 Certification Roadmap</a>
+<div class="nav-group">
         <div class="nav-group-title">01 Introduction To Claude</div>
         <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
 <a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
@@ -60,7 +70,8 @@
 <a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
 <a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
 
-      </div><div class="nav-group">
+      </div><a href="../../claude-architect-foundation/flashcards.html" class="nav-link">Flashcards</a>
+<div class="nav-group">
         <div class="nav-group-title">Mock Tests</div>
         <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
 
@@ -77,7 +88,7 @@
       </nav>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" id="main-content">
       <div class="content-container">
         <h1>⚡ Quick Revision Guide — Day Before the Exam</h1>
 <blockquote>
@@ -327,6 +338,8 @@
 <ul>
 <li>Nested CLAUDE.md: loaded only when working in that subdirectory — good for monorepos</li>
 <li>Keep CLAUDE.md focused → large CLAUDE.md wastes context every session</li>
+<li>Exemplar implementations for one workflow, such as &quot;create a new API endpoint like these examples,&quot; belong in a Skill, not always-on CLAUDE.md</li>
+<li>If old team members get one behavior but a new teammate does not, check whether the rule is stuck in user-level <code>~/.claude/CLAUDE.md</code> instead of project-level CLAUDE.md</li>
 </ul>
 <h3>Session Management</h3>
 <ul>
@@ -341,6 +354,11 @@
 <li><strong>Review chain</strong> = sequential passes: security → style → documentation</li>
 <li><strong>Structured output schema</strong> for reviews: severity + category + file + line + recommendation</li>
 <li>Batch review for non-urgent large queues; real-time for blocking PRs</li>
+<li>Batch review is good for overnight/deep analysis, not pre-merge hooks that need answers in minutes</li>
+<li>Batch cannot support iterative tool-using reviews because no mid-request tool loop exists</li>
+<li>For repeated PR review runs, include prior findings and resolution status; ask for only new or still-unaddressed issues</li>
+<li>For GitHub inline comments, use structured JSON output plus schema, then post through the GitHub API</li>
+<li>For comments/docstrings, define the violation: only flag concrete claims that contradict actual code behavior</li>
 </ul>
 <h3>Exploration Patterns</h3>
 <ul>
@@ -366,11 +384,11 @@
 <hr>
 <p><em>Quick Revision for certification-study-hub. Claude Architect Foundation.</em></p>
 
-        
+
         <div class="pagination">
           <a href="../../claude-architect-foundation/README.html" class="page-link prev">
           <span class="page-link-label">Previous</span>
-          <span class="page-link-title">← README</span>
+          <span class="page-link-title">&larr; README</span>
         </a>
           
         </div>

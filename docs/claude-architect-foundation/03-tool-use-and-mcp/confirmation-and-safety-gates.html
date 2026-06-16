@@ -5,25 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Confirmation And Safety Gates | Certification Study Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
-  
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="topbar">
     <div class="topbar-content">
-      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      <a href="../../index.html" class="logo">Certification Study Hub</a>
+      <div class="topbar-actions">
+        <a class="repo-link" href="https://github.com/mohammadquasif/certification-study-hub">Back to Repo</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open course navigation" aria-expanded="false" aria-controls="sidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="layout">
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h3>Claude Architect Foundation</h3>
       </div>
-      <nav class="sidebar-nav">
-        <div class="nav-group">
+      <nav class="sidebar-nav" aria-label="Course navigation">
+        <a href="../../claude-architect-foundation/00-certification-roadmap.html" class="nav-link">00 Certification Roadmap</a>
+<div class="nav-group">
         <div class="nav-group-title">01 Introduction To Claude</div>
         <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
 <a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
@@ -60,7 +70,8 @@
 <a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
 <a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
 
-      </div><div class="nav-group">
+      </div><a href="../../claude-architect-foundation/flashcards.html" class="nav-link">Flashcards</a>
+<div class="nav-group">
         <div class="nav-group-title">Mock Tests</div>
         <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
 
@@ -77,7 +88,7 @@
       </nav>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" id="main-content">
       <div class="content-container">
         <h1>Confirmation &amp; Safety Gates — Human-in-the-Loop Design</h1>
 <blockquote>
@@ -291,15 +302,15 @@ Claude informs user that escalation has been triggered
 <hr>
 <p><em>Notes by certification-study-hub. Chapter 03 — Confirmation &amp; Safety Gates.</em></p>
 
-        
+
         <div class="pagination">
           <a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="page-link prev">
           <span class="page-link-label">Previous</span>
-          <span class="page-link-title">← What Is An Agent</span>
+          <span class="page-link-title">&larr; What Is An Agent</span>
         </a>
           <a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="page-link next">
           <span class="page-link-label">Next</span>
-          <span class="page-link-title">Designing Good Tools →</span>
+          <span class="page-link-title">Designing Good Tools &rarr;</span>
         </a>
         </div>
       </div>

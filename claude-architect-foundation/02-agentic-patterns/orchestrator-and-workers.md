@@ -11,6 +11,8 @@
 
 Not every task can be done by a single agent in a single context window. Some tasks are too large, too complex, or involve parallel workstreams that need to happen simultaneously. The **Orchestrator-Workers pattern** solves this by having one Claude instance act as a manager (orchestrator) that delegates subtasks to specialised Claude instances (workers / subagents).
 
+![Agentic pattern decision graph](../../assets/claude-agentic-patterns.svg)
+
 ---
 
 ## 🧠 Key Concepts
@@ -162,9 +164,9 @@ Each team only knows about their own work. The PM synthesises everything.
 - C) Orchestrator-workers — central orchestrator delegates to three parallel worker agents
 - D) Prompt chaining — do style, then security, then documentation sequentially
 
-**Answer:** D — Prompt chaining is correct for this specific scenario because the workflow follows the same structured, predictable sequence for every PR (three defined steps in order). The orchestrator-workers pattern adds parallelism overhead that is only beneficial when order does not matter or when tasks are truly independent enough to justify separate context windows. For this bounded, three-step workflow, chaining is simpler and sufficient.
+**Answer:** C — Orchestrator-workers is correct for this scenario because style, security, and documentation checks are independent review dimensions that can run in parallel and return focused findings to a central reviewer. Prompt chaining is better when step B depends on step A's output. Here, the three reviews do not need to wait for one another.
 
-> **Exam tip:** The difference between orchestrator-workers and prompt chaining is subtle. Orchestrator-workers = dynamic decomposition + parallelism. Prompt chaining = fixed sequence of steps. If the steps are the same every time and sequential, chaining is often the better answer.
+> **Exam tip:** The difference between orchestrator-workers and prompt chaining is subtle. Orchestrator-workers = independent or dynamically chosen subtasks + synthesis. Prompt chaining = fixed sequence where later steps depend on earlier outputs.
 
 ---
 

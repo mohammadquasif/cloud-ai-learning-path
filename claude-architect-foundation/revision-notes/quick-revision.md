@@ -139,6 +139,8 @@
 
 - Nested CLAUDE.md: loaded only when working in that subdirectory — good for monorepos
 - Keep CLAUDE.md focused → large CLAUDE.md wastes context every session
+- Exemplar implementations for one workflow, such as "create a new API endpoint like these examples," belong in a Skill, not always-on CLAUDE.md
+- If old team members get one behavior but a new teammate does not, check whether the rule is stuck in user-level `~/.claude/CLAUDE.md` instead of project-level CLAUDE.md
 
 ### Session Management
 - `--continue` = most recent session; `--resume <name>` = by name; `--session-id` = by UUID
@@ -151,6 +153,11 @@
 - **Review chain** = sequential passes: security → style → documentation
 - **Structured output schema** for reviews: severity + category + file + line + recommendation
 - Batch review for non-urgent large queues; real-time for blocking PRs
+- Batch review is good for overnight/deep analysis, not pre-merge hooks that need answers in minutes
+- Batch cannot support iterative tool-using reviews because no mid-request tool loop exists
+- For repeated PR review runs, include prior findings and resolution status; ask for only new or still-unaddressed issues
+- For GitHub inline comments, use structured JSON output plus schema, then post through the GitHub API
+- For comments/docstrings, define the violation: only flag concrete claims that contradict actual code behavior
 
 ### Exploration Patterns
 - **Architecture-first**: orient → locate (Grep) → understand (Read) → plan → act

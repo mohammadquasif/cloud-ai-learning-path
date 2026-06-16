@@ -165,6 +165,103 @@ Use when:
 
 ---
 
+### Exam Pattern: Batch Is Good for Deep Review, Not Blocking Hooks
+
+If a review must finish while a developer is waiting to merge, use a real-time workflow. If the review can run overnight and results can arrive later, batch processing can be a good fit.
+
+| Review Mode | Best API | Reason |
+|---|---|---|
+| Pre-merge hook | Real-time Messages API | Developer needs feedback in minutes |
+| Production hotfix review | Real-time Messages API | Time-sensitive and blocking |
+| Overnight deep architecture scan | Message Batches API | Can tolerate delayed results |
+| Weekly quality report | Message Batches API | Asynchronous and cost-sensitive |
+
+**Exam memory:** Batch is not "better review." Batch is "cheaper asynchronous review when latency does not matter."
+
+---
+
+### Exam Pattern: Batch Cannot Support Iterative Tool-Using Reviews
+
+Some review workflows require Claude to inspect a file, request related files, read imports, inspect tests, and continue. That pattern needs a live tool loop.
+
+```
+Tool-using review loop:
+Claude reads diff
+Claude requests related file
+Application returns file content
+Claude requests tests
+Application returns test content
+Claude produces final finding
+```
+
+The Message Batches API is asynchronous. You submit the request and retrieve the result later. There is no live midpoint where the application can execute a requested tool and return the result so Claude can continue.
+
+**Correct decision:** Use real-time Messages API or Claude Code interactive/headless workflows for iterative reviews. Use batch only for single-pass analysis where all needed input is already included.
+
+---
+
+### Avoiding Duplicate Review Comments Across PR Iterations
+
+Automated reviewers often run multiple times on the same pull request. Without memory of prior findings, Claude may repeat issues that were already fixed or already commented on.
+
+**Best pattern:**
+
+1. Include prior findings in the new review context.
+2. Include whether each finding appears fixed, unresolved, or unknown.
+3. Instruct Claude to report only new issues or still-unaddressed issues.
+4. Preserve stable finding IDs when possible, such as `file:line:category:fingerprint`.
+
+**Why not only review the latest commit?** That can miss regressions in unchanged files or problems introduced by interactions between old and new code.
+
+**Why not only use a text-similarity filter?** It may suppress a valid recurring issue or fail when the same issue is worded differently.
+
+---
+
+### Structured Findings for Automated PR Comments
+
+If review output will be consumed by automation, do not rely on "please return JSON" alone. Use structured output.
+
+For Claude Code automation, a strong pattern is:
+
+```bash
+claude -p "Review this pull request for actionable findings only" \
+  --output-format json \
+  --json-schema ./schemas/pr-review-findings.schema.json
+```
+
+The schema should require:
+
+- `file_path`
+- `line_number`
+- `severity`
+- `category`
+- `finding`
+- `suggested_fix`
+- `confidence`
+
+The GitHub integration can then parse the validated JSON and post inline comments through the GitHub API.
+
+**Exam memory:** Prompt examples help humans understand the desired shape. JSON schema enforces the shape for automation.
+
+---
+
+### Comment and Docstring Review Criteria
+
+The instruction "check whether comments are accurate and up-to-date" is too vague. It can cause inconsistent findings because Claude may interpret it as:
+
+- flag every missing comment,
+- flag old TODOs,
+- flag style differences,
+- or flag only comments that contradict behavior.
+
+Use explicit criteria:
+
+> Flag a comment or docstring only when it makes a concrete claim about behavior, inputs, outputs, side effects, security constraints, or error handling that contradicts the actual code.
+
+This criteria separates true correctness issues from documentation preferences.
+
+---
+
 ### Avoiding Confirmation Bias — Practical Checklist
 
 ```
@@ -275,6 +372,58 @@ The independent audit catches what internal review misses. Claude Code's indepen
 **Answer:** C
 
 **Explanation:** The problem is that mixing security and style findings in a combined report obscures critical security issues behind more numerous style findings. Separate structured schemas per pass ensure security severity is calibrated against security benchmarks (not style benchmarks), and the synthesis step can explicitly surface any security findings above a threshold — preventing them from being buried in volume.
+
+---
+
+**Q4.** A follow-up Claude Code review runs after new commits on the same pull request. It repeats findings that were already fixed after the first review, creating noisy duplicate comments. What is the best fix?
+
+- A) Include prior review findings and their resolution status in context, and instruct Claude to report only new or still-unaddressed issues
+- B) Review only the most recent commit
+- C) Delete any output that looks similar to a previous comment using a text filter
+- D) Run only one review per pull request
+
+**Answer:** A
+
+**Explanation:** Claude needs awareness of prior findings to avoid repetition. Reviewing only the latest commit can miss regressions, and text filters can hide legitimate recurring issues.
+
+---
+
+**Q5.** A code review workflow requires Claude to call tools during analysis: read one file, request imports, inspect tests, then continue reasoning. Why is the Message Batches API not appropriate?
+
+- A) Batch processing cannot analyze code
+- B) Batch processing is more expensive than real-time review
+- C) Batch processing only supports image inputs
+- D) The asynchronous batch model does not allow tool execution mid-request and return of tool results for Claude to continue
+
+**Answer:** D
+
+**Explanation:** Iterative tool use requires a live request-response loop. Batch jobs are submitted asynchronously and return results later, so they cannot pause for tool execution during processing.
+
+---
+
+**Q6.** A team needs automated inline GitHub comments with machine-readable `file_path`, `line_number`, `severity`, `category`, and `suggested_fix`. What is the most reliable implementation?
+
+- A) Ask Claude to return JSON in plain text and parse whatever it outputs
+- B) Use `--output-format json` with `--json-schema`, then parse validated JSON and post comments through the GitHub API
+- C) Ask Claude to write a Markdown table and convert it to JSON later
+- D) Put examples of JSON findings in CLAUDE.md
+
+**Answer:** B
+
+**Explanation:** Automation needs schema-enforced structure. Prompt-only JSON and examples are helpful but not as reliable as structured output with a schema.
+
+---
+
+**Q7.** A prompt says "check that comments are accurate and up-to-date," but Claude gives inconsistent findings. Which revision best improves consistency?
+
+- A) Ask Claude to flag every function without a docstring
+- B) Ask Claude to ignore comments because they are subjective
+- C) Define a violation as a comment or docstring that makes a concrete claim contradicting actual code behavior
+- D) Ask Claude to prefer shorter comments
+
+**Answer:** C
+
+**Explanation:** The original instruction is ambiguous. Explicit criteria define what should and should not be flagged.
 
 ---
 

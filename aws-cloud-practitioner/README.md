@@ -1,138 +1,266 @@
-# AWS Cloud Practitioner — Study Hub
+# AWS Cloud Practitioner - Study Hub
 
-Welcome to the AWS Cloud Practitioner section of certification-study-hub!
+Welcome to the AWS Certified Cloud Practitioner course inside certification-study-hub.
 
-### 🌟 Did you get certified using this repo?
-If this repo helped you pass your exam, please consider **giving it a star ⭐** to help other students find it!
-
----
-
-# 🛑 STOP READING MARKDOWN! 🛑
-## 👉 [GO TO THE INTERACTIVE COURSE DASHBOARD](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/README.html) 👈
-
-We have converted this entire course into a beautiful, interactive website with sidebar navigation, dark mode, and a built-in mock test engine. 
-
-**Do not read the raw markdown files here.** 
-
-Click the link above to start studying the right way!
+This course is designed for CLF-C02 preparation using simple explanations, scenario-based patterns, revision notes, and a timed 65-question mock test.
 
 ---
 
-## 📂 Folder Structure
+## New Learner Start Here
 
-```
-aws-cloud-practitioner/
-├── README.md                    ← You are here
-├── 01-cloud-concepts/
-│   └── what-is-cloud.md
-├── 02-aws-global-infrastructure/
-│   └── regions-and-availability-zones.md
-├── 03-core-services/
-│   ├── compute/
-│   │   └── ec2-basics.md
-│   ├── storage/
-│   │   └── s3-basics.md
-│   └── database/
-│       └── rds-vs-dynamodb.md
-├── 04-security-and-compliance/
-│   └── shared-responsibility-model.md
-├── 05-billing-and-pricing/
-│   └── pricing-models.md
-├── 06-cloud-technology-and-services/
-│   └── cloud-adoption-framework.md
-├── practice-questions/
-│   └── chapter-wise-questions.md
-├── mock-tests/
-│   ├── mock-test-01.md
-│   └── ccp-mock-test-65q.html  ← 🔥 Interactive 65-Question Test
-└── revision-notes/
-    └── quick-revision.md
-```
+If you are completely new to AWS, follow this path. Do not jump directly to the mock test.
+
+1. Read this README once to understand the full path.
+2. Open [00 - Certification Roadmap](00-certification-roadmap.html).
+3. Study Cloud Concepts and Global Infrastructure first.
+4. Study Compute, Storage, Databases, Networking, Security, and Billing.
+5. Use [Flashcards](flashcards.html) after each section for recall.
+6. Attempt [Chapter-Wise Practice Questions](practice-questions/chapter-wise-questions.html).
+7. Read [Quick Revision Notes](revision-notes/quick-revision.html).
+8. Take the [65-Question Mock Test](mock-tests/ccp-mock-test-65q.html).
+9. Review every wrong answer and retake the mock after one day.
+
+Simple rule: learn first, recall second, practice third, mock last.
 
 ---
 
-## 📋 Exam Overview
+## Best Way To Read This Course
+
+Use the GitHub Pages website for studying. It has sidebar navigation, responsive pages, diagrams, and direct mock-test access.
+
+[Open the AWS Cloud Practitioner Course](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/README.html)
+
+[Use AWS Flashcards](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/flashcards.html)
+
+[Take the 65-Question AWS Mock Test](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)
+
+Use this README as the source map. Use the interactive site for day-to-day reading.
+
+### How To Access GitHub Pages
+
+1. Open [Certification Study Hub](https://mohammadquasif.github.io/certification-study-hub/).
+2. Choose **AWS Cloud Practitioner**.
+3. Start with **00 - Certification Roadmap**.
+4. Read each lesson from the left sidebar.
+5. Complete practice questions.
+6. Read quick revision notes.
+7. Take the timed mock test.
+
+Direct links:
+
+- [AWS Course Home](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/README.html)
+- [Certification Roadmap](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/00-certification-roadmap.html)
+- [Flashcards](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/flashcards.html)
+- [Chapter-Wise Practice Questions](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/practice-questions/chapter-wise-questions.html)
+- [Quick Revision Notes](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/revision-notes/quick-revision.html)
+- [65-Question Mock Test](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)
+
+---
+
+## Certification Snapshot
 
 | Item | Detail |
 |---|---|
-| Exam Code | CLF-C02 |
-| Number of Questions | 65 questions |
+| Exam | AWS Certified Cloud Practitioner |
+| Exam code | CLF-C02 |
+| Level | Foundational |
 | Duration | 90 minutes |
-| Passing Score | ~700 out of 1000 |
-| Format | Multiple Choice + Multiple Response |
-| Cost | USD 100 (check AWS website for current price) |
+| Questions | 65 total multiple choice / multiple response questions |
+| Scored questions | 50 scored and 15 unscored, not identified during the exam |
+| Passing score | 700 on a 100-1000 scaled score |
+| Cost | USD 100, with local pricing/taxes shown during official scheduling |
+| Delivery | Pearson VUE test center or online proctored exam |
+| Validity | 3 years |
+| Prerequisites | No mandatory prerequisite |
+
+Always verify official details before registering because pricing, delivery policies, and foreign exchange updates can change.
+
+### 65 Questions Or 60?
+
+AWS Cloud Practitioner is **65 questions**, not 60. The confusion usually comes from the official scoring note:
+
+- You see **65 total questions** in the exam.
+- **50 questions affect your score**.
+- **15 questions are unscored** and are not marked separately.
+- Practice with 65 questions so your timing matches the real exam.
 
 ---
 
-## 🗂️ Exam Domain Breakdown
+## Visual Roadmap
 
-| Domain | Weight |
-|---|---|
-| Cloud Concepts | 24% |
-| Security and Compliance | 30% |
-| Cloud Technology and Services | 34% |
-| Billing, Pricing, and Support | 12% |
+![AWS certification roadmap](../assets/aws-certification-roadmap.svg)
 
-**Security and Cloud Technology together = 64% of the exam.** Focus here first.
+Study order:
 
----
-
-## ✅ Interactive Study Tracker
-
-Follow the chapters in this order for best results. Check them off as you go!
-
-- `[ ]` `01-cloud-concepts/` — Understand what cloud is
-- `[ ]` `02-aws-global-infrastructure/` — Know how AWS is set up globally
-- `[ ]` `03-core-services/` — Learn the most important AWS services
-- `[ ]` `04-security-and-compliance/` — Very important — 30% of exam
-- `[ ]` `05-billing-and-pricing/` — Understand AWS costs and support plans
-- `[ ]` `06-cloud-technology-and-services/` — Broader services and concepts
-
-Then:
-- `[ ]` **Practice Questions** (`chapter-wise-questions.md`)
-- `[ ]` **Revision Notes** (`quick-revision.md`)
-- `[ ]` **Mock Tests** (`ccp-mock-test-65q.html`)
+- `[ ]` [00 - Certification Roadmap](00-certification-roadmap.html)
+- `[ ]` `01-cloud-concepts/` - cloud value, economics, CAF, Well-Architected basics
+- `[ ]` `02-aws-global-infrastructure/` - Regions, Availability Zones, edge locations
+- `[ ]` `03-core-services/` - compute, storage, database
+- `[ ]` `04-security-and-compliance/` - shared responsibility, IAM, governance, security services
+- `[ ]` `05-billing-and-pricing/` - cost tools, pricing models, support plans
+- `[ ]` `06-cloud-technology-and-services/` - migration, integration, broader AWS services
+- `[ ]` [Flashcards](flashcards.html) - fast recall for service clues and exam patterns
+- `[ ]` `practice-questions/` - chapter-wise questions
+- `[ ]` `revision-notes/` - final revision
+- `[ ]` `mock-tests/` - full timed mock test
 
 ---
 
-## 📖 Interactive Study Guide (Live on GitHub Pages)
+## Official Domain Weights
 
-You can read the full study guide with interactive sidebar navigation directly in your browser:
-👉 **[Read the Full AWS Cloud Practitioner Course](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/README.html)**
+| Domain | Weight | Focus |
+|---|---:|---|
+| Cloud Concepts | 24% | AWS value, cloud economics, CAF, Well-Architected |
+| Security and Compliance | 30% | Shared responsibility, IAM, security services, compliance |
+| Cloud Technology and Services | 34% | Compute, storage, database, networking, integration, AI/ML basics |
+| Billing, Pricing, and Support | 12% | Pricing models, cost tools, Organizations, support resources |
 
----
-
-## 🔥 Interactive Mock Test
-
-Take the full 65-question mock test with a timer, auto-scoring, and detailed results directly in your browser:
-
-👉 **[Take the AWS Mock Test Live](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)**
+**Most important:** Security + Technology = about 64% of scored exam content. Start there if your time is limited.
 
 ---
 
-## 🧠 Psychological Tips for Better Preparation
-1. **The Forgetting Curve**: You will forget 50% of what you learn within 24 hours unless you review it. Use the `flashcards/` for spaced repetition.
-2. **Active Recall**: Don't just read the notes passively. After each chapter, close the tab and try to explain the core concepts out loud to an imaginary 10-year-old.
-3. **Mock Exam Environment**: When taking the mock test, treat it like the real exam. Sit in a quiet room, don't check your phone, and time yourself strictly. This trains your brain to handle exam pressure.
-4. **Learn from Mistakes**: Getting a practice question wrong is the best way to learn. Always read the explanations, even if you guessed correctly.
+## Pattern Analysis From Recent Helpful Practice Questions
+
+Your recent 65-question practice set strongly points to these recurring exam patterns:
+
+![AWS exam pattern map](../assets/aws-exam-patterns.svg)
+
+| Pattern | What The Exam Is Testing | Study Action |
+|---|---|---|
+| Shared responsibility | AWS vs customer responsibility changes by service | Compare EC2, RDS, Lambda, S3 |
+| Security service selection | WAF vs Shield vs GuardDuty vs Inspector vs Macie vs Security Hub | Memorize threat/service clues |
+| Monitoring and audit | CloudWatch vs CloudTrail vs Config | Know "metrics", "API actions", "resource state" |
+| Storage selection | S3 classes, EBS, EFS, FSx | Match access pattern and file/block/object need |
+| Database selection | RDS, Aurora, DynamoDB, Redshift, ElastiCache, Neptune | Match workload: SQL, NoSQL, OLAP, cache, graph |
+| Integration services | SQS, SNS, EventBridge | Queue vs push notification vs event routing |
+| Pricing models | On-Demand, Reserved, Savings Plans, Spot | Match workload predictability and interruption tolerance |
+| Cost tools | Pricing Calculator, Cost Explorer, Budgets, Compute Optimizer | Estimate vs analyze vs alert vs rightsizing |
+| Global infrastructure | Region, AZ, edge location, multi-AZ | Match availability, latency, data residency |
+| Migration and governance | Application Discovery Service, Outposts, Service Catalog, Organizations | Match business/governance clue |
 
 ---
 
-## 💡 Top Exam Tips (Based on the 65 Question Set)
+## Where To Focus Most
 
-- **Shared Responsibility Model** — Know exactly what AWS owns (hardware, hypervisor, physical security) vs what you own (OS, apps, customer data, IAM policies).
-- **S3 Storage Classes** — Know when to use Standard (frequent), Glacier Instant Retrieval (rarely accessed but needs ms retrieval), and Deep Archive (cheapest, 12-hour retrieval).
-- **EC2 Pricing** — On-Demand (short-term, unpredictable), Reserved (1-3 years, highly predictable), Spot (interruptible, batch processing, cheapest).
-- **CloudTrail vs Config** — CloudTrail tracks WHO did WHAT (API calls); Config tracks WHAT the resource configuration IS (compliance).
-- **WAF vs Shield** — WAF protects against Layer 7 application attacks (SQL injection, XSS); Shield protects against DDoS attacks.
-- **Cost Explorer vs Pricing Calculator vs Budgets** — Explorer = analyze past spend, Calculator = estimate future costs before deploying, Budgets = set alerts when costs exceed thresholds.
-- **RDS vs DynamoDB vs Redshift** — RDS = SQL/OLTP (transactions), DynamoDB = NoSQL key-value (millisecond latency), Redshift = data warehouse OLAP (analytics).
-- **EFS vs EBS vs FSx** — EFS = shared Linux NFS across multiple EC2 instances, EBS = single EC2 block storage (C: drive), FSx = Windows SMB server.
-- **SQS vs SNS vs EventBridge** — SQS = queue/decouple components (polling), SNS = push notifications (pub/sub), EventBridge = complex event routing.
-- **IAM Roles** — Always attach roles to EC2 instances to access other services; never embed hardcoded access keys in code.
-- **Macie vs GuardDuty vs Inspector** — Macie discovers sensitive data (PII) in S3; GuardDuty monitors malicious activity and threats; Inspector scans EC2/ECR for software vulnerabilities.
-- **Serverless Pattern** — The classic `API Gateway + Lambda + DynamoDB` combination is heavily tested as the ultimate serverless architecture.
+If you do not have time to study everything equally, use this order:
+
+1. **Security and Compliance**
+   - Shared responsibility model
+   - IAM users, groups, roles, policies
+   - Root user protection and MFA
+   - Least privilege
+   - CloudTrail, Config, CloudWatch, Artifact
+   - WAF, Shield, GuardDuty, Inspector, Macie, Security Hub
+
+2. **Cloud Technology and Services**
+   - EC2, Lambda, Fargate, Elastic Beanstalk
+   - S3, EBS, EFS, FSx
+   - RDS, Aurora, DynamoDB, Redshift, ElastiCache, Neptune
+   - VPC basics, security groups, NACLs, Direct Connect
+   - SQS, SNS, EventBridge
+   - CloudFront and edge locations
+
+3. **Billing, Pricing, and Support**
+   - On-Demand, Reserved, Savings Plans, Spot
+   - Cost Explorer, Pricing Calculator, Budgets
+   - Organizations and consolidated billing
+   - AWS Marketplace and support plans
+
+4. **Cloud Concepts**
+   - CapEx vs OpEx
+   - Stop guessing capacity
+   - Economies of scale
+   - Elasticity and agility
+   - CAF perspectives
+   - Well-Architected pillars
 
 ---
 
-Start with `01-cloud-concepts/what-is-cloud.md` 👇
+## How To Register, Pay, And Get Certified
+
+1. Go to [AWS Training and Certification](https://aws.training/Certification).
+2. Sign in or create your AWS Builder ID / AWS Certification Account.
+3. Select **Go to your Account**.
+4. Select **Schedule New Exam**.
+5. Choose **AWS Certified Cloud Practitioner (CLF-C02)**.
+6. Select **Schedule with Pearson VUE**.
+7. Choose test center or online proctored exam.
+8. Select your exam date and time.
+9. Pay through Pearson VUE using a supported payment method or voucher.
+10. Read the confirmation email and ID requirements carefully.
+
+Payment and policy notes:
+
+- AWS lists the foundational exam at USD 100.
+- Local pricing, taxes, and exchange-rate updates may apply.
+- AWS lists INR pricing for foundational exams through the Pearson Mindhub voucher store for voucher purchases.
+- Pearson VUE supports payment methods such as credit card or voucher.
+- You can reschedule up to 24 hours before the appointment, but AWS/Pearson VUE limit how many times an appointment can be rescheduled.
+- Cancelling or rescheduling within 24 hours can forfeit the exam fee.
+- If English is not your first language, AWS provides an ESL +30 minutes accommodation request path before scheduling.
+
+Always verify current policies on AWS official pages before paying.
+
+---
+
+## Certification Readiness Checklist
+
+You are ready when you can:
+
+- Score 70-80% or higher on the 65-question mock test twice.
+- Explain why each wrong option is wrong.
+- Identify the right service from short scenario clues.
+- Explain shared responsibility for EC2, RDS, Lambda, and S3.
+- Choose S3 storage classes from retrieval requirements.
+- Choose database services from workload patterns.
+- Choose cost tools from estimate/analyze/alert/optimize clues.
+- Choose network/security controls from threat and access clues.
+
+---
+
+## Official AWS Study Links
+
+- [AWS Certified Cloud Practitioner official page](https://aws.amazon.com/certification/certified-cloud-practitioner/)
+- [CLF-C02 Exam Guide](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html)
+- [AWS Certification exam preparation](https://aws.amazon.com/certification/certification-prep/)
+- [Before testing: policies, pricing, scheduling](https://aws.amazon.com/certification/policies/before-testing/)
+- [AWS Skill Builder](https://skillbuilder.aws/)
+- [AWS Training and Certification account](https://aws.training/Certification)
+- [AWS Cloud Practitioner Essentials](https://explore.skillbuilder.aws/learn/course/external/view/elearning/134/aws-cloud-practitioner-essentials)
+- [AWS Certification Official Practice Question Sets](https://aws.amazon.com/certification/certification-prep/)
+- [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
+- [AWS Cloud Adoption Framework](https://aws.amazon.com/cloud-adoption-framework/)
+- [AWS Pricing Calculator](https://calculator.aws/)
+- [AWS Documentation](https://docs.aws.amazon.com/)
+- [AWS Whitepapers](https://aws.amazon.com/whitepapers/)
+- [AWS re:Post](https://repost.aws/)
+
+---
+
+## Top Exam Tips
+
+- If the question asks "who did what," think **CloudTrail**.
+- If the question asks "is this resource configured correctly," think **Config**.
+- If the question asks about CPU metrics or logs, think **CloudWatch**.
+- If the question asks for web attack protection, think **WAF**.
+- If the question asks for DDoS protection, think **Shield**.
+- If the question asks for sensitive data discovery in S3, think **Macie**.
+- If the question asks for threat detection, think **GuardDuty**.
+- If the question asks for vulnerability scans, think **Inspector**.
+- If the question asks for centralized security findings, think **Security Hub**.
+- If the question asks for shared Linux file storage, think **EFS**.
+- If the question asks for Windows SMB file storage, think **FSx for Windows File Server**.
+- If the question asks for petabyte analytics, think **Redshift**.
+- If the question asks for NoSQL low latency, think **DynamoDB**.
+- If the question asks for temporary credentials, think **STS**.
+- If the question asks for consolidated billing, think **Organizations**.
+
+---
+
+## Disclaimer
+
+All questions and explanations in this repository are original educational content. They are not real exam questions, exam dumps, or leaked certification material.
+
+---
+
+Start with [00 - Certification Roadmap](00-certification-roadmap.html).

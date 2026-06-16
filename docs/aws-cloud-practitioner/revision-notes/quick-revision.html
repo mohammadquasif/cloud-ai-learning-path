@@ -5,25 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quick Revision | Certification Study Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
-  
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="topbar">
     <div class="topbar-content">
-      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      <a href="../../index.html" class="logo">Certification Study Hub</a>
+      <div class="topbar-actions">
+        <a class="repo-link" href="https://github.com/mohammadquasif/certification-study-hub">Back to Repo</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open course navigation" aria-expanded="false" aria-controls="sidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="layout">
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h3>AWS Cloud Practitioner</h3>
       </div>
-      <nav class="sidebar-nav">
-        <div class="nav-group">
+      <nav class="sidebar-nav" aria-label="Course navigation">
+        <a href="../../aws-cloud-practitioner/00-certification-roadmap.html" class="nav-link">00 Certification Roadmap</a>
+<div class="nav-group">
         <div class="nav-group-title">01 Cloud Concepts</div>
         <a href="../../aws-cloud-practitioner/01-cloud-concepts/what-is-cloud.html" class="nav-link">What Is Cloud</a>
 
@@ -58,7 +68,8 @@
         <div class="nav-group-title">06 Cloud Technology And Services</div>
         <a href="../../aws-cloud-practitioner/06-cloud-technology-and-services/cloud-adoption-framework.html" class="nav-link">Cloud Adoption Framework</a>
 
-      </div><div class="nav-group">
+      </div><a href="../../aws-cloud-practitioner/flashcards.html" class="nav-link">Flashcards</a>
+<div class="nav-group">
         <div class="nav-group-title">Mock Tests</div>
         <a href="../../aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="nav-link">Ccp Mock Test 65q</a>
 <a href="../../aws-cloud-practitioner/mock-tests/mock-test-01.html" class="nav-link">Mock Test 01</a>
@@ -76,77 +87,762 @@
       </nav>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" id="main-content">
       <div class="content-container">
-        <h1>⚡ Ultimate Quick Revision Guide (Read Day Before Exam)</h1>
+        <h1>AWS Cloud Practitioner Quick Revision Guide</h1>
 <blockquote>
-<p><strong>Exam:</strong> AWS Certified Cloud Practitioner (CLF-C02)
-<strong>Last Updated:</strong> 2026-06</p>
+<p><strong>Exam:</strong> AWS Certified Cloud Practitioner (CLF-C02)<br><strong>Best Use:</strong> Read during the final 24-48 hours before the exam<br><strong>Last Updated:</strong> 2026-06</p>
 </blockquote>
 <hr>
-<h2>🏛️ 1. Global Infrastructure</h2>
+<h2>Exam Snapshot</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Current Official Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Exam code</td>
+<td>CLF-C02</td>
+</tr>
+<tr>
+<td>Level</td>
+<td>Foundational</td>
+</tr>
+<tr>
+<td>Time</td>
+<td>90 minutes</td>
+</tr>
+<tr>
+<td>Questions</td>
+<td>65 total</td>
+</tr>
+<tr>
+<td>Scored questions</td>
+<td>50 scored, 15 unscored</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Multiple choice and multiple response</td>
+</tr>
+<tr>
+<td>Passing score</td>
+<td>700 on a 100-1000 scale</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>USD 100, with local taxes or currency handling depending on testing channel</td>
+</tr>
+<tr>
+<td>Delivery</td>
+<td>Pearson VUE test center or online proctored exam</td>
+</tr>
+<tr>
+<td>Validity</td>
+<td>3 years</td>
+</tr>
+</tbody></table>
+<h2>Official Domain Weights</h2>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th align="right">Weight</th>
+<th>Final-Week Priority</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cloud Concepts</td>
+<td align="right">24%</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Security and Compliance</td>
+<td align="right">30%</td>
+<td>Very high</td>
+</tr>
+<tr>
+<td>Cloud Technology and Services</td>
+<td align="right">34%</td>
+<td>Very high</td>
+</tr>
+<tr>
+<td>Billing, Pricing, and Support</td>
+<td align="right">12%</td>
+<td>Medium, but easy marks if revised well</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>High-Yield Decision Table</h2>
+<table>
+<thead>
+<tr>
+<th>If The Question Says...</th>
+<th>Think...</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;Who stopped this EC2 instance?&quot;</td>
+<td>AWS CloudTrail</td>
+</tr>
+<tr>
+<td>&quot;CPU utilization, metrics, alarms, logs&quot;</td>
+<td>Amazon CloudWatch</td>
+</tr>
+<tr>
+<td>&quot;Approved AMIs, configuration history, compliance rules&quot;</td>
+<td>AWS Config</td>
+</tr>
+<tr>
+<td>&quot;SQL injection or XSS&quot;</td>
+<td>AWS WAF</td>
+</tr>
+<tr>
+<td>&quot;DDoS protection&quot;</td>
+<td>AWS Shield or Shield Advanced</td>
+</tr>
+<tr>
+<td>&quot;Threat detection using logs and behavior&quot;</td>
+<td>Amazon GuardDuty</td>
+</tr>
+<tr>
+<td>&quot;Central view of security findings&quot;</td>
+<td>AWS Security Hub</td>
+</tr>
+<tr>
+<td>&quot;Vulnerability scanning on EC2/container images&quot;</td>
+<td>Amazon Inspector</td>
+</tr>
+<tr>
+<td>&quot;Sensitive data discovery in S3&quot;</td>
+<td>Amazon Macie</td>
+</tr>
+<tr>
+<td>&quot;Download compliance reports&quot;</td>
+<td>AWS Artifact</td>
+</tr>
+<tr>
+<td>&quot;Run code on an event, no servers&quot;</td>
+<td>AWS Lambda</td>
+</tr>
+<tr>
+<td>&quot;Run containers without EC2 management&quot;</td>
+<td>AWS Fargate</td>
+</tr>
+<tr>
+<td>&quot;Upload code, AWS provisions app infrastructure&quot;</td>
+<td>Elastic Beanstalk</td>
+</tr>
+<tr>
+<td>&quot;Data warehouse, BI, analytics&quot;</td>
+<td>Amazon Redshift</td>
+</tr>
+<tr>
+<td>&quot;Key-value NoSQL, millisecond latency&quot;</td>
+<td>Amazon DynamoDB</td>
+</tr>
+<tr>
+<td>&quot;Relational database managed by AWS&quot;</td>
+<td>Amazon RDS or Aurora</td>
+</tr>
+<tr>
+<td>&quot;Graph relationships&quot;</td>
+<td>Amazon Neptune</td>
+</tr>
+<tr>
+<td>&quot;In-memory cache&quot;</td>
+<td>Amazon ElastiCache</td>
+</tr>
+<tr>
+<td>&quot;Shared Linux file system&quot;</td>
+<td>Amazon EFS</td>
+</tr>
+<tr>
+<td>&quot;Windows SMB file share&quot;</td>
+<td>Amazon FSx for Windows File Server</td>
+</tr>
+<tr>
+<td>&quot;Archive, lowest storage cost, hours retrieval&quot;</td>
+<td>S3 Glacier Deep Archive</td>
+</tr>
+<tr>
+<td>&quot;Archive but millisecond retrieval&quot;</td>
+<td>S3 Glacier Instant Retrieval</td>
+</tr>
+<tr>
+<td>&quot;Unknown S3 access pattern&quot;</td>
+<td>S3 Intelligent-Tiering</td>
+</tr>
+<tr>
+<td>&quot;Dedicated private connection to AWS&quot;</td>
+<td>AWS Direct Connect</td>
+</tr>
+<tr>
+<td>&quot;Private network in AWS&quot;</td>
+<td>Amazon VPC</td>
+</tr>
+<tr>
+<td>&quot;Subnet-level firewall&quot;</td>
+<td>Network ACL</td>
+</tr>
+<tr>
+<td>&quot;Instance-level firewall&quot;</td>
+<td>Security group</td>
+</tr>
+<tr>
+<td>&quot;Queue between components&quot;</td>
+<td>Amazon SQS</td>
+</tr>
+<tr>
+<td>&quot;Publish/subscribe notifications&quot;</td>
+<td>Amazon SNS</td>
+</tr>
+<tr>
+<td>&quot;React to AWS events or schedules&quot;</td>
+<td>Amazon EventBridge</td>
+</tr>
+<tr>
+<td>&quot;Estimate before building&quot;</td>
+<td>AWS Pricing Calculator</td>
+</tr>
+<tr>
+<td>&quot;Historical cost and forecast&quot;</td>
+<td>AWS Cost Explorer</td>
+</tr>
+<tr>
+<td>&quot;Spend alert&quot;</td>
+<td>AWS Budgets</td>
+</tr>
+<tr>
+<td>&quot;Rightsizing recommendations&quot;</td>
+<td>AWS Compute Optimizer</td>
+</tr>
+<tr>
+<td>&quot;One bill for many accounts&quot;</td>
+<td>AWS Organizations</td>
+</tr>
+<tr>
+<td>&quot;Pre-approved products for teams&quot;</td>
+<td>AWS Service Catalog</td>
+</tr>
+<tr>
+<td>&quot;Technical Account Manager&quot;</td>
+<td>Enterprise Support</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Cloud Concepts</h2>
+<h3>Six Advantages Of Cloud Computing</h3>
+<table>
+<thead>
+<tr>
+<th>Advantage</th>
+<th>Exam Clue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Trade capital expense for variable expense</td>
+<td>Avoid upfront hardware purchase; pay as you go</td>
+</tr>
+<tr>
+<td>Benefit from massive economies of scale</td>
+<td>AWS aggregates customer demand and lowers prices</td>
+</tr>
+<tr>
+<td>Stop guessing capacity</td>
+<td>Scale to match demand; avoid idle servers</td>
+</tr>
+<tr>
+<td>Increase speed and agility</td>
+<td>Provision resources in minutes</td>
+</tr>
+<tr>
+<td>Stop spending money running data centers</td>
+<td>AWS handles physical facilities</td>
+</tr>
+<tr>
+<td>Go global in minutes</td>
+<td>Deploy close to users around the world</td>
+</tr>
+</tbody></table>
+<h3>Well-Architected Pillars</h3>
+<table>
+<thead>
+<tr>
+<th>Pillar</th>
+<th>Core Idea</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Operational Excellence</td>
+<td>Run and monitor systems, improve processes, anticipate failure</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Protect data, systems, identities, and detect events</td>
+</tr>
+<tr>
+<td>Reliability</td>
+<td>Recover from failure and meet demand</td>
+</tr>
+<tr>
+<td>Performance Efficiency</td>
+<td>Use resources efficiently as demand changes</td>
+</tr>
+<tr>
+<td>Cost Optimization</td>
+<td>Avoid unnecessary cost</td>
+</tr>
+<tr>
+<td>Sustainability</td>
+<td>Reduce environmental impact</td>
+</tr>
+</tbody></table>
+<h3>AWS CAF Perspectives</h3>
+<table>
+<thead>
+<tr>
+<th>Perspective</th>
+<th>Focus</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Business</td>
+<td>Business outcomes and value realization</td>
+</tr>
+<tr>
+<td>People</td>
+<td>Skills, roles, culture, and organizational change</td>
+</tr>
+<tr>
+<td>Governance</td>
+<td>Portfolio, risk, cloud financial management</td>
+</tr>
+<tr>
+<td>Platform</td>
+<td>Architecture, infrastructure, migration patterns</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Identity, threat detection, compliance, controls</td>
+</tr>
+<tr>
+<td>Operations</td>
+<td>Monitoring, incident response, service management</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Security And Compliance</h2>
+<h3>Shared Responsibility Model</h3>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>AWS Responsibility</th>
+<th>Customer Responsibility</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Physical data center</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Physical servers and networking</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Hypervisor and managed service infrastructure</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>EC2 guest operating system</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Application code and data</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>IAM users, roles, policies, MFA</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Encryption configuration and key use</td>
+<td>Shared</td>
+<td>Shared</td>
+</tr>
+<tr>
+<td>RDS automated backups infrastructure</td>
+<td>AWS runs the managed feature</td>
+<td>Customer configures retention and usage choices</td>
+</tr>
+</tbody></table>
+<h3>IAM Must-Know Points</h3>
 <ul>
-<li><strong>Region:</strong> A geographical area containing 2 or more Availability Zones.</li>
-<li><strong>Availability Zone (AZ):</strong> One or more discrete data centers with redundant power and networking.</li>
-<li><strong>Edge Location:</strong> Used by CloudFront (CDN) to cache content closer to users for lower latency.</li>
+<li>Root user: secure with MFA, do not use for daily work.</li>
+<li>IAM users: long-term human or application identities.</li>
+<li>IAM groups: assign permissions to collections of users.</li>
+<li>IAM roles: temporary credentials, best for AWS services and federation.</li>
+<li>Least privilege: give only required permissions.</li>
+<li>Strong password policy and MFA are common correct answers.</li>
+<li>STS provides temporary security credentials.</li>
 </ul>
-<h2>💻 2. Compute</h2>
+<h3>Security Service Map</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Remember It As</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CloudTrail</td>
+<td>API audit trail: who did what</td>
+</tr>
+<tr>
+<td>CloudWatch</td>
+<td>Metrics, logs, alarms, dashboards</td>
+</tr>
+<tr>
+<td>Config</td>
+<td>Resource configuration history and compliance rules</td>
+</tr>
+<tr>
+<td>WAF</td>
+<td>Web attack filtering such as SQL injection and XSS</td>
+</tr>
+<tr>
+<td>Shield</td>
+<td>DDoS protection</td>
+</tr>
+<tr>
+<td>GuardDuty</td>
+<td>Intelligent threat detection</td>
+</tr>
+<tr>
+<td>Inspector</td>
+<td>Vulnerability management</td>
+</tr>
+<tr>
+<td>Macie</td>
+<td>Sensitive data discovery in S3</td>
+</tr>
+<tr>
+<td>Security Hub</td>
+<td>Centralized security findings</td>
+</tr>
+<tr>
+<td>KMS</td>
+<td>Encryption key management</td>
+</tr>
+<tr>
+<td>Secrets Manager</td>
+<td>Rotate and manage secrets</td>
+</tr>
+<tr>
+<td>Artifact</td>
+<td>Compliance reports and agreements</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Cloud Technology And Services</h2>
+<h3>Compute</h3>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Service</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Full virtual server control</td>
+<td>Amazon EC2</td>
+</tr>
+<tr>
+<td>Event-driven code, no servers</td>
+<td>AWS Lambda</td>
+</tr>
+<tr>
+<td>Containers without EC2 host management</td>
+<td>AWS Fargate</td>
+</tr>
+<tr>
+<td>Managed Kubernetes</td>
+<td>Amazon EKS</td>
+</tr>
+<tr>
+<td>Managed Docker orchestration</td>
+<td>Amazon ECS</td>
+</tr>
+<tr>
+<td>Upload app code and let AWS deploy infrastructure</td>
+<td>Elastic Beanstalk</td>
+</tr>
+<tr>
+<td>Simple VPS-style hosting</td>
+<td>Amazon Lightsail</td>
+</tr>
+</tbody></table>
+<h3>EC2 Purchase Options</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>On-Demand</td>
+<td>Short-term, unpredictable, no commitment</td>
+</tr>
+<tr>
+<td>Reserved Instance</td>
+<td>Predictable 1-year or 3-year workload</td>
+</tr>
+<tr>
+<td>Savings Plans</td>
+<td>Flexible long-term compute discount</td>
+</tr>
+<tr>
+<td>Spot</td>
+<td>Fault-tolerant workloads that can be interrupted</td>
+</tr>
+<tr>
+<td>Dedicated Host</td>
+<td>Dedicated physical server, licensing or compliance</td>
+</tr>
+</tbody></table>
+<h3>Storage</h3>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Service Or Class</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Object storage for files</td>
+<td>Amazon S3</td>
+</tr>
+<tr>
+<td>Block storage for one EC2 instance</td>
+<td>Amazon EBS</td>
+</tr>
+<tr>
+<td>Shared Linux file system</td>
+<td>Amazon EFS</td>
+</tr>
+<tr>
+<td>Windows SMB file system</td>
+<td>Amazon FSx for Windows File Server</td>
+</tr>
+<tr>
+<td>Connect on-premises storage to AWS</td>
+<td>AWS Storage Gateway</td>
+</tr>
+<tr>
+<td>Unknown S3 access pattern</td>
+<td>S3 Intelligent-Tiering</td>
+</tr>
+<tr>
+<td>Rare access, millisecond retrieval</td>
+<td>S3 Glacier Instant Retrieval</td>
+</tr>
+<tr>
+<td>Long-term archive, lowest cost</td>
+<td>S3 Glacier Deep Archive</td>
+</tr>
+</tbody></table>
+<h3>Databases</h3>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Service</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Managed relational database</td>
+<td>Amazon RDS</td>
+</tr>
+<tr>
+<td>AWS-compatible MySQL/PostgreSQL with high performance</td>
+<td>Amazon Aurora</td>
+</tr>
+<tr>
+<td>Serverless NoSQL key-value/document database</td>
+<td>Amazon DynamoDB</td>
+</tr>
+<tr>
+<td>Data warehouse and analytics</td>
+<td>Amazon Redshift</td>
+</tr>
+<tr>
+<td>In-memory cache</td>
+<td>Amazon ElastiCache</td>
+</tr>
+<tr>
+<td>Graph database</td>
+<td>Amazon Neptune</td>
+</tr>
+<tr>
+<td>Database migration</td>
+<td>AWS Database Migration Service</td>
+</tr>
+</tbody></table>
+<h3>Networking And Integration</h3>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Service</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Isolated cloud network</td>
+<td>Amazon VPC</td>
+</tr>
+<tr>
+<td>DNS and health checks</td>
+<td>Amazon Route 53</td>
+</tr>
+<tr>
+<td>Content delivery network</td>
+<td>Amazon CloudFront</td>
+</tr>
+<tr>
+<td>Dedicated private connection</td>
+<td>AWS Direct Connect</td>
+</tr>
+<tr>
+<td>Site-to-site encrypted connection over internet</td>
+<td>AWS VPN</td>
+</tr>
+<tr>
+<td>Queue for decoupling</td>
+<td>Amazon SQS</td>
+</tr>
+<tr>
+<td>Pub/sub notifications</td>
+<td>Amazon SNS</td>
+</tr>
+<tr>
+<td>Event bus and schedules</td>
+<td>Amazon EventBridge</td>
+</tr>
+<tr>
+<td>VPC network traffic logs</td>
+<td>VPC Flow Logs</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Billing, Pricing, And Support</h2>
+<h3>Cost Tool Differences</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Use It When...</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AWS Pricing Calculator</td>
+<td>You have not built it yet and want an estimate</td>
+</tr>
+<tr>
+<td>AWS Cost Explorer</td>
+<td>You want historical spend, trends, or forecast</td>
+</tr>
+<tr>
+<td>AWS Budgets</td>
+<td>You need alerts when cost or usage crosses a threshold</td>
+</tr>
+<tr>
+<td>AWS Compute Optimizer</td>
+<td>You want rightsizing recommendations</td>
+</tr>
+<tr>
+<td>AWS Cost and Usage Report</td>
+<td>You need detailed billing data files</td>
+</tr>
+<tr>
+<td>AWS Organizations</td>
+<td>You need multiple accounts, consolidated billing, and governance</td>
+</tr>
+<tr>
+<td>AWS Marketplace</td>
+<td>You want third-party software or AMIs</td>
+</tr>
+</tbody></table>
+<h3>Support Plans</h3>
+<table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Remember</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Basic</td>
+<td>Account and billing support, documentation, health dashboard</td>
+</tr>
+<tr>
+<td>Developer</td>
+<td>Business-hours technical support by email</td>
+</tr>
+<tr>
+<td>Business</td>
+<td>24/7 technical support, production workload support</td>
+</tr>
+<tr>
+<td>Enterprise On-Ramp</td>
+<td>Production support with stronger guidance than Business</td>
+</tr>
+<tr>
+<td>Enterprise</td>
+<td>Technical Account Manager and fastest critical response</td>
+</tr>
+</tbody></table>
+<h3>Pricing Clues</h3>
 <ul>
-<li><strong>EC2:</strong> Virtual servers. You manage the OS.<ul>
-<li><em>On-Demand:</em> Pay by the second. No long-term commitment.</li>
-<li><em>Reserved:</em> 1 or 3-year commitment. Huge discount.</li>
-<li><em>Spot:</em> Unused capacity. Cheapest, but AWS can terminate it with a 2-minute warning.</li>
+<li>Data transfer into AWS is generally free.</li>
+<li>Data transfer out to the internet usually costs money.</li>
+<li>On-Demand has no long-term commitment.</li>
+<li>Reserved Instances and Savings Plans are for predictable usage.</li>
+<li>Spot is the lowest compute price but interruptible.</li>
+<li>All Upfront generally gives the highest Reserved Instance discount.</li>
 </ul>
-</li>
-<li><strong>Lambda:</strong> Serverless compute. Run code without provisioning servers. Pay per millisecond.</li>
-<li><strong>Elastic Beanstalk:</strong> PaaS. You upload code, AWS handles deployment, capacity, and scaling.</li>
-</ul>
-<h2>💾 3. Storage</h2>
+<hr>
+<h2>Final 2-Hour Revision Plan</h2>
+<ol>
+<li>Spend 35 minutes on security: shared responsibility, IAM, CloudTrail, Config, WAF, Shield, GuardDuty, Security Hub.</li>
+<li>Spend 35 minutes on services: Lambda, Fargate, EC2, S3 classes, RDS, DynamoDB, Redshift, SQS, SNS, CloudFront.</li>
+<li>Spend 20 minutes on billing: Cost Explorer, Budgets, Pricing Calculator, Organizations, support plans.</li>
+<li>Spend 15 minutes on cloud concepts: six advantages, Well-Architected, CAF, Region/AZ/Edge.</li>
+<li>Spend 15 minutes reviewing wrong answers from your mock test.</li>
+</ol>
+<h2>Exam-Day Tactics</h2>
 <ul>
-<li><strong>S3:</strong> Object storage. Good for files, images, backups. Not for OS or databases.<ul>
-<li><em>S3 Standard:</em> Frequently accessed data.</li>
-<li><em>S3 IA:</em> Infrequently accessed, but needs rapid access when needed.</li>
-<li><em>S3 Glacier Deep Archive:</em> Cheapest, for archiving. 12+ hour retrieval.</li>
-</ul>
-</li>
-<li><strong>EBS:</strong> Block storage. Hard drive attached to an EC2 instance.</li>
-<li><strong>EFS:</strong> File storage. Shared network drive for multiple Linux EC2 instances.</li>
-</ul>
-<h2>🗄️ 4. Databases</h2>
-<ul>
-<li><strong>RDS:</strong> Relational database (MySQL, PostgreSQL).</li>
-<li><strong>Aurora:</strong> AWS-proprietary relational database. Very fast, scales up to 128 TiB.</li>
-<li><strong>DynamoDB:</strong> NoSQL database. Key-value. Single-digit millisecond latency.</li>
-<li><strong>Redshift:</strong> Data warehouse for Analytics / Business Intelligence.</li>
-<li><strong>ElastiCache:</strong> In-memory cache (Redis/Memcached) for sub-millisecond latency.</li>
-</ul>
-<h2>🔒 5. Security</h2>
-<ul>
-<li><strong>IAM:</strong> Manage users, groups, roles, and policies.<ul>
-<li><em>Roles:</em> Used by AWS services (e.g., EC2) to access other services safely.</li>
-</ul>
-</li>
-<li><strong>WAF:</strong> Web Application Firewall. Protects against SQL injection and XSS.</li>
-<li><strong>Shield:</strong> DDoS protection.</li>
-<li><strong>KMS:</strong> Manages encryption keys.</li>
-<li><strong>CloudTrail:</strong> API logging. Tracks &quot;who did what&quot;.</li>
-<li><strong>Config:</strong> Tracks resource configuration changes over time.</li>
-<li><strong>Artifact:</strong> Download AWS compliance reports (SOC, ISO).</li>
-</ul>
-<h2>💰 6. Billing &amp; Pricing</h2>
-<ul>
-<li><strong>Pricing Calculator:</strong> Estimate costs <em>before</em> building.</li>
-<li><strong>Cost Explorer:</strong> View graphs of past spending and forecast future costs.</li>
-<li><strong>Budgets:</strong> Set spending limits and get email alerts.</li>
-<li><strong>Organizations:</strong> Consolidated billing for volume discounts.</li>
-<li><strong>Trusted Advisor:</strong> Automated checks for Cost, Performance, Security, Fault Tolerance, and Limits.</li>
+<li>Read the last sentence first to identify what is being asked.</li>
+<li>For multi-response questions, confirm the exact number of answers required.</li>
+<li>Eliminate services that solve a different layer of the problem.</li>
+<li>Do not leave blanks. There is no penalty for guessing.</li>
+<li>If two answers seem close, pick the one matching the scenario clue most directly.</li>
+<li>Watch for &quot;most cost-effective&quot;, &quot;least operational overhead&quot;, &quot;managed&quot;, &quot;serverless&quot;, and &quot;auditing&quot; keywords.</li>
 </ul>
 
-        
+
         <div class="pagination">
           <a href="../../aws-cloud-practitioner/README.html" class="page-link prev">
           <span class="page-link-label">Previous</span>
-          <span class="page-link-title">← README</span>
+          <span class="page-link-title">&larr; README</span>
         </a>
           
         </div>

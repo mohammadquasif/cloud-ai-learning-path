@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 600" role="img" aria-labelledby="title desc">
+  <title id="title">AWS Cloud Practitioner exam pattern map</title>
+  <desc id="desc">A visual map of common AWS Cloud Practitioner decision patterns.</desc>
+  <rect width="1080" height="600" fill="#f8fafc"/>
+  <rect x="24" y="24" width="1032" height="552" rx="18" fill="#ffffff" stroke="#d7dee8"/>
+  <text x="60" y="78" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" fill="#1f2937">CLF-C02 Exam Pattern Map</text>
+  <text x="60" y="110" font-family="Inter, Arial, sans-serif" font-size="16" fill="#64748b">Most questions ask you to choose the best AWS service, responsibility, or cost model for a scenario.</text>
+  <g font-family="Inter, Arial, sans-serif">
+    <g transform="translate(70 160)">
+      <rect width="280" height="130" rx="12" fill="#fff7ed" stroke="#fdba74"/>
+      <text x="24" y="38" font-size="18" font-weight="700" fill="#1f2937">Service Selection</text>
+      <text x="24" y="68" font-size="14" fill="#475569">Redshift vs RDS vs DynamoDB</text>
+      <text x="24" y="90" font-size="14" fill="#475569">EFS vs EBS vs FSx</text>
+      <text x="24" y="112" font-size="14" fill="#475569">SQS vs SNS vs EventBridge</text>
+    </g>
+    <g transform="translate(400 160)">
+      <rect width="280" height="130" rx="12" fill="#f0fdf4" stroke="#86efac"/>
+      <text x="24" y="38" font-size="18" font-weight="700" fill="#1f2937">Security Responsibility</text>
+      <text x="24" y="68" font-size="14" fill="#475569">AWS owns physical security</text>
+      <text x="24" y="90" font-size="14" fill="#475569">Customer owns IAM and data</text>
+      <text x="24" y="112" font-size="14" fill="#475569">Responsibility shifts by service</text>
+    </g>
+    <g transform="translate(730 160)">
+      <rect width="280" height="130" rx="12" fill="#eef6ff" stroke="#93c5fd"/>
+      <text x="24" y="38" font-size="18" font-weight="700" fill="#1f2937">Cost Choice</text>
+      <text x="24" y="68" font-size="14" fill="#475569">On-Demand for temporary</text>
+      <text x="24" y="90" font-size="14" fill="#475569">Reserved for predictable</text>
+      <text x="24" y="112" font-size="14" fill="#475569">Spot for interruptible</text>
+    </g>
+    <g transform="translate(70 340)">
+      <rect width="280" height="130" rx="12" fill="#fefce8" stroke="#fde68a"/>
+      <text x="24" y="38" font-size="18" font-weight="700" fill="#1f2937">Monitoring And Audit</text>
+      <text x="24" y="68" font-size="14" fill="#475569">CloudWatch = metrics/logs</text>
+      <text x="24" y="90" font-size="14" fill="#475569">CloudTrail = API actions</text>
+      <text x="24" y="112" font-size="14" fill="#475569">Config = resource state</text>
+    </g>
+    <g transform="translate(400 340)">
+      <rect width="280" height="130" rx="12" fill="#fdf2f8" stroke="#f9a8d4"/>
+      <text x="24" y="38" font-size="18" font-weight="700" fill="#1f2937">Network And Security</text>
+      <text x="24" y="68" font-size="14" fill="#475569">WAF = Layer 7 attacks</text>
+      <text x="24" y="90" font-size="14" fill="#475569">Shield = DDoS</text>
+      <text x="24" y="112" font-size="14" fill="#475569">NACL + SG restrict traffic</text>
+    </g>
+    <g transform="translate(730 340)">
+      <rect width="280" height="130" rx="12" fill="#ecfeff" stroke="#67e8f9"/>
+      <text x="24" y="38" font-size="18" font-weight="700" fill="#1f2937">Billing Tools</text>
+      <text x="24" y="68" font-size="14" fill="#475569">Calculator = estimate before</text>
+      <text x="24" y="90" font-size="14" fill="#475569">Cost Explorer = analyze past</text>
+      <text x="24" y="112" font-size="14" fill="#475569">Budgets = alerts</text>
+    </g>
+  </g>
+</svg>

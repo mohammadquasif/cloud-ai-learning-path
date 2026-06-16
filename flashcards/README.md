@@ -1,35 +1,53 @@
-# Flashcards — certification-study-hub
+# Flashcards - Certification Study Hub
 
-Flashcards are the fastest way to revise before the exam.
+Flashcards are for fast recall. Use them after you have read the lessons once. They are not a replacement for the roadmap, practice questions, or mock tests.
 
-Each flashcard has a **Question** on one side and an **Answer** on the other side.
+Best rhythm:
 
----
-
-## How to Use Flashcards
-
-**Option 1 — GitHub way:**
-Read the question. Cover the answer. Try to recall. Then reveal.
-
-**Option 2 — Physical cards:**
-Print this file and cut into individual cards. Write Q on one side, A on the other.
-
-**Option 3 — Anki:**
-Import these into [Anki](https://apps.ankiweb.net/) (free flashcard app) for spaced repetition study.
+1. Read the question.
+2. Say the answer aloud before looking.
+3. Open the answer and explanation.
+4. Mark the card as **Again**, **Good**, or **Easy**.
+5. Repeat weak cards daily until the answer pattern feels automatic.
 
 ---
 
-## 📂 Flashcard Files
+## Available Flashcard Sets
 
-| File | Covers |
-|---|---|
-| `aws-ccp-flashcards.md` | AWS Cloud Practitioner — all topics |
-| `claude-foundation-flashcards.md` | Claude Architect Foundation — all topics |
+| Course | Flashcard File | Best For |
+|---|---|---|
+| AWS Cloud Practitioner | [aws-ccp-flashcards.md](aws-ccp-flashcards.md) | AWS service selection, shared responsibility, billing tools, exam clues |
+| Claude Architect Foundation | [claude-foundation-flashcards.md](claude-foundation-flashcards.md) | Tool use, MCP, agent patterns, Claude Code workflows, structured output |
+
+The same flashcard content is also available inside each course so it appears on the GitHub Pages sidebar:
+
+- [AWS course flashcards](../aws-cloud-practitioner/flashcards.md)
+- [Claude course flashcards](../claude-architect-foundation/flashcards.md)
 
 ---
 
-## Coming Soon
+## How New Learners Should Use Flashcards
 
-Flashcard files will be added as chapters are completed.
+Use flashcards in three passes:
 
-Want to contribute? See `contribution-guide.md`!
+| Pass | Timing | What To Do |
+|---|---|---|
+| First pass | After reading each section | Learn definitions and service names |
+| Second pass | Before mock tests | Practice fast scenario recognition |
+| Final pass | Last 24 hours | Review only weak or confusing cards |
+
+Do not try to memorize every word. Certification questions usually ask you to choose the best answer from a scenario, so learn the **clue -> service/pattern** mapping.
+
+---
+
+## Anki Import Format
+
+If you want to import into Anki, copy cards into a CSV with two columns:
+
+```text
+Front,Back
+"Question text","Answer and explanation"
+```
+
+Keep explanations short. Long explanations are good for study notes but slow for spaced repetition.
+

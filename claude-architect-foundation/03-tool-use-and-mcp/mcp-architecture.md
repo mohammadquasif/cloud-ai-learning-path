@@ -11,6 +11,8 @@
 
 The **Model Context Protocol (MCP)** is an open standard that defines how AI models like Claude connect to external tools, data sources, and services. Instead of building custom tool integrations for every service, developers build a single MCP server that Claude can connect to. Understanding MCP architecture, its components, and how to design MCP servers well is a key exam topic.
 
+![Claude tool use and MCP flow](../../assets/claude-mcp-flow.svg)
+
 ---
 
 ## 🧠 Key Concepts

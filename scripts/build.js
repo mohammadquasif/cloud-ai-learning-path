@@ -107,8 +107,8 @@ function generateSite() {
 
       let mdContent = fs.readFileSync(fileNode.path, 'utf-8');
       
-      // Strip out the "STOP READING MARKDOWN" banners so they don't appear on the live site
-      mdContent = mdContent.replace(/# 🛑 STOP READING MARKDOWN! 🛑[\s\S]*?Click the link above to start studying the right way!\s*---/g, '');
+      // Strip legacy "stop reading markdown" banners so they don't appear on the live site.
+      mdContent = mdContent.replace(/# .*STOP READING MARKDOWN.*[\s\S]*?Click the link above to start studying the right way!\s*---/g, '');
 
       // Fix relative markdown links to .html
       mdContent = mdContent.replace(/\]\(([^)]+)\.md(#[^)]+)?\)/g, ']($1.html$2)');
@@ -132,14 +132,14 @@ function generateSite() {
       if (prev) {
         prevLink = `<a href="${rootPath}${course.id}/${prev.relPath.replace(/\.md$/, '.html')}" class="page-link prev">
           <span class="page-link-label">Previous</span>
-          <span class="page-link-title">← ${prev.title}</span>
+          <span class="page-link-title">&larr; ${prev.title}</span>
         </a>`;
       }
       let nextLink = '';
       if (next) {
         nextLink = `<a href="${rootPath}${course.id}/${next.relPath.replace(/\.md$/, '.html')}" class="page-link next">
           <span class="page-link-label">Next</span>
-          <span class="page-link-title">${next.title} →</span>
+          <span class="page-link-title">${next.title} &rarr;</span>
         </a>`;
       }
 

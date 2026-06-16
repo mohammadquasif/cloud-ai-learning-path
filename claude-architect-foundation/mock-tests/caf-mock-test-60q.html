@@ -49,6 +49,19 @@
     .logo-icon { font-size:1.6rem; }
     .logo-text { font-size:1.1rem; font-weight:700; color:var(--text); }
     .logo-text span { color:var(--accent); }
+    .header-actions { display:flex; align-items:center; gap:0.75rem; }
+    .repo-link {
+      color:var(--text);
+      text-decoration:none;
+      border:1px solid var(--border);
+      background:var(--card);
+      border-radius:10px;
+      padding:8px 12px;
+      font-size:0.85rem;
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .repo-link:hover { border-color:var(--accent); color:var(--accent); }
 
     /* ───── TIMER BAR ───── */
     #timer-bar {
@@ -528,6 +541,7 @@
       #app { padding: 0 0.5rem; margin: 1rem auto; }
       #q-nav-grid { grid-template-columns: repeat(10,1fr); gap:4px; }
       .nav-row { flex-direction: column; }
+      .repo-link { font-size:0.75rem; padding:7px 9px; }
     }
   </style>
 </head>
@@ -538,9 +552,12 @@
     <span class="logo-icon">🤖</span>
     <span class="logo-text">Certification <span>Study Hub</span></span>
   </div>
-  <div id="timer-bar" style="display:none">
-    <span id="timer-icon">⏱️</span>
-    <span id="timer-display">60:00</span>
+  <div class="header-actions">
+    <a class="repo-link" href="https://github.com/mohammadquasif/certification-study-hub">Back to Repo</a>
+    <div id="timer-bar" style="display:none">
+      <span id="timer-icon">⏱️</span>
+      <span id="timer-display">60:00</span>
+    </div>
   </div>
 </header>
 
@@ -637,7 +654,7 @@ const QUESTIONS = [
   },
   {
     d: "Claude Fundamentals",
-    q: "Which statement correctly describes how external memory differs from in-context memory in Claude-based systems?",
+    q: "A support assistant must remember customer preferences and past issue summaries across many separate conversations over several months. The architect is deciding whether to rely on Claude's current context window or store those facts in an external system that Claude can retrieve when needed. Which statement correctly describes how external memory differs from in-context memory in Claude-based systems?",
     o: ["A) External memory is stored in Claude's model weights during fine-tuning", "B) External memory resides in databases or files outside Claude, is retrieved via tool calls when needed, and persists across sessions — unlike in-context memory which exists only for the current request", "C) External memory is provided by Anthropic as a premium feature", "D) External memory automatically replaces in-context memory when the context window is full"],
     a: 1,
     e: "External memory is data stored outside the Claude model — in databases, files, vector stores, or other persistent storage. The application retrieves relevant information using tool calls and injects it into the context window when needed. This persists across sessions, unlike in-context memory which only lasts for the current API request."
@@ -651,7 +668,7 @@ const QUESTIONS = [
   },
   {
     d: "Claude Fundamentals",
-    q: "What is the relationship between Anthropic and Amazon regarding Claude?",
+    q: "A cloud architect is preparing a deployment plan and a stakeholder says, 'Because our team will access Claude through Amazon Bedrock, Amazon must be the company that created Claude.' What statement correctly explains the relationship between Anthropic, Amazon, Bedrock, and Claude?",
     o: ["A) Amazon created Claude and Anthropic distributes it", "B) Anthropic created Claude; Claude is available through Amazon Bedrock as a third-party service but remains Anthropic's product", "C) Claude and Bedrock are co-developed products built jointly by Anthropic and Amazon", "D) Amazon provides the compute infrastructure; Anthropic develops the training algorithms"],
     a: 1,
     e: "Anthropic created Claude. Amazon Bedrock is a managed AI service that makes Claude (among other models) available to AWS customers. Claude's development, training methodology (including Constitutional AI), and safety principles are entirely Anthropic's work."
@@ -709,7 +726,7 @@ const QUESTIONS = [
   },
   {
     d: "Agentic Patterns",
-    q: "What is the primary purpose of a gate placed between two steps in a prompt chain?",
+    q: "A prompt chain drafts a customer refund email in step 1 and sends it in step 2. The company wants to prevent step 2 from running if the draft contains unsupported promises, missing refund amounts, or language that violates policy. What is the primary purpose of placing a gate between those two prompt-chain steps?",
     o: ["A) To reduce token costs by terminating chains that exceed a budget", "B) To serve as a validation or review checkpoint — verifying that the previous step's output meets quality, compliance, or other criteria before allowing execution to proceed to the next step", "C) To route chain outputs to different downstream systems", "D) To add parallelism by running the next step in advance while the gate evaluates"],
     a: 1,
     e: "A gate between chain steps is a checkpoint that blocks execution of the next step unless the current step's output meets defined criteria. Common gate types include: quality checks (did the output meet specifications?), compliance checks (does it meet policy requirements?), and human approval gates (does a human need to review before proceeding?)."
@@ -765,7 +782,7 @@ const QUESTIONS = [
   },
   {
     d: "Agentic Patterns",
-    q: "Which scenario best illustrates the 'Observe → Think → Act → Observe' agentic loop?",
+    q: "A product support agent can call inventory and recommendation tools while helping a customer. The architect wants to confirm the system is truly using an agentic loop rather than a single static response or one-pass extraction. Which scenario best illustrates the 'Observe → Think → Act → Observe' agentic loop?",
     o: ["A) A user sends a message and Claude generates a single comprehensive response", "B) Claude calls an API, receives a status code 200, assumes success, and generates a final answer", "C) Claude calls `get_inventory(product_id)`, receives a stock count of 0, reasons that the product is out of stock and an alternative should be suggested, calls `get_alternatives(product_id)`, receives options, then generates a response offering the alternatives", "D) Claude reads a document, extracts all entities, and returns them in one pass"],
     a: 2,
     e: "Option C illustrates the full agentic loop: Observe (get_inventory returns 0), Think (out of stock — suggest alternatives), Act (call get_alternatives), Observe (alternatives received), Think (I have enough to respond), Act (generate final response). The loop repeats at each step until the goal is achieved."
@@ -967,66 +984,66 @@ const QUESTIONS = [
   // ─── DOMAIN 5: CLAUDE CODE (Q52-Q60) ───
   {
     d: "Claude Code & Workflows",
-    q: "A security engineer asks Claude Code to find all files in a large Node.js codebase that use `eval()` — a known security risk. What is the most efficient approach?",
-    o: ["A) Read all JavaScript files from the project root", "B) Use Glob to find all *.js files, then read each to check for eval()", "C) Use Grep to search for the pattern `eval(` across all JavaScript files — returns matching lines with file paths and line numbers directly", "D) Run a Bash find command to locate files and then grep within each"],
+    q: "A backend team wants Claude Code to generate new API endpoints that match several excellent existing endpoint implementations. The exemplar endpoints are only useful when creating new endpoints; they are not helpful for bug fixes, code review, dependency updates, documentation edits, or test cleanup. What is the best way to make Claude follow those endpoint patterns without wasting context in unrelated sessions?",
+    o: ["A) Put the full exemplar endpoint code directly into the root CLAUDE.md so Claude always has it available", "B) Add a short note in CLAUDE.md saying 'follow the existing endpoint style' and rely on Claude to search for examples when needed", "C) Store the exemplar endpoints in each developer's user-level CLAUDE.md so every developer can customize the examples", "D) Create a Skill invoked by slash command, such as `/new-api-endpoint`, that references the exemplar endpoint files and includes pattern-following instructions for endpoint generation only"],
+    a: 3,
+    e: "Skills are ideal for context that is valuable only for a specific workflow. Endpoint exemplars are useful during endpoint generation, but they waste context during reviews, bug fixes, and unrelated edits. A slash-command Skill can load the exemplars on demand and keep CLAUDE.md focused on universal standards."
+  },
+  {
+    d: "Claude Code & Workflows",
+    q: "A team notices that three existing developers consistently get Claude Code to enforce the rule 'never call payment APIs from controller code; always use the payment service layer.' A new developer clones the same repository, asks Claude Code to modify a controller, and Claude does not apply that rule. The repository itself has no obvious instruction about the payment service layer. What is the most likely cause and best fix?",
+    o: ["A) Claude Code randomly applies coding standards depending on conversation length; the new developer should start a longer session before editing payment controllers", "B) The new developer is using a different operating system, so Claude Code cannot load repository instructions correctly", "C) The rule should be placed inside a Skill because all architecture rules must be invoked manually", "D) The rule is probably stored in the original developers' user-level `~/.claude/CLAUDE.md` files instead of the project-level `CLAUDE.md`; move the instruction into the repository's project-level CLAUDE.md so every team member receives it"],
+    a: 3,
+    e: "User-level CLAUDE.md files are personal and not shared through the repository. If only existing developers see the rule, the instruction is likely in their personal configuration. Team-wide architecture rules belong in the project-level CLAUDE.md committed to the repo."
+  },
+  {
+    d: "Claude Code & Workflows",
+    q: "Claude Code generates a large refactor and explains that it considered edge cases during implementation. The developer then asks the same Claude Code session to review the change. The review looks confident, but human reviewers later catch subtle problems in the same design decisions Claude defended during generation. What workflow most directly addresses this self-review limitation?",
+    o: ["A) Ask the same session to review the code twice, first for correctness and then for security, so it has more chances to catch its own mistakes", "B) Have a second, independent Claude Code instance review the final diff without seeing the generator's reasoning, plan, or justification", "C) Add more comments to the generated code before asking for a review so Claude understands the intended behavior", "D) Use the Message Batches API for the review because asynchronous review is always less biased than real-time review"],
+    a: 1,
+    e: "The problem is confirmation bias. The generating session knows why it made the decisions and may evaluate the code through that intent. A fresh independent review sees the code at face value and is more likely to challenge the implementation."
+  },
+  {
+    d: "Claude Code & Workflows",
+    q: "A company has two automated Claude Code review modes. The first is a pre-merge hook that must respond in a few minutes because developers are waiting to merge. The second is a deep architectural analysis of all open pull requests that runs overnight and can take up to 24 hours. Which review mode is the best candidate for Message Batches API processing?",
+    o: ["A) Deep architectural analysis only, because it is asynchronous and not latency-sensitive", "B) Pre-merge hook only, because it is important and should receive the cheaper batch processing path", "C) Both modes, because all code review should use the Batch API for cost savings", "D) Neither mode, because code review is never appropriate for batch processing"],
+    a: 0,
+    e: "Batch processing fits non-urgent asynchronous work. The overnight deep analysis can tolerate the Batch API's delayed result window. A pre-merge hook needs immediate feedback, so it should use a real-time workflow."
+  },
+  {
+    d: "Claude Code & Workflows",
+    q: "A documentation review prompt says, 'Check that comments and docstrings are accurate and up-to-date.' Review results are inconsistent: sometimes Claude flags every missing comment, sometimes it flags old TODOs, and sometimes it ignores comments that describe behavior the code no longer performs. What is the best prompt or schema change?",
+    o: ["A) Add more examples of comments that are stylistically preferred so Claude learns the team's preferred documentation tone", "B) Tell Claude to flag all functions without docstrings because missing documentation is the main risk", "C) Define explicit review criteria: flag a comment or docstring only when it makes a concrete claim about behavior, inputs, outputs, side effects, or constraints that contradicts the actual code behavior", "D) Remove comment review from the workflow because natural language comments are too subjective to review reliably"],
     a: 2,
-    e: "Grep is purpose-built for this task. It searches file contents for a pattern and returns structured results: file path, line number, and the matching line. Reading every file (A) is extremely inefficient. Glob + read (B) adds a redundant step. Bash (D) can achieve the same but Grep's structured output is more reliable and doesn't require composing shell commands."
+    e: "The issue is ambiguous evaluation criteria. 'Accurate and up-to-date' is too broad. Defining exactly what counts as a violation makes findings consistent and prevents Claude from confusing missing comments, style preferences, and behavior contradictions."
   },
   {
     d: "Claude Code & Workflows",
-    q: "A team has project-wide test conventions (always use pytest, always mock external services) that apply to all team members across all sessions. They also have an infrequently-used load testing workflow run before major releases. Where should each be documented?",
-    o: ["A) Both in the project CLAUDE.md for easy access", "B) Test conventions in the project CLAUDE.md (always-on, applies to all team members); load testing as a Skill definition invoked by slash command when needed", "C) Both as Skill definitions to keep CLAUDE.md lightweight", "D) Test conventions in user CLAUDE.md files; load testing in project CLAUDE.md"],
+    q: "A Claude-based PR reviewer is run after every new commit on the same pull request. On the second and third review runs, it repeats old findings that were already fixed in earlier commits, creating noisy duplicate comments and frustrating developers. What is the best way to reduce duplicate review comments while still catching unresolved or newly introduced issues?",
+    o: ["A) Include the prior review findings and their current resolution status in context, and instruct Claude to report only new issues or issues that still remain unaddressed", "B) Review only the files changed in the most recent commit so Claude cannot see old findings", "C) Post-process Claude's output with a text-similarity filter that deletes findings that look similar to any previous comment", "D) Disable follow-up reviews after the first automated review to prevent duplicates entirely"],
+    a: 0,
+    e: "Claude needs awareness of prior findings and whether they were fixed. Reviewing only the latest commit can miss regressions elsewhere, while blind text filtering can suppress legitimate recurring issues. Providing prior findings as context is the most reliable approach."
+  },
+  {
+    d: "Claude Code & Workflows",
+    q: "A proposed code review workflow uses Claude to inspect a changed file, call tools to read related imports, inspect tests, request additional files, and continue until it understands the dependency graph. The team wants to switch this workflow to the Message Batches API to reduce cost. Why is this a poor fit?",
+    o: ["A) The Message Batches API cannot process source code text at all", "B) The Message Batches API can only be used for extraction tasks, never for reviews", "C) Batch processing requires every request to use the same prompt and schema, which makes code review impossible", "D) The asynchronous batch model does not support executing tools mid-request and returning tool results so Claude can continue its analysis; iterative tool-using reviews need a live request-response loop"],
+    a: 3,
+    e: "Iterative tool use requires Claude to request a tool, the application to execute it, and Claude to continue with the result. A batch job is submitted and processed asynchronously, so there is no live loop for mid-request tool calls."
+  },
+  {
+    d: "Claude Code & Workflows",
+    q: "A team wants Claude Code review results to become inline GitHub PR comments. Each finding must include a machine-readable file path, exact line number, severity, category, explanation, and suggested fix. The current prompt says 'return JSON,' but occasionally returns prose, missing fields, or invalid JSON. What implementation is most reliable?",
+    o: ["A) Add several examples of the desired JSON shape to CLAUDE.md and continue parsing the text output", "B) Run Claude Code with structured output flags such as `--output-format json` and a `--json-schema` that enforces the review finding fields, then parse the validated JSON and post inline comments through the GitHub API", "C) Ask Claude to write Markdown tables because tables are easier for humans to read than JSON", "D) Use a post-processing regex to extract file paths and line numbers from Claude's natural-language review"],
     a: 1,
-    e: "CLAUDE.md is for universal, always-relevant project standards — test conventions are a perfect fit, applied in every coding session. Infrequent workflows like load testing don't need to consume context in every session — they belong as Skills, invoked with a slash command only before major releases."
+    e: "Machine-readable automation should use enforced structured output, not prompt-only formatting. A JSON schema makes required fields explicit and reduces invalid output, making downstream GitHub API posting much safer."
   },
   {
     d: "Claude Code & Workflows",
-    q: "A Claude Code session created a comprehensive analysis of a payment service over 3 hours. The developer accidentally closed the terminal without saving a summary. How can they recover the session's accumulated context?",
-    o: ["A) The session is unrecoverable — always save summaries before closing", "B) Use `claude --continue` to resume the most recently active session, which resumes from where the terminal was closed", "C) Re-run all the same queries and tool calls to rebuild the context", "D) Use `claude --session-id` with a UUID from the Anthropic dashboard"],
-    a: 1,
-    e: "`--continue` resumes the most recently active session without requiring a session name or ID. Claude Code sessions are persisted locally, so even an accidentally closed terminal can be recovered with `--continue`. The developer should then brief Claude on anything that happened after the terminal closed."
-  },
-  {
-    d: "Claude Code & Workflows",
-    q: "A developer wants Claude Code to understand how an authentication module works across a large codebase before proposing any changes. There are 200+ files in the project. What exploration approach is most efficient?",
-    o: ["A) Read all 200+ files from the project root, in alphabetical order", "B) Read only files with 'auth' in the filename using Glob", "C) Architecture-first: list top-level directories, read CLAUDE.md, use Grep to locate the main auth class definition, read that file, trace key imports, then read only the files that directly interact with authentication", "D) Ask the developer to provide the 5 most relevant auth files before starting"],
-    a: 2,
-    e: "Architecture-first exploration is the most efficient approach for an unfamiliar codebase. Start with orientation (directory structure, CLAUDE.md), then use Grep to locate the core auth class, then trace relevant imports. This narrows from 200+ files to the handful that matter without reading everything."
-  },
-  {
-    d: "Claude Code & Workflows",
-    q: "A development team uses Claude Code to generate Python functions. After generation, the developer asks the same Claude Code session to review the generated code for correctness and security issues. 6 weeks later, an audit finds a security vulnerability that the review missed. What root cause most likely contributed to this?",
-    o: ["A) Claude Code's security analysis is unreliable for Python code", "B) The review was performed in the same session that generated the code; the reviewer had full context of the generator's design intent, causing confirmation bias that led to validating design decisions rather than questioning them", "C) The function was too complex for Claude Code to review in a single session", "D) Security reviews should use a dedicated security-focused model"],
-    a: 1,
-    e: "Confirmation bias is the root cause. When the same session reviews code it generated, it has full context about why decisions were made. This causes the reviewer to evaluate code through the lens of 'does this achieve the intended design?' rather than 'is this code correct and secure independent of the intent?' An independent fresh session would see the code at face value, without the designer's perspective."
-  },
-  {
-    d: "Claude Code & Workflows",
-    q: "A developer plans to refactor a legacy billing module that is imported by 15 different services across a monorepo. Before making any changes, what Claude Code workflow is most appropriate?",
-    o: ["A) Start editing the billing module immediately and fix errors as they arise in dependent services", "B) Enter Plan Mode: use Grep to find all 15 services' import statements, read each service's usage of the billing module, document all the interfaces that must remain compatible, create a full change plan, get user approval — then execute", "C) Read the billing module, make changes, then run tests to discover which of the 15 services broke", "D) Ask a team member to provide a list of all billing module usages before starting"],
-    a: 1,
-    e: "A refactoring with 15 dependent services is exactly the scenario where Plan Mode is essential. Without upfront exploration, the developer (or Claude) might break interfaces that 15 services depend on. Plan Mode: explore all usages, understand all coupling, document the complete impact and change plan, get approval, then execute — in the right order."
-  },
-  {
-    d: "Claude Code & Workflows",
-    q: "The project's CLAUDE.md has grown to 6,000 words covering architecture, coding standards, deployment procedures, environment setup, troubleshooting guides, and API conventions. Session startup is noticeably slower and Claude occasionally misses recent instructions. What restructuring most effectively addresses this?",
-    o: ["A) Delete all CLAUDE.md content and rely on Claude's in-weights training", "B) Move all content to a wiki and provide the URL in CLAUDE.md", "C) Restructure: keep universal standards (architecture, coding conventions, API conventions) in root CLAUDE.md; move deployment and troubleshooting to Skills; use service-specific nested CLAUDE.md files for environment setup and service-specific conventions", "D) Split into two CLAUDE.md files: one for junior developers and one for seniors"],
-    a: 2,
-    e: "A 6,000-word CLAUDE.md consumes massive context in every session — including sessions where 90% of that content is irrelevant. The fix is proportional: keep only what's always relevant in root CLAUDE.md (standards, architecture), move infrequent workflows to Skills, and distribute environment/service-specific content to nested CLAUDE.md files loaded only when working in that subdirectory."
-  },
-  {
-    d: "Claude Code & Workflows",
-    q: "A junior developer's CLAUDE.md contains: 'Always use British English spellings in comments and documentation.' They work on 4 different projects daily (two have their own project CLAUDE.md files). Where should this personal preference be documented?",
-    o: ["A) In each project's CLAUDE.md so it applies on all 4 projects", "B) In the developer's user-level CLAUDE.md (~/.claude/CLAUDE.md) — it applies to all projects for that user without requiring changes to any project file", "C) In a Skill definition that sets the spelling preference when invoked", "D) As a system prompt setting in the Claude Code configuration"],
-    a: 1,
-    e: "Personal conventions that apply across ALL projects for ONE developer belong in the user-level CLAUDE.md. Adding them to each project's CLAUDE.md requires duplicating the setting across 4 projects (and maintaining them separately) and would impose the developer's personal spelling preference on all team members who clone those projects."
-  },
-  {
-    d: "Claude Code & Workflows",
-    q: "A code review system runs three sequential passes on every pull request: security analysis, code style compliance, and documentation completeness. Each pass produces structured findings using a tool use schema. The team notices that critical security findings in the final review report are often buried under 40+ style suggestions. What architecture change best addresses this?",
-    o: ["A) Run all three passes in a single prompt to improve synthesis", "B) Limit style suggestions to 5 per PR to reduce volume", "C) Ensure security findings above 'minor' severity are always prominently surfaced in the synthesis step, regardless of total volume from other passes — this may involve weighted synthesis or a dedicated critical-findings section", "D) Remove the documentation review pass to reduce report volume"],
-    a: 2,
-    e: "The synthesis step must ensure that high-severity security findings are not buried by volume from lower-severity style suggestions. Weighted synthesis (security critical findings always appear first/prominently) or a dedicated 'Critical Security Issues' section before the full review prevents important findings from being missed in a crowded report."
+    q: "A developer plans to refactor a legacy billing module that is imported by 15 different services across a monorepo. The change may affect method names, return types, and error handling behavior. Before making any edits, what Claude Code workflow is most appropriate?",
+    o: ["A) Start editing the billing module immediately and fix dependent-service errors as they appear", "B) Read only the billing module, infer the public interface, make the refactor, and rely on tests to reveal breakages", "C) Ask a teammate to manually provide every caller before Claude starts working", "D) Use Plan Mode first: locate all imports and call sites with Grep, read representative usages, document compatibility constraints, propose the refactor plan, get approval, and only then execute the edits"],
+    a: 3,
+    e: "Large refactors with many dependents need exploration before editing. Plan Mode lets Claude map the blast radius, preserve interfaces intentionally, and get approval before making changes. Starting edits first risks breaking callers in ways that are hard to unwind."
   }
 ];
 

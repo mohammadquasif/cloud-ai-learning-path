@@ -1,267 +1,307 @@
-# ☁️ Certification Study Hub — Your Cloud Certification Study Partner
+# Certification Study Hub
 
-> This repo is your friendly study companion for cloud certification preparation.
+Free, original study guides and interactive mock tests for cloud and AI certification preparation.
 
----
-
-# 🛑 STOP READING MARKDOWN! 🛑
-## 👉 [GO TO THE INTERACTIVE LIVE WEBSITE](https://mohammadquasif.github.io/certification-study-hub/) 👈
-We have converted this entire repository into a beautiful, interactive website with sidebar navigation, dark mode, and interactive mock tests. 
-
-**Do not read the raw markdown files here.** 
-
-Click the link above to start studying the right way!
+This repository is built for learners who want practical notes, scenario-based practice, quick revision, and timed mock tests without exam dumps or copied exam content.
 
 ---
 
-## 📌 What Is This Repo?
+## New Learner Start Here
 
-**certification-study-hub** is a simple, student-friendly repository to help you prepare for:
+If you are new, do not start with the mock tests. Use this order:
 
-1. 🟧 **AWS Certified Cloud Practitioner (CLF-C02)**
-2. 🟦 **Claude Architect Foundation**
+1. Open the live GitHub Pages site.
+2. Choose one course only: AWS Cloud Practitioner or Claude Architect Foundation.
+3. Read the course README first.
+4. Open the roadmap and understand the exam pattern.
+5. Read lessons in sidebar order.
+6. Use flashcards after each section for memory recall.
+7. Attempt chapter-wise practice questions.
+8. Read quick revision notes.
+9. Take the full timed mock test.
+10. Review every wrong answer before booking or attempting certification.
 
-This is not an exam dump. This is not a copy-paste cheat sheet.
+Recommended path for most beginners:
 
-This is a proper study guide — written in simple Indian English — so you can actually understand what you are studying, not just memorize it.
-
-### 🌟 Did you get certified using this repo?
-If this repo helped you pass your exam, please consider **giving it a star ⭐** to help other students find it!
-
----
-
-## 👨‍🎓 Who Is This For?
-
-This repo is for you if:
-
-- You are a **beginner** starting your cloud journey
-- You want to clear your **AWS Cloud Practitioner** exam
-- You are exploring **Claude AI** and want the **Architect Foundation** certificate
-- You want **simple explanations**, not heavy technical jargon
-- You learn better with **stories, examples, and scenarios**
-- You want **original practice questions** (not copied exam dumps)
-
----
-
-## 📚 What Will You Find Here?
-
-| Section | What's Inside |
-|---|---|
-| `aws-cloud-practitioner/` | Chapter notes, concepts, scenarios, practice questions |
-| `claude-architect-foundation/` | Claude AI concepts, architecture notes, use-case guides |
-| `flashcards/` | Quick revision cards for last-minute prep |
-| `study-plans/` | Day-wise and week-wise study schedules |
-| `mock-tests/` | Full-length and chapter-wise mock tests |
-| `templates/` | Blank templates so you can add your own notes |
-| `contribution-guide.md` | How to add your notes and help other students |
-
----
-
-## 🟧 AWS Certified Cloud Practitioner
-
-The **AWS Cloud Practitioner** exam (CLF-C02) tests your basic understanding of:
-
-- What is Cloud Computing
-- AWS Global Infrastructure (Regions, AZs, Edge Locations)
-- Core AWS Services (EC2, S3, RDS, Lambda, etc.)
-- Cloud Security and Shared Responsibility Model
-- Billing, Pricing, and Support Plans
-- Cloud Adoption Framework
-
-### How We Cover It
-
-```
-aws-cloud-practitioner/
-├── 01-cloud-concepts/
-├── 02-aws-global-infrastructure/
-├── 03-core-services/
-├── 04-security-and-compliance/
-├── 05-billing-and-pricing/
-├── 06-cloud-technology-and-services/
-├── practice-questions/
-├── mock-tests/
-└── revision-notes/
-```
-
-Each chapter has:
-- Simple concept notes
-- Real-life Indian examples (like using S3 as a "digital locker")
-- Scenario-based questions
-- Memory tricks
-
----
-
-## 🟦 Claude Architect Foundation
-
-The **Claude Architect Foundation** certificate tests your understanding of:
-
-- What is Claude AI and how it works
-- Responsible AI and safety practices
-- How to design systems using Claude
-- Prompt engineering basics
-- Use cases and architecture patterns
-
-### How We Cover It
-
-```
-claude-architect-foundation/
-├── 01-introduction-to-claude/
-├── 02-agentic-patterns/
-├── 03-tool-use-and-mcp/
-├── 04-structured-output-and-extraction/
-├── 05-claude-code-and-workflows/
-├── practice-questions/
-└── revision-notes/
-```
-
----
-
-## 📅 The Visual Study Path
-
-Here is the most effective way to go from beginner to certified for any course in this repo:
-
-```mermaid
-flowchart TD
-    A[1. Understand Core Concepts<br>Read Chapter Notes] --> B[2. Check Understanding<br>Attempt Chapter-wise Questions]
-    B --> C{Got Questions Wrong?}
-    C -- Yes --> D[Re-read specific notes<br>Focus on Explanations]
-    D --> B
-    C -- No --> E[3. Move to Next Chapter]
-    E --> F{All Chapters Done?}
-    F -- No --> A
-    F -- Yes --> G[4. Last Minute Prep<br>Use Quick Revision & Flashcards]
-    G --> H[5. Take Full Mock Test<br>Aim for 70%+]
-    H --> I((Ready for Exam!))
-
-    style A fill:#1e293b,stroke:#3b82f6,color:#fff
-    style B fill:#1e293b,stroke:#8b5cf6,color:#fff
-    style C fill:#334155,stroke:#94a3b8,color:#fff
-    style D fill:#1e293b,stroke:#ef4444,color:#fff
-    style E fill:#1e293b,stroke:#10b981,color:#fff
-    style G fill:#1e293b,stroke:#f59e0b,color:#fff
-    style H fill:#1e293b,stroke:#06b6d4,color:#fff
-    style I fill:#22c55e,stroke:#16a34a,color:#fff,stroke-width:2px
-```
-
-Find detailed daily schedules inside the `study-plans/` folder.
-
-**Quick Reference:**
-
-| Exam | Suggested Study Time | Difficulty |
+| Learner Goal | Start With | Why |
 |---|---|---|
-| AWS Cloud Practitioner | 4–6 weeks (1–2 hrs/day) | Beginner |
-| Claude Architect Foundation | 2–3 weeks (1 hr/day) | Beginner |
-
-Start with `study-plans/how-to-study.md` to understand how to use this repo properly.
-
-### 🧠 Psychological Tips for Better Preparation
-1. **The Forgetting Curve**: You will forget 50% of what you learn within 24 hours unless you review it. Use the `flashcards/` for spaced repetition.
-2. **Active Recall**: Don't just read the notes passively. After each chapter, close the tab and try to explain the core concepts out loud to an imaginary 10-year-old.
-3. **Mock Exam Environment**: When taking the mock tests, treat them like the real exam. Sit in a quiet room, don't check your phone, and time yourself strictly. This trains your brain to handle exam pressure.
-4. **Learn from Mistakes**: Getting a practice question wrong is the best way to learn. Always read the explanations, even if you guessed correctly.
+| New to cloud | AWS Cloud Practitioner | Builds general cloud, AWS service, billing, and security vocabulary |
+| Building with Claude or AI agents | Claude Architect Foundation | Builds model, tool use, MCP, agent, and Claude Code architecture thinking |
+| Preparing for both | AWS first, then Claude | Cloud vocabulary helps when Claude examples mention AWS or deployment patterns |
 
 ---
 
-## 🎯 Where to Focus to Get Certified (Based on Mock Tests)
+## Read Online With GitHub Pages
 
-Before you begin, understand where the bulk of the exam questions come from. Focus your energy on these high-weightage topics:
+Best experience:
 
-### 🟧 AWS Cloud Practitioner Focus Areas
-> **Over 60% of the exam** focuses on Security and Cloud Technology. Pay extra attention to:
-- **Service Comparisons**: Know exactly when to use *Macie* (PII data) vs *GuardDuty* (threats) vs *Inspector* (vulnerabilities).
-- **Serverless Architecture**: The classic `API Gateway + Lambda + DynamoDB` pattern appears frequently.
-- **Billing & Cost**: Differentiate between *Cost Explorer* (past analysis), *Pricing Calculator* (future estimates), and *AWS Budgets* (alerts).
-- **Shared Responsibility**: Always remember AWS manages the hypervisor and physical hardware; you manage the OS, data, and IAM.
+[Open Certification Study Hub](https://mohammadquasif.github.io/certification-study-hub/)
 
-### 🟦 Claude Architect Foundation Focus Areas
-> **~50% of the exam** focuses on Tool Use and Agentic Patterns. Pay extra attention to:
-- **Tool Use & MCP**: Understand that MCP connects to servers, while Tool Use is how Claude executes functions. Always use specific, detailed tool descriptions.
-- **Handling Data Absence**: If extraction data is missing, the schema must return `null` — Claude should never fabricate missing data.
-- **Safety Gates**: Irreversible actions (like deleting resources or sending emails) must have a human-in-the-loop confirmation step.
-- **Code Review**: Independent reviews (in a fresh session) are necessary to avoid confirmation bias from the code generator.
+Direct course links:
 
----
+- [AWS Cloud Practitioner Study Guide](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/README.html)
+- [AWS Cloud Practitioner Roadmap](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/00-certification-roadmap.html)
+- [AWS Cloud Practitioner Flashcards](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/flashcards.html)
+- [AWS Cloud Practitioner 65-Question Mock Test](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)
+- [Claude Architect Foundation Study Guide](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/README.html)
+- [Claude Architect Foundation Roadmap](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/00-certification-roadmap.html)
+- [Claude Architect Foundation Flashcards](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/flashcards.html)
+- [Claude Architect Foundation 60-Question Mock Test](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/mock-tests/caf-mock-test-60q.html)
 
-## 📝 Practice Questions & Mock Test
-
-All practice questions in this repo are **100% original**.
-
-- They are written to help you think like the exam
-- They are **not** copied from any real exam
-- Each question has a **detailed explanation**
-
-### 📖 Interactive Study Guides (Live on GitHub Pages)
-You can read the full study guides with interactive sidebar navigation directly in your browser:
-👉 **[Read the Full Documentation Site](https://mohammadquasif.github.io/certification-study-hub/)**
-
-### 🔥 Interactive Mock Tests (Live on GitHub Pages)
-
-No need to download anything! You can take the full timed mock tests directly in your browser:
-
-👉 **[AWS Cloud Practitioner 65-Q Mock Test](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)**
-👉 **[Claude Architect Foundation 60-Q Mock Test](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/mock-tests/caf-mock-test-60q.html)**
-
-Find more inside:
-- `aws-cloud-practitioner/practice-questions/`
-- `aws-cloud-practitioner/mock-tests/`
-- `aws-cloud-practitioner/revision-notes/quick-revision.md`
+Use the GitHub Pages site for reading. Use the Markdown files in this repository as source files for editing and contribution.
 
 ---
 
-## ⚡ Quick Start
+## Courses Included
 
+| Course | What It Covers | Best Starting Point |
+|---|---|---|
+| AWS Cloud Practitioner | Cloud basics, AWS services, security, billing, pricing, support, cloud adoption | [AWS course home](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/README.html) |
+| Claude Architect Foundation | Claude fundamentals, agentic patterns, tool use, MCP, structured output, Claude Code workflows | [Claude course home](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/README.html) |
+
+---
+
+## Flashcards
+
+Flashcards are now available for both courses:
+
+- [AWS Cloud Practitioner flashcards](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/flashcards.html)
+- [Claude Architect Foundation flashcards](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/flashcards.html)
+
+Use flashcards after reading a lesson, not before. They help you remember service clues and architecture patterns quickly, but they do not replace scenario practice.
+
+---
+
+## AWS Cloud Practitioner: Where To Focus
+
+The AWS Cloud Practitioner course has been upgraded across the course README, roadmap, chapter-wise questions, quick revision notes, mini mock, full 65-question mock, diagrams, and generated HTML pages.
+
+Focus most on:
+
+1. **Cloud Technology and Services**
+   - EC2, Lambda, Fargate, Elastic Beanstalk
+   - S3 storage classes, EBS, EFS, FSx
+   - RDS, Aurora, DynamoDB, Redshift, ElastiCache, Neptune
+   - VPC, security groups, NACLs, Direct Connect, CloudFront
+   - SQS, SNS, EventBridge, CloudWatch
+
+2. **Security and Compliance**
+   - Shared Responsibility Model
+   - IAM users, groups, roles, policies, MFA, least privilege
+   - CloudTrail vs CloudWatch vs AWS Config
+   - WAF, Shield, GuardDuty, Security Hub, Inspector, Macie, Artifact
+
+3. **Cloud Concepts**
+   - Six cloud advantages
+   - Well-Architected Framework
+   - AWS Cloud Adoption Framework
+   - Region, Availability Zone, Edge Location, high availability
+
+4. **Billing, Pricing, and Support**
+   - Pricing Calculator vs Cost Explorer vs Budgets
+   - Organizations and consolidated billing
+   - On-Demand, Reserved, Savings Plans, Spot
+   - Support plans and Technical Account Manager
+
+Use the [AWS roadmap](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/00-certification-roadmap.html) first, then read the course pages in order.
+
+---
+
+## How To Read This Repository
+
+1. Open the live GitHub Pages site.
+2. Pick your course.
+3. Start from the course README or roadmap page.
+4. Read lessons in sidebar order.
+5. Attempt chapter-wise practice questions after each major section.
+6. Use quick revision notes near the end.
+7. Take the full timed mock test.
+8. Review every wrong answer before attempting certification.
+
+Do not jump directly to the mock test on day one. The mock test is most useful after you finish the lessons once.
+
+---
+
+## Claude Architect Foundation: Where To Focus
+
+The Claude course has been upgraded across Markdown source files, generated HTML pages, diagrams, revision notes, chapter-wise practice, and the interactive mock test.
+
+Focus most on:
+
+1. **Tool Use and MCP**
+   - Tool schemas
+   - Tool descriptions
+   - Tool results
+   - MCP tools, resources, and prompts
+   - Protocol errors vs tool errors
+
+2. **Agentic Patterns**
+   - Prompt chaining
+   - Routing
+   - Orchestrator-workers
+   - Agent loop
+   - Session and context management
+
+3. **Claude Code Workflows**
+   - CLAUDE.md vs Skills
+   - Project-level vs user-level instructions
+   - Independent review vs self-review
+   - Batch vs real-time review
+   - Structured JSON review output
+   - Duplicate PR review comments
+   - Comment and docstring review criteria
+
+4. **Structured Output and Extraction**
+   - JSON schema
+   - `null` for missing data
+   - Confidence scoring
+   - Human review
+   - Batch processing limitations
+
+5. **Claude Fundamentals**
+   - HHH principles
+   - Constitutional AI
+   - Context window
+   - Stateless API calls
+   - Responsible deployment
+
+---
+
+## How To Get Certified
+
+For AWS Cloud Practitioner:
+
+1. Read the official [AWS Certified Cloud Practitioner page](https://aws.amazon.com/certification/certified-cloud-practitioner/).
+2. Review the official [CLF-C02 exam guide](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html).
+3. Study with [AWS Skill Builder certification prep](https://aws.amazon.com/certification/certification-prep/).
+4. Create or sign in to your AWS Certification Account at [aws.training/Certification](https://aws.training/Certification).
+5. Choose **AWS Certified Cloud Practitioner (CLF-C02)** and schedule with Pearson VUE.
+6. Select online proctored or test center delivery.
+7. Pay the exam fee. The official listed foundational exam price is USD 100, with taxes or local currency handling depending on location and testing channel.
+8. Use this repository for scenario practice, quick revision, and the 65-question mock test.
+9. After passing, remember the certification is valid for 3 years.
+
+AWS question count clarification:
+
+- The exam page lists **65 total questions**.
+- The official exam guide says **50 questions affect your score**.
+- The official exam guide also says **15 questions are unscored and not identified**.
+- So for practice, use a **65-question mock test**, because that matches the real exam experience.
+
+Useful AWS official links:
+
+- [AWS Certified Cloud Practitioner](https://aws.amazon.com/certification/certified-cloud-practitioner/)
+- [Official CLF-C02 exam guide](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html)
+- [AWS Certification prep](https://aws.amazon.com/certification/certification-prep/)
+- [AWS Certification account](https://aws.training/Certification)
+- [AWS Certification exam policies before testing](https://aws.amazon.com/certification/policies/before-testing/)
+
+Always verify current AWS exam price, policy, delivery options, and scheduling details on the official AWS Certification site before paying.
+
+For Claude certification:
+
+1. Start at [Anthropic Academy](https://anthropic.skilljar.com/).
+2. Review the available Claude courses, especially Claude 101, Claude Platform 101, Claude Code 101, Building with the Claude API, and MCP courses.
+3. Use this repository to study scenario-based architecture decisions.
+4. Take the chapter-wise questions.
+5. Take the timed mock test.
+6. Review wrong answers until you can explain the decision pattern.
+7. Request or access the official certification path through Anthropic Academy.
+
+Useful official links:
+
+- [Anthropic Academy](https://anthropic.skilljar.com/)
+- [Claude Certified Architect - Foundations access request](https://anthropic.skilljar.com/claude-certified-architect-foundations-access-request)
+- [Claude Developer Platform docs](https://platform.claude.com/docs/)
+- [Claude Code docs](https://code.claude.com/docs/en/overview)
+- [Model Context Protocol docs](https://modelcontextprotocol.io/docs/getting-started/intro)
+- [Building Effective AI Agents](https://www.anthropic.com/engineering/building-effective-agents)
+
+Always verify current certification access, exam rules, pricing, and requirements on the official Anthropic Academy site.
+
+---
+
+## Repository Structure
+
+```text
+certification-study-hub/
+|-- aws-cloud-practitioner/
+|   |-- 00-certification-roadmap.md
+|   |-- flashcards.md
+|   |-- practice-questions/
+|   |-- mock-tests/
+|   `-- revision-notes/
+|-- claude-architect-foundation/
+|   |-- 00-certification-roadmap.md
+|   |-- flashcards.md
+|   |-- 01-introduction-to-claude/
+|   |-- 02-agentic-patterns/
+|   |-- 03-tool-use-and-mcp/
+|   |-- 04-structured-output-and-extraction/
+|   |-- 05-claude-code-and-workflows/
+|   |-- practice-questions/
+|   |-- mock-tests/
+|   `-- revision-notes/
+|-- docs/
+|   |-- assets/
+|   |-- aws-cloud-practitioner/
+|   `-- claude-architect-foundation/
+|-- flashcards/
+|-- scripts/
+`-- templates/
 ```
-Step 1 → Read this README fully
-Step 2 → Go to study-plans/how-to-study.md
-Step 3 → Pick your exam (AWS or Claude)
-Step 4 → Follow the chapter order
-Step 5 → Attempt practice questions after each chapter
-Step 6 → Revise using flashcards
-Step 7 → Take mock tests in the last week
+
+`docs/` contains the generated GitHub Pages site. Source study content lives in the course folders.
+
+---
+
+## Local Build
+
+Install dependencies once:
+
+```bash
+npm install
 ```
 
----
+Generate the HTML site:
 
-## 🤝 How to Contribute
+```bash
+npm run build
+```
 
-This repo grows when students like you add their notes!
-
-See `contribution-guide.md` for full details.
-
-**In short:**
-1. Fork this repo
-2. Add your notes using the templates in `templates/`
-3. Submit a Pull Request with a simple description
-4. We review and merge
-
-All contributions must be **original** — no copied exam content.
+The generated pages are written into `docs/`.
 
 ---
 
-## ⚠️ Disclaimer
+## Practice And Mock Tests
 
-> All practice questions, scenarios, and study notes in this repository are **100% original content** created for educational purposes only.
->
-> This repository does **not** contain:
-> - Real exam questions
-> - Exam dumps
-> - Leaked certification content
->
-> If you are looking for shortcuts, this is not the right place.
-> If you want to truly learn and clear the exam, you are in the right place.
+All practice questions and mock tests are original educational content.
 
----
+They are designed to be similar in reasoning style to certification scenarios, but they are not real exam questions, copied exam questions, leaked content, or exam dumps.
 
-## 🙏 A Note from the Maintainer
+Mock tests:
 
-Cloud certifications can feel scary at first. But once you understand the basics, they become very manageable.
-
-This repo was made with the belief that every student — regardless of their background — can clear these exams with the right guidance and consistent effort.
-
-Study daily. Ask questions. Help each other.
-
-**All the best. You've got this! 💪**
+- [AWS 65-question mock test](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)
+- [Claude 60-question mock test](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/mock-tests/caf-mock-test-60q.html)
 
 ---
 
-*Made with ❤️ for the Indian student community and cloud learners everywhere.*
+## Contribution Guidelines
+
+Contributions are welcome if they are:
+
+- original,
+- written in English,
+- clear and learner-friendly,
+- scenario-focused,
+- not copied from real exams or paid materials.
+
+See [contribution-guide.md](contribution-guide.md) for details.
+
+---
+
+## Disclaimer
+
+This repository is an independent educational study resource. It is not affiliated with AWS, Anthropic, Skilljar, or any certification provider.
+
+Always confirm official exam details, certification access, policies, and requirements from the official provider before registering.

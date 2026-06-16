@@ -47,6 +47,19 @@
     .logo-icon { font-size:1.6rem; }
     .logo-text { font-size:1.1rem; font-weight:700; color:var(--text); }
     .logo-text span { color:var(--accent); }
+    .header-actions { display:flex; align-items:center; gap:0.75rem; }
+    .repo-link {
+      color:var(--text);
+      text-decoration:none;
+      border:1px solid var(--border);
+      background:var(--card);
+      border-radius:10px;
+      padding:8px 12px;
+      font-size:0.85rem;
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .repo-link:hover { border-color:var(--accent); color:var(--accent); }
 
     /* ───── TIMER BAR ───── */
     #timer-bar {
@@ -337,6 +350,7 @@
       .result-stats { grid-template-columns:repeat(2,1fr); }
       header { padding:0 1rem; }
       .logo-text { display:none; }
+      .repo-link { font-size:0.75rem; padding:7px 9px; }
     }
     .hidden { display:none !important; }
   </style>
@@ -349,9 +363,12 @@
     <span class="logo-icon">☁️</span>
     <span class="logo-text">Certification Study <span>Hub</span></span>
   </div>
-  <div id="timer-bar">
-    <span id="timer-icon">⏱</span>
-    <span id="timer-display">90:00</span>
+  <div class="header-actions">
+    <a class="repo-link" href="https://github.com/mohammadquasif/certification-study-hub">Back to Repo</a>
+    <div id="timer-bar">
+      <span id="timer-icon">⏱</span>
+      <span id="timer-display">90:00</span>
+    </div>
   </div>
 </header>
 
@@ -731,21 +748,21 @@ const QUESTIONS = [
     exp:"CloudFormation implements Infrastructure as Code, allowing you to provision and update AWS resources via templates."
   },
   {
-    domain:"Cloud Technology & Services",
+    domain:"Billing, Pricing & Support",
     q:"Which AWS compute option is most cost-effective for a fault-tolerant batch processing job that can tolerate interruptions and only runs when spare capacity is available?",
     opts:["On-Demand Instances","Dedicated Hosts","Reserved Instances","Spot Instances"],
     correct:[3], multi:false,
     exp:"Spot Instances use spare EC2 capacity at up to 90% discount and are ideal for interruptible, flexible workloads."
   },
   {
-    domain:"Cloud Technology & Services",
+    domain:"Billing, Pricing & Support",
     q:"A company has a predictable baseline EC2 workload running 24/7 for the next 3 years and wants maximum cost savings. Which purchase options should they use? (Select TWO)",
     opts:["On-Demand Instances","Spot Instances","Standard Reserved Instances","All Upfront payment option","Dedicated Hosts"],
     correct:[2,3], multi:true,
     exp:"Standard Reserved Instances with All Upfront payment offer the greatest discount (up to 72%) for steady-state workloads."
   },
   {
-    domain:"Cloud Technology & Services",
+    domain:"Billing, Pricing & Support",
     q:"A company runs a temporary 3-day marketing campaign and needs EC2 capacity with no long-term commitment. Which pricing model is most appropriate?",
     opts:["Reserved Instances","Spot Instances","Dedicated Instances","On-Demand Instances"],
     correct:[3], multi:false,

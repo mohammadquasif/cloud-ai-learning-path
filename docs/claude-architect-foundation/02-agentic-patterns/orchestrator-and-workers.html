@@ -5,25 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orchestrator And Workers | Certification Study Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
-  
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="topbar">
     <div class="topbar-content">
-      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      <a href="../../index.html" class="logo">Certification Study Hub</a>
+      <div class="topbar-actions">
+        <a class="repo-link" href="https://github.com/mohammadquasif/certification-study-hub">Back to Repo</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open course navigation" aria-expanded="false" aria-controls="sidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="layout">
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h3>Claude Architect Foundation</h3>
       </div>
-      <nav class="sidebar-nav">
-        <div class="nav-group">
+      <nav class="sidebar-nav" aria-label="Course navigation">
+        <a href="../../claude-architect-foundation/00-certification-roadmap.html" class="nav-link">00 Certification Roadmap</a>
+<div class="nav-group">
         <div class="nav-group-title">01 Introduction To Claude</div>
         <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
 <a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
@@ -60,7 +70,8 @@
 <a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
 <a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
 
-      </div><div class="nav-group">
+      </div><a href="../../claude-architect-foundation/flashcards.html" class="nav-link">Flashcards</a>
+<div class="nav-group">
         <div class="nav-group-title">Mock Tests</div>
         <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
 
@@ -77,7 +88,7 @@
       </nav>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" id="main-content">
       <div class="content-container">
         <h1>Orchestrator &amp; Workers — Multi-Agent Architecture</h1>
 <blockquote>
@@ -89,6 +100,7 @@
 <hr>
 <h2>📖 What Is This Topic About?</h2>
 <p>Not every task can be done by a single agent in a single context window. Some tasks are too large, too complex, or involve parallel workstreams that need to happen simultaneously. The <strong>Orchestrator-Workers pattern</strong> solves this by having one Claude instance act as a manager (orchestrator) that delegates subtasks to specialised Claude instances (workers / subagents).</p>
+<p><img src="../../assets/claude-agentic-patterns.svg" alt="Agentic pattern decision graph"></p>
 <hr>
 <h2>🧠 Key Concepts</h2>
 <ul>
@@ -243,9 +255,9 @@ Goal: Generate a research report
 <li>C) Orchestrator-workers — central orchestrator delegates to three parallel worker agents</li>
 <li>D) Prompt chaining — do style, then security, then documentation sequentially</li>
 </ul>
-<p><strong>Answer:</strong> D — Prompt chaining is correct for this specific scenario because the workflow follows the same structured, predictable sequence for every PR (three defined steps in order). The orchestrator-workers pattern adds parallelism overhead that is only beneficial when order does not matter or when tasks are truly independent enough to justify separate context windows. For this bounded, three-step workflow, chaining is simpler and sufficient.</p>
+<p><strong>Answer:</strong> C — Orchestrator-workers is correct for this scenario because style, security, and documentation checks are independent review dimensions that can run in parallel and return focused findings to a central reviewer. Prompt chaining is better when step B depends on step A&#39;s output. Here, the three reviews do not need to wait for one another.</p>
 <blockquote>
-<p><strong>Exam tip:</strong> The difference between orchestrator-workers and prompt chaining is subtle. Orchestrator-workers = dynamic decomposition + parallelism. Prompt chaining = fixed sequence of steps. If the steps are the same every time and sequential, chaining is often the better answer.</p>
+<p><strong>Exam tip:</strong> The difference between orchestrator-workers and prompt chaining is subtle. Orchestrator-workers = independent or dynamically chosen subtasks + synthesis. Prompt chaining = fixed sequence where later steps depend on earlier outputs.</p>
 </blockquote>
 <hr>
 <h2>💡 Memory Tricks</h2>
@@ -300,15 +312,15 @@ Goal: Generate a research report
 <hr>
 <p><em>Notes by certification-study-hub. Chapter 02 — Orchestrator &amp; Workers.</em></p>
 
-        
+
         <div class="pagination">
           <a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="page-link prev">
           <span class="page-link-label">Previous</span>
-          <span class="page-link-title">← What Is Claude</span>
+          <span class="page-link-title">&larr; What Is Claude</span>
         </a>
           <a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="page-link next">
           <span class="page-link-label">Next</span>
-          <span class="page-link-title">Prompt Chaining And Routing →</span>
+          <span class="page-link-title">Prompt Chaining And Routing &rarr;</span>
         </a>
         </div>
       </div>

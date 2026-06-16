@@ -5,25 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rds Vs Dynamodb | Certification Study Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../assets/style.css">
 </head>
 <body>
-  
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="topbar">
     <div class="topbar-content">
-      <a href="../../../index.html" class="logo">☁️ Certification Study Hub</a>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      <a href="../../../index.html" class="logo">Certification Study Hub</a>
+      <div class="topbar-actions">
+        <a class="repo-link" href="https://github.com/mohammadquasif/certification-study-hub">Back to Repo</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open course navigation" aria-expanded="false" aria-controls="sidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="layout">
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h3>AWS Cloud Practitioner</h3>
       </div>
-      <nav class="sidebar-nav">
-        <div class="nav-group">
+      <nav class="sidebar-nav" aria-label="Course navigation">
+        <a href="../../../aws-cloud-practitioner/00-certification-roadmap.html" class="nav-link">00 Certification Roadmap</a>
+<div class="nav-group">
         <div class="nav-group-title">01 Cloud Concepts</div>
         <a href="../../../aws-cloud-practitioner/01-cloud-concepts/what-is-cloud.html" class="nav-link">What Is Cloud</a>
 
@@ -58,7 +68,8 @@
         <div class="nav-group-title">06 Cloud Technology And Services</div>
         <a href="../../../aws-cloud-practitioner/06-cloud-technology-and-services/cloud-adoption-framework.html" class="nav-link">Cloud Adoption Framework</a>
 
-      </div><div class="nav-group">
+      </div><a href="../../../aws-cloud-practitioner/flashcards.html" class="nav-link">Flashcards</a>
+<div class="nav-group">
         <div class="nav-group-title">Mock Tests</div>
         <a href="../../../aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="nav-link">Ccp Mock Test 65q</a>
 <a href="../../../aws-cloud-practitioner/mock-tests/mock-test-01.html" class="nav-link">Mock Test 01</a>
@@ -76,7 +87,7 @@
       </nav>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" id="main-content">
       <div class="content-container">
         <h1>AWS Database Services: RDS, DynamoDB, and More</h1>
 <blockquote>
@@ -221,15 +232,15 @@
 <li><strong>DMS:</strong> Database migration without downtime.</li>
 </ul>
 
-        
+
         <div class="pagination">
           <a href="../../../aws-cloud-practitioner/03-core-services/compute/ec2-basics.html" class="page-link prev">
           <span class="page-link-label">Previous</span>
-          <span class="page-link-title">← Ec2 Basics</span>
+          <span class="page-link-title">&larr; Ec2 Basics</span>
         </a>
           <a href="../../../aws-cloud-practitioner/03-core-services/storage/s3-basics.html" class="page-link next">
           <span class="page-link-label">Next</span>
-          <span class="page-link-title">S3 Basics →</span>
+          <span class="page-link-title">S3 Basics &rarr;</span>
         </a>
         </div>
       </div>

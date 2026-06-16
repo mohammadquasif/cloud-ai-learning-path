@@ -5,25 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>README | Certification Study Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-  
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="topbar">
     <div class="topbar-content">
-      <a href="../index.html" class="logo">☁️ Certification Study Hub</a>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      <a href="../index.html" class="logo">Certification Study Hub</a>
+      <div class="topbar-actions">
+        <a class="repo-link" href="https://github.com/mohammadquasif/certification-study-hub">Back to Repo</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open course navigation" aria-expanded="false" aria-controls="sidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="layout">
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h3>Claude Architect Foundation</h3>
       </div>
-      <nav class="sidebar-nav">
-        <div class="nav-group">
+      <nav class="sidebar-nav" aria-label="Course navigation">
+        <a href="../claude-architect-foundation/00-certification-roadmap.html" class="nav-link">00 Certification Roadmap</a>
+<div class="nav-group">
         <div class="nav-group-title">01 Introduction To Claude</div>
         <a href="../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
 <a href="../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
@@ -60,7 +70,8 @@
 <a href="../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
 <a href="../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
 
-      </div><div class="nav-group">
+      </div><a href="../claude-architect-foundation/flashcards.html" class="nav-link">Flashcards</a>
+<div class="nav-group">
         <div class="nav-group-title">Mock Tests</div>
         <a href="../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
 
@@ -77,53 +88,57 @@
       </nav>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" id="main-content">
       <div class="content-container">
-        <h1>🤖 Claude Architect Foundation — Study Hub</h1>
-<p>Welcome to the Claude Architect Foundation section of certification-study-hub!</p>
-<h3>🌟 Did you get certified using this repo?</h3>
-<p>If this repo helped you pass your exam, please consider <strong>giving it a star ⭐</strong> to help other students find it!</p>
+        <h1>Claude Architect Foundation - Study Hub</h1>
+<p>Welcome to the Claude Architect Foundation course inside certification-study-hub.</p>
+<p>This course is built for learners who want a practical, scenario-based path to the Claude Certified Architect - Foundations exam. It keeps the style simple: learn the concept, see the architecture, apply it to a realistic exam scenario, then revise with questions.</p>
 <hr>
-<h2>📂 Folder Structure</h2>
-<pre><code>claude-architect-foundation/
-├── README.md                              ← You are here
-├── 01-introduction-to-claude/
-│   ├── what-is-claude.md
-│   ├── how-claude-thinks.md
-│   └── constitutional-ai-and-safety.md
-├── 02-agentic-patterns/
-│   ├── what-is-an-agent.md
-│   ├── orchestrator-and-workers.md
-│   ├── prompt-chaining-and-routing.md
-│   └── session-and-context-management.md
-├── 03-tool-use-and-mcp/
-│   ├── introduction-to-tool-use.md
-│   ├── designing-good-tools.md
-│   ├── error-handling-in-tools.md
-│   ├── mcp-architecture.md
-│   └── confirmation-and-safety-gates.md
-├── 04-structured-output-and-extraction/
-│   ├── json-schema-for-extraction.md
-│   ├── handling-ambiguity-and-nulls.md
-│   ├── confidence-and-human-review.md
-│   ├── batch-processing.md
-│   └── long-document-extraction.md
-├── 05-claude-code-and-workflows/
-│   ├── introduction-to-claude-code.md
-│   ├── claude-md-and-skills.md
-│   ├── session-management.md
-│   ├── code-review-workflows.md
-│   └── exploration-patterns.md
-├── practice-questions/
-│   └── chapter-wise-questions.md
-├── mock-tests/
-│   ├── caf-mock-test-60q.html            ← 🔥 Interactive 60-Question Test
-│   └── mock-test-01.md
-└── revision-notes/
-    └── quick-revision.md
-</code></pre>
+<h2>Start Here</h2>
+<h3>New Learner Path</h3>
+<p>If you are new to Claude architecture, use this order:</p>
+<ol>
+<li>Read this README once.</li>
+<li>Open <a href="00-certification-roadmap.html">00 - Certification Roadmap</a>.</li>
+<li>Learn Claude basics before agent patterns.</li>
+<li>Study tool use and MCP slowly; these topics are high-yield.</li>
+<li>Study structured output and Claude Code workflows.</li>
+<li>Use <a href="flashcards.html">Flashcards</a> after each major section.</li>
+<li>Attempt chapter-wise questions.</li>
+<li>Read quick revision notes.</li>
+<li>Take the 60-question mock test.</li>
+<li>Review wrong answers until you can explain why the correct architecture is safer.</li>
+</ol>
+<p>Simple rule: do not memorize only definitions. Claude certification-style questions reward architecture decisions.</p>
+<h3>Best Way To Read This Course</h3>
+<p>Do not start by opening random Markdown files. The easiest way to study is through the GitHub Pages version because it has sidebar navigation, responsive layout, diagrams, and direct links to the mock test.</p>
+<p>Read the interactive course in the browser:</p>
+<p><a href="https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/README.html">Open the Claude Architect Foundation Course</a></p>
+<p>Use flashcards for fast recall:</p>
+<p><a href="https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/flashcards.html">Open Claude Flashcards</a></p>
+<p>Take the interactive mock test:</p>
+<p><a href="https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/mock-tests/caf-mock-test-60q.html">Start the 60-Question Claude Mock Test</a></p>
+<p>Use this GitHub README as the source map. Use the interactive site for actual studying.</p>
+<h3>How To Access GitHub Pages</h3>
+<ol>
+<li>Open the live site: <a href="https://mohammadquasif.github.io/certification-study-hub/">Certification Study Hub</a></li>
+<li>Choose <strong>Claude Architect Foundation</strong>.</li>
+<li>Start with <strong>00 - Certification Roadmap</strong>.</li>
+<li>Read each lesson from the left sidebar in order.</li>
+<li>Use the chapter-wise questions after finishing the lessons.</li>
+<li>Take the timed mock test only after you finish the revision notes.</li>
+</ol>
+<p>Direct links:</p>
+<ul>
+<li><a href="https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/README.html">Claude Course Home</a></li>
+<li><a href="https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/00-certification-roadmap.html">Certification Roadmap</a></li>
+<li><a href="https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/flashcards.html">Flashcards</a></li>
+<li><a href="https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/practice-questions/chapter-wise-questions.html">Chapter-Wise Practice Questions</a></li>
+<li><a href="https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/revision-notes/quick-revision.html">Quick Revision Notes</a></li>
+<li><a href="https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/mock-tests/caf-mock-test-60q.html">60-Question Mock Test</a></li>
+</ul>
 <hr>
-<h2>📋 Exam Overview</h2>
+<h2>Certification Snapshot</h2>
 <table>
 <thead>
 <tr>
@@ -132,132 +147,253 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>Certificate</td>
-<td>Claude Architect Foundation</td>
+<td>Certification</td>
+<td>Claude Certified Architect - Foundations</td>
 </tr>
 <tr>
 <td>Provider</td>
 <td>Anthropic</td>
 </tr>
 <tr>
-<td>Format</td>
-<td>Online assessment</td>
+<td>Best starting portal</td>
+<td>Anthropic Academy / Skilljar</td>
 </tr>
 <tr>
-<td>Number of Questions</td>
-<td>~60 questions</td>
+<td>Main focus</td>
+<td>Claude API, agentic architecture, tool use, MCP, structured output, Claude Code workflows, safety and reliability</td>
 </tr>
 <tr>
-<td>Duration</td>
-<td>~60 minutes</td>
+<td>Question style</td>
+<td>Scenario-based multiple choice</td>
 </tr>
 <tr>
-<td>Focus</td>
-<td>Responsible AI, Claude architecture, tool use, agentic patterns, structured output</td>
-</tr>
-<tr>
-<td>Level</td>
-<td>Beginner / Foundation</td>
+<td>Best preparation method</td>
+<td>Official courses + hands-on practice + mock tests + revision notes</td>
 </tr>
 </tbody></table>
 <blockquote>
-<p>Check the official Anthropic website for the latest exam details, as this information may change.</p>
+<p>Exam access, pricing, eligibility, domains, and passing requirements can change. Always verify the current details in Anthropic Academy before booking or attempting the assessment.</p>
 </blockquote>
 <hr>
-<h2>🗂️ Exam Domain Breakdown</h2>
+<h2>Visual Roadmap</h2>
+<p><img src="../assets/claude-certification-roadmap.svg" alt="Claude certification roadmap"></p>
+<p>Use the roadmap like this:</p>
+<ol>
+<li>Learn Claude basics and responsible deployment.</li>
+<li>Build agentic thinking: routing, chaining, orchestration, context management.</li>
+<li>Master tool use and MCP because these are core architect topics.</li>
+<li>Practice structured extraction with JSON schemas and human review.</li>
+<li>Learn Claude Code workflows for real developer productivity scenarios.</li>
+<li>Finish with mock tests, wrong-answer review, and official docs refresh.</li>
+</ol>
+<hr>
+<h2>Recommended Study Order</h2>
+<ul>
+<li><code>[ ]</code> <a href="00-certification-roadmap.html">00 - Certification Roadmap</a></li>
+<li><code>[ ]</code> <code>01-introduction-to-claude/</code> - Claude fundamentals, model behavior, safety</li>
+<li><code>[ ]</code> <code>02-agentic-patterns/</code> - Agents, routing, chaining, orchestration, session/context management</li>
+<li><code>[ ]</code> <code>03-tool-use-and-mcp/</code> - Tool definitions, MCP architecture, safety gates, structured error handling</li>
+<li><code>[ ]</code> <code>04-structured-output-and-extraction/</code> - JSON schemas, ambiguity, confidence, batch processing, long documents</li>
+<li><code>[ ]</code> <code>05-claude-code-and-workflows/</code> - CLAUDE.md, Skills, code review, exploration, session workflows</li>
+<li><code>[ ]</code> <a href="flashcards.html">Flashcards</a> - fast recall for tools, MCP, agent patterns, and Claude Code traps</li>
+<li><code>[ ]</code> <code>practice-questions/</code> - Chapter-wise questions</li>
+<li><code>[ ]</code> <code>revision-notes/</code> - Day-before-exam revision</li>
+<li><code>[ ]</code> <code>mock-tests/</code> - Full timed practice</li>
+</ul>
+<hr>
+<h2>Exam Domain Map</h2>
 <table>
 <thead>
 <tr>
 <th>Domain</th>
-<th>Estimated Weight</th>
-<th>What It Tests</th>
+<th>What To Master</th>
+<th>Course Sections</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Claude Fundamentals &amp; Architecture</td>
-<td>~15%</td>
-<td>What Claude is, how the agentic loop works, context windows</td>
+<td>Agent architecture and orchestration</td>
+<td>Agent loop, routing, prompt chaining, dynamic workers, session boundaries</td>
+<td><code>02-agentic-patterns/</code></td>
 </tr>
 <tr>
-<td>Agentic Patterns &amp; Multi-Agent Systems</td>
-<td>~25%</td>
-<td>Orchestrators, workers, prompt chaining, routing, session management</td>
+<td>Tool design and MCP integration</td>
+<td>Tool schemas, tool descriptions, resources, prompts, server/client flow, error handling</td>
+<td><code>03-tool-use-and-mcp/</code></td>
 </tr>
 <tr>
-<td>Tool Use &amp; MCP Design</td>
-<td>~25%</td>
-<td>Tool definitions, error handling, MCP architecture, safety gates</td>
+<td>Claude Code configuration and workflows</td>
+<td>CLAUDE.md, Skills, hooks, sessions, code review, CI/CD, exploration</td>
+<td><code>05-claude-code-and-workflows/</code></td>
 </tr>
 <tr>
-<td>Structured Output &amp; Extraction</td>
-<td>~20%</td>
-<td>JSON schemas, ambiguity, batch processing, human review</td>
+<td>Prompt engineering and structured output</td>
+<td>JSON schema, extraction accuracy, null handling, ambiguity, confidence scoring</td>
+<td><code>04-structured-output-and-extraction/</code></td>
 </tr>
 <tr>
-<td>Claude Code &amp; Developer Workflows</td>
-<td>~15%</td>
-<td>CLAUDE.md, Skills, session resumption, code review patterns</td>
+<td>Context management and reliability</td>
+<td>Context limits, compaction, retries, escalation, human review, safety gates</td>
+<td>All sections, especially chapters 02-04</td>
 </tr>
 </tbody></table>
-<p><strong>Tool Use and Agentic Patterns together = ~50% of the exam. Focus here first.</strong></p>
+<p><strong>High-yield rule:</strong> Tool use, MCP, agent patterns, and structured output are the core of the architect mindset. Do not only memorize definitions. Practice choosing the safest architecture for a scenario.</p>
 <hr>
-<h2>✅ Interactive Study Tracker</h2>
-<p>Follow the chapters in this order for best results. Check them off as you go!</p>
+<h2>Official Certification And Learning Links</h2>
+<h3>Certification And Anthropic Academy</h3>
 <ul>
-<li><code>[ ]</code> <code>01-introduction-to-claude/</code> — Understand what Claude is and how it works</li>
-<li><code>[ ]</code> <code>02-agentic-patterns/</code> — Learn how agents think, plan, and act</li>
-<li><code>[ ]</code> <code>03-tool-use-and-mcp/</code> — Master tool use and MCP design — tested heavily</li>
-<li><code>[ ]</code> <code>04-structured-output-and-extraction/</code> — JSON schemas, extraction patterns, batch processing</li>
-<li><code>[ ]</code> <code>05-claude-code-and-workflows/</code> — Practical developer workflows with Claude Code</li>
+<li><a href="https://anthropic.skilljar.com/">Anthropic Academy course catalog</a></li>
+<li><a href="https://anthropic.skilljar.com/claude-certified-architect-foundations-access-request">Claude Certified Architect - Foundations access request</a></li>
+<li><a href="https://anthropic.skilljar.com/accounts/login/">Anthropic Academy sign in</a></li>
+<li><a href="https://claude.com/partners">Claude Partner Network</a></li>
+<li><a href="https://support.claude.com/">Anthropic support</a></li>
+<li><a href="https://www.skilljar.com/privacy-policy/">Skilljar privacy policy</a></li>
 </ul>
-<p>Then:</p>
+<h3>Anthropic Academy Courses To Study First</h3>
 <ul>
-<li><code>[ ]</code> <strong>Practice Questions</strong> (<code>chapter-wise-questions.md</code>)</li>
-<li><code>[ ]</code> <strong>Revision Notes</strong> (<code>quick-revision.md</code>)</li>
-<li><code>[ ]</code> <strong>Mock Tests</strong> (<code>caf-mock-test-60q.html</code>)</li>
+<li><a href="https://anthropic.skilljar.com/claude-101">Claude 101</a></li>
+<li><a href="https://anthropic.skilljar.com/claude-code-101">Claude Code 101</a></li>
+<li><a href="https://anthropic.skilljar.com/claude-platform-101">Claude Platform 101</a></li>
+<li><a href="https://anthropic.skilljar.com/claude-code-in-action">Claude Code in Action</a></li>
+<li><a href="https://anthropic.skilljar.com/building-with-the-claude-api">Building with the Claude API</a></li>
+<li><a href="https://anthropic.skilljar.com/introduction-to-model-context-protocol">Introduction to Model Context Protocol</a></li>
+<li><a href="https://anthropic.skilljar.com/model-context-protocol-advanced-topics">Model Context Protocol: Advanced Topics</a></li>
+<li><a href="https://anthropic.skilljar.com/introduction-to-agent-skills">Introduction to agent skills</a></li>
+<li><a href="https://anthropic.skilljar.com/introduction-to-subagents">Introduction to subagents</a></li>
+<li><a href="https://anthropic.skilljar.com/ai-fluency-framework-foundations">AI Fluency: Framework &amp; Foundations</a></li>
+<li><a href="https://anthropic.skilljar.com/ai-capabilities-and-limitations">AI Capabilities and Limitations</a></li>
+<li><a href="https://anthropic.skilljar.com/claude-with-amazon-bedrock">Claude with Amazon Bedrock</a></li>
+<li><a href="https://anthropic.skilljar.com/claude-with-google-clouds-vertex-ai">Claude with Google Cloud&#39;s Vertex AI</a></li>
+</ul>
+<h3>Claude API And Platform Docs</h3>
+<ul>
+<li><a href="https://platform.claude.com/docs/">Claude Developer Platform docs</a></li>
+<li><a href="https://platform.claude.com/docs/en/api/messages">Messages API</a></li>
+<li><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview">Tool use overview</a></li>
+<li><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works">How tool use works</a></li>
+<li><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools">Define tools</a></li>
+<li><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls">Handle tool calls</a></li>
+<li><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/parallel-tool-use">Parallel tool use</a></li>
+<li><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/strict-tool-use">Strict tool use</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/structured-outputs">Structured outputs</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview">Prompt engineering overview</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/context-windows">Context windows</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching">Prompt caching</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/message-batches">Message Batches</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/pdf-support">PDF support</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/citations">Citations</a></li>
+<li><a href="https://github.com/anthropics/anthropic-cookbook">Anthropic Cookbook</a></li>
+</ul>
+<h3>Claude Agent SDK And Agentic Systems</h3>
+<ul>
+<li><a href="https://platform.claude.com/docs/en/agent-sdk/overview">Claude Agent SDK overview</a></li>
+<li><a href="https://platform.claude.com/docs/en/agent-sdk/hooks">Agent SDK hooks</a></li>
+<li><a href="https://platform.claude.com/docs/en/agent-sdk/subagents">Agent SDK subagents</a></li>
+<li><a href="https://platform.claude.com/docs/en/agent-sdk/sessions">Agent SDK sessions</a></li>
+<li><a href="https://www.anthropic.com/engineering/building-effective-agents">Building Effective AI Agents</a></li>
+</ul>
+<h3>Claude Code Docs</h3>
+<ul>
+<li><a href="https://code.claude.com/docs/en/overview">Claude Code overview</a></li>
+<li><a href="https://code.claude.com/docs/en/how-claude-code-works">How Claude Code works</a></li>
+<li><a href="https://code.claude.com/docs/en/memory">Store instructions and memories / CLAUDE.md</a></li>
+<li><a href="https://code.claude.com/docs/en/sessions">Manage sessions</a></li>
+<li><a href="https://code.claude.com/docs/en/common-workflows">Common workflows</a></li>
+<li><a href="https://code.claude.com/docs/en/best-practices">Claude Code best practices</a></li>
+<li><a href="https://code.claude.com/docs/en/skills">Skills</a></li>
+<li><a href="https://code.claude.com/docs/en/hooks">Hooks</a></li>
+<li><a href="https://code.claude.com/docs/en/sub-agents">Subagents</a></li>
+<li><a href="https://code.claude.com/docs/en/mcp">MCP in Claude Code</a></li>
+<li><a href="https://code.claude.com/docs/en/github-actions">GitHub Actions</a></li>
+<li><a href="https://code.claude.com/docs/en/gitlab-ci-cd">GitLab CI/CD</a></li>
+<li><a href="https://code.claude.com/docs/en/headless">Headless mode</a></li>
+</ul>
+<h3>Model Context Protocol</h3>
+<ul>
+<li><a href="https://modelcontextprotocol.io/docs/getting-started/intro">MCP official documentation</a></li>
+<li><a href="https://modelcontextprotocol.io/docs/learn/architecture">MCP architecture</a></li>
+<li><a href="https://modelcontextprotocol.io/specification">MCP specification</a></li>
+<li><a href="https://modelcontextprotocol.io/docs/learn/server-concepts">MCP servers</a></li>
+<li><a href="https://modelcontextprotocol.io/docs/learn/client-concepts">MCP clients</a></li>
+<li><a href="https://modelcontextprotocol.io/docs/sdk">MCP SDKs</a></li>
+<li><a href="https://modelcontextprotocol.io/docs/tools/inspector">MCP Inspector</a></li>
+<li><a href="https://github.com/modelcontextprotocol">MCP GitHub organization</a></li>
+</ul>
+<h3>Cloud Platform References</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-claude.html">Claude on Amazon Bedrock</a></li>
+<li><a href="https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude">Anthropic Claude models on Vertex AI</a></li>
+</ul>
+<h3>Community Reference</h3>
+<ul>
+<li><a href="https://github.com/paullarionov/claude-certified-architect">paullarionov/claude-certified-architect</a> - useful for comparing study scope, practice style, and certification resource organization. Use it as inspiration only; this course keeps its own English-only notes, examples, and exam practice style.</li>
 </ul>
 <hr>
-<h2>📖 Interactive Study Guide (Live on GitHub Pages)</h2>
-<p>You can read the full study guide with interactive sidebar navigation directly in your browser:
-👉 <strong><a href="https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/README.html">Read the Full Claude Architect Foundation Course</a></strong></p>
-<hr>
-<h2>🔥 Interactive Mock Test</h2>
-<p>Take the full 60-question mock test with a timer, auto-scoring, and detailed results directly in your browser:</p>
-<p>👉 <strong><a href="https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/mock-tests/caf-mock-test-60q.html">Take the Claude Mock Test Live</a></strong></p>
-<hr>
-<h2>🧠 Psychological Tips for Better Preparation</h2>
+<h2>How To Study And Get Certified</h2>
 <ol>
-<li><strong>The Forgetting Curve</strong>: You will forget 50% of what you learn within 24 hours unless you review it. Use the <code>flashcards/</code> for spaced repetition.</li>
-<li><strong>Active Recall</strong>: Don&#39;t just read the notes passively. After each chapter, close the tab and try to explain the core concepts out loud to an imaginary 10-year-old.</li>
-<li><strong>Mock Exam Environment</strong>: When taking the mock test, treat it like the real exam. Sit in a quiet room, don&#39;t check your phone, and time yourself strictly. This trains your brain to handle exam pressure.</li>
-<li><strong>Learn from Mistakes</strong>: Getting a practice question wrong is the best way to learn. Always read the explanations, even if you guessed correctly.</li>
+<li><strong>Week 1 - Build the base.</strong> Complete Claude 101, Claude Platform 101, and this course chapters 01-02.</li>
+<li><strong>Week 2 - Go deep on architecture.</strong> Complete Tool Use, MCP, and Structured Output sections. Draw the flows yourself.</li>
+<li><strong>Week 3 - Practice like the exam.</strong> Complete Claude Code chapters, chapter-wise questions, and at least two timed mock-test attempts.</li>
+<li><strong>Final 48 hours - Review wrong answers.</strong> Do not reread everything. Focus on questions you missed, safety gates, MCP errors, null handling, and context management.</li>
 </ol>
 <hr>
-<h2>💡 Top Exam Tips (Based on the 60 Question Set)</h2>
+<h2>Where To Focus Most</h2>
+<p>If your time is limited, focus in this order:</p>
+<ol>
+<li><strong>Tool Use and MCP</strong> - tool schemas, tool choice, tool results, MCP tools/resources/prompts, protocol errors vs tool errors.</li>
+<li><strong>Agentic Patterns</strong> - routing, prompt chaining, orchestrator-workers, agent loop, context/session management.</li>
+<li><strong>Claude Code Workflows</strong> - CLAUDE.md vs Skills, project vs user instructions, independent review, batch vs real-time review, structured review output.</li>
+<li><strong>Structured Output</strong> - JSON schema, nullable fields, confidence scores, human review, batch processing limitations.</li>
+<li><strong>Claude Fundamentals</strong> - HHH, Constitutional AI, context window, stateless API behavior, responsible deployment.</li>
+</ol>
+<p>High-yield Claude Code traps:</p>
 <ul>
-<li><strong>The Agentic Loop</strong> — Know the <code>observe → think → act → observe</code> cycle deeply. When an agent gets an error, it observes it and thinks about a retry strategy.</li>
-<li><strong>Tool Error Handling</strong> — <code>isError: true</code> + structured error metadata (<code>errorCategory</code>, <code>isRetryable</code>) is the standard pattern. Never throw raw backend exceptions directly to Claude.</li>
-<li><strong>Context Degradation vs Limits</strong> — Even if a 190,000-token document fits within the 200,000 limit, effective attention degrades near the end. Use overlapping chunking to extract scattered information reliably.</li>
-<li><strong>Handling Missing Data (Null vs Fabrication)</strong> — When extracting data, type optional fields as <code>[&#39;string&#39;, &#39;null&#39;]</code>. If the data isn&#39;t in the source text, returning <code>null</code> is mandatory. Do not let Claude fabricate &quot;Not Specified&quot; strings.</li>
-<li><strong>Safety Gates for Irreversible Actions</strong> — Any action with real-world consequences (deleting workspaces, sending emails, booking rooms) <em>must</em> include a Human-in-the-Loop step. A programmatic token exchange is the safest way to enforce this.</li>
-<li><strong>Routing vs Chaining</strong> — Use <em>Routing</em> when you have different inputs that need different handlers (e.g., classify language first). Use <em>Prompt Chaining</em> when you have a sequential, multi-step process where step B requires step A&#39;s output.</li>
-<li><strong>Independent Code Review</strong> — A fresh agent session reviewing code avoids confirmation bias. An agent reviewing its own generated code will just confirm its own design intent.</li>
-<li><strong>Plan Mode &amp; Exploration</strong> — For large unfamiliar codebases, use &quot;Architecture-first exploration&quot; (orient, locate core class, trace). For major refactors, use Plan Mode to document the impact on all dependencies <em>before</em> changing anything.</li>
-<li><strong>MCP vs Tool Use</strong> — MCP is a protocol for connecting Claude to external servers without hardcoding integrations; Tool Use is the underlying mechanism Claude uses to execute those functions.</li>
-<li><strong>CLAUDE.md vs Skills</strong> — <code>CLAUDE.md</code> is for universal, always-on project standards. <code>Skills</code> are for infrequent, on-demand tasks (like load testing) to save context window tokens.</li>
+<li>Exemplar code for one workflow belongs in a <strong>Skill</strong>, not always-on CLAUDE.md.</li>
+<li>Team-wide rules belong in <strong>project-level CLAUDE.md</strong>, not user-level <code>~/.claude/CLAUDE.md</code>.</li>
+<li>A generated-code review should use a <strong>fresh independent session</strong>.</li>
+<li>Batch processing fits <strong>deep async analysis</strong>, not pre-merge hooks.</li>
+<li>Batch processing cannot support <strong>mid-request tool calls</strong>.</li>
+<li>Automated PR comments need <strong>structured JSON output with schema</strong>, not prompt-only JSON.</li>
+<li>Comment/docstring review needs explicit criteria: flag only claims that contradict actual code behavior.</li>
 </ul>
 <hr>
-<p>Start with <code>01-introduction-to-claude/what-is-claude.md</code> 👇</p>
+<h2>Certification Readiness Checklist</h2>
+<p>You are ready to attempt the real certification process when you can:</p>
+<ul>
+<li>Explain tool use vs MCP without notes.</li>
+<li>Choose between routing, chaining, orchestrator-workers, and agent loop from a scenario.</li>
+<li>Decide when an action needs human confirmation or an application-side safety gate.</li>
+<li>Design a JSON extraction schema with <code>null</code> handling and confidence review.</li>
+<li>Explain why same-session self-review is weaker than independent review.</li>
+<li>Score at least 70-80% on the mock test twice.</li>
+<li>Review every wrong answer and explain why the correct option is safer or more architecturally sound.</li>
+</ul>
+<p>To register or request access, start from <a href="https://anthropic.skilljar.com/">Anthropic Academy</a> and the <a href="https://anthropic.skilljar.com/claude-certified-architect-foundations-access-request">Claude Certified Architect - Foundations access request</a>. Always verify the current official process before attempting the exam.</p>
+<hr>
+<h2>Top Exam Tips</h2>
+<ul>
+<li>Claude does not execute client tools directly. Claude requests a tool call; your application executes it and returns a tool result.</li>
+<li>Tool descriptions are part of the architecture. Vague descriptions cause wrong tool selection.</li>
+<li>MCP is the connection standard. Tools take actions, resources expose read-only context, prompts provide reusable instructions.</li>
+<li>Prompt instructions are not enough for high-risk rules. Use application enforcement, hooks, permissions, and human confirmation.</li>
+<li>For extraction, schema-valid output is not the same as semantically correct output. Add validation, confidence, sampling, and human review.</li>
+<li>Context window capacity is not the same as attention quality. Long documents still need chunking, overlap, and merge logic.</li>
+<li>Claude Code workflow questions usually reward Explore -&gt; Plan -&gt; Code -&gt; Verify -&gt; Commit.</li>
+</ul>
+<hr>
+<h2>Contributing</h2>
+<p>Add only English content to this course. Keep examples clear, practical, and exam-focused. Prefer scenario questions, tables, diagrams, and short revision summaries over long theory dumps.</p>
+<hr>
+<p>Start with <a href="00-certification-roadmap.html">00 - Certification Roadmap</a>.</p>
 
-        
+
         <div class="pagination">
           <a href="../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="page-link prev">
           <span class="page-link-label">Previous</span>
-          <span class="page-link-title">← Chapter Wise Questions</span>
+          <span class="page-link-title">&larr; Chapter Wise Questions</span>
         </a>
           <a href="../claude-architect-foundation/revision-notes/quick-revision.html" class="page-link next">
           <span class="page-link-label">Next</span>
-          <span class="page-link-title">Quick Revision →</span>
+          <span class="page-link-title">Quick Revision &rarr;</span>
         </a>
         </div>
       </div>

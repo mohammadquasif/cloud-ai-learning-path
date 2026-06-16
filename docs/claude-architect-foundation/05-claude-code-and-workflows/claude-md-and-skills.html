@@ -5,25 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Claude Md And Skills | Certification Study Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
-  
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="topbar">
     <div class="topbar-content">
-      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      <a href="../../index.html" class="logo">Certification Study Hub</a>
+      <div class="topbar-actions">
+        <a class="repo-link" href="https://github.com/mohammadquasif/certification-study-hub">Back to Repo</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open course navigation" aria-expanded="false" aria-controls="sidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="layout">
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h3>Claude Architect Foundation</h3>
       </div>
-      <nav class="sidebar-nav">
-        <div class="nav-group">
+      <nav class="sidebar-nav" aria-label="Course navigation">
+        <a href="../../claude-architect-foundation/00-certification-roadmap.html" class="nav-link">00 Certification Roadmap</a>
+<div class="nav-group">
         <div class="nav-group-title">01 Introduction To Claude</div>
         <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
 <a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
@@ -60,7 +70,8 @@
 <a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
 <a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
 
-      </div><div class="nav-group">
+      </div><a href="../../claude-architect-foundation/flashcards.html" class="nav-link">Flashcards</a>
+<div class="nav-group">
         <div class="nav-group-title">Mock Tests</div>
         <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
 
@@ -77,7 +88,7 @@
       </nav>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" id="main-content">
       <div class="content-container">
         <h1>CLAUDE.md &amp; Skills — Project-Level Instructions and On-Demand Workflows</h1>
 <blockquote>
@@ -218,6 +229,57 @@ USER-LEVEL CLAUDE.md (~/.claude/CLAUDE.md or equivalent):
 </tbody></table>
 <p><strong>Decision rule:</strong> CLAUDE.md = context and standards that are always relevant. Skills = specific multi-step workflows invoked occasionally.</p>
 <hr>
+<h3>Exam Pattern: Exemplar Code Belongs in a Skill When It Is Workflow-Specific</h3>
+<p>A common exam scenario describes a team with excellent exemplar implementations, such as &quot;gold standard&quot; API endpoints, service classes, or test files. The key decision is whether those examples should be loaded every session or only when generating similar code.</p>
+<p>Use this rule:</p>
+<table>
+<thead>
+<tr>
+<th>Exemplar Usage</th>
+<th>Best Home</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Needed only when creating a new API endpoint</td>
+<td>Skill such as <code>/new-api-endpoint</code></td>
+<td>Loaded on demand, avoids wasting context during unrelated tasks</td>
+</tr>
+<tr>
+<td>Needed for every code edit in the project</td>
+<td>Project CLAUDE.md</td>
+<td>Always relevant to all sessions</td>
+</tr>
+<tr>
+<td>Personal preference for one developer only</td>
+<td>User-level CLAUDE.md</td>
+<td>Applies only to that developer</td>
+</tr>
+<tr>
+<td>One-time reference for a single task</td>
+<td>Prompt or file reference in that task</td>
+<td>Does not need permanent configuration</td>
+</tr>
+</tbody></table>
+<p><strong>Scenario:</strong> A backend team wants Claude Code to generate new REST endpoints that match three existing exemplar endpoints. Those exemplars are not useful for bug fixes, dependency updates, code review, or documentation edits.</p>
+<p><strong>Best answer:</strong> Create a Skill that references the exemplar endpoint files and includes pattern-following instructions. Invoke it only when creating new endpoints.</p>
+<p><strong>Why not CLAUDE.md?</strong> The examples would consume context in every session even when Claude is doing unrelated work.</p>
+<hr>
+<h3>Exam Pattern: Team Members Getting Different Claude Code Results</h3>
+<p>If experienced team members get one behavior from Claude Code but a new team member does not, check where the instruction lives.</p>
+<pre><code>Symptom:
+Existing developers: Claude follows payment-service-layer rule
+New developer: Claude does not follow that rule
+
+Likely cause:
+The rule exists in existing developers&#39; user-level ~/.claude/CLAUDE.md files
+instead of the repository&#39;s project-level CLAUDE.md.
+
+Best fix:
+Move team-wide rules into project-level CLAUDE.md and commit it to the repo.
+</code></pre>
+<p><strong>Exam memory:</strong> If everyone on the project must receive the instruction, it belongs in project-level CLAUDE.md. If only one user should receive it, it belongs in user-level CLAUDE.md.</p>
+<hr>
 <h3>The CLAUDE.md Token Budget Concern</h3>
 <p>CLAUDE.md is loaded into every session&#39;s context. If it is extremely long, it:</p>
 <ol>
@@ -305,6 +367,26 @@ USER-LEVEL CLAUDE.md (~/.claude/CLAUDE.md or equivalent):
 <p><strong>Answer:</strong> B</p>
 <p><strong>Explanation:</strong> Personal conventions that apply across all projects for one developer belong in the user-level CLAUDE.md. Adding them to each project&#39;s CLAUDE.md (A) is redundant (multiply maintained) and would impose the developer&#39;s personal preferences on the whole team. The user-level file is the correct place for individual, cross-project preferences.</p>
 <hr>
+<p><strong>Q4.</strong> A backend team keeps three excellent endpoint implementations as examples for creating new endpoints. These examples are useful only when scaffolding a new endpoint and are not useful for bug fixes, reviews, dependency updates, or documentation edits. What is the best Claude Code configuration?</p>
+<ul>
+<li>A) Put all exemplar endpoint code in the root CLAUDE.md so it is always visible</li>
+<li>B) Put the examples in every developer&#39;s user-level CLAUDE.md</li>
+<li>C) Add only &quot;follow existing endpoint patterns&quot; to CLAUDE.md and provide no references</li>
+<li>D) Create a Skill that references the exemplar endpoints and includes pattern-following instructions, invoked on demand by slash command</li>
+</ul>
+<p><strong>Answer:</strong> D</p>
+<p><strong>Explanation:</strong> Exemplar endpoint code is workflow-specific context. A Skill loads it when generating endpoints and avoids wasting context during unrelated tasks. CLAUDE.md should stay focused on instructions that matter in almost every session.</p>
+<hr>
+<p><strong>Q5.</strong> Existing developers on a project see Claude Code enforce a service-layer rule, but a new developer who cloned the same repository does not. What is the most likely cause?</p>
+<ul>
+<li>A) Claude Code ignores architecture rules for new users</li>
+<li>B) The new developer needs a longer conversation before Claude follows project patterns</li>
+<li>C) The rule should be moved from project CLAUDE.md into a Skill</li>
+<li>D) The rule exists in the original developers&#39; user-level <code>~/.claude/CLAUDE.md</code> files instead of the repository&#39;s project-level CLAUDE.md</li>
+</ul>
+<p><strong>Answer:</strong> D</p>
+<p><strong>Explanation:</strong> User-level CLAUDE.md files are personal and not shared with teammates. Team-wide rules must be placed in project-level CLAUDE.md and committed to the repository.</p>
+<hr>
 <h2>📌 Quick Revision Summary</h2>
 <ul>
 <li>CLAUDE.md: automatically loaded every session; for universal instructions and project context</li>
@@ -322,15 +404,15 @@ USER-LEVEL CLAUDE.md (~/.claude/CLAUDE.md or equivalent):
 <hr>
 <p><em>Notes by certification-study-hub. Chapter 05 — CLAUDE.md &amp; Skills.</em></p>
 
-        
+
         <div class="pagination">
           <a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="page-link prev">
           <span class="page-link-label">Previous</span>
-          <span class="page-link-title">← Long Document Extraction</span>
+          <span class="page-link-title">&larr; Long Document Extraction</span>
         </a>
           <a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="page-link next">
           <span class="page-link-label">Next</span>
-          <span class="page-link-title">Code Review Workflows →</span>
+          <span class="page-link-title">Code Review Workflows &rarr;</span>
         </a>
         </div>
       </div>

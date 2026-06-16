@@ -1,22 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const sidebar = document.getElementById('sidebar');
+  const backdrop = document.getElementById('sidebarBackdrop');
+
+  const setMenuState = (isOpen) => {
+    if (!mobileMenuBtn || !sidebar) return;
+    sidebar.classList.toggle('show', isOpen);
+    backdrop?.classList.toggle('show', isOpen);
+    mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+    mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Close course navigation' : 'Open course navigation');
+  };
 
   if (mobileMenuBtn && sidebar) {
     mobileMenuBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('show');
+      setMenuState(!sidebar.classList.contains('show'));
     });
   }
 
-  // Highlight active link and scroll into view if needed
-  const currentPath = window.location.pathname;
+  backdrop?.addEventListener('click', () => setMenuState(false));
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMenuState(false);
+  });
+
+  const currentPath = window.location.pathname.replace(/\/+$/, '');
   const links = document.querySelectorAll('.nav-link');
-  
-  links.forEach(link => {
-    // Basic exact match or ends-with match
-    if (link.href && currentPath.endsWith(new URL(link.href).pathname)) {
+
+  links.forEach((link) => {
+    const linkPath = new URL(link.href).pathname.replace(/\/+$/, '');
+    if (currentPath.endsWith(linkPath)) {
       link.classList.add('active');
-      link.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      link.setAttribute('aria-current', 'page');
+      link.scrollIntoView({ block: 'center', behavior: 'auto' });
     }
+
+    link.addEventListener('click', () => setMenuState(false));
   });
 });

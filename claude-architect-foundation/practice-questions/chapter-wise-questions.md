@@ -269,9 +269,97 @@
 
 ---
 
+**Q24.** A backend team wants Claude Code to generate new API endpoints that match several exemplar endpoint implementations. Those examples are only useful when creating new endpoints, not for bug fixes, code review, or documentation edits. Where should this context live?
+
+- A) Root CLAUDE.md, because examples are important
+- B) Every developer's user-level CLAUDE.md
+- C) A README that developers manually paste into each prompt
+- D) A Skill that references the exemplar endpoints and is invoked on demand by slash command
+
+**Answer:** D | **Category:** Skills vs CLAUDE.md
+
+---
+
+**Q25.** Existing developers see Claude Code enforce a service-layer rule, but a new developer who cloned the same repository does not. What is the most likely explanation?
+
+- A) Claude Code ignores architecture rules for new developers
+- B) The new developer must first run a longer session
+- C) The repository has too many files for Claude to load the rule
+- D) The rule exists in the original developers' user-level `~/.claude/CLAUDE.md` files instead of the project-level CLAUDE.md
+
+**Answer:** D | **Category:** Project vs User CLAUDE.md
+
+---
+
+**Q26.** Claude Code generates a refactor and explains the edge cases it considered. The same session then reviews the code and misses a subtle issue that human reviewers catch. What is the best workflow change?
+
+- A) Ask the same session to review twice
+- B) Use a second independent Claude Code instance that sees only the final diff, not the generator's reasoning
+- C) Ask Claude to explain the design more thoroughly before reviewing
+- D) Use batch processing because it removes all review bias
+
+**Answer:** B | **Category:** Independent Review
+
+---
+
+**Q27.** A team has two review modes: a pre-merge hook that must respond in minutes, and a deep overnight architecture review that can take up to 24 hours. Which should use the Message Batches API?
+
+- A) Deep overnight architecture review only
+- B) Pre-merge hook only
+- C) Both review modes
+- D) Neither review mode
+
+**Answer:** A | **Category:** Batch Review Routing
+
+---
+
+**Q28.** A documentation review prompt says "check comments are accurate and up-to-date," but findings are inconsistent. What is the best fix?
+
+- A) Flag every function without a docstring
+- B) Add style examples for preferred comment tone
+- C) Define a violation as a comment or docstring that makes a concrete claim contradicting actual code behavior
+- D) Remove comment review entirely
+
+**Answer:** C | **Category:** Review Criteria
+
+---
+
+**Q29.** A follow-up PR review repeats findings that were already fixed in earlier commits. What should the next review include?
+
+- A) Prior findings and their current resolution status, with instructions to report only new or still-unaddressed issues
+- B) Only the latest commit
+- C) A text filter that deletes similar comments
+- D) No historical context, to keep the review unbiased
+
+**Answer:** A | **Category:** Duplicate Review Comments
+
+---
+
+**Q30.** A code review workflow requires Claude to inspect a file, request imported files using tools, inspect tests, and continue analysis. Why is the Message Batches API a poor fit?
+
+- A) Batch cannot process source code
+- B) Batch only supports PDFs
+- C) Batch is always slower and less accurate
+- D) Batch processing cannot execute tools mid-request and return results for Claude to continue reasoning
+
+**Answer:** D | **Category:** Batch API Tool Limitation
+
+---
+
+**Q31.** A PR automation needs machine-readable findings with file paths, line numbers, severity, category, and suggested fix. What is the most reliable output strategy?
+
+- A) Ask Claude to return JSON in prose
+- B) Use structured JSON output with a schema, then parse the validated result for GitHub inline comments
+- C) Ask Claude to write Markdown tables
+- D) Put formatting examples in CLAUDE.md only
+
+**Answer:** B | **Category:** Structured Review Output
+
+---
+
 ## 📚 Cross-Domain Questions
 
-**Q24.** A conversation with Claude spans 45 turns covering 3 separate customer issues. As the conversation approaches turn 46, a support agent reports that Claude keeps "forgetting" key details from Turns 1–5. What is the best resolution?
+**Q32.** A conversation with Claude spans 45 turns covering 3 separate customer issues. As the conversation approaches turn 46, a support agent reports that Claude keeps "forgetting" key details from Turns 1–5. What is the best resolution?
 
 - A) Restart the conversation — context memory is too short for long support sessions
 - B) Extract and store key facts from resolved issues (order IDs, issue types, resolutions) in an external data store; retrieve them via tools when referenced in later turns
@@ -282,7 +370,7 @@
 
 ---
 
-**Q25.** An architect is designing a document processing pipeline. Documents arrive continuously, 80% are standard quarterly reports (no urgency), 20% are urgent regulatory filings (needed within 2 hours). Which architecture best balances cost and SLA compliance?
+**Q33.** An architect is designing a document processing pipeline. Documents arrive continuously, 80% are standard quarterly reports (no urgency), 20% are urgent regulatory filings (needed within 2 hours). Which architecture best balances cost and SLA compliance?
 
 - A) Process all documents through real-time API for reliability
 - B) Process all documents through batch API for cost savings

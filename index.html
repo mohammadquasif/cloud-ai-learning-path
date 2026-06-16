@@ -3,191 +3,343 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Certification Study Hub | Interactive Courses & Mock Tests</title>
+  <title>Certification Study Hub | Interactive Courses and Mock Tests</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --aws: #ff9900;
-      --claude: #8b5cf6;
-      --success: #10b981;
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-muted: #eef3f8;
+      --border: #d7dee8;
+      --text: #1f2937;
+      --muted: #64748b;
+      --aws: #b45309;
+      --claude: #2563eb;
+      --accent: #0f766e;
+      --shadow: 0 18px 50px rgba(30, 41, 59, 0.12);
     }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
       color: var(--text);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       min-height: 100vh;
       margin: 0;
-      padding: 2rem;
-      text-align: center;
     }
+
+    .page {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 3rem 0;
+    }
+
     .hero {
-      margin-top: 4rem;
-      margin-bottom: 3rem;
+      padding: 2rem 0 1.25rem;
     }
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-    }
-    p.subtitle {
-      color: var(--muted);
-      font-size: 1.15rem;
-      max-width: 620px;
-      line-height: 1.7;
-    }
-    .cards {
+
+    .page-actions {
       display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
+      justify-content: flex-end;
+      margin-bottom: 1rem;
+    }
+
+    .repo-link {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      max-width: 950px;
-    }
-    .card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      width: 380px;
-      border: 1px solid #334155;
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      text-align: left;
-    }
-    .card:hover { transform: translateY(-5px); }
-    .card.aws:hover { box-shadow: 0 10px 30px rgba(255,153,0,0.15); border-color: rgba(255,153,0,0.4); }
-    .card.claude:hover { box-shadow: 0 10px 30px rgba(139,92,246,0.2); border-color: rgba(139,92,246,0.4); }
-
-    .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-    .card-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; }
-    .card.aws .card-title { color: var(--aws); }
-    .card.claude .card-title { color: var(--claude); }
-
-    .card-desc {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-
-    .card-features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 2rem 0;
-    }
-    .card-features li {
-      padding: 0.4rem 0;
-      font-size: 0.9rem;
-      color: var(--text);
-    }
-    .card-features li::before {
-      content: '✅ ';
-    }
-
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    .btn {
-      display: block;
-      text-decoration: none;
-      padding: 14px 24px;
+      min-height: 42px;
+      padding: 0.7rem 0.95rem;
       border-radius: 8px;
-      font-weight: 600;
-      font-size: 1rem;
-      text-align: center;
-      transition: opacity 0.2s, transform 0.2s;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 1px 0 rgba(30, 41, 59, 0.03);
     }
-    .btn:hover { opacity: 0.92; transform: translateY(-1px); }
 
-    .btn-primary.aws { background: var(--aws); color: #000; }
-    .btn-primary.claude { background: var(--claude); color: #fff; }
+    .repo-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.78rem;
+      margin-bottom: 0.8rem;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      line-height: 1.04;
+      margin: 0 0 1rem;
+      letter-spacing: 0;
+      max-width: 900px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      max-width: 720px;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .course-card {
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 0 rgba(30, 41, 59, 0.03);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .course-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .course-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .course-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      display: inline-grid;
+      place-items: center;
+      font-weight: 800;
+      color: #ffffff;
+      flex: 0 0 auto;
+    }
+
+    .aws .course-mark {
+      background: var(--aws);
+    }
+
+    .claude .course-mark {
+      background: var(--claude);
+    }
+
+    .course-title {
+      font-size: 1.45rem;
+      line-height: 1.25;
+      font-weight: 800;
+      margin: 0 0 0.5rem;
+    }
+
+    .course-desc {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin: 0 0 1.25rem;
+    }
+
+    .course-features {
+      display: grid;
+      gap: 0.55rem;
+      padding: 0;
+      margin: 0 0 1.5rem;
+      list-style: none;
+    }
+
+    .course-features li {
+      display: flex;
+      gap: 0.55rem;
+      color: #334155;
+      font-size: 0.94rem;
+    }
+
+    .course-features li::before {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      background: var(--accent);
+      margin-top: 0.55rem;
+      flex: 0 0 auto;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      padding: 0.82rem 1rem;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      min-height: 44px;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: #111827;
+    }
 
     .btn-secondary {
-      background: transparent;
-      border: 1px solid #475569;
+      background: var(--surface-muted);
+      border-color: var(--border);
       color: var(--text);
     }
+
     .btn-secondary:hover {
-      border-color: var(--text);
-      background: rgba(255,255,255,0.05);
+      border-color: var(--muted);
     }
 
     .footer {
-      margin-top: 4rem;
-      padding: 2rem;
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
-    .footer a { color: var(--text); text-decoration: none; }
-    .footer a:hover { text-decoration: underline; }
 
-    @media (max-width: 768px) {
-      h1 { font-size: 2rem; }
-      .card { width: 100%; }
-      .hero { margin-top: 2rem; }
+    .footer a {
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 780px) {
+      .page {
+        width: min(100% - 1.25rem, 1120px);
+        padding: 1.75rem 0;
+      }
+
+      .course-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .course-card {
+        padding: 1.15rem;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .page-actions {
+        justify-content: stretch;
+      }
+
+      .repo-link {
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
+  <main class="page">
+    <div class="page-actions">
+      <a class="repo-link" href="https://github.com/mohammadquasif/certification-study-hub">Back to Repo</a>
+    </div>
 
-  <div class="hero">
-    <h1>☁️ Certification Study Hub</h1>
-    <p class="subtitle">Free, open-source study guides and interactive mock tests to help you ace your cloud certifications.</p>
-  </div>
+    <section class="hero">
+      <div class="eyebrow">Open study guides and timed practice</div>
+      <h1>Certification Study Hub</h1>
+      <p class="subtitle">Free study notes, practical examples, revision pages, and interactive mock tests for learners preparing for cloud and AI certification exams.</p>
+    </section>
 
-  <div class="cards">
-    <!-- AWS Card -->
-    <div class="card aws">
-      <div>
-        <div class="card-icon">🟧</div>
-        <div class="card-title">AWS Cloud Practitioner</div>
-        <div class="card-desc">Complete study guide covering all 4 exam domains — from Cloud Concepts to Billing & Support.</div>
-        <ul class="card-features">
-          <li>6 chapter study guides with examples</li>
+    <section class="course-grid" aria-label="Available courses">
+      <article class="course-card aws">
+        <div class="course-top">
+          <div>
+            <h2 class="course-title">AWS Cloud Practitioner</h2>
+            <p class="course-desc">A beginner-friendly path through cloud concepts, AWS global infrastructure, core services, security, pricing, and cloud adoption.</p>
+          </div>
+          <div class="course-mark" aria-hidden="true">AWS</div>
+        </div>
+        <ul class="course-features">
+          <li>Chapter study guides with practical examples</li>
+          <li>Flashcards for fast recall</li>
           <li>Practice questions with explanations</li>
-          <li>Quick revision cheat sheet</li>
+          <li>Quick revision notes for the final day</li>
           <li>Interactive 65-question mock test</li>
         </ul>
-      </div>
-      <div class="btn-group">
-        <a href="docs/aws-cloud-practitioner/README.html" class="btn btn-primary aws">📖 Read Full Study Guide</a>
-        <a href="docs/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="btn btn-secondary">🚀 Take 65-Q Mock Test</a>
-      </div>
-    </div>
+        <div class="actions">
+          <a href="docs/aws-cloud-practitioner/README.html" class="btn btn-primary">Read Study Guide</a>
+          <a href="docs/aws-cloud-practitioner/00-certification-roadmap.html" class="btn btn-secondary">View Roadmap</a>
+          <a href="docs/aws-cloud-practitioner/flashcards.html" class="btn btn-secondary">Use Flashcards</a>
+          <a href="docs/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="btn btn-secondary">Take Mock Test</a>
+        </div>
+      </article>
 
-    <!-- Claude Card -->
-    <div class="card claude">
-      <div>
-        <div class="card-icon">🟦</div>
-        <div class="card-title">Claude Architect Foundation</div>
-        <div class="card-desc">Complete study guide covering Agentic Patterns, Tool Use, MCP, Structured Output, and Claude Code.</div>
-        <ul class="card-features">
-          <li>5 chapters with 18 detailed lessons</li>
-          <li>Practice questions with explanations</li>
-          <li>Quick revision cheat sheet</li>
+      <article class="course-card claude">
+        <div class="course-top">
+          <div>
+            <h2 class="course-title">Claude Architect Foundation</h2>
+            <p class="course-desc">A scenario-based course covering Claude fundamentals, agentic patterns, tool use, MCP, structured output, Claude Code, and reliability design.</p>
+          </div>
+          <div class="course-mark" aria-hidden="true">AI</div>
+        </div>
+        <ul class="course-features">
+          <li>Roadmap, diagrams, and domain-focused lessons</li>
+          <li>Official Anthropic Academy and documentation links</li>
+          <li>Flashcards for fast architecture recall</li>
+          <li>Chapter-wise practice questions with explanations</li>
           <li>Interactive 60-question mock test</li>
         </ul>
-      </div>
-      <div class="btn-group">
-        <a href="docs/claude-architect-foundation/README.html" class="btn btn-primary claude">📖 Read Full Study Guide</a>
-        <a href="docs/claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="btn btn-secondary">🚀 Take 60-Q Mock Test</a>
-      </div>
-    </div>
-  </div>
+        <div class="actions">
+          <a href="docs/claude-architect-foundation/README.html" class="btn btn-primary">Read Study Guide</a>
+          <a href="docs/claude-architect-foundation/00-certification-roadmap.html" class="btn btn-secondary">View Roadmap</a>
+          <a href="docs/claude-architect-foundation/flashcards.html" class="btn btn-secondary">Use Flashcards</a>
+          <a href="docs/claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="btn btn-secondary">Take Mock Test</a>
+        </div>
+      </article>
+    </section>
 
-  <div class="footer">
-    Made with ❤️ for cloud learners everywhere.<br><br>
-    <a href="https://github.com/mohammadquasif/certification-study-hub">⭐ Star this on GitHub</a>
-  </div>
-
+    <footer class="footer">
+      <span>Made for learners who prefer practical notes over noise.</span>
+      <a href="https://github.com/mohammadquasif/certification-study-hub">Star this project on GitHub</a>
+    </footer>
+  </main>
 </body>
 </html>

@@ -5,25 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mock Test 01 | Certification Study Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
-  
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="topbar">
     <div class="topbar-content">
-      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      <a href="../../index.html" class="logo">Certification Study Hub</a>
+      <div class="topbar-actions">
+        <a class="repo-link" href="https://github.com/mohammadquasif/certification-study-hub">Back to Repo</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open course navigation" aria-expanded="false" aria-controls="sidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="layout">
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h3>AWS Cloud Practitioner</h3>
       </div>
-      <nav class="sidebar-nav">
-        <div class="nav-group">
+      <nav class="sidebar-nav" aria-label="Course navigation">
+        <a href="../../aws-cloud-practitioner/00-certification-roadmap.html" class="nav-link">00 Certification Roadmap</a>
+<div class="nav-group">
         <div class="nav-group-title">01 Cloud Concepts</div>
         <a href="../../aws-cloud-practitioner/01-cloud-concepts/what-is-cloud.html" class="nav-link">What Is Cloud</a>
 
@@ -58,7 +68,8 @@
         <div class="nav-group-title">06 Cloud Technology And Services</div>
         <a href="../../aws-cloud-practitioner/06-cloud-technology-and-services/cloud-adoption-framework.html" class="nav-link">Cloud Adoption Framework</a>
 
-      </div><div class="nav-group">
+      </div><a href="../../aws-cloud-practitioner/flashcards.html" class="nav-link">Flashcards</a>
+<div class="nav-group">
         <div class="nav-group-title">Mock Tests</div>
         <a href="../../aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="nav-link">Ccp Mock Test 65q</a>
 <a href="../../aws-cloud-practitioner/mock-tests/mock-test-01.html" class="nav-link">Mock Test 01</a>
@@ -76,100 +87,216 @@
       </nav>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" id="main-content">
       <div class="content-container">
-        <h1>Full Mock Test 01: AWS Cloud Practitioner</h1>
+        <h1>Mini Mock Test 01: AWS Certified Cloud Practitioner</h1>
 <blockquote>
-<p><strong>Exam:</strong> AWS Certified Cloud Practitioner (CLF-C02)
-<strong>Questions:</strong> 10 (Mini-Mock)
-<strong>Time Limit:</strong> 15 Minutes
-<strong>Passing Score:</strong> 70%</p>
+<p><strong>Exam:</strong> AWS Certified Cloud Practitioner (CLF-C02)<br><strong>Questions:</strong> 20 original questions<br><strong>Time Limit:</strong> 30 minutes<br><strong>Passing Target:</strong> 70% or higher before attempting the full 65-question mock</p>
 </blockquote>
 <hr>
-<h2>📝 Test Instructions</h2>
+<h2>Test Instructions</h2>
 <ol>
-<li>Take this test only after completing all chapters.</li>
-<li>Note your answers on a piece of paper.</li>
-<li>Check your answers using the key at the bottom.</li>
+<li>Answer all questions before viewing the key.</li>
+<li>Treat multi-response questions carefully; they say &quot;Choose TWO.&quot;</li>
+<li>Use this as a warm-up before the full timed HTML mock test.</li>
+<li>Review every wrong answer in the quick revision guide.</li>
 </ol>
 <hr>
-<h3>Questions</h3>
-<p><strong>1. A startup is building an application that requires a NoSQL database with single-digit millisecond latency. Which service should they choose?</strong>
-A) Amazon Aurora
-B) Amazon RDS
-C) Amazon DynamoDB
-D) Amazon Redshift</p>
-<p><strong>2. Which AWS service is specifically designed to protect web applications against SQL injection and cross-site scripting (XSS) attacks?</strong>
-A) AWS Shield
-B) AWS WAF
-C) Amazon Inspector
-D) AWS KMS</p>
-<p><strong>3. An organization wants to combine the AWS bills of its multiple departments into a single payment. Which service provides this feature?</strong>
-A) AWS Cost Explorer
-B) AWS Budgets
-C) AWS Organizations
-D) AWS Pricing Calculator</p>
-<p><strong>4. Which AWS service allows you to track API calls made by users and resources within your AWS account for auditing purposes?</strong>
-A) AWS Config
-B) Amazon CloudWatch
-C) AWS CloudTrail
-D) AWS Trusted Advisor</p>
-<p><strong>5. A company needs to store data that is rarely accessed but must be retained for 10 years for compliance reasons. Which S3 storage class is the most cost-effective?</strong>
-A) S3 Standard
-B) S3 Intelligent-Tiering
-C) S3 One Zone-IA
-D) S3 Glacier Deep Archive</p>
-<p><strong>6. Which AWS well-architected pillar focuses on using IT and computing resources efficiently, selecting the right resource types and sizes based on workload requirements?</strong>
-A) Reliability
-B) Performance Efficiency
-C) Cost Optimization
-D) Operational Excellence</p>
-<p><strong>7. Which component of the AWS Global Infrastructure allows you to cache content closer to end-users to reduce latency?</strong>
-A) Availability Zones
-B) Edge Locations
-C) AWS Regions
-D) AWS Local Zones</p>
-<p><strong>8. Which AWS service provides a virtual network dedicated to your AWS account, allowing you to launch resources into a logically isolated environment?</strong>
-A) Amazon Route 53
-B) AWS Direct Connect
-C) Amazon VPC
-D) AWS VPN</p>
-<p><strong>9. What is the primary benefit of deploying an Amazon EC2 instance in multiple Availability Zones?</strong>
-A) Lower latency for global users
-B) Fault tolerance and high availability
-C) Reduced compute costs
-D) Automatic software patching</p>
-<p><strong>10. A company needs an automated tool to check their AWS environment for unattached EBS volumes and open security groups. Which tool should they use?</strong>
-A) AWS Trusted Advisor
-B) AWS CloudTrail
-C) AWS Config
-D) AWS Systems Manager</p>
+<h2>Questions</h2>
+<p><strong>1. A company wants to identify who deleted a security group rule and when the action occurred. Which AWS service should it use?</strong></p>
+<p>A) AWS CloudTrail<br>B) Amazon CloudWatch metrics<br>C) AWS Trusted Advisor<br>D) AWS Pricing Calculator</p>
+<p><strong>2. A business wants to move from large upfront server purchases to paying only for monthly resource consumption. Which AWS Cloud benefit is this?</strong></p>
+<p>A) Go global in minutes<br>B) Trade capital expense for variable expense<br>C) Increase application coupling<br>D) Use single-tenant infrastructure</p>
+<p><strong>3. A company has a long-running predictable EC2 workload and wants the largest discount. Which option is most appropriate?</strong></p>
+<p>A) On-Demand Instances<br>B) Spot Instances<br>C) Standard Reserved Instances with All Upfront payment<br>D) Dedicated Instances without commitment</p>
+<p><strong>4. Which AWS service protects web applications from SQL injection and cross-site scripting attacks?</strong></p>
+<p>A) AWS WAF<br>B) AWS Shield<br>C) Amazon Macie<br>D) AWS Artifact</p>
+<p><strong>5. A team wants to run application code when a file is uploaded to Amazon S3, without managing servers. Which service should it use?</strong></p>
+<p>A) Amazon EC2<br>B) AWS Lambda<br>C) AWS Direct Connect<br>D) AWS Service Catalog</p>
+<p><strong>6. A company needs a managed NoSQL key-value database with single-digit millisecond latency. Which service fits best?</strong></p>
+<p>A) Amazon Redshift<br>B) Amazon RDS<br>C) Amazon DynamoDB<br>D) Amazon EFS</p>
+<p><strong>7. Which AWS service provides consolidated billing across multiple AWS accounts?</strong></p>
+<p>A) AWS Organizations<br>B) AWS Cost Explorer<br>C) AWS Budgets<br>D) AWS Marketplace</p>
+<p><strong>8. A company wants to cache static website content closer to global users. Which service should it use?</strong></p>
+<p>A) Amazon CloudFront<br>B) AWS Config<br>C) AWS Direct Connect<br>D) Amazon EBS</p>
+<p><strong>9. Under the AWS Shared Responsibility Model for Amazon EC2, which task is the customer&#39;s responsibility?</strong></p>
+<p>A) Maintaining physical data center cooling<br>B) Replacing failed host hardware<br>C) Patching the guest operating system<br>D) Maintaining the hypervisor</p>
+<p><strong>10. A company stores compliance archives that are rarely accessed and can wait 12 hours for retrieval. Which S3 storage class is most cost-effective?</strong></p>
+<p>A) S3 Standard<br>B) S3 Intelligent-Tiering<br>C) S3 Glacier Instant Retrieval<br>D) S3 Glacier Deep Archive</p>
+<p><strong>11. A team wants to receive an alert when monthly AWS spend reaches a chosen threshold. Which service should be used?</strong></p>
+<p>A) AWS Budgets<br>B) AWS CloudTrail<br>C) AWS Artifact<br>D) Amazon Inspector</p>
+<p><strong>12. A workload can tolerate interruption and must use the lowest-cost EC2 capacity. Which purchase option should be selected?</strong></p>
+<p>A) On-Demand<br>B) Spot<br>C) Dedicated Host<br>D) Enterprise Support</p>
+<p><strong>13. Which AWS service continuously evaluates resource configurations, such as whether only approved AMIs are used?</strong></p>
+<p>A) AWS Config<br>B) Amazon CloudWatch Logs<br>C) AWS Pricing Calculator<br>D) Amazon Transcribe</p>
+<p><strong>14. A company needs a shared Windows file system using SMB protocol. Which service should it choose?</strong></p>
+<p>A) Amazon EFS<br>B) Amazon FSx for Windows File Server<br>C) Amazon EBS<br>D) S3 Glacier Flexible Retrieval</p>
+<p><strong>15. Which service is best for a data warehouse used by analysts for business intelligence queries?</strong></p>
+<p>A) Amazon Neptune<br>B) Amazon Redshift<br>C) Amazon ElastiCache<br>D) Amazon DynamoDB</p>
+<p><strong>16. A developer wants to run containers without managing EC2 instances or host patching. Which service should be used?</strong></p>
+<p>A) AWS Fargate<br>B) Amazon EC2 Dedicated Hosts<br>C) AWS CloudFormation<br>D) Amazon Route 53</p>
+<p><strong>17. Which two actions are recommended for securing an AWS account root user? Choose TWO.</strong></p>
+<p>A) Enable multi-factor authentication on the root user<br>B) Use the root user for all daily administration<br>C) Create IAM users or roles for daily administrative work<br>D) Share root credentials through a password manager with all developers<br>E) Disable CloudTrail after setup</p>
+<p><strong>18. A company wants to estimate the monthly AWS cost of a proposed architecture before deploying it. Which tool should it use?</strong></p>
+<p>A) AWS Pricing Calculator<br>B) AWS Cost Explorer<br>C) AWS Budgets<br>D) AWS CloudTrail</p>
+<p><strong>19. A workload must remain available if one Availability Zone fails. Which design should the company use?</strong></p>
+<p>A) Deploy all resources into one subnet<br>B) Deploy across multiple Availability Zones<br>C) Store all data in one EBS volume<br>D) Use only one EC2 instance with a larger size</p>
+<p><strong>20. A company needs a support plan that includes a Technical Account Manager and the fastest response for business-critical systems. Which plan should it choose?</strong></p>
+<p>A) Basic<br>B) Developer<br>C) Business<br>D) Enterprise</p>
 <hr>
-<h3>🛑 STOP! Do not scroll further until you have answered all questions.</h3>
+<h2>Stop Before Viewing Answers</h2>
+<p>Scroll only after you have answered all 20 questions.</p>
 <hr>
-<h2>✅ Answer Key &amp; Explanations</h2>
-<ol>
-<li><strong>C</strong> - DynamoDB is AWS&#39;s fully managed, serverless NoSQL database providing millisecond latency.</li>
-<li><strong>B</strong> - AWS WAF operates at Layer 7 to protect against common web exploits like SQLi and XSS.</li>
-<li><strong>C</strong> - AWS Organizations offers Consolidated Billing, combining multiple accounts into one invoice.</li>
-<li><strong>C</strong> - CloudTrail logs API activity (&quot;who did what&quot;).</li>
-<li><strong>D</strong> - Glacier Deep Archive is the cheapest storage class, designed for long-term data retention where retrieval time of 12+ hours is acceptable.</li>
-<li><strong>B</strong> - Performance Efficiency focuses on selecting the right resource types and sizes and maintaining efficiency as demand changes.</li>
-<li><strong>B</strong> - Edge Locations are used by Amazon CloudFront to cache content close to users.</li>
-<li><strong>C</strong> - Amazon VPC (Virtual Private Cloud) provides a logically isolated network section.</li>
-<li><strong>B</strong> - Multiple AZs protect your application from a failure in a single data center.</li>
-<li><strong>A</strong> - Trusted Advisor acts as an automated expert, checking for Cost Optimization (unattached volumes) and Security (open ports).</li>
-</ol>
+<h2>Answer Key And Explanations</h2>
+<table>
+<thead>
+<tr>
+<th align="right">Q</th>
+<th align="center">Answer</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">1</td>
+<td align="center">A</td>
+<td>CloudTrail records AWS API activity and is used to answer &quot;who did what and when.&quot;</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="center">B</td>
+<td>Avoiding upfront hardware and paying for usage is the CapEx-to-variable-expense cloud benefit.</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="center">C</td>
+<td>Predictable long-running EC2 workloads get strong discounts from Reserved Instances; All Upfront gives the highest RI discount.</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="center">A</td>
+<td>AWS WAF protects web apps against SQL injection, XSS, and similar Layer 7 attacks.</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td align="center">B</td>
+<td>Lambda is event-driven serverless compute and fits S3 upload triggers.</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td align="center">C</td>
+<td>DynamoDB is the managed NoSQL key-value/document database associated with single-digit millisecond latency.</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td align="center">A</td>
+<td>AWS Organizations provides consolidated billing and account governance.</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td align="center">A</td>
+<td>CloudFront caches content at edge locations near users.</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td align="center">C</td>
+<td>For EC2, customers manage the guest OS, applications, data, and IAM configuration.</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td align="center">D</td>
+<td>Glacier Deep Archive is lowest-cost storage for long-term archives with hours retrieval.</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td align="center">A</td>
+<td>AWS Budgets sends cost and usage alerts based on thresholds.</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td align="center">B</td>
+<td>Spot Instances are cheapest but interruptible, so they fit fault-tolerant workloads.</td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td align="center">A</td>
+<td>AWS Config records and evaluates resource configurations against rules.</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td align="center">B</td>
+<td>FSx for Windows File Server supports SMB and Windows-native shared file systems.</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td align="center">B</td>
+<td>Redshift is the AWS data warehouse service for analytics and BI.</td>
+</tr>
+<tr>
+<td align="right">16</td>
+<td align="center">A</td>
+<td>Fargate runs containers without EC2 host management.</td>
+</tr>
+<tr>
+<td align="right">17</td>
+<td align="center">A, C</td>
+<td>Secure root with MFA and use IAM identities for daily work.</td>
+</tr>
+<tr>
+<td align="right">18</td>
+<td align="center">A</td>
+<td>Pricing Calculator estimates cost before deployment; Cost Explorer analyzes existing spend.</td>
+</tr>
+<tr>
+<td align="right">19</td>
+<td align="center">B</td>
+<td>Multi-AZ design supports high availability during an AZ failure.</td>
+</tr>
+<tr>
+<td align="right">20</td>
+<td align="center">D</td>
+<td>Enterprise Support includes a Technical Account Manager and fastest critical response.</td>
+</tr>
+</tbody></table>
+<h2>Score Interpretation</h2>
+<table>
+<thead>
+<tr>
+<th align="right">Score</th>
+<th>Meaning</th>
+<th>Next Step</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">18-20</td>
+<td>Strong readiness</td>
+<td>Take the full 65-question mock under timed conditions</td>
+</tr>
+<tr>
+<td align="right">14-17</td>
+<td>Close</td>
+<td>Review wrong domains, then retake</td>
+</tr>
+<tr>
+<td align="right">10-13</td>
+<td>Needs reinforcement</td>
+<td>Re-read quick revision and chapter questions</td>
+</tr>
+<tr>
+<td align="right">Below 10</td>
+<td>Too early</td>
+<td>Study the main lessons again before attempting the full mock</td>
+</tr>
+</tbody></table>
 
-        
+
         <div class="pagination">
           <a href="../../aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="page-link prev">
           <span class="page-link-label">Previous</span>
-          <span class="page-link-title">← Ccp Mock Test 65q</span>
+          <span class="page-link-title">&larr; Ccp Mock Test 65q</span>
         </a>
           <a href="../../aws-cloud-practitioner/practice-questions/chapter-wise-questions.html" class="page-link next">
           <span class="page-link-label">Next</span>
-          <span class="page-link-title">Chapter Wise Questions →</span>
+          <span class="page-link-title">Chapter Wise Questions &rarr;</span>
         </a>
         </div>
       </div>
