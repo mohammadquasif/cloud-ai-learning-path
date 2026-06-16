@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Certification Study Hub | Interactive Courses</title>
+  <title>Certification Study Hub | Interactive Courses & Mock Tests</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
@@ -22,141 +22,95 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       min-height: 100vh;
       margin: 0;
       padding: 2rem;
       text-align: center;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    p.subtitle {
-      color: var(--muted);
-      font-size: 1.1rem;
-      margin-bottom: 3rem;
-      max-width: 600px;
-    }
-    .cards {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 900px;
-    }
+    .hero { margin-top: 4rem; margin-bottom: 3rem; }
+    h1 { font-size: 2.8rem; margin-bottom: 0.5rem; }
+    p.subtitle { color: var(--muted); font-size: 1.15rem; max-width: 620px; line-height: 1.7; }
+    .cards { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; max-width: 950px; }
     .card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      width: 350px;
-      border: 1px solid #334155;
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      background: var(--card); border-radius: 16px; padding: 2.5rem 2rem;
+      width: 380px; border: 1px solid #334155; transition: transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column; justify-content: space-between; text-align: left;
     }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card.aws:hover { box-shadow: 0 10px 30px rgba(255, 153, 0, 0.15); border-color: rgba(255, 153, 0, 0.4); }
-    .card.claude:hover { box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2); border-color: rgba(139, 92, 246, 0.4); }
-    
-    .card-title {
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
+    .card:hover { transform: translateY(-5px); }
+    .card.aws:hover { box-shadow: 0 10px 30px rgba(255,153,0,0.15); border-color: rgba(255,153,0,0.4); }
+    .card.claude:hover { box-shadow: 0 10px 30px rgba(139,92,246,0.2); border-color: rgba(139,92,246,0.4); }
+    .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .card-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; }
     .card.aws .card-title { color: var(--aws); }
     .card.claude .card-title { color: var(--claude); }
-    
-    .card-desc {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-    
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+    .card-desc { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; }
+    .card-features { list-style: none; padding: 0; margin: 0 0 2rem 0; }
+    .card-features li { padding: 0.4rem 0; font-size: 0.9rem; color: var(--text); }
+    .card-features li::before { content: '✅ '; }
+    .btn-group { display: flex; flex-direction: column; gap: 0.75rem; }
     .btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: opacity 0.2s, background 0.2s;
+      display: block; text-decoration: none; padding: 14px 24px; border-radius: 8px;
+      font-weight: 600; font-size: 1rem; text-align: center; transition: opacity 0.2s, transform 0.2s;
     }
-    .btn:hover { opacity: 0.9; }
-    
+    .btn:hover { opacity: 0.92; transform: translateY(-1px); }
     .btn-primary.aws { background: var(--aws); color: #000; }
     .btn-primary.claude { background: var(--claude); color: #fff; }
-    
-    .btn-secondary {
-      background: transparent;
-      border: 1px solid var(--muted);
-      color: var(--text);
-    }
-    .btn-secondary:hover {
-      border-color: var(--text);
-      background: rgba(255,255,255,0.05);
-    }
-    
-    .footer {
-      margin-top: 4rem;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-    .footer a {
-      color: var(--text);
-      text-decoration: none;
-    }
-    .footer a:hover {
-      text-decoration: underline;
-    }
+    .btn-secondary { background: transparent; border: 1px solid #475569; color: var(--text); }
+    .btn-secondary:hover { border-color: var(--text); background: rgba(255,255,255,0.05); }
+    .footer { margin-top: 4rem; padding: 2rem; color: var(--muted); font-size: 0.85rem; }
+    .footer a { color: var(--text); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    @media (max-width: 768px) { h1 { font-size: 2rem; } .card { width: 100%; } .hero { margin-top: 2rem; } }
   </style>
 </head>
 <body>
 
-  <h1>☁️ Certification Study Hub</h1>
-  <p class="subtitle">Free, interactive study guides and mock tests for your cloud certifications.</p>
+  <div class="hero">
+    <h1>☁️ Certification Study Hub</h1>
+    <p class="subtitle">Free, open-source study guides and interactive mock tests to help you ace your cloud certifications.</p>
+  </div>
 
   <div class="cards">
-    <!-- AWS Card -->
     <div class="card aws">
       <div>
+        <div class="card-icon">🟧</div>
         <div class="card-title">AWS Cloud Practitioner</div>
-        <div class="card-desc">
-          Master AWS global infrastructure, core services, security, and billing. Complete study guide + interactive 65-question mock test.
-        </div>
+        <div class="card-desc">Complete study guide covering all 4 exam domains — from Cloud Concepts to Billing & Support.</div>
+        <ul class="card-features">
+          <li>6 chapter study guides with examples</li>
+          <li>Practice questions with explanations</li>
+          <li>Quick revision cheat sheet</li>
+          <li>Interactive 65-question mock test</li>
+        </ul>
       </div>
       <div class="btn-group">
-        <a href="aws-cloud-practitioner/README.html" class="btn btn-primary aws">📖 Read Study Guide</a>
+        <a href="aws-cloud-practitioner/README.html" class="btn btn-primary aws">📖 Read Full Study Guide</a>
         <a href="aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="btn btn-secondary">🚀 Take 65-Q Mock Test</a>
       </div>
     </div>
 
-    <!-- Claude Card -->
     <div class="card claude">
       <div>
+        <div class="card-icon">🟦</div>
         <div class="card-title">Claude Architect Foundation</div>
-        <div class="card-desc">
-          Validate your understanding of Agentic Patterns, Tool Use, MCP Design, and Structured Outputs. Complete study guide + interactive mock test.
-        </div>
+        <div class="card-desc">Complete study guide covering Agentic Patterns, Tool Use, MCP, Structured Output, and Claude Code.</div>
+        <ul class="card-features">
+          <li>5 chapters with 18 detailed lessons</li>
+          <li>Practice questions with explanations</li>
+          <li>Quick revision cheat sheet</li>
+          <li>Interactive 60-question mock test</li>
+        </ul>
       </div>
       <div class="btn-group">
-        <a href="claude-architect-foundation/README.html" class="btn btn-primary claude">📖 Read Study Guide</a>
+        <a href="claude-architect-foundation/README.html" class="btn btn-primary claude">📖 Read Full Study Guide</a>
         <a href="claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="btn btn-secondary">🚀 Take 60-Q Mock Test</a>
       </div>
     </div>
   </div>
 
   <div class="footer">
-    Created with ❤️ by the community. <br><br>
-    <a href="https://github.com/mohammadquasif/certification-study-hub">Return to GitHub Repository</a>
+    Made with ❤️ for cloud learners everywhere.<br><br>
+    <a href="https://github.com/mohammadquasif/certification-study-hub">⭐ Star this on GitHub</a>
   </div>
 
 </body>
