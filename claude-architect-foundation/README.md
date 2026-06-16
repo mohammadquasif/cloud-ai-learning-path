@@ -31,15 +31,15 @@ Do not start by opening random Markdown files. The easiest way to study is throu
 
 Read the interactive course in the browser:
 
-[Open the Claude Architect Foundation Course](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/README.html)
+[Open the Claude Architect Foundation Course](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/README.html)
 
 Use flashcards for fast recall:
 
-[Open Claude Flashcards](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/flashcards.html)
+[Open Claude Flashcards](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/flashcards.html)
 
 Take the interactive mock test:
 
-[Start the 60-Question Claude Mock Test](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/mock-tests/caf-mock-test-60q.html)
+[Start the 60-Question Claude Mock Test](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/mock-tests/caf-mock-test-60q.html)
 
 Use this GitHub README as the source map. Use the interactive site for actual studying.
 
@@ -54,12 +54,12 @@ Use this GitHub README as the source map. Use the interactive site for actual st
 
 Direct links:
 
-- [Claude Course Home](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/README.html)
-- [Certification Roadmap](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/00-certification-roadmap.html)
-- [Flashcards](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/flashcards.html)
-- [Chapter-Wise Practice Questions](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/practice-questions/chapter-wise-questions.html)
-- [Quick Revision Notes](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/revision-notes/quick-revision.html)
-- [60-Question Mock Test](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/mock-tests/caf-mock-test-60q.html)
+- [Claude Course Home](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/README.html)
+- [Certification Roadmap](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/00-certification-roadmap.html)
+- [Flashcards](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/flashcards.html)
+- [Chapter-Wise Practice Questions](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/practice-questions/chapter-wise-questions.html)
+- [Quick Revision Notes](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/revision-notes/quick-revision.html)
+- [60-Question Mock Test](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/mock-tests/caf-mock-test-60q.html)
 
 ---
 

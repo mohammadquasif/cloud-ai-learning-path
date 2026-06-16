@@ -28,11 +28,11 @@ Simple rule: learn first, recall second, practice third, mock last.
 
 Use the GitHub Pages website for studying. It has sidebar navigation, responsive pages, diagrams, and direct mock-test access.
 
-[Open the AWS Cloud Practitioner Course](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/README.html)
+[Open the AWS Cloud Practitioner Course](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/README.html)
 
-[Use AWS Flashcards](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/flashcards.html)
+[Use AWS Flashcards](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/flashcards.html)
 
-[Take the 65-Question AWS Mock Test](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)
+[Take the 65-Question AWS Mock Test](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)
 
 Use this README as the source map. Use the interactive site for day-to-day reading.
 
@@ -48,12 +48,12 @@ Use this README as the source map. Use the interactive site for day-to-day readi
 
 Direct links:
 
-- [AWS Course Home](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/README.html)
-- [Certification Roadmap](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/00-certification-roadmap.html)
-- [Flashcards](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/flashcards.html)
-- [Chapter-Wise Practice Questions](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/practice-questions/chapter-wise-questions.html)
-- [Quick Revision Notes](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/revision-notes/quick-revision.html)
-- [65-Question Mock Test](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)
+- [AWS Course Home](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/README.html)
+- [Certification Roadmap](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/00-certification-roadmap.html)
+- [Flashcards](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/flashcards.html)
+- [Chapter-Wise Practice Questions](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/practice-questions/chapter-wise-questions.html)
+- [Quick Revision Notes](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/revision-notes/quick-revision.html)
+- [65-Question Mock Test](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)
 
 ---
 

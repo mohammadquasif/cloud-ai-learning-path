@@ -39,14 +39,14 @@ Best experience:
 
 Direct course links:
 
-- [AWS Cloud Practitioner Study Guide](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/README.html)
-- [AWS Cloud Practitioner Roadmap](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/00-certification-roadmap.html)
-- [AWS Cloud Practitioner Flashcards](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/flashcards.html)
-- [AWS Cloud Practitioner 65-Question Mock Test](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)
-- [Claude Architect Foundation Study Guide](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/README.html)
-- [Claude Architect Foundation Roadmap](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/00-certification-roadmap.html)
-- [Claude Architect Foundation Flashcards](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/flashcards.html)
-- [Claude Architect Foundation 60-Question Mock Test](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/mock-tests/caf-mock-test-60q.html)
+- [AWS Cloud Practitioner Study Guide](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/README.html)
+- [AWS Cloud Practitioner Roadmap](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/00-certification-roadmap.html)
+- [AWS Cloud Practitioner Flashcards](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/flashcards.html)
+- [AWS Cloud Practitioner 65-Question Mock Test](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)
+- [Claude Architect Foundation Study Guide](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/README.html)
+- [Claude Architect Foundation Roadmap](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/00-certification-roadmap.html)
+- [Claude Architect Foundation Flashcards](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/flashcards.html)
+- [Claude Architect Foundation 60-Question Mock Test](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/mock-tests/caf-mock-test-60q.html)
 
 Use the GitHub Pages site for reading. Use the Markdown files in this repository as source files for editing and contribution.
 
@@ -56,8 +56,8 @@ Use the GitHub Pages site for reading. Use the Markdown files in this repository
 
 | Course | What It Covers | Best Starting Point |
 |---|---|---|
-| AWS Cloud Practitioner | Cloud basics, AWS services, security, billing, pricing, support, cloud adoption | [AWS course home](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/README.html) |
-| Claude Architect Foundation | Claude fundamentals, agentic patterns, tool use, MCP, structured output, Claude Code workflows | [Claude course home](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/README.html) |
+| AWS Cloud Practitioner | Cloud basics, AWS services, security, billing, pricing, support, cloud adoption | [AWS course home](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/README.html) |
+| Claude Architect Foundation | Claude fundamentals, agentic patterns, tool use, MCP, structured output, Claude Code workflows | [Claude course home](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/README.html) |
 
 ---
 
@@ -65,8 +65,8 @@ Use the GitHub Pages site for reading. Use the Markdown files in this repository
 
 Flashcards are now available for both courses:
 
-- [AWS Cloud Practitioner flashcards](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/flashcards.html)
-- [Claude Architect Foundation flashcards](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/flashcards.html)
+- [AWS Cloud Practitioner flashcards](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/flashcards.html)
+- [Claude Architect Foundation flashcards](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/flashcards.html)
 
 Use flashcards after reading a lesson, not before. They help you remember service clues and architecture patterns quickly, but they do not replace scenario practice.
 
@@ -103,7 +103,7 @@ Focus most on:
    - On-Demand, Reserved, Savings Plans, Spot
    - Support plans and Technical Account Manager
 
-Use the [AWS roadmap](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/00-certification-roadmap.html) first, then read the course pages in order.
+Use the [AWS roadmap](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/00-certification-roadmap.html) first, then read the course pages in order.
 
 ---
 
@@ -281,8 +281,8 @@ They are designed to be similar in reasoning style to certification scenarios, b
 
 Mock tests:
 
-- [AWS 65-question mock test](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)
-- [Claude 60-question mock test](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/mock-tests/caf-mock-test-60q.html)
+- [AWS 65-question mock test](https://mohammadquasif.github.io/certification-study-hub/aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)
+- [Claude 60-question mock test](https://mohammadquasif.github.io/certification-study-hub/claude-architect-foundation/mock-tests/caf-mock-test-60q.html)
 
 ---
 

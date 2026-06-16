@@ -159,6 +159,12 @@ function generateSite() {
     }
   }
   
+  // Copy and fix index.html for GitHub Pages serving from /docs
+  let indexContent = fs.readFileSync(path.join(ROOT_DIR, 'index.html'), 'utf-8');
+  indexContent = indexContent.replace(/href="docs\//g, 'href="');
+  fs.writeFileSync(path.join(DOCS_DIR, 'index.html'), indexContent, 'utf-8');
+  console.log('Built: docs/index.html');
+
   console.log('Build complete!');
 }
 
