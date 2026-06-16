@@ -2,10 +2,19 @@
 
 Welcome to the Claude Architect Foundation section of certification-study-hub!
 
-This section covers everything you need to clear the **Claude Architect Foundation** certificate offered by Anthropic.
-
 ### 🌟 Did you get certified using this repo?
 If this repo helped you pass your exam, please consider **giving it a star ⭐** to help other students find it!
+
+---
+
+# 🛑 STOP READING MARKDOWN! 🛑
+## 👉 [GO TO THE INTERACTIVE COURSE DASHBOARD](https://mohammadquasif.github.io/certification-study-hub/docs/claude-architect-foundation/README.html) 👈
+
+We have converted this entire course into a beautiful, interactive website with sidebar navigation, dark mode, and a built-in mock test engine. 
+
+**Do not read the raw markdown files here.** 
+
+Click the link above to start studying the right way!
 
 ---
 

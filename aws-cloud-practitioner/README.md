@@ -2,10 +2,19 @@
 
 Welcome to the AWS Cloud Practitioner section of certification-study-hub!
 
-This section covers everything you need to clear the **AWS Certified Cloud Practitioner (CLF-C02)** exam.
-
 ### 🌟 Did you get certified using this repo?
 If this repo helped you pass your exam, please consider **giving it a star ⭐** to help other students find it!
+
+---
+
+# 🛑 STOP READING MARKDOWN! 🛑
+## 👉 [GO TO THE INTERACTIVE COURSE DASHBOARD](https://mohammadquasif.github.io/certification-study-hub/docs/aws-cloud-practitioner/README.html) 👈
+
+We have converted this entire course into a beautiful, interactive website with sidebar navigation, dark mode, and a built-in mock test engine. 
+
+**Do not read the raw markdown files here.** 
+
+Click the link above to start studying the right way!
 
 ---
 

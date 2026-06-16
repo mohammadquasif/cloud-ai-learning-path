@@ -4,6 +4,16 @@
 
 ---
 
+# 🛑 STOP READING MARKDOWN! 🛑
+## 👉 [GO TO THE INTERACTIVE LIVE WEBSITE](https://mohammadquasif.github.io/certification-study-hub/) 👈
+We have converted this entire repository into a beautiful, interactive website with sidebar navigation, dark mode, and interactive mock tests. 
+
+**Do not read the raw markdown files here.** 
+
+Click the link above to start studying the right way!
+
+---
+
 ## 📌 What Is This Repo?
 
 **certification-study-hub** is a simple, student-friendly repository to help you prepare for:

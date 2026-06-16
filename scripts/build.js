@@ -107,6 +107,9 @@ function generateSite() {
 
       let mdContent = fs.readFileSync(fileNode.path, 'utf-8');
       
+      // Strip out the "STOP READING MARKDOWN" banners so they don't appear on the live site
+      mdContent = mdContent.replace(/# 🛑 STOP READING MARKDOWN! 🛑[\s\S]*?Click the link above to start studying the right way!\s*---/g, '');
+
       // Fix relative markdown links to .html
       mdContent = mdContent.replace(/\]\(([^)]+)\.md(#[^)]+)?\)/g, ']($1.html$2)');
       
