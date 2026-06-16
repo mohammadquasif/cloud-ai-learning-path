@@ -118,19 +118,24 @@ Start with `study-plans/how-to-study.md` to understand how to use this repo prop
 
 ---
 
-## 📝 Practice Questions
+## 📝 Practice Questions & Mock Test
 
 All practice questions in this repo are **100% original**.
 
-- They are written by contributors to help you think like the exam
+- They are written to help you think like the exam
 - They are **not** copied from any real exam
-- They follow the style and pattern of the actual exam
 - Each question has a **detailed explanation**
 
-Find them inside:
+### 🔥 Interactive 65-Question Mock Test
+
+Download and open in your browser for a full timed experience:
+
+👉 **[ccp-mock-test-65q.html](aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html)** — 90 min timer, auto-scoring, and detailed review
+
+Find more inside:
 - `aws-cloud-practitioner/practice-questions/`
-- `claude-architect-foundation/practice-questions/`
-- `mock-tests/`
+- `aws-cloud-practitioner/mock-tests/`
+- `aws-cloud-practitioner/revision-notes/quick-revision.md`
 
 ---
 
