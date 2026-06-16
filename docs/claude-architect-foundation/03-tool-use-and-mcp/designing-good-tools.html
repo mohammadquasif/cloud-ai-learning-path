@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Designing Good Tools | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Claude Architect Foundation</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Introduction To Claude</div>
+        <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="nav-link">What Is Claude</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Agentic Patterns</div>
+        <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="nav-link">Orchestrator And Workers</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="nav-link">Prompt Chaining And Routing</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="nav-link">Session And Context Management</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="nav-link">What Is An Agent</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Tool Use And Mcp</div>
+        <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="nav-link">Confirmation And Safety Gates</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="nav-link">Designing Good Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="nav-link">Error Handling In Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="nav-link">Introduction To Tool Use</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="nav-link">Mcp Architecture</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Structured Output And Extraction</div>
+        <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="nav-link">Batch Processing</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="nav-link">Confidence And Human Review</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/handling-ambiguity-and-nulls.html" class="nav-link">Handling Ambiguity And Nulls</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="nav-link">Json Schema For Extraction</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="nav-link">Long Document Extraction</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Claude Code And Workflows</div>
+        <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="nav-link">Claude Md And Skills</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="nav-link">Code Review Workflows</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="nav-link">Exploration Patterns</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../claude-architect-foundation/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../claude-architect-foundation/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>Designing Good Tools — Parameters, Descriptions &amp; Schemas</h1>
+<blockquote>
+<p><strong>Exam:</strong> Claude Architect Foundation
+<strong>Chapter:</strong> 03 — Tool Use &amp; MCP
+<strong>Difficulty:</strong> Intermediate
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>📖 What Is This Topic About?</h2>
+<p>How you design your tools directly determines whether Claude uses them correctly. A well-designed tool has a clear description, well-named parameters with helpful descriptions, and an appropriate schema. Poor tool design leads to Claude selecting the wrong tool, passing incorrect parameters, or calling tools in the wrong order.</p>
+<hr>
+<h2>🧠 Key Concepts</h2>
+<ul>
+<li><strong>Tool Description</strong> — The text that explains to Claude what the tool does; this is Claude&#39;s primary guide for tool selection</li>
+<li><strong>Parameter Name</strong> — The identifier Claude uses to pass a value into the tool; should be descriptive and unambiguous</li>
+<li><strong>Parameter Type</strong> — The data type of the parameter (string, integer, boolean, array, object, enum)</li>
+<li><strong>Enum</strong> — A parameter that only accepts one of a fixed list of allowed values (e.g., &quot;research_papers&quot;, &quot;internal_reports&quot;)</li>
+<li><strong>Required vs Optional</strong> — Required parameters must always be provided; optional parameters have defaults or are conditionally needed</li>
+<li><strong>Schema Strictness</strong> — Using <code>required</code>, <code>type</code>, and other JSON Schema constraints to prevent Claude from passing invalid values</li>
+</ul>
+<hr>
+<h2>📘 Detailed Explanation</h2>
+<h3>The Tool Description — Most Important Element</h3>
+<p>Claude selects tools based on their descriptions. A vague description leads to wrong selection:</p>
+<pre><code>❌ BAD DESCRIPTION:
+&quot;name&quot;: &quot;query_documents&quot;
+&quot;description&quot;: &quot;Queries documents&quot;
+
+→ Claude doesn&#39;t know WHICH documents, WHAT kind of query, or HOW results are formatted
+
+✅ GOOD DESCRIPTION:
+&quot;name&quot;: &quot;search_research_papers&quot;
+&quot;description&quot;: &quot;Searches the research papers database for academic content. 
+Returns matching paper titles, authors, abstracts, and DOI links.
+Use this for queries about published research findings, not for internal reports.&quot;
+
+→ Claude knows exactly what it does, what it returns, and when to use it vs other tools
+</code></pre>
+<p><strong>Key rules for descriptions:</strong></p>
+<ol>
+<li>State what the tool does (action + object)</li>
+<li>State what it returns (output format)</li>
+<li>Clarify when to use it — especially when another tool might be confused with it</li>
+<li>State when NOT to use it if disambiguation is important</li>
+</ol>
+<hr>
+<h3>Parameter Design — Enum vs String</h3>
+<p>Choosing between an enum and a free-form string depends on whether the set of valid values is finite and known:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Type</th>
+<th>Use When</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Enum</strong></td>
+<td>Fixed, known set of values</td>
+<td>Database selection: <code>[&quot;research_papers&quot;, &quot;internal_reports&quot;, &quot;technical_specs&quot;]</code></td>
+</tr>
+<tr>
+<td><strong>String</strong></td>
+<td>Open-ended, user-provided text</td>
+<td>Search query: <code>&quot;machine learning transformer architecture&quot;</code></td>
+</tr>
+<tr>
+<td><strong>Integer</strong></td>
+<td>Numeric counts or IDs</td>
+<td><code>page_size: 10</code>, <code>order_id: 4921</code></td>
+</tr>
+<tr>
+<td><strong>Boolean</strong></td>
+<td>On/off flags</td>
+<td><code>include_archived: false</code></td>
+</tr>
+<tr>
+<td><strong>Array of strings</strong></td>
+<td>Multiple values from open set</td>
+<td><code>[&quot;python&quot;, &quot;django&quot;, &quot;postgresql&quot;]</code></td>
+</tr>
+<tr>
+<td><strong>Object</strong></td>
+<td>Grouped related fields</td>
+<td><code>{&quot;start_date&quot;: &quot;2026-01-01&quot;, &quot;end_date&quot;: &quot;2026-06-01&quot;}</code></td>
+</tr>
+</tbody></table>
+<p><strong>The Enum Advantage:</strong> When users express intent in natural language (&quot;search the research database&quot;, &quot;check technical documents&quot;), Claude maps the natural language to the correct enum value. This mapping is reliable because the model understands intent. You get structured, validated values without parsing logic.</p>
+<hr>
+<h3>Required vs Optional Parameters</h3>
+<p>Always mark parameters as required when the tool cannot function without them:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;update_user_profile&quot;,
+  &quot;input_schema&quot;: {
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+      &quot;user_id&quot;: {
+        &quot;type&quot;: &quot;string&quot;,
+        &quot;description&quot;: &quot;The unique identifier of the user to update. Required.&quot;
+      },
+      &quot;fields_to_update&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;description&quot;: &quot;An object containing the profile fields to update. 
+                        Each key is a field name, each value is the new value.&quot;,
+        &quot;properties&quot;: {
+          &quot;email&quot;: { &quot;type&quot;: &quot;string&quot; },
+          &quot;display_name&quot;: { &quot;type&quot;: &quot;string&quot; },
+          &quot;timezone&quot;: { &quot;type&quot;: &quot;string&quot; }
+        }
+      }
+    },
+    &quot;required&quot;: [&quot;user_id&quot;]
+  }
+}
+</code></pre>
+<p>When <code>user_id</code> is not in <code>required</code>, Claude may omit it — causing the tool to fail or update the wrong record. <strong>Always list required parameters in the <code>required</code> array.</strong></p>
+<hr>
+<h3>Avoiding Common Parameter Mistakes</h3>
+<pre><code>MISTAKE 1: Ambiguous parameter names
+❌ &quot;id&quot; → Which ID? Order? Customer? Product?
+✅ &quot;order_id&quot;, &quot;customer_id&quot;, &quot;product_sku&quot;
+
+MISTAKE 2: Missing parameter descriptions
+❌ &quot;start_date&quot;: { &quot;type&quot;: &quot;string&quot; }
+✅ &quot;start_date&quot;: { &quot;type&quot;: &quot;string&quot;, 
+                   &quot;description&quot;: &quot;Start date in ISO 8601 format (YYYY-MM-DD). 
+                                   Example: &#39;2026-01-01&#39;&quot; }
+
+MISTAKE 3: Overlapping tool purposes
+❌ get_document_info and get_document_details (Claude can&#39;t tell them apart)
+✅ get_document_metadata (returns title, author, date, file size) 
+   get_document_content (returns full text content of the document)
+
+MISTAKE 4: Too many tools with similar names
+❌ search_v1, search_v2, search_advanced, search_basic
+✅ Consolidate into one well-designed search tool with optional parameters
+</code></pre>
+<hr>
+<h3>Tool Decomposition — When to Split vs Consolidate</h3>
+<pre><code>SPLIT when:
+• Tools have fundamentally different purposes
+• Different tools require different permissions
+• You want Claude to be explicit about which action it&#39;s taking
+
+CONSOLIDATE when:
+• Two tools always get called together (unnecessary round-trip)
+• One tool&#39;s output is always the input to another tool
+• Splitting creates unnecessary latency and failure coupling
+
+EXAMPLE — Unnecessary Coupling (should consolidate):
+get_property_details(property_id) → returns address
+get_neighborhood_info(address) → requires address from above tool
+
+FIX: Change get_neighborhood_info to accept property_id directly
+→ Eliminates the forced sequential call, reduces failure points
+</code></pre>
+<hr>
+<h2>🇮🇳 Indian Real-Life Example</h2>
+<p><strong>Think of tool design like designing forms at a government office:</strong></p>
+<p>A well-designed form (tool) has:</p>
+<ul>
+<li>A clear title explaining what it&#39;s for (tool description)</li>
+<li>Fields with clear labels, not just &quot;ID&quot; but &quot;Aadhaar Number&quot; (parameter names)</li>
+<li>Dropdown options where applicable, not blank text fields (enums)</li>
+<li>Asterisks marking required fields so nothing important is left blank (required schema)</li>
+<li>Instructions clarifying what format to use (&quot;Date as DD/MM/YYYY&quot;) (parameter descriptions)</li>
+</ul>
+<p>A poorly designed form confuses applicants and gets filled incorrectly — just like a poorly designed tool confuses Claude and causes incorrect parameter values.</p>
+<hr>
+<h2>🔑 Exam-Focused Points</h2>
+<ul>
+<li>✅ Claude selects tools <strong>primarily based on the tool description</strong> — write clear, specific, distinct descriptions</li>
+<li>✅ <strong>Enums</strong> for fixed value sets; <strong>strings</strong> for open-ended user input</li>
+<li>✅ Mark all essential parameters in the <strong><code>required</code> array</strong> — Claude may omit optional ones</li>
+<li>✅ <strong>Eliminating unnecessary dependencies</strong> between tools reduces latency and failure risk</li>
+<li>✅ When two tools are always called together, consider consolidating them</li>
+<li>✅ Add &quot;when NOT to use&quot; guidance in descriptions when tools might be confused with each other</li>
+</ul>
+<hr>
+<h2>🧩 Scenario-Based Thinking</h2>
+<p><strong>Scenario:</strong> An MCP server has two tools: <code>archive_file(file_id)</code> and <code>delete_file(file_id)</code>. Company policy requires backup files to always be archived, never deleted. Production logs show the agent sometimes calls <code>delete_file</code> when users ask to &quot;remove&quot; backup files.</p>
+<p><strong>What change most directly addresses this?</strong></p>
+<ul>
+<li>A) Remove <code>delete_file</code> from the available tools entirely</li>
+<li>B) Add a confirmation step before every delete operation</li>
+<li>C) Expand the tool descriptions — add &quot;Do not use for backup files&quot; to <code>delete_file</code>, and add &quot;Use this for backup files instead of delete_file&quot; to <code>archive_file</code></li>
+<li>D) Rename <code>delete_file</code> to <code>permanently_remove_file</code> to make the consequences clearer</li>
+</ul>
+<p><strong>Answer:</strong> C — Improving the tool descriptions is the most direct fix. By explicitly stating which tool to use for backups and which not to use, Claude&#39;s tool selection will improve. Removing the tool entirely (A) prevents legitimate non-backup deletions. Confirmation steps (B) catch the error after selection, not during.</p>
+<hr>
+<h2>💡 Memory Tricks</h2>
+<p><strong>Description = GPS Direction:</strong> A good GPS gives you specific turn-by-turn instructions (use this tool when, avoid when). A bad GPS just says &quot;drive north&quot; — you can still get lost.</p>
+<p><strong>Enum = Multiple Choice Exam:</strong> A student answering a multiple-choice question can only pick from listed options — they can&#39;t write a free-form answer. Enum parameters work the same way — Claude must pick from your defined list.</p>
+<hr>
+<h2>❓ Chapter Practice Questions</h2>
+<p><strong>Q1.</strong> A tool called <code>get_data</code> has the description &quot;Gets data from the system.&quot; After deployment, Claude frequently calls it for the wrong use cases. What is the most effective fix?</p>
+<ul>
+<li>A) Rename the tool to a more descriptive name</li>
+<li>B) Rewrite the description to specify exactly what data is retrieved, the format of results, and when this tool should (and should not) be used</li>
+<li>C) Add more parameters to make the tool more powerful</li>
+<li>D) Remove the tool and split it into separate tools for each data type</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> The tool description is Claude&#39;s primary guide for tool selection. A vague description like &quot;Gets data from the system&quot; gives Claude nothing to distinguish this tool from others. A clear description explaining exactly what data is returned and when to use it will dramatically improve selection accuracy.</p>
+<hr>
+<p><strong>Q2.</strong> A tool searches one of three internal databases. Users refer to them naturally in conversation (&quot;check the technical specs&quot;, &quot;look in the research papers&quot;). How should the database selection parameter be designed?</p>
+<ul>
+<li>A) A string field where Claude passes the user&#39;s exact phrase</li>
+<li>B) An enum with values like <code>research_papers</code>, <code>internal_reports</code>, <code>technical_specs</code></li>
+<li>C) An integer index (1, 2, 3) mapping to each database</li>
+<li>D) Three separate boolean flags, one per database</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> An enum is ideal when there is a fixed, known set of valid values and users express the same intent in varied natural language. Claude is excellent at mapping &quot;check the technical docs&quot; → <code>technical_specs</code>. The enum ensures the tool always receives a valid, structured database identifier, regardless of how the user phrased the request.</p>
+<hr>
+<p><strong>Q3.</strong> A <code>remove_team_member</code> tool requires a <code>member_id</code> parameter (required) and accepts an optional <code>reason</code> string. During testing, the agent sometimes omits <code>member_id</code>, causing failures. What is the most critical fix?</p>
+<ul>
+<li>A) Add an example of a valid member_id to the tool description</li>
+<li>B) Ensure <code>member_id</code> is listed in the <code>required</code> array of the input_schema and add type constraints</li>
+<li>C) Make <code>reason</code> also required so Claude fills in both fields</li>
+<li>D) Add few-shot examples demonstrating tool calls with member_id</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> The <code>required</code> array in the JSON Schema tells Claude which parameters must always be provided. If <code>member_id</code> is not listed there, Claude may treat it as optional and omit it. Listing it as required with a string type constraint is the most direct, reliable fix — schema constraints work regardless of how the user phrases the request.</p>
+<hr>
+<h2>📌 Quick Revision Summary</h2>
+<ul>
+<li>Tool descriptions are Claude&#39;s primary guide for tool selection — write them clearly and specifically</li>
+<li>Include &quot;when to use&quot; AND &quot;when NOT to use&quot; guidance if tools might be confused</li>
+<li>Enums for fixed value sets (databases, categories); strings for open-ended user input</li>
+<li>Mark all essential parameters in the <code>required</code> array — Claude may omit optional ones</li>
+<li>Avoid unnecessary tool dependencies — consolidate tools that are always called together</li>
+<li>Avoid overlapping tool names and vague descriptions — they cause incorrect tool selection</li>
+</ul>
+<hr>
+<h2>📎 References</h2>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/tool-use-best-practices">Anthropic Documentation — Tool Use Best Practices</a></li>
+</ul>
+<hr>
+<p><em>Notes by certification-study-hub. Chapter 03 — Designing Good Tools.</em></p>
+
+        
+        <div class="pagination">
+          <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Confirmation And Safety Gates</span>
+        </a>
+          <a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Error Handling In Tools →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

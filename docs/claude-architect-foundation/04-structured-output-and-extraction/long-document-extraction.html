@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Long Document Extraction | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Claude Architect Foundation</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Introduction To Claude</div>
+        <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="nav-link">What Is Claude</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Agentic Patterns</div>
+        <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="nav-link">Orchestrator And Workers</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="nav-link">Prompt Chaining And Routing</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="nav-link">Session And Context Management</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="nav-link">What Is An Agent</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Tool Use And Mcp</div>
+        <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="nav-link">Confirmation And Safety Gates</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="nav-link">Designing Good Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="nav-link">Error Handling In Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="nav-link">Introduction To Tool Use</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="nav-link">Mcp Architecture</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Structured Output And Extraction</div>
+        <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="nav-link">Batch Processing</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="nav-link">Confidence And Human Review</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/handling-ambiguity-and-nulls.html" class="nav-link">Handling Ambiguity And Nulls</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="nav-link">Json Schema For Extraction</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="nav-link">Long Document Extraction</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Claude Code And Workflows</div>
+        <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="nav-link">Claude Md And Skills</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="nav-link">Code Review Workflows</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="nav-link">Exploration Patterns</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../claude-architect-foundation/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../claude-architect-foundation/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>Long Document Extraction — Chunking, Context Limits &amp; Merging</h1>
+<blockquote>
+<p><strong>Exam:</strong> Claude Architect Foundation
+<strong>Chapter:</strong> 04 — Structured Output &amp; Extraction
+<strong>Difficulty:</strong> Intermediate
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>📖 What Is This Topic About?</h2>
+<p>Claude&#39;s context window is large — up to 200,000 tokens. But many documents are even larger, or documents share the context window with system prompts and tool definitions, leaving less room than you&#39;d expect. This chapter covers how to handle documents that approach or exceed context limits: chunking, merging, and understanding how tool schemas and system prompts consume context.</p>
+<hr>
+<h2>🧠 Key Concepts</h2>
+<ul>
+<li><strong>Context Length Exceeded</strong> — An error returned when the total tokens in a request exceed the model&#39;s context window limit</li>
+<li><strong>Chunking</strong> — Splitting a large document into smaller pieces and processing each chunk separately</li>
+<li><strong>Chunk Overlap</strong> — Including a small amount of content from the end of one chunk at the beginning of the next, to preserve context across boundaries</li>
+<li><strong>Merging</strong> — Combining extracted results from multiple chunks into a single, deduplicated output</li>
+<li><strong>Effective Context</strong> — The actual tokens available for document content after accounting for system prompt, tool definitions, and conversation history</li>
+<li><strong>Context Pressure</strong> — The degradation in extraction accuracy that occurs as the total tokens approach the context limit</li>
+</ul>
+<hr>
+<h2>📘 Detailed Explanation</h2>
+<h3>The Context Window is Shared — Not All for Documents</h3>
+<p>A common misconception: &quot;Claude has a 200K context window, so I can process any document under 200K tokens.&quot; This is incorrect:</p>
+<pre><code>┌─────────────────────────────────── 200K CONTEXT WINDOW ─────────────────────────────┐
+│                                                                                      │
+│  ┌────────────────┐  ┌──────────────────────┐  ┌─────────────────────────────────┐ │
+│  │ System Prompt  │  │   Tool Definitions    │  │  Conversation History           │ │
+│  │ ~1,000 tokens  │  │  12-field schema:     │  │  (if multi-turn conversation)   │ │
+│  │                │  │  ~2,500 tokens        │  │  ~500–5,000+ tokens             │ │
+│  └────────────────┘  └──────────────────────┘  └─────────────────────────────────┘ │
+│                                                                                      │
+│  REMAINING FOR DOCUMENT:                                                             │
+│  200,000 - 1,000 - 2,500 - 1,000 (conversation) = ~195,500 tokens                  │
+│                                                                                      │
+│  → A 195,000-token document fills 99.7% of remaining space                          │
+│  → Very little room for Claude&#39;s response                                            │
+│  → Accuracy on the last 10–20% of the document degrades significantly               │
+│                                                                                      │
+│  ┌────────────────────────────────────────────────────────────────────────────────┐ │
+│  │                      DOCUMENT CONTENT (195,000 tokens)                         │ │
+│  │  [Sections 1–8 processed well] [Section 9 degraded] [Section 10 often missed] │ │
+│  └────────────────────────────────────────────────────────────────────────────────┘ │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h3>Chunking Strategy</h3>
+<p>When a document cannot fit comfortably in the effective context, split it into chunks:</p>
+<pre><code>┌────────────────────────────────────────────────────────────────────┐
+│                    CHUNKING STRATEGY                               │
+│                                                                    │
+│  LARGE DOCUMENT (500,000 tokens = ~375,000 words)                  │
+│         │                                                          │
+│    Split into chunks                                               │
+│         │                                                          │
+│    ┌────┴────────────────────────────────────────┐                │
+│    │                                             │                │
+│    ▼                                             ▼                │
+│  CHUNK 1                                      CHUNK 2             │
+│  Tokens 1–100K                                Tokens 95K–195K     │
+│  (+ 5K overlap from previous)                 (+ 5K overlap)      │
+│                                                                    │
+│  Extract fields from Chunk 1    Extract fields from Chunk 2        │
+│         │                                │                        │
+│         └────────────────┬───────────────┘                        │
+│                          │                                        │
+│                          ▼                                        │
+│              MERGE RESULTS                                         │
+│              • Keep most confident value per field                 │
+│              • Deduplicate list fields (citations, items)          │
+│              • For conflicting values: flag for review             │
+└────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>Why chunk overlap?</strong> If a sentence spans the boundary between chunks — e.g., a payment term begins at the end of Chunk 1 and concludes at the start of Chunk 2 — neither chunk has the complete information. Including the last 1,000–2,000 tokens of Chunk 1 at the beginning of Chunk 2 ensures boundary-spanning content is captured in at least one chunk.</p>
+<hr>
+<h3>Merging Chunk Results</h3>
+<p>After extracting from multiple chunks, results must be merged intelligently:</p>
+<pre><code>CHUNK 1 EXTRACTION:
+{
+  &quot;contract_value&quot;: &quot;₹25,00,000&quot;,
+  &quot;payment_terms&quot;: &quot;Net 30&quot;,
+  &quot;parties&quot;: [&quot;ABC Corp&quot;, &quot;XYZ Ltd&quot;],
+  &quot;effective_date&quot;: &quot;2026-01-01&quot;
+}
+
+CHUNK 2 EXTRACTION:
+{
+  &quot;contract_value&quot;: null,  ← not found in chunk 2
+  &quot;payment_terms&quot;: &quot;Net 30&quot;,  ← consistent, keep
+  &quot;parties&quot;: [&quot;ABC Corp&quot;, &quot;XYZ Ltd&quot;, &quot;Global Services Inc.&quot;],  ← new party found
+  &quot;effective_date&quot;: &quot;2026-01-01&quot;,  ← consistent, keep
+  &quot;termination_clause&quot;: &quot;Either party may terminate with 60 days notice&quot;
+}
+
+MERGED RESULT:
+{
+  &quot;contract_value&quot;: &quot;₹25,00,000&quot;,  ← from Chunk 1 (non-null wins)
+  &quot;payment_terms&quot;: &quot;Net 30&quot;,       ← consistent across chunks
+  &quot;parties&quot;: [&quot;ABC Corp&quot;, &quot;XYZ Ltd&quot;, &quot;Global Services Inc.&quot;],  ← union
+  &quot;effective_date&quot;: &quot;2026-01-01&quot;,  ← consistent
+  &quot;termination_clause&quot;: &quot;Either party may terminate with 60 days notice&quot;
+}
+</code></pre>
+<hr>
+<h3>Long Transcripts — Scatter-Gather Pattern</h3>
+<p>For long meeting transcripts where discussions revisit the same topic multiple times (information scattered throughout), a different strategy works better than naive chunking:</p>
+<pre><code>PROBLEM:
+A 90-minute transcript discusses Q3 budget in:
+• Turn 15 (initial proposal)
+• Turn 42 (revision after break)
+• Turn 78 (final decision)
+
+NAIVE CHUNKING: Each chunk sees only one piece of the budget discussion
+→ 68% accuracy (each chunk misses the full picture)
+
+BETTER: SCATTER-GATHER
+Step 1: Split transcript into chunks
+Step 2: Extract topics and data points from each chunk independently
+Step 3: Merge and deduplicate across chunks
+         (Merge logic: later decisions overwrite earlier proposals for same topic)
+Step 4: Output: unified, deduplicated extraction
+
+RESULT: Higher accuracy because each chunk&#39;s extraction is partial,
+         but the merge step assembles the complete picture
+</code></pre>
+<hr>
+<h3>Reducing Schema Token Footprint</h3>
+<p>If tool schema tokens are consuming too much context, reduce schema verbosity:</p>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Token Savings</th>
+<th>Trade-off</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Shorten field descriptions</td>
+<td>Low</td>
+<td>May reduce extraction accuracy on edge cases</td>
+</tr>
+<tr>
+<td>Remove rarely needed fields</td>
+<td>Medium</td>
+<td>Lose those fields from extraction</td>
+</tr>
+<tr>
+<td>Use a separate schema for different document sections</td>
+<td>Medium</td>
+<td>More complex pipeline</td>
+</tr>
+<tr>
+<td>Summarise document before full extraction</td>
+<td>High</td>
+<td>Two API calls; adds latency and cost</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🇮🇳 Indian Real-Life Example</h2>
+<p><strong>Think of chunking like transcribing a long Lok Sabha session:</strong></p>
+<p>A Lok Sabha session runs for 8 hours. One transcriber cannot process 8 hours of speech with full attention. Instead:</p>
+<ul>
+<li>Transcriber A handles Hours 1–3 (Chunk 1)</li>
+<li>Transcriber B handles Hours 2.5–5.5 (Chunk 2 — with overlap to catch boundary discussions)</li>
+<li>Transcriber C handles Hours 5–8 (Chunk 3 — with overlap)</li>
+</ul>
+<p>An editor (merge step) then combines all three transcriptions, removes duplicates where overlaps created repetition, and resolves any conflicts where transcribers heard the same statement differently.</p>
+<hr>
+<h2>🔑 Exam-Focused Points</h2>
+<ul>
+<li>✅ Effective context = context window − system prompt − tool definitions − conversation history</li>
+<li>✅ As total tokens approach the context limit, <strong>accuracy degrades for content near the end</strong></li>
+<li>✅ Tool definitions consume tokens — a 12-field schema with detailed descriptions can use 2,500+ tokens</li>
+<li>✅ <strong>Chunking</strong> = split document, extract per chunk, <strong>merge and deduplicate</strong> results</li>
+<li>✅ Chunk overlap preserves context at boundaries — prevents losing information that spans chunk edges</li>
+<li>✅ For long transcripts with revisited topics: chunk → extract → merge (scatter-gather pattern)</li>
+</ul>
+<hr>
+<h2>🧩 Scenario-Based Thinking</h2>
+<p><strong>Scenario:</strong> A processing pipeline achieves 98% extraction accuracy on documents under 150K tokens but only 71% accuracy on documents between 175K–190K tokens. The model&#39;s context window is 200K tokens. The tool schema totals approximately 2,500 tokens and the system prompt is 1,000 tokens.</p>
+<p><strong>What is the most likely explanation?</strong></p>
+<ul>
+<li>A) The model processes shorter documents with a different algorithm than longer ones</li>
+<li>B) The schema has too many fields for large documents</li>
+<li>C) Tool definitions and system prompt consume approximately 3,500 tokens; combined with 190,000-token documents, the total approaches 200K, causing context pressure and degraded accuracy for content in the final sections</li>
+<li>D) The Batches API should be used for documents above 150K tokens</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> At 190K tokens of document content + 3,500 tokens of system prompt and tool schema = 193,500 tokens total, very close to the 200K limit. Context pressure at this scale causes the model to attend poorly to content near the end of the document — explaining the consistent 71% accuracy with &quot;information from the final sections consistently missed.&quot; The solution is to chunk documents above ~150K or reduce schema token footprint.</p>
+<hr>
+<h2>💡 Memory Tricks</h2>
+<p><strong>Chunk Overlap = Page Overlap in a Book:</strong> When you scan a book in sections, you photograph the last page of the current section again at the start of the next section — to make sure you don&#39;t miss sentences that appear on the boundary.</p>
+<p><strong>Effective Context = Net Salary:</strong> Your gross context window is 200K tokens. System prompt, tools, and history are &quot;deductions.&quot; Effective context is what&#39;s left for document content — the take-home.</p>
+<hr>
+<h2>❓ Chapter Practice Questions</h2>
+<p><strong>Q1.</strong> An extraction system processes meeting transcripts. Accuracy is 94% for 30-minute transcripts but only 68% for 60-minute transcripts, where discussions revisit the same topic multiple times. Both transcript lengths fit within the context window. What approach most effectively improves accuracy on long transcripts?</p>
+<ul>
+<li>A) Increase the context window limit to process longer transcripts without degradation</li>
+<li>B) Use a different extraction schema for long transcripts</li>
+<li>C) Split long transcripts into chunks, extract separately from each chunk, then merge and deduplicate the results — capturing scattered information across all chunks</li>
+<li>D) Truncate transcripts at 30 minutes and discard later content</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> The problem is not context length (both fit in the window) — it&#39;s that information about a single topic is scattered across the full transcript. Chunking with separate extraction and a merge-deduplicate step assembles the complete picture from scattered pieces. Simple single-pass extraction misses later occurrences of the same topic.</p>
+<hr>
+<p><strong>Q2.</strong> An extraction pipeline processes legal contracts averaging 150K tokens. The tool schema (10 fields with detailed descriptions) totals 3,000 tokens. The system prompt is 1,500 tokens. The context window is 200K tokens. For contracts between 185K–195K tokens, extraction accuracy drops for clauses in the final sections. What is the most effective solution?</p>
+<ul>
+<li>A) Reduce the number of fields in the extraction schema to lower token consumption</li>
+<li>B) Switch to a model with a larger context window</li>
+<li>C) Chunk contracts above 150K tokens into two sections with 5,000-token overlap, extract from each, and merge results</li>
+<li>D) Add prompt instructions to focus on the final sections of the contract</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> At 190K document + 4,500 overhead = 194,500 tokens — very close to the 200K limit, causing accuracy degradation for late-appearing content. Chunking large contracts and merging results is the most reliable solution: each chunk has plenty of context headroom, ensuring thorough processing of all sections. Prompt instructions (D) don&#39;t address the fundamental context pressure issue.</p>
+<hr>
+<p><strong>Q3.</strong> When merging extraction results from multiple document chunks, the <code>payment_terms</code> field returns &quot;Net 30&quot; from Chunk 1 and &quot;Net 45&quot; from Chunk 2. How should the merge step handle this conflict?</p>
+<ul>
+<li>A) Take the value from the first chunk — it appeared first in the document</li>
+<li>B) Take the value from the last chunk — it appeared last and may be an amendment</li>
+<li>C) Flag the extraction for human review and record both values with their source chunk locations</li>
+<li>D) Return null for the field to indicate uncertainty</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> Conflicting values across chunks may indicate a legitimate amendment (Net 30 → Net 45 in a later section) or an extraction error. The merge step should not silently discard one value. Flagging the conflict for human review with both values and their source locations preserves all information and surfaces the ambiguity appropriately. This is especially important for legal documents where the correct value has real consequences.</p>
+<hr>
+<h2>📌 Quick Revision Summary</h2>
+<ul>
+<li>Effective context = 200K − system prompt − tool definitions − conversation history</li>
+<li>Context pressure near the limit: accuracy degrades for content toward the end of documents</li>
+<li>Tool schemas consume tokens — a 12-field detailed schema can use 2,500+ tokens</li>
+<li>Chunking: split document → extract per chunk → merge and deduplicate results</li>
+<li>Chunk overlap: include last N tokens of previous chunk at start of next, preserving boundary content</li>
+<li>Conflicting values in merge: flag for human review, record both values with source locations</li>
+</ul>
+<hr>
+<h2>📎 References</h2>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/long-context">Anthropic Documentation — Long Context Best Practices</a></li>
+</ul>
+<hr>
+<p><em>Notes by certification-study-hub. Chapter 04 — Long Document Extraction.</em></p>
+
+        
+        <div class="pagination">
+          <a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Json Schema For Extraction</span>
+        </a>
+          <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Claude Md And Skills →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

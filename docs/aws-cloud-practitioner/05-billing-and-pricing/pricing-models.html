@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Models | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>AWS Cloud Practitioner</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Cloud Concepts</div>
+        <a href="../../aws-cloud-practitioner/01-cloud-concepts/what-is-cloud.html" class="nav-link">What Is Cloud</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Aws Global Infrastructure</div>
+        <a href="../../aws-cloud-practitioner/02-aws-global-infrastructure/regions-and-availability-zones.html" class="nav-link">Regions And Availability Zones</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Core Services</div>
+        <div class="nav-group">
+        <div class="nav-group-title">Compute</div>
+        <a href="../../aws-cloud-practitioner/03-core-services/compute/ec2-basics.html" class="nav-link">Ec2 Basics</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Database</div>
+        <a href="../../aws-cloud-practitioner/03-core-services/database/rds-vs-dynamodb.html" class="nav-link">Rds Vs Dynamodb</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Storage</div>
+        <a href="../../aws-cloud-practitioner/03-core-services/storage/s3-basics.html" class="nav-link">S3 Basics</a>
+
+      </div>
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Security And Compliance</div>
+        <a href="../../aws-cloud-practitioner/04-security-and-compliance/shared-responsibility-model.html" class="nav-link">Shared Responsibility Model</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Billing And Pricing</div>
+        <a href="../../aws-cloud-practitioner/05-billing-and-pricing/pricing-models.html" class="nav-link">Pricing Models</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">06 Cloud Technology And Services</div>
+        <a href="../../aws-cloud-practitioner/06-cloud-technology-and-services/cloud-adoption-framework.html" class="nav-link">Cloud Adoption Framework</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="nav-link">Ccp Mock Test 65q</a>
+<a href="../../aws-cloud-practitioner/mock-tests/mock-test-01.html" class="nav-link">Mock Test 01</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../aws-cloud-practitioner/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../aws-cloud-practitioner/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../aws-cloud-practitioner/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>Billing, Pricing, and Support: Cost Optimization</h1>
+<blockquote>
+<p><strong>Exam:</strong> AWS Certified Cloud Practitioner (CLF-C02)
+<strong>Domain:</strong> 4.0 Billing, Pricing, and Support
+<strong>Weight:</strong> 12%
+<strong>Difficulty:</strong> Beginner
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>🎯 Learning Objectives</h2>
+<p>After reading this chapter, you will be able to:</p>
+<ol>
+<li>Understand AWS pricing fundamentals and total cost of ownership (TCO).</li>
+<li>Differentiate between AWS billing tools (Cost Explorer, Budgets, Pricing Calculator).</li>
+<li>Identify the different AWS Support Plans and their features.</li>
+<li>Apply the concept of AWS Organizations for consolidated billing.</li>
+</ol>
+<hr>
+<h2>🏛️ Architecture Overview: AWS Billing &amp; Cost Management</h2>
+<pre><code class="language-mermaid">flowchart TD
+    Acct[AWS Account] --&gt; Org[AWS Organizations\nConsolidated Billing]
+    
+    Org --&gt; Tools[Cost Management Tools]
+    Tools --&gt; Calc[AWS Pricing Calculator\nEstimate before building]
+    Tools --&gt; Explorer[AWS Cost Explorer\nAnalyze past/current spend]
+    Tools --&gt; Budgets[AWS Budgets\nAlerts on spending limits]
+    Tools --&gt; Anomaly[Cost Anomaly Detection\nAlerts on unusual spikes]
+</code></pre>
+<hr>
+<h2>📘 Concept Definitions</h2>
+<h3>1. AWS Pricing Fundamentals</h3>
+<p>AWS follows three fundamental drivers of cost:</p>
+<ul>
+<li><strong>Compute:</strong> Pay per hour/second of usage.</li>
+<li><strong>Storage:</strong> Pay per GB stored.</li>
+<li><strong>Data Transfer:</strong> Data flowing <em>INTO</em> AWS is free. Data flowing <em>OUT</em> of AWS (to the internet) is charged.</li>
+</ul>
+<h3>2. AWS Organizations and Consolidated Billing</h3>
+<p>AWS Organizations allows you to centrally manage multiple AWS accounts.</p>
+<ul>
+<li><strong>Consolidated Billing:</strong> Combines billing for all accounts into a single invoice.</li>
+<li><strong>Volume Discounts:</strong> The combined usage of all accounts helps you reach lower price tiers faster.</li>
+</ul>
+<h3>3. AWS Cost Explorer</h3>
+<p>A tool that lets you visualize, understand, and manage your AWS costs and usage over time.</p>
+<ul>
+<li><strong>Use Case:</strong> &quot;Why was my AWS bill so high last month?&quot; or &quot;Show me a graph of EC2 spending over the last 6 months.&quot;</li>
+<li><strong>Forecasting:</strong> Can predict costs for the next 12 months based on past usage.</li>
+</ul>
+<h3>4. AWS Budgets</h3>
+<p>A tool to set custom budgets that alert you when your costs or usage exceed (or are forecasted to exceed) your budgeted amount.</p>
+<ul>
+<li><strong>Use Case:</strong> &quot;Email me if my monthly bill goes over $100.&quot;</li>
+</ul>
+<h3>5. AWS Pricing Calculator</h3>
+<p>A web-based planning tool to estimate the cost of AWS services before you actually build them.</p>
+<ul>
+<li><strong>Use Case:</strong> &quot;How much would it cost to run 5 EC2 instances and 1 RDS database next year?&quot;</li>
+</ul>
+<h3>6. TCO (Total Cost of Ownership)</h3>
+<p>A financial estimate that helps you compare the cost of running an on-premises data center vs. moving to AWS. It factors in hardware, software, power, cooling, and IT staff.</p>
+<hr>
+<h2>⚖️ Service Comparison Matrix: Support Plans</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Developer</th>
+<th>Business</th>
+<th>Enterprise On-Ramp</th>
+<th>Enterprise</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Response Time</strong></td>
+<td>12-24 hours</td>
+<td>1 hour (system down)</td>
+<td>30 mins (critical)</td>
+<td>15 mins (critical)</td>
+</tr>
+<tr>
+<td><strong>Tech Support</strong></td>
+<td>Business hours email</td>
+<td>24x7 phone, email, chat</td>
+<td>24x7 phone, email, chat</td>
+<td>24x7 phone, email, chat</td>
+</tr>
+<tr>
+<td><strong>TAM Access</strong></td>
+<td>No</td>
+<td>No</td>
+<td>Pool of TAMs</td>
+<td>Dedicated TAM</td>
+</tr>
+<tr>
+<td><strong>Trusted Advisor</strong></td>
+<td>Core checks only</td>
+<td>All checks</td>
+<td>All checks</td>
+<td>All checks</td>
+</tr>
+<tr>
+<td><strong>Target Audience</strong></td>
+<td>Early development</td>
+<td>Production workloads</td>
+<td>Growing production</td>
+<td>Mission-critical apps</td>
+</tr>
+</tbody></table>
+<p><em>Note: TAM = Technical Account Manager</em></p>
+<hr>
+<h2>🗺️ Decision Guide: Which Tool to Use?</h2>
+<pre><code class="language-mermaid">flowchart TD
+    Start[Cost Question] --&gt; Q1{Are you asking about the Future or the Past?}
+    
+    Q1 -- Future (Planning) --&gt; Q2{Do you have the resources running?}
+    Q2 -- No (Just estimating) --&gt; Calc[AWS Pricing Calculator]
+    Q2 -- Yes (Setting limits) --&gt; Budgets[AWS Budgets]
+    
+    Q1 -- Past/Present (Analysis) --&gt; Q3{What are you looking for?}
+    Q3 -- Visualizing graphs/trends --&gt; Explorer[AWS Cost Explorer]
+    Q3 -- Combining bills from multiple accounts --&gt; Org[Consolidated Billing]
+    Q3 -- Alerts for weird spikes --&gt; Anomaly[Cost Anomaly Detection]
+</code></pre>
+<hr>
+<h2>⚡ Exam Focus Points</h2>
+<ul>
+<li>✅ <strong>Data Transfer:</strong> Remember the rule: IN is Free, OUT is Fee. Moving data <em>into</em> S3 is free. Downloading data <em>from</em> S3 to the internet costs money.</li>
+<li>✅ <strong>Cost Explorer vs Pricing Calculator:</strong> If you haven&#39;t built it yet, use the <strong>Pricing Calculator</strong>. If you already built it and want to see graphs of your spend, use <strong>Cost Explorer</strong>.</li>
+<li>✅ <strong>Budgets:</strong> If the question mentions getting an email/SNS notification when spending hits a certain limit, it&#39;s <strong>AWS Budgets</strong>.</li>
+<li>✅ <strong>Support Plans:</strong> If the question mentions needing a <strong>Technical Account Manager (TAM)</strong>, the answer is either <strong>Enterprise</strong> or <strong>Enterprise On-Ramp</strong> support. If it mentions 15-minute response times for business-critical system down, it&#39;s Enterprise.</li>
+<li>✅ <strong>Consolidated Billing:</strong> Provides one bill for multiple accounts and gives volume discounts across the entire organization.</li>
+</ul>
+<hr>
+<h2>📝 Quick Revision</h2>
+<ul>
+<li><strong>Pricing Calculator:</strong> Estimate costs before building.</li>
+<li><strong>Cost Explorer:</strong> View graphs of past spending and forecast future spending.</li>
+<li><strong>Budgets:</strong> Set spending limits and alerts.</li>
+<li><strong>Organizations:</strong> Consolidated billing for volume discounts.</li>
+<li><strong>Enterprise Support:</strong> Includes a dedicated TAM and 15-minute response time.</li>
+</ul>
+
+        
+        <div class="pagination">
+          <a href="../../aws-cloud-practitioner/04-security-and-compliance/shared-responsibility-model.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Shared Responsibility Model</span>
+        </a>
+          <a href="../../aws-cloud-practitioner/06-cloud-technology-and-services/cloud-adoption-framework.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Cloud Adoption Framework →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction To Claude Code | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Claude Architect Foundation</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Introduction To Claude</div>
+        <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="nav-link">What Is Claude</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Agentic Patterns</div>
+        <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="nav-link">Orchestrator And Workers</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="nav-link">Prompt Chaining And Routing</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="nav-link">Session And Context Management</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="nav-link">What Is An Agent</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Tool Use And Mcp</div>
+        <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="nav-link">Confirmation And Safety Gates</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="nav-link">Designing Good Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="nav-link">Error Handling In Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="nav-link">Introduction To Tool Use</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="nav-link">Mcp Architecture</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Structured Output And Extraction</div>
+        <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="nav-link">Batch Processing</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="nav-link">Confidence And Human Review</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/handling-ambiguity-and-nulls.html" class="nav-link">Handling Ambiguity And Nulls</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="nav-link">Json Schema For Extraction</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="nav-link">Long Document Extraction</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Claude Code And Workflows</div>
+        <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="nav-link">Claude Md And Skills</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="nav-link">Code Review Workflows</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="nav-link">Exploration Patterns</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../claude-architect-foundation/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../claude-architect-foundation/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>Introduction to Claude Code — CLI, Tools &amp; Capabilities</h1>
+<blockquote>
+<p><strong>Exam:</strong> Claude Architect Foundation
+<strong>Chapter:</strong> 05 — Claude Code &amp; Developer Workflows
+<strong>Difficulty:</strong> Beginner
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>📖 What Is This Topic About?</h2>
+<p><strong>Claude Code</strong> is Anthropic&#39;s agentic coding tool that runs in your terminal. Unlike a chat interface, Claude Code can read and write files, execute shell commands, search codebases, and run tests — all as part of completing a coding task. Understanding what Claude Code can do, and how to use it effectively, is the final domain of this exam.</p>
+<hr>
+<h2>🧠 Key Concepts</h2>
+<ul>
+<li><strong>Claude Code</strong> — An agentic coding CLI (command line interface) that gives Claude access to file system, shell, and search tools to complete development tasks autonomously</li>
+<li><strong>Read tool</strong> — Claude reads file contents; used to understand code before making changes</li>
+<li><strong>Write tool</strong> — Claude creates or overwrites files with new content</li>
+<li><strong>Edit tool</strong> — Claude makes targeted changes to specific sections of existing files (preferred over Write for surgical edits)</li>
+<li><strong>Grep tool</strong> — Claude searches file contents using regular expressions; returns matching lines with context</li>
+<li><strong>Glob tool</strong> — Claude finds files matching a pattern (e.g., all <code>*.test.js</code> files) without reading their contents</li>
+<li><strong>Bash / Shell tool</strong> — Claude runs terminal commands (tests, linters, build scripts, git operations)</li>
+<li><strong>Plan Mode</strong> — A mode where Claude reasons and plans before making any file changes</li>
+</ul>
+<hr>
+<h2>📘 Detailed Explanation</h2>
+<h3>What Claude Code Is — and Is Not</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Claude Code</th>
+<th>Claude (chat/API)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Interface</strong></td>
+<td>Terminal CLI</td>
+<td>Chat UI / API</td>
+</tr>
+<tr>
+<td><strong>File access</strong></td>
+<td>Reads, writes, edits files</td>
+<td>No file system access</td>
+</tr>
+<tr>
+<td><strong>Command execution</strong></td>
+<td>Runs shell commands (tests, git, npm)</td>
+<td>No command execution</td>
+</tr>
+<tr>
+<td><strong>Code search</strong></td>
+<td>Grep, Glob across codebases</td>
+<td>No search tools</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>Session-based (can be resumed/forked)</td>
+<td>Stateless by default</td>
+</tr>
+<tr>
+<td><strong>Use case</strong></td>
+<td>Coding tasks, investigation, refactoring</td>
+<td>Explanations, Q&amp;A, generation</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>The Core File Tools — When to Use Each</h3>
+<pre><code>┌─────────────────────────────────────────────────────────────────────┐
+│                    CLAUDE CODE FILE TOOLS                           │
+│                                                                     │
+│  READ — Understanding before acting                                 │
+│  ┌──────────────────────────────────────────────────────────────┐  │
+│  │ Use when: You need to understand code before changing it     │  │
+│  │ Read specific files, config files, test files                │  │
+│  │ Claude reads the content; context grows with each Read       │  │
+│  └──────────────────────────────────────────────────────────────┘  │
+│                                                                     │
+│  GREP — Finding patterns in code                                    │
+│  ┌──────────────────────────────────────────────────────────────┐  │
+│  │ Use when: You know what text/pattern to search for           │  │
+│  │ &quot;Find all files that import AuthService&quot;                     │  │
+│  │ Returns matching lines with line numbers — efficient         │  │
+│  └──────────────────────────────────────────────────────────────┘  │
+│                                                                     │
+│  GLOB — Finding files by pattern                                    │
+│  ┌──────────────────────────────────────────────────────────────┐  │
+│  │ Use when: You need to find files by name/extension pattern   │  │
+│  │ &quot;Find all test files&quot; → *.test.ts, *.spec.py                │  │
+│  │ Returns file paths only; doesn&#39;t read content               │  │
+│  └──────────────────────────────────────────────────────────────┘  │
+│                                                                     │
+│  EDIT — Targeted surgical changes                                   │
+│  ┌──────────────────────────────────────────────────────────────┐  │
+│  │ Use when: Changing specific sections of existing files       │  │
+│  │ Requires unique matching text to anchor the edit             │  │
+│  │ Preferred over Write for existing files (safer)             │  │
+│  └──────────────────────────────────────────────────────────────┘  │
+│                                                                     │
+│  WRITE — Creating or replacing files                                │
+│  ┌──────────────────────────────────────────────────────────────┐  │
+│  │ Use when: Creating new files OR when Edit cannot find        │  │
+│  │ unique anchor text                                           │  │
+│  │ Overwrites entire file — use carefully                      │  │
+│  └──────────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h3>When Grep Beats a Custom Shell Command</h3>
+<p>Claude Code has access to both Grep (a dedicated search tool) and Bash (shell commands). For searching, always prefer Grep:</p>
+<pre><code>SITUATION: Find all usages of eval() in a large codebase
+
+❌ BASH APPROACH:
+Claude could run: find . -name &quot;*.py&quot; -exec grep -n &quot;eval(&quot; {} \;
+→ Works, but: Claude must write the command correctly, handle output parsing,
+  and manage errors manually
+
+✅ GREP TOOL:
+Claude calls Grep with pattern &quot;eval(&quot; across the project directory
+→ Returns structured results: file path, line number, matched line
+→ No shell command needed, no parsing required, consistent format
+
+RULE: Use specialised tools (Grep, Glob) for their specific purpose.
+      Use Bash only when no specialised tool exists for the task.
+</code></pre>
+<hr>
+<h3>Plan Mode — Think Before You Code</h3>
+<p>For large, complex changes (architectural refactoring, multi-file changes, unfamiliar codebases), Claude Code should enter <strong>Plan Mode</strong> first:</p>
+<pre><code>PLAN MODE WORKFLOW:
+
+Step 1: READ and explore relevant files
+Step 2: GREP to understand imports, dependencies, usage patterns  
+Step 3: REASON about the best approach and potential impact
+Step 4: DOCUMENT the plan (what files to change, in what order, why)
+        → User reviews the plan
+Step 5: EXECUTE the plan (make actual file changes)
+
+WITHOUT PLAN MODE (jumping straight to edits):
+→ Risk of breaking dependent code
+→ Risk of incomplete changes
+→ Difficult to undo if approach was wrong
+
+Example: Refactoring a monolith into microservices
+         → Always plan first; understand all dependencies before changing anything
+</code></pre>
+<hr>
+<h2>🇮🇳 Indian Real-Life Example</h2>
+<p><strong>Think of Claude Code like a senior software engineer at a TCS project:</strong></p>
+<p>When a new requirement comes in, the senior engineer doesn&#39;t immediately start typing code. They:</p>
+<ol>
+<li><strong>Read</strong> the relevant existing code first (understand before touching)</li>
+<li><strong>Search</strong> for all places that call the function they&#39;re about to change</li>
+<li><strong>Plan</strong> the approach before making any changes</li>
+<li><strong>Edit</strong> specific sections — not rewrite the entire file</li>
+<li><strong>Test</strong> by running the test suite to verify nothing broke</li>
+</ol>
+<p>Claude Code works exactly this way — read, search, plan, edit, test — before declaring the task complete.</p>
+<hr>
+<h2>🔑 Exam-Focused Points</h2>
+<ul>
+<li>✅ Claude Code = agentic CLI with file tools (Read, Write, Edit, Grep, Glob) + Bash</li>
+<li>✅ <strong>Grep</strong> is the right tool for searching file contents; prefer it over custom shell commands</li>
+<li>✅ <strong>Glob</strong> finds files by name pattern; does not read content</li>
+<li>✅ <strong>Edit</strong> is preferred for targeted changes; <strong>Write</strong> for new files or when Edit can&#39;t find unique anchor</li>
+<li>✅ <strong>Plan Mode</strong> is essential for large architectural changes — explore and plan before making changes</li>
+<li>✅ Claude Code has session memory — sessions can be resumed, continued, or forked</li>
+</ul>
+<hr>
+<h2>🧩 Scenario-Based Thinking</h2>
+<p><strong>Scenario:</strong> An engineer asks Claude Code to find all occurrences of an unsafe function <code>eval()</code> across a large Python codebase with hundreds of files. What exploration approach is most efficient?</p>
+<ul>
+<li>A) Have Claude read every file in the codebase until it finds eval() usages</li>
+<li>B) Use Grep to search for the pattern &quot;eval(&quot; across all Python files</li>
+<li>C) Use Glob to find all *.py files, then read each one to find eval() manually</li>
+<li>D) Run a Bash command to search for eval() using find + grep</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> Grep is the purpose-built tool for this task. It searches file contents for a pattern and returns matching lines with file paths and line numbers — directly useful for an investigation. Reading every file (A) is inefficient. Glob + manual read (C) is Grep without the search capability. Bash commands (D) can do the same but Grep&#39;s structured output is more reliable and doesn&#39;t require writing a shell command.</p>
+<hr>
+<h2>💡 Memory Tricks</h2>
+<p><strong>Grep = Google Search for Code:</strong> You know what you&#39;re looking for — type the search term, get results immediately. Don&#39;t manually browse every file.</p>
+<p><strong>Edit vs Write:</strong> Edit is like editing a specific paragraph in a Word document. Write is like deleting the whole document and typing a new one. Use Edit when possible — it&#39;s surgical and safer.</p>
+<hr>
+<h2>❓ Chapter Practice Questions</h2>
+<p><strong>Q1.</strong> A developer asks Claude Code to understand how a caching module works before making changes. The module spans many files with complex inheritance hierarchies. What exploration approach will most efficiently build accurate understanding?</p>
+<ul>
+<li>A) Read every file in the codebase from top to bottom</li>
+<li>B) Use Grep to search for the word &quot;cache&quot; across all files</li>
+<li>C) Use Glob to find all files containing &quot;cache&quot; in the filename, then analyse imports and class hierarchies to identify the base cache class, read that file, and trace specific implementations</li>
+<li>D) Run the application and observe cache behaviour through logging</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> Architecture-first exploration is more efficient than reading everything. Starting with file patterns (Glob), identifying the base class, reading the interface, then tracing specific implementations builds understanding bottom-up without reading irrelevant files. Searching for &quot;cache&quot; everywhere (B) returns too many unrelated results; reading everything (A) is prohibitively slow.</p>
+<hr>
+<p><strong>Q2.</strong> Claude Code is inserting a new helper function into the middle of a 200-line utility module. The Edit tool fails because the file has many repetitive docstrings and variable names that prevent finding unique anchor text. What is the most reliable alternative approach?</p>
+<ul>
+<li>A) Use Bash to append the function to the end of the file using a heredoc</li>
+<li>B) Read the complete file content, add the function at the correct location in memory, then Write the updated file</li>
+<li>C) Use Edit with an extremely long old_string capturing 50+ lines to guarantee uniqueness</li>
+<li>D) Use Edit&#39;s replace_all parameter with a common pattern</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> When Edit cannot find a unique anchor, the most reliable fallback is Read (load the full file) → modify in memory → Write (overwrite with the updated version). This is safe because Claude sees the complete file content and can make the insertion at exactly the right location. Appending to the end (A) puts the function in the wrong place.</p>
+<hr>
+<p><strong>Q3.</strong> When is Plan Mode most essential in a Claude Code workflow?</p>
+<ul>
+<li>A) For all tasks, regardless of complexity</li>
+<li>B) For large architectural changes involving many files and significant design decisions — where incorrect assumptions would be costly to reverse</li>
+<li>C) Only when the user explicitly requests a plan</li>
+<li>D) For tasks that involve reading more than 5 files</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> Plan Mode is most valuable for large, complex, or potentially irreversible changes. For a simple single-file bug fix or adding a comment, Plan Mode is unnecessary overhead. For restructuring a monolith, refactoring across 30 files, or making architectural decisions, exploring and planning first prevents costly mistakes.</p>
+<hr>
+<h2>📌 Quick Revision Summary</h2>
+<ul>
+<li>Claude Code = agentic CLI: Read, Write, Edit, Grep, Glob, Bash tools + session memory</li>
+<li>Grep: search file contents for patterns — prefer over custom Bash search commands</li>
+<li>Glob: find files by name/extension pattern — doesn&#39;t read content</li>
+<li>Edit: targeted changes to specific sections (requires unique anchor text); Write: entire file</li>
+<li>Plan Mode: explore + plan before making changes for large/complex/architectural tasks</li>
+<li>Session memory: sessions can be resumed by name or ID, or forked for alternative explorations</li>
+</ul>
+<hr>
+<h2>📎 References</h2>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code">Anthropic Documentation — Claude Code</a></li>
+</ul>
+<hr>
+<p><em>Notes by certification-study-hub. Chapter 05 — Introduction to Claude Code.</em></p>
+
+        
+        <div class="pagination">
+          <a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Exploration Patterns</span>
+        </a>
+          <a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Session Management →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

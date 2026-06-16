@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shared Responsibility Model | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>AWS Cloud Practitioner</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Cloud Concepts</div>
+        <a href="../../aws-cloud-practitioner/01-cloud-concepts/what-is-cloud.html" class="nav-link">What Is Cloud</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Aws Global Infrastructure</div>
+        <a href="../../aws-cloud-practitioner/02-aws-global-infrastructure/regions-and-availability-zones.html" class="nav-link">Regions And Availability Zones</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Core Services</div>
+        <div class="nav-group">
+        <div class="nav-group-title">Compute</div>
+        <a href="../../aws-cloud-practitioner/03-core-services/compute/ec2-basics.html" class="nav-link">Ec2 Basics</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Database</div>
+        <a href="../../aws-cloud-practitioner/03-core-services/database/rds-vs-dynamodb.html" class="nav-link">Rds Vs Dynamodb</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Storage</div>
+        <a href="../../aws-cloud-practitioner/03-core-services/storage/s3-basics.html" class="nav-link">S3 Basics</a>
+
+      </div>
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Security And Compliance</div>
+        <a href="../../aws-cloud-practitioner/04-security-and-compliance/shared-responsibility-model.html" class="nav-link">Shared Responsibility Model</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Billing And Pricing</div>
+        <a href="../../aws-cloud-practitioner/05-billing-and-pricing/pricing-models.html" class="nav-link">Pricing Models</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">06 Cloud Technology And Services</div>
+        <a href="../../aws-cloud-practitioner/06-cloud-technology-and-services/cloud-adoption-framework.html" class="nav-link">Cloud Adoption Framework</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="nav-link">Ccp Mock Test 65q</a>
+<a href="../../aws-cloud-practitioner/mock-tests/mock-test-01.html" class="nav-link">Mock Test 01</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../aws-cloud-practitioner/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../aws-cloud-practitioner/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../aws-cloud-practitioner/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>Security and Compliance: Shared Responsibility &amp; IAM</h1>
+<blockquote>
+<p><strong>Exam:</strong> AWS Certified Cloud Practitioner (CLF-C02)
+<strong>Domain:</strong> 2.0 Security and Compliance
+<strong>Weight:</strong> 30%
+<strong>Difficulty:</strong> Intermediate
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>🎯 Learning Objectives</h2>
+<p>After reading this chapter, you will be able to:</p>
+<ol>
+<li>Clearly define the AWS Shared Responsibility Model.</li>
+<li>Understand AWS Identity and Access Management (IAM) components.</li>
+<li>Differentiate between AWS WAF, AWS Shield, and AWS KMS.</li>
+<li>Identify compliance and monitoring services like AWS CloudTrail, AWS Config, and AWS Artifact.</li>
+</ol>
+<hr>
+<h2>🏛️ Architecture Overview: The Shared Responsibility Model</h2>
+<p>The fundamental security concept in AWS is the <strong>Shared Responsibility Model</strong>. It dictates who is responsible for what.</p>
+<pre><code class="language-mermaid">flowchart TD
+    SRM[Shared Responsibility Model] --&gt; Cust[Customer Responsibility\n&#39;Security IN the Cloud&#39;]
+    SRM --&gt; AWS[AWS Responsibility\n&#39;Security OF the Cloud&#39;]
+    
+    Cust --&gt; Data[Customer Data]
+    Cust --&gt; IAM[IAM &amp; Access Management]
+    Cust --&gt; OS[Operating System, Network, Firewall Config]
+    Cust --&gt; Enc[Client &amp; Server-Side Encryption]
+    
+    AWS --&gt; Phys[Physical Security of Data Centers]
+    AWS --&gt; Hard[Hardware &amp; Global Infrastructure]
+    AWS --&gt; Found[Foundational Services: Compute, Storage, DB, Network]
+</code></pre>
+<hr>
+<h2>📘 Concept Definitions</h2>
+<h3>1. IAM (Identity and Access Management)</h3>
+<p>A global service used to manage access to AWS services and resources securely.</p>
+<ul>
+<li><strong>Users:</strong> Individuals or applications.</li>
+<li><strong>Groups:</strong> Collections of users with identical permissions.</li>
+<li><strong>Roles:</strong> Temporary credentials assumed by trusted entities (like EC2 instances or Lambda functions).</li>
+<li><strong>Policies:</strong> JSON documents that define permissions (Allow/Deny).</li>
+</ul>
+<h3>2. Network &amp; Application Protection</h3>
+<ul>
+<li><strong>AWS WAF (Web Application Firewall):</strong> Protects web applications from common web exploits (e.g., SQL injection, Cross-Site Scripting). Operates at Layer 7.</li>
+<li><strong>AWS Shield:</strong> A managed Distributed Denial of Service (DDoS) protection service.<ul>
+<li><em>Shield Standard:</em> Free, protects against common network/transport layer attacks.</li>
+<li><em>Shield Advanced:</em> Paid, provides enhanced protection and access to the DDoS Response Team.</li>
+</ul>
+</li>
+</ul>
+<h3>3. Data Security &amp; Cryptography</h3>
+<ul>
+<li><strong>AWS KMS (Key Management Service):</strong> Creates and manages cryptographic keys to encrypt your data.</li>
+<li><strong>AWS CloudHSM:</strong> Cloud-based hardware security module that enables you to easily generate and use your own encryption keys.</li>
+<li><strong>AWS Secrets Manager:</strong> Protects secrets needed to access your applications, services, and IT resources (e.g., database credentials).</li>
+</ul>
+<h3>4. Visibility &amp; Compliance</h3>
+<ul>
+<li><strong>AWS CloudTrail:</strong> Logs all API calls made within your AWS account. It answers &quot;Who did what, when, and from where?&quot;</li>
+<li><strong>AWS Config:</strong> Assesses, audits, and evaluates the configurations of your AWS resources against desired compliance rules.</li>
+<li><strong>AWS Artifact:</strong> Your go-to central resource for compliance-related information. Provides access to AWS security and compliance reports (e.g., ISO, SOC, PCI reports).</li>
+<li><strong>AWS Security Hub:</strong> A centralized view of your security alerts and compliance status across your AWS accounts.</li>
+</ul>
+<hr>
+<h2>⚖️ Service Comparison Matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Primary Function</th>
+<th>Layer / Scope</th>
+<th>What it Answers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>AWS WAF</strong></td>
+<td>Web exploit protection</td>
+<td>Layer 7 (Application)</td>
+<td>&quot;Is this HTTP request malicious?&quot;</td>
+</tr>
+<tr>
+<td><strong>AWS Shield</strong></td>
+<td>DDoS protection</td>
+<td>Layer 3/4 (Network/Transport)</td>
+<td>&quot;Is this a flood of fake traffic?&quot;</td>
+</tr>
+<tr>
+<td><strong>CloudTrail</strong></td>
+<td>API Activity Logging</td>
+<td>Account-wide</td>
+<td>&quot;Who invoked this API call?&quot;</td>
+</tr>
+<tr>
+<td><strong>AWS Config</strong></td>
+<td>Resource Configuration</td>
+<td>Account-wide</td>
+<td>&quot;Is my S3 bucket currently public?&quot;</td>
+</tr>
+<tr>
+<td><strong>AWS Artifact</strong></td>
+<td>Compliance Documentation</td>
+<td>AWS Corporate Level</td>
+<td>&quot;Is AWS SOC-2 compliant?&quot;</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🗺️ Decision Guide: Security Services</h2>
+<pre><code class="language-mermaid">flowchart TD
+    Start[Security Requirement] --&gt; Q1{What are you protecting/tracking?}
+    
+    Q1 -- Web Traffic --&gt; Q2{Protect against what?}
+    Q2 -- SQLi / XSS --&gt; WAF[AWS WAF]
+    Q2 -- DDoS Attacks --&gt; Shield[AWS Shield]
+    
+    Q1 -- Data/Secrets --&gt; Q3{What type of data?}
+    Q3 -- Encryption Keys --&gt; KMS[AWS KMS]
+    Q3 -- Database Passwords --&gt; Secrets[AWS Secrets Manager]
+    
+    Q1 -- Governance/Audit --&gt; Q4{What are you auditing?}
+    Q4 -- User API Actions --&gt; Trail[AWS CloudTrail]
+    Q4 -- Resource Configurations --&gt; Config[AWS Config]
+    Q4 -- AWS Compliance Reports --&gt; Artifact[AWS Artifact]
+</code></pre>
+<hr>
+<h2>⚡ Exam Focus Points</h2>
+<ul>
+<li>✅ <strong>Shared Responsibility:</strong> AWS is responsible for physical host security and infrastructure. YOU are responsible for guest OS patching, data encryption, and firewall rules (Security Groups).</li>
+<li>✅ <strong>CloudTrail vs Config:</strong> CloudTrail tracks <strong>actions</strong> (API calls). Config tracks <strong>states</strong> (configuration history and rule compliance).</li>
+<li>✅ <strong>IAM Roles:</strong> Use roles for assigning permissions to AWS services (e.g., giving an EC2 instance access to an S3 bucket), NOT access keys.</li>
+<li>✅ <strong>WAF vs Shield:</strong> WAF is for Application Layer (SQL injection, XSS). Shield is for Infrastructure/Network Layer (DDoS mitigation).</li>
+<li>✅ <strong>AWS Artifact:</strong> If the question mentions downloading SOC or ISO compliance reports, the answer is AWS Artifact.</li>
+</ul>
+<hr>
+<h2>📝 Quick Revision</h2>
+<ul>
+<li><strong>Security IN the Cloud:</strong> Customer responsibility (Data, OS, IAM).</li>
+<li><strong>Security OF the Cloud:</strong> AWS responsibility (Hardware, Data Centers).</li>
+<li><strong>IAM:</strong> Users, Groups, Roles, Policies.</li>
+<li><strong>WAF:</strong> Web Application Firewall (Layer 7).</li>
+<li><strong>Shield:</strong> DDoS protection.</li>
+<li><strong>CloudTrail:</strong> API logs (Who did what).</li>
+<li><strong>Config:</strong> Configuration tracking.</li>
+<li><strong>Artifact:</strong> Compliance reports.</li>
+<li><strong>KMS:</strong> Encryption key management.</li>
+</ul>
+
+        
+        <div class="pagination">
+          <a href="../../aws-cloud-practitioner/03-core-services/storage/s3-basics.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← S3 Basics</span>
+        </a>
+          <a href="../../aws-cloud-practitioner/05-billing-and-pricing/pricing-models.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Pricing Models →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ec2 Basics | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>AWS Cloud Practitioner</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Cloud Concepts</div>
+        <a href="../../../aws-cloud-practitioner/01-cloud-concepts/what-is-cloud.html" class="nav-link">What Is Cloud</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Aws Global Infrastructure</div>
+        <a href="../../../aws-cloud-practitioner/02-aws-global-infrastructure/regions-and-availability-zones.html" class="nav-link">Regions And Availability Zones</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Core Services</div>
+        <div class="nav-group">
+        <div class="nav-group-title">Compute</div>
+        <a href="../../../aws-cloud-practitioner/03-core-services/compute/ec2-basics.html" class="nav-link">Ec2 Basics</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Database</div>
+        <a href="../../../aws-cloud-practitioner/03-core-services/database/rds-vs-dynamodb.html" class="nav-link">Rds Vs Dynamodb</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Storage</div>
+        <a href="../../../aws-cloud-practitioner/03-core-services/storage/s3-basics.html" class="nav-link">S3 Basics</a>
+
+      </div>
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Security And Compliance</div>
+        <a href="../../../aws-cloud-practitioner/04-security-and-compliance/shared-responsibility-model.html" class="nav-link">Shared Responsibility Model</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Billing And Pricing</div>
+        <a href="../../../aws-cloud-practitioner/05-billing-and-pricing/pricing-models.html" class="nav-link">Pricing Models</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">06 Cloud Technology And Services</div>
+        <a href="../../../aws-cloud-practitioner/06-cloud-technology-and-services/cloud-adoption-framework.html" class="nav-link">Cloud Adoption Framework</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../../aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="nav-link">Ccp Mock Test 65q</a>
+<a href="../../../aws-cloud-practitioner/mock-tests/mock-test-01.html" class="nav-link">Mock Test 01</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../../aws-cloud-practitioner/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../../aws-cloud-practitioner/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../../aws-cloud-practitioner/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>AWS Compute Services — EC2, Lambda, Fargate &amp; Elastic Beanstalk</h1>
+<blockquote>
+<p><strong>Exam:</strong> AWS Certified Cloud Practitioner (CLF-C02)
+<strong>Domain:</strong> Cloud Technology and Services (34% of exam)
+<strong>Chapter:</strong> 03a — Core Services: Compute
+<strong>Topics:</strong> EC2 instance types, purchase options, Lambda, Fargate, Elastic Beanstalk, Auto Scaling, ELB</p>
+</blockquote>
+<hr>
+<h2>Learning Objectives</h2>
+<p>After reading this chapter you will be able to:</p>
+<ul>
+<li>Describe what Amazon EC2 is and how it differs from physical servers</li>
+<li>Choose the correct EC2 purchase option for a given workload description</li>
+<li>Distinguish between EC2, Lambda, Fargate, and Elastic Beanstalk</li>
+<li>Explain horizontal vs vertical scaling and when to use each</li>
+<li>Describe how Auto Scaling and Elastic Load Balancing work together</li>
+</ul>
+<hr>
+<h2>1. Amazon EC2 — Elastic Compute Cloud</h2>
+<h3>1.1 What Is EC2?</h3>
+<p>Amazon EC2 provides resizable <strong>virtual machines (instances)</strong> in the AWS cloud. It is the most fundamental compute service and forms the backbone of most AWS architectures.</p>
+<pre><code class="language-mermaid">graph TD
+    PHY[&quot;🖥️ Physical Server\n(On-Premises)&quot;]
+    EC2[&quot;☁️ Amazon EC2 Instance\n(Virtual Server)&quot;]
+
+    subgraph PHY_PROPS[&quot;On-Premises Properties&quot;]
+        P1[&quot;Fixed hardware&quot;]
+        P2[&quot;Weeks to procure&quot;]
+        P3[&quot;Always running cost&quot;]
+        P4[&quot;You manage hardware&quot;]
+    end
+
+    subgraph EC2_PROPS[&quot;EC2 Properties&quot;]
+        E1[&quot;Configurable CPU/RAM/Storage&quot;]
+        E2[&quot;Launched in minutes&quot;]
+        E3[&quot;Pay per second/hour&quot;]
+        E4[&quot;AWS manages hardware&quot;]
+    end
+
+    PHY --- PHY_PROPS
+    EC2 --- EC2_PROPS
+</code></pre>
+<h3>1.2 EC2 Instance Families</h3>
+<p>AWS groups EC2 instances into families optimised for different workloads:</p>
+<table>
+<thead>
+<tr>
+<th>Family</th>
+<th>Optimised For</th>
+<th>Example Use Case</th>
+<th>Instance Types</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>General Purpose</strong></td>
+<td>Balanced CPU, memory, networking</td>
+<td>Web servers, dev environments</td>
+<td>t3, t4g, m6i, m7g</td>
+</tr>
+<tr>
+<td><strong>Compute Optimised</strong></td>
+<td>High CPU performance</td>
+<td>Batch processing, HPC, gaming</td>
+<td>c6i, c7g</td>
+</tr>
+<tr>
+<td><strong>Memory Optimised</strong></td>
+<td>Large in-memory datasets</td>
+<td>In-memory databases, real-time analytics</td>
+<td>r6i, x2idn</td>
+</tr>
+<tr>
+<td><strong>Storage Optimised</strong></td>
+<td>High sequential read/write</td>
+<td>Data warehousing, distributed file systems</td>
+<td>i3, d3</td>
+</tr>
+<tr>
+<td><strong>Accelerated Computing</strong></td>
+<td>GPU/ML workloads</td>
+<td>Machine learning, graphics rendering</td>
+<td>p4, g5, inf2</td>
+</tr>
+</tbody></table>
+<p><strong>Exam Note:</strong> The CCP exam does <strong>not</strong> test specific instance type names. It tests which <em>family</em> fits a described workload.</p>
+<hr>
+<h2>2. EC2 Purchase Options</h2>
+<p>This is one of the most tested topics at the CCP level. Each option has a distinct use case.</p>
+<pre><code class="language-mermaid">flowchart TD
+    START([What is your workload?])
+
+    START --&gt; Q1{Is the workload\ncontinuous and\npredictable?}
+
+    Q1 --&gt;|Yes, 1-3 years| RI[&quot;💰 Reserved Instance\n• Up to 72% discount\n• 1 or 3 year commitment\n• Standard or Convertible&quot;]
+
+    Q1 --&gt;|Yes, flexible usage| SP[&quot;💰 Savings Plans\n• Up to 66% discount\n• Commit to $/hour spend\n• Applies across instance families&quot;]
+
+    Q1 --&gt;|No, short-term| Q2{Can the workload\ntolerate interruptions?}
+
+    Q2 --&gt;|No| OD[&quot;💳 On-Demand\n• No commitment\n• Pay per second\n• Most flexible, most expensive&quot;]
+
+    Q2 --&gt;|Yes| Q3{How cost-sensitive?}
+
+    Q3 --&gt;|Very cost-sensitive\nbatch/fault-tolerant| SPOT[&quot;⚡ Spot Instances\n• Up to 90% discount\n• AWS can reclaim with 2-min notice\n• NOT for critical workloads&quot;]
+
+    Q3 --&gt;|Compliance/licensing need\ndedicated hardware| DH[&quot;🏢 Dedicated Host\n• Physical server reserved for you\n• BYOL licensing compliance\n• Most expensive&quot;]
+</code></pre>
+<h3>2.1 Detailed Purchase Option Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Purchase Option</th>
+<th>Discount vs On-Demand</th>
+<th>Commitment</th>
+<th>Interruption Risk</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>On-Demand</strong></td>
+<td>0% (baseline price)</td>
+<td>None</td>
+<td>None</td>
+<td>Short-term, unpredictable, testing</td>
+</tr>
+<tr>
+<td><strong>Reserved (1 yr)</strong></td>
+<td>Up to 40%</td>
+<td>1 year</td>
+<td>None</td>
+<td>Steady, predictable workloads</td>
+</tr>
+<tr>
+<td><strong>Reserved (3 yr)</strong></td>
+<td>Up to 72%</td>
+<td>3 years</td>
+<td>None</td>
+<td>Very stable, long-term workloads</td>
+</tr>
+<tr>
+<td><strong>Savings Plans</strong></td>
+<td>Up to 66%</td>
+<td>1 or 3 year ($/hr commit)</td>
+<td>None</td>
+<td>Flexible long-term with family changes</td>
+</tr>
+<tr>
+<td><strong>Spot</strong></td>
+<td>Up to 90%</td>
+<td>None</td>
+<td>High (2-min warning)</td>
+<td>Batch jobs, fault-tolerant apps</td>
+</tr>
+<tr>
+<td><strong>Dedicated Host</strong></td>
+<td>Variable (can use RI)</td>
+<td>Optional</td>
+<td>None</td>
+<td>Compliance, BYOL licensing</td>
+</tr>
+<tr>
+<td><strong>Dedicated Instance</strong></td>
+<td>Premium pricing</td>
+<td>None</td>
+<td>None</td>
+<td>Single-tenant hardware requirement</td>
+</tr>
+</tbody></table>
+<h3>2.2 Payment Options for Reserved Instances</h3>
+<table>
+<thead>
+<tr>
+<th>Payment Type</th>
+<th>Discount Level</th>
+<th>Cash Flow Impact</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>All Upfront</strong></td>
+<td>Highest discount</td>
+<td>Large one-time payment</td>
+</tr>
+<tr>
+<td><strong>Partial Upfront</strong></td>
+<td>Medium discount</td>
+<td>Down payment + monthly</td>
+</tr>
+<tr>
+<td><strong>No Upfront</strong></td>
+<td>Lowest discount</td>
+<td>Monthly only, no commitment fee</td>
+</tr>
+</tbody></table>
+<p><strong>Exam Tip:</strong> &quot;All Upfront + Standard Reserved Instance&quot; = <strong>maximum possible discount</strong> for a steady, known workload.</p>
+<hr>
+<h2>3. EC2 Auto Scaling</h2>
+<p>Auto Scaling automatically adds or removes EC2 instances based on demand. It ensures you always have the right amount of compute capacity.</p>
+<pre><code class="language-mermaid">graph LR
+    subgraph NORMAL[&quot;Normal Traffic&quot;]
+        N1[&quot;EC2 #1 ✅&quot;]
+        N2[&quot;EC2 #2 ✅&quot;]
+    end
+
+    subgraph PEAK[&quot;Peak Traffic — Scale Out&quot;]
+        P1[&quot;EC2 #1 ✅&quot;]
+        P2[&quot;EC2 #2 ✅&quot;]
+        P3[&quot;EC2 #3 ✅ (new)&quot;]
+        P4[&quot;EC2 #4 ✅ (new)&quot;]
+    end
+
+    subgraph LOW[&quot;Low Traffic — Scale In&quot;]
+        L1[&quot;EC2 #1 ✅&quot;]
+    end
+
+    NORMAL --&gt;|&quot;Traffic spikes&quot;| PEAK
+    PEAK --&gt;|&quot;Traffic drops&quot;| LOW
+</code></pre>
+<h3>3.1 Scaling Types</h3>
+<table>
+<thead>
+<tr>
+<th>Scaling Type</th>
+<th>Description</th>
+<th>Direction</th>
+<th>AWS Mechanism</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Vertical Scaling</strong></td>
+<td>Increase instance size (more CPU/RAM)</td>
+<td>Up only</td>
+<td>Change instance type (requires restart)</td>
+</tr>
+<tr>
+<td><strong>Horizontal Scaling</strong></td>
+<td>Add more instances</td>
+<td>Out (add) / In (remove)</td>
+<td>EC2 Auto Scaling Groups</td>
+</tr>
+<tr>
+<td><strong>Predictive Scaling</strong></td>
+<td>Scale ahead of known events using ML</td>
+<td>Proactive</td>
+<td>Auto Scaling predictive policies</td>
+</tr>
+</tbody></table>
+<p><strong>Best Practice:</strong> Always prefer <strong>horizontal scaling</strong> (add more instances) over vertical scaling for high availability — horizontal scaling distributes across multiple AZs.</p>
+<hr>
+<h2>4. Elastic Load Balancer (ELB)</h2>
+<p>ELB distributes incoming traffic across multiple EC2 instances, ensuring no single instance is overwhelmed.</p>
+<pre><code class="language-mermaid">graph TD
+    USERS[&quot;👥 Incoming User Requests&quot;]
+    ELB[&quot;⚖️ Elastic Load Balancer\n(Distributes Traffic)&quot;]
+    AZA[&quot;Availability Zone A&quot;]
+    AZB[&quot;Availability Zone B&quot;]
+    EC2_1[&quot;EC2 Instance 1&quot;]
+    EC2_2[&quot;EC2 Instance 2&quot;]
+    EC2_3[&quot;EC2 Instance 3&quot;]
+    EC2_4[&quot;EC2 Instance 4&quot;]
+
+    USERS --&gt; ELB
+    ELB --&gt; AZA
+    ELB --&gt; AZB
+    AZA --&gt; EC2_1
+    AZA --&gt; EC2_2
+    AZB --&gt; EC2_3
+    AZB --&gt; EC2_4
+</code></pre>
+<h3>4.1 ELB Types</h3>
+<table>
+<thead>
+<tr>
+<th>ELB Type</th>
+<th>Layer</th>
+<th>Protocol</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Application LB (ALB)</strong></td>
+<td>Layer 7 (HTTP/HTTPS)</td>
+<td>HTTP, HTTPS</td>
+<td>Web applications, microservices, path-based routing</td>
+</tr>
+<tr>
+<td><strong>Network LB (NLB)</strong></td>
+<td>Layer 4 (TCP/UDP)</td>
+<td>TCP, UDP, TLS</td>
+<td>High-performance, ultra-low latency, gaming</td>
+</tr>
+<tr>
+<td><strong>Gateway LB (GLB)</strong></td>
+<td>Layer 3</td>
+<td>IP</td>
+<td>Third-party security appliances</td>
+</tr>
+</tbody></table>
+<p><strong>Exam Tip:</strong> CCP exam typically only requires knowing that ELB distributes traffic across instances and AZs. ALB vs NLB differences are more relevant to the Solutions Architect exam.</p>
+<hr>
+<h2>5. AWS Lambda</h2>
+<h3>5.1 What Is Lambda?</h3>
+<p>Lambda is AWS&#39;s <strong>serverless compute service</strong>. You write code, define a trigger, and Lambda runs the code — with no server provisioning, no OS management, and no capacity planning.</p>
+<pre><code class="language-mermaid">graph LR
+    subgraph TRIGGERS[&quot;⚡ Triggers (Events)&quot;]
+        T1[&quot;HTTP Request\n(API Gateway)&quot;]
+        T2[&quot;File Upload\n(S3 Event)&quot;]
+        T3[&quot;Scheduled Time\n(EventBridge)&quot;]
+        T4[&quot;Database Change\n(DynamoDB Stream)&quot;]
+        T5[&quot;Message in Queue\n(SQS)&quot;]
+    end
+
+    subgraph LAMBDA[&quot;☁️ AWS Lambda&quot;]
+        L1[&quot;Your Code Runs&quot;]
+        L2[&quot;Auto-scales from\n0 to thousands&quot;]
+        L3[&quot;Pay per millisecond\nof execution&quot;]
+    end
+
+    subgraph OUTPUT[&quot;📤 Output&quot;]
+        O1[&quot;Write to DynamoDB&quot;]
+        O2[&quot;Send SNS notification&quot;]
+        O3[&quot;Return HTTP response&quot;]
+        O4[&quot;Store in S3&quot;]
+    end
+
+    TRIGGERS --&gt; LAMBDA --&gt; OUTPUT
+</code></pre>
+<h3>5.2 Lambda Key Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Execution model</strong></td>
+<td>Event-driven, runs only when triggered</td>
+</tr>
+<tr>
+<td><strong>Timeout</strong></td>
+<td>Maximum 15 minutes per invocation</td>
+</tr>
+<tr>
+<td><strong>Pricing</strong></td>
+<td>Per request count + duration (GB-seconds)</td>
+</tr>
+<tr>
+<td><strong>Scaling</strong></td>
+<td>Automatic, from 0 to thousands of concurrent executions</td>
+</tr>
+<tr>
+<td><strong>OS management</strong></td>
+<td>None required — AWS manages everything</td>
+</tr>
+<tr>
+<td><strong>Languages</strong></td>
+<td>Python, Node.js, Java, Go, Ruby, .NET, custom runtimes</td>
+</tr>
+</tbody></table>
+<h3>5.3 Lambda vs EC2 — When to Use Which</h3>
+<table>
+<thead>
+<tr>
+<th>Consideration</th>
+<th>Use EC2</th>
+<th>Use Lambda</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Workload duration</strong></td>
+<td>Long-running (hours/days)</td>
+<td>Short tasks (&lt; 15 minutes)</td>
+</tr>
+<tr>
+<td><strong>Control needed</strong></td>
+<td>Full OS and middleware control</td>
+<td>Just code execution</td>
+</tr>
+<tr>
+<td><strong>Traffic pattern</strong></td>
+<td>Steady, continuous</td>
+<td>Sporadic, event-driven</td>
+</tr>
+<tr>
+<td><strong>Pricing model</strong></td>
+<td>Per hour (even when idle)</td>
+<td>Per execution (zero cost when idle)</td>
+</tr>
+<tr>
+<td><strong>Scaling speed</strong></td>
+<td>Minutes (via Auto Scaling)</td>
+<td>Milliseconds (instant)</td>
+</tr>
+<tr>
+<td><strong>State</strong></td>
+<td>Stateful workloads possible</td>
+<td>Stateless by design</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. AWS Fargate</h2>
+<h3>6.1 What Is Fargate?</h3>
+<p>Fargate is a <strong>serverless compute engine for containers</strong>. It works with Amazon ECS (Elastic Container Service) and Amazon EKS (Elastic Kubernetes Service) to run containers without managing the underlying EC2 instances.</p>
+<pre><code class="language-mermaid">graph TD
+    subgraph TRADITIONAL[&quot;Traditional Containers on EC2&quot;]
+        EC2A[&quot;EC2 Instance\n(You manage: OS, Docker, patching)&quot;]
+        CONT1[&quot;Container 1&quot;]
+        CONT2[&quot;Container 2&quot;]
+        EC2A --&gt; CONT1
+        EC2A --&gt; CONT2
+    end
+
+    subgraph FARGATE_ARCH[&quot;AWS Fargate (Serverless Containers)&quot;]
+        ECS[&quot;Amazon ECS / EKS\n(Orchestration)&quot;]
+        FG[&quot;☁️ Fargate\n(No EC2 to manage)&quot;]
+        CONT3[&quot;Container 3&quot;]
+        CONT4[&quot;Container 4&quot;]
+        ECS --&gt; FG
+        FG --&gt; CONT3
+        FG --&gt; CONT4
+    end
+</code></pre>
+<h3>6.2 Fargate vs EC2 Launch Type</h3>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>EC2 Launch Type</th>
+<th>Fargate Launch Type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Server management</strong></td>
+<td>You manage EC2 instances</td>
+<td>AWS manages servers</td>
+</tr>
+<tr>
+<td><strong>Scaling</strong></td>
+<td>Must manage EC2 capacity</td>
+<td>Automatic, serverless</td>
+</tr>
+<tr>
+<td><strong>Pricing</strong></td>
+<td>Pay for EC2 instances (running or not)</td>
+<td>Pay per vCPU/memory per container</td>
+</tr>
+<tr>
+<td><strong>Patching</strong></td>
+<td>You patch the host OS</td>
+<td>AWS patches everything</td>
+</tr>
+<tr>
+<td><strong>Visibility</strong></td>
+<td>Full access to host</td>
+<td>No access to underlying host</td>
+</tr>
+<tr>
+<td><strong>Use case</strong></td>
+<td>When you need specific EC2 configs</td>
+<td>When you want to just run containers</td>
+</tr>
+</tbody></table>
+<p><strong>Exam Tip:</strong> If a question asks about removing the need to manage Docker hosts, EC2 patching, or cluster management → <strong>AWS Fargate</strong></p>
+<hr>
+<h2>7. AWS Elastic Beanstalk</h2>
+<h3>7.1 What Is Elastic Beanstalk?</h3>
+<p>Elastic Beanstalk is a <strong>Platform as a Service (PaaS)</strong> that simplifies application deployment. You provide your application code, and Elastic Beanstalk automatically handles:</p>
+<ul>
+<li>Provisioning EC2 instances</li>
+<li>Configuring load balancers</li>
+<li>Setting up Auto Scaling</li>
+<li>Monitoring health</li>
+<li>Software updates</li>
+</ul>
+<pre><code class="language-mermaid">graph TD
+    DEV[&quot;👨‍💻 Developer\n(Uploads code)&quot;]
+    EB[&quot;⚙️ Elastic Beanstalk&quot;]
+    EC2_B[&quot;EC2 Instances\n(Auto-provisioned)&quot;]
+    ELB_B[&quot;Load Balancer\n(Auto-configured)&quot;]
+    ASG_B[&quot;Auto Scaling Group\n(Auto-configured)&quot;]
+    MON[&quot;CloudWatch Monitoring\n(Auto-configured)&quot;]
+    RDS_B[&quot;RDS Database\n(Optional, auto-linked)&quot;]
+
+    DEV --&gt;|&quot;Deploy code&quot;| EB
+    EB --&gt; EC2_B
+    EB --&gt; ELB_B
+    EB --&gt; ASG_B
+    EB --&gt; MON
+    EB -.-&gt;|&quot;Optional&quot;| RDS_B
+</code></pre>
+<h3>7.2 Elastic Beanstalk Key Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Supported platforms</strong></td>
+<td>Java, .NET, PHP, Node.js, Python, Ruby, Go, Docker</td>
+</tr>
+<tr>
+<td><strong>Control</strong></td>
+<td>You still have full access to underlying EC2 resources</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>No extra charge for Beanstalk — pay only for EC2, RDS, ELB resources it provisions</td>
+</tr>
+<tr>
+<td><strong>Deployment types</strong></td>
+<td>All at once, Rolling, Rolling with additional batch, Immutable, Blue/Green</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>Web apps, APIs, microservices — without wanting to manage infrastructure</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>8. Compute Services — Full Comparison Matrix</h2>
+<pre><code>╔══════════════════╦══════════════╦══════════════╦══════════════╦══════════════╗
+║    Property      ║     EC2      ║    Lambda    ║   Fargate    ║  Beanstalk   ║
+╠══════════════════╬══════════════╬══════════════╬══════════════╬══════════════╣
+║ Server Mgmt      ║ You manage   ║ None         ║ None         ║ AWS manages  ║
+║ Scaling          ║ Auto Scaling ║ Automatic    ║ Automatic    ║ Auto Scaling ║
+║ Container?       ║ Optional     ║ No           ║ Yes (required║ Optional     ║
+║ Max run time     ║ Unlimited    ║ 15 minutes   ║ Unlimited    ║ Unlimited    ║
+║ OS patching      ║ You do it    ║ AWS does it  ║ AWS does it  ║ You do it    ║
+║ Billing unit     ║ Per second   ║ Per ms       ║ Per vCPU/mem ║ Per resource ║
+║ Service model    ║ IaaS         ║ Serverless   ║ Serverless   ║ PaaS         ║
+║ Idle cost        ║ Yes          ║ Zero         ║ Zero (if off)║ Yes          ║
+╚══════════════════╩══════════════╩══════════════╩══════════════╩══════════════╝
+</code></pre>
+<hr>
+<h2>9. Other Compute Services (Know These Exist)</h2>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>What It Does</th>
+<th>Exam Relevance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Amazon ECS</strong></td>
+<td>Container orchestration service using Docker</td>
+<td>Know it orchestrates containers; Fargate is its serverless mode</td>
+</tr>
+<tr>
+<td><strong>Amazon EKS</strong></td>
+<td>Managed Kubernetes service</td>
+<td>Know it is managed Kubernetes; appears in migration scenarios</td>
+</tr>
+<tr>
+<td><strong>AWS Batch</strong></td>
+<td>Managed batch computing at scale</td>
+<td>For scientific/data workloads needing scheduled batch jobs</td>
+</tr>
+<tr>
+<td><strong>Amazon Lightsail</strong></td>
+<td>Simplified VPS with bundled pricing</td>
+<td>For simple websites, blogs, small apps — predictable low cost</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>10. Exam Focus Points</h2>
+<table>
+<thead>
+<tr>
+<th>Exam Scenario</th>
+<th>Correct Service/Option</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;Run code in response to events without servers&quot;</td>
+<td>AWS Lambda</td>
+</tr>
+<tr>
+<td>&quot;Uninterrupted workload, predictable, 1-3 years&quot;</td>
+<td>Standard Reserved Instance</td>
+</tr>
+<tr>
+<td>&quot;Cost-sensitive, batch job, can handle interruption&quot;</td>
+<td>Spot Instances</td>
+</tr>
+<tr>
+<td>&quot;Short-term, variable, no commitment&quot;</td>
+<td>On-Demand Instance</td>
+</tr>
+<tr>
+<td>&quot;Run containers without managing EC2 servers&quot;</td>
+<td>AWS Fargate</td>
+</tr>
+<tr>
+<td>&quot;Deploy web app, AWS handles infra provisioning&quot;</td>
+<td>AWS Elastic Beanstalk</td>
+</tr>
+<tr>
+<td>&quot;Add/remove servers automatically based on demand&quot;</td>
+<td>EC2 Auto Scaling</td>
+</tr>
+<tr>
+<td>&quot;Distribute traffic across multiple EC2 instances&quot;</td>
+<td>Elastic Load Balancer</td>
+</tr>
+<tr>
+<td>&quot;Maximum discount for long-term predictable EC2&quot;</td>
+<td>All Upfront Standard Reserved Instance</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>11. Exam Traps</h2>
+<table>
+<thead>
+<tr>
+<th>Trap</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Spot = unreliable</strong></td>
+<td>Spot is great for batch, dev/test, fault-tolerant jobs. Never use for critical user-facing apps</td>
+</tr>
+<tr>
+<td><strong>Beanstalk = no control</strong></td>
+<td>Wrong. Beanstalk deploys on EC2 and you retain full access to underlying resources</td>
+</tr>
+<tr>
+<td><strong>Lambda = always fastest</strong></td>
+<td>Lambda has cold-start latency. Not always best for sub-millisecond consistent latency</td>
+</tr>
+<tr>
+<td><strong>Fargate = no Kubernetes</strong></td>
+<td>Wrong. Fargate supports both ECS and EKS</td>
+</tr>
+<tr>
+<td><strong>Reserved = locked to one AZ</strong></td>
+<td>Standard Reserved can be zonal or regional. Regional RIs give AZ flexibility</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>12. Quick Revision Points</h2>
+<ul>
+<li><strong>EC2</strong> = virtual machines, you manage OS — IaaS</li>
+<li><strong>EC2 Purchase Options:</strong> On-Demand (flexible) → Reserved (predictable discount) → Spot (cheapest, interruptible) → Dedicated Host (compliance/licensing)</li>
+<li>All Upfront + Standard Reserved = <strong>maximum discount</strong></li>
+<li><strong>Lambda</strong> = serverless, event-driven, pay per millisecond, max 15 min per invocation</li>
+<li><strong>Fargate</strong> = serverless containers, no EC2 to manage</li>
+<li><strong>Elastic Beanstalk</strong> = PaaS, upload code, AWS provisions and manages infrastructure</li>
+<li><strong>Auto Scaling</strong> = automatically adds/removes EC2 based on demand</li>
+<li><strong>ELB</strong> = distributes traffic across instances and AZs</li>
+<li>Prefer <strong>horizontal scaling</strong> (add instances) over vertical (resize) for HA</li>
+<li>Lambda and Fargate have <strong>zero idle cost</strong>; EC2 charges even when idle</li>
+</ul>
+<hr>
+<p><em>Previous Chapter → <code>02-aws-global-infrastructure/regions-and-availability-zones.md</code></em>
+<em>Next Chapter → <code>03-core-services/storage/s3-basics.md</code></em></p>
+
+        
+        <div class="pagination">
+          <a href="../../../aws-cloud-practitioner/02-aws-global-infrastructure/regions-and-availability-zones.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Regions And Availability Zones</span>
+        </a>
+          <a href="../../../aws-cloud-practitioner/03-core-services/database/rds-vs-dynamodb.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Rds Vs Dynamodb →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../../assets/script.js"></script>
+</body>
+</html>

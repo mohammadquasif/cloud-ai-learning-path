@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batch Processing | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Claude Architect Foundation</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Introduction To Claude</div>
+        <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="nav-link">What Is Claude</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Agentic Patterns</div>
+        <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="nav-link">Orchestrator And Workers</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="nav-link">Prompt Chaining And Routing</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="nav-link">Session And Context Management</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="nav-link">What Is An Agent</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Tool Use And Mcp</div>
+        <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="nav-link">Confirmation And Safety Gates</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="nav-link">Designing Good Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="nav-link">Error Handling In Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="nav-link">Introduction To Tool Use</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="nav-link">Mcp Architecture</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Structured Output And Extraction</div>
+        <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="nav-link">Batch Processing</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="nav-link">Confidence And Human Review</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/handling-ambiguity-and-nulls.html" class="nav-link">Handling Ambiguity And Nulls</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="nav-link">Json Schema For Extraction</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="nav-link">Long Document Extraction</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Claude Code And Workflows</div>
+        <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="nav-link">Claude Md And Skills</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="nav-link">Code Review Workflows</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="nav-link">Exploration Patterns</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../claude-architect-foundation/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../claude-architect-foundation/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>Batch Processing — Message Batches API &amp; Cost-Efficient Extraction</h1>
+<blockquote>
+<p><strong>Exam:</strong> Claude Architect Foundation
+<strong>Chapter:</strong> 04 — Structured Output &amp; Extraction
+<strong>Difficulty:</strong> Intermediate
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>📖 What Is This Topic About?</h2>
+<p>Processing thousands of documents through Claude&#39;s API can be expensive if each document is processed with a real-time API call. The <strong>Message Batches API</strong> offers 50% cost savings in exchange for asynchronous processing with up to a 24-hour window. Understanding when to use batch vs real-time processing — and how to design reliable batch pipelines — is a key exam topic.</p>
+<hr>
+<h2>🧠 Key Concepts</h2>
+<ul>
+<li><strong>Message Batches API</strong> — An Anthropic API for submitting large numbers of requests asynchronously; results are available when processing completes (up to 24 hours)</li>
+<li><strong>Real-Time API (Messages API)</strong> — The standard API for immediate, synchronous responses; results available within seconds</li>
+<li><strong>SLA (Service Level Agreement)</strong> — A commitment about how quickly results will be delivered after input is received</li>
+<li><strong>Batch Window</strong> — The time interval at which you submit accumulated documents as a batch</li>
+<li><strong>Throughput</strong> — The number of documents processed per unit of time</li>
+<li><strong>Cost per Extraction</strong> — The API cost to process one document; reduced by 50% with the Batches API</li>
+</ul>
+<hr>
+<h2>📘 Detailed Explanation</h2>
+<h3>Real-Time API vs Message Batches API</h3>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Real-Time (Messages API)</th>
+<th>Batch (Message Batches API)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Response time</strong></td>
+<td>Seconds</td>
+<td>Up to 24 hours</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>Standard pricing</td>
+<td>50% discount</td>
+</tr>
+<tr>
+<td><strong>Use case</strong></td>
+<td>Latency-sensitive, interactive</td>
+<td>Asynchronous, high-volume</td>
+</tr>
+<tr>
+<td><strong>Tool calls</strong></td>
+<td>Supported (iterative loops)</td>
+<td>NOT supported during processing</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>Urgent/interactive queries</td>
+<td>Document processing, overnight jobs</td>
+</tr>
+<tr>
+<td><strong>Reliability</strong></td>
+<td>Real-time feedback</td>
+<td>Results file when complete</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Decision Framework: Batch vs Real-Time</h3>
+<pre><code>┌───────────────────────────────────────────────────────────────────┐
+│             BATCH vs REAL-TIME DECISION FRAMEWORK                 │
+│                                                                   │
+│  Is a response needed immediately (&lt; 60 seconds)?                 │
+│         │                                                         │
+│    ┌────┴────┐                                                    │
+│    YES       NO                                                   │
+│    │         │                                                    │
+│    ▼         ▼                                                    │
+│  Use       Does the workflow require tool calls during processing? │
+│  Real-     │                                                      │
+│  Time      ┌────┴────┐                                           │
+│  API       YES       NO                                           │
+│            │         │                                            │
+│            ▼         ▼                                            │
+│          Use       Can you tolerate up to 24-hour processing?     │
+│          Real-     │                                              │
+│          Time      ┌────┴────┐                                   │
+│          API       YES       NO                                   │
+│                    │         │                                    │
+│                    ▼         ▼                                    │
+│                  Use       Use Real-Time API                      │
+│                  Batches                                          │
+│                  API                                              │
+└───────────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h3>Designing a Reliable Batch Pipeline</h3>
+<p>The most common mistake: submitting all documents in a single giant batch at midnight. If that batch fails or is delayed, all documents are late.</p>
+<h4>Batching Strategy — Use Rolling Windows</h4>
+<p>Instead of one batch per day, submit batches at regular intervals throughout the day:</p>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                  ROLLING BATCH STRATEGY                         │
+│                                                                 │
+│  SLA: Results within 30 hours of document arrival              │
+│  Batch API maximum processing: 24 hours                         │
+│  Therefore: Must submit within 30 - 24 = 6 hours of arrival     │
+│                                                                 │
+│  SOLUTION: Submit batches every 6 hours                         │
+│                                                                 │
+│  Document arrives at 2:00 AM →                                  │
+│  Included in 6:00 AM batch →                                    │
+│  Batch completes by 6:00 AM + 24h = 6:00 AM next day →         │
+│  Total time: 28 hours &lt; 30-hour SLA ✅                          │
+│                                                                 │
+│  Worst case: Document arrives just after 6:00 AM batch submits →│
+│  Included in 12:00 PM batch →                                   │
+│  Completes by 12:00 PM + 24h = 12:00 PM next day →             │
+│  Total time: ~24 hours &lt; 30-hour SLA ✅                         │
+└─────────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h3>Handling Batch Failures — Resubmitting Failed Documents</h3>
+<p>In a large batch (10,000 documents), some documents may fail — typically due to <code>context_length_exceeded</code> errors for very large documents.</p>
+<pre><code>BATCH RESULTS FILE contains:
+• 9,700 successful extractions ✅
+• 300 failures with error type &quot;context_length_exceeded&quot; ❌
+
+MOST COST-EFFECTIVE RECOVERY:
+Step 1: Identify only the 300 failed documents from the results file
+Step 2: Chunk each failed document into smaller pieces
+         (e.g., 200K token document → four 50K chunks)
+Step 3: Resubmit only the 300 failed documents (as chunks) as a new batch
+Step 4: Merge the partial extractions from each chunk into a single result
+
+DO NOT:
+• Resubmit all 10,000 documents → wasteful, re-charges for 9,700 successful ones
+• Skip the failures → 3% of your data is missing
+• Process failures with real-time API → fine for small numbers, but inefficient for 300
+</code></pre>
+<hr>
+<h3>Why Batch Processing Cannot Use Tool Calls</h3>
+<p>The Batch API is <strong>asynchronous</strong> — your request is submitted and results are retrieved later. This architecture is incompatible with iterative tool-use workflows:</p>
+<pre><code>ITERATIVE TOOL USE REQUIRES:
+Request → Claude thinks → Tool call → App executes → Result returned → Claude continues
+
+BATCH API ARCHITECTURE:
+Request submitted → (batch processing, no interactive loop) → Results file ready
+
+The &quot;App executes tool → Result returned to Claude → Claude continues&quot; step
+CANNOT happen in a batch because there is no live connection during processing.
+
+→ Batch is appropriate for SINGLE-PASS tasks (read document, extract fields, done)
+→ Batch is NOT appropriate for tasks requiring tool calls during processing
+</code></pre>
+<hr>
+<h3>Routing Different Document Types</h3>
+<p>In many pipelines, different documents have different urgency:</p>
+<pre><code>EXAMPLE: Two document types, one pipeline
+
+Standard Monthly Reports:
+• Arrive continuously throughout the day
+• No urgency — team reviews them weekly
+• High volume (500/day)
+→ BATCH API: 50% cost savings, processed overnight
+
+Urgent Exception Reports:
+• Arrive infrequently (2–5/day)
+• Must trigger business actions within 30 minutes
+• Time-sensitive
+→ REAL-TIME API: immediate processing, standard cost
+</code></pre>
+<p>This routing strategy maximises cost savings without sacrificing the SLA for urgent documents.</p>
+<hr>
+<h2>🇮🇳 Indian Real-Life Example</h2>
+<p><strong>Think of Batch vs Real-Time like IMPS vs NEFT bank transfers:</strong></p>
+<ul>
+<li><strong>IMPS (Immediate Payment Service)</strong> = Real-Time API. Transfers money in seconds. Available 24/7. Higher fees.</li>
+<li><strong>NEFT (National Electronic Funds Transfer)</strong> = Batch API. Processed in batches (every 30 minutes during banking hours). Lower cost. Not instant.</li>
+</ul>
+<p>If you need to pay someone right now (emergency, time-sensitive), use IMPS. If you&#39;re processing your company&#39;s monthly salary disbursements on a Friday, use NEFT — lower fees, batch processing, acceptable delay.</p>
+<p>Same logic for Claude API: interactive, urgent queries → real-time. High-volume, overnight document processing → batch.</p>
+<hr>
+<h2>🔑 Exam-Focused Points</h2>
+<ul>
+<li>✅ Batches API: 50% cost discount, up to 24-hour processing window</li>
+<li>✅ Batches API does NOT support tool calls during processing — single-pass tasks only</li>
+<li>✅ <strong>Rolling batch windows</strong> (e.g., every 6 hours) are more reliable than one giant batch per day</li>
+<li>✅ Batch window interval = SLA latency requirement − 24h maximum batch processing time</li>
+<li>✅ Handle batch failures by resubmitting only failed documents after chunking — NOT the whole batch</li>
+<li>✅ Routing: urgent documents → real-time API; cost-sensitive high-volume → batch API</li>
+</ul>
+<hr>
+<h2>🧩 Scenario-Based Thinking</h2>
+<p><strong>Scenario:</strong> Documents arrive continuously. The SLA requires extraction results within 30 hours of document arrival with 99.9% reliability. You want to use the Batch API (50% cost savings, up to 24-hour processing window).</p>
+<p><strong>Which batching strategy is most appropriate?</strong></p>
+<ul>
+<li>A) Submit one batch at midnight containing all documents from the day</li>
+<li>B) Submit a new batch for every document as it arrives</li>
+<li>C) Submit batches every 6 hours containing documents from that window</li>
+<li>D) Submit batches every 24 hours at the start of business</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> With a 30-hour SLA and a 24-hour maximum batch window, documents must be submitted within 6 hours of arrival (30 − 24 = 6). Submitting every 6 hours ensures every document is submitted within this window. A midnight batch (A) means documents arriving at 1 AM wait 23 hours before submission, violating the 30-hour SLA.</p>
+<hr>
+<h2>💡 Memory Tricks</h2>
+<p><strong>Batch = Overnight Bus:</strong> Cheaper ticket, leaves at set times, arrives the next morning. Good for non-urgent travel. Real-time = Ola/Uber: more expensive, arrives in minutes, available on demand.</p>
+<p><strong>Batch Window Formula:</strong> Maximum wait before submission = SLA − 24h (max batch time). If SLA is 30h, max wait = 6h → submit every 6 hours.</p>
+<hr>
+<h2>❓ Chapter Practice Questions</h2>
+<p><strong>Q1.</strong> A data team processes 10,000 product description documents daily using the Message Batches API. After the batch completes, the results file shows 300 documents failed with <code>context_length_exceeded</code> errors. What is the most cost-effective way to handle these failures?</p>
+<ul>
+<li>A) Resubmit all 10,000 documents with reduced document lengths</li>
+<li>B) Skip the failed documents and note the 3% failure rate as acceptable</li>
+<li>C) Process the 300 failed documents using the real-time API individually</li>
+<li>D) Identify the 300 failed documents, chunk each into smaller pieces, resubmit only those 300 as a new batch, and merge the resulting partial extractions</li>
+</ul>
+<p><strong>Answer:</strong> D</p>
+<p><strong>Explanation:</strong> Resubmitting all 10,000 (A) wastes money re-processing 9,700 successful extractions. Skipping (B) leaves 3% of data missing. Processing individually with real-time API (C) works but costs more than batch for 300 documents. Resubmitting only the failed 300 as a new batch — chunked to fit the context window — is the most cost-effective approach.</p>
+<hr>
+<p><strong>Q2.</strong> An analysis system reviews code files using iterative tool calls: it reads files, identifies imports, reads referenced files, and continues until the full dependency tree is mapped. A developer suggests switching to the Message Batches API for cost savings. Why is the Batch API NOT appropriate for this workflow?</p>
+<ul>
+<li>A) The Batch API does not support code-related tasks</li>
+<li>B) The Batch API&#39;s asynchronous model prevents executing tool calls mid-request and returning results for Claude to continue analysis — iterative tool-use workflows require a live request-response loop</li>
+<li>C) The Batch API cannot handle large code files</li>
+<li>D) The Batch API only supports text extraction, not code analysis</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> The Batch API is a fire-and-forget asynchronous model. There is no live connection during processing, so there is no mechanism for: Claude calls tool → App executes → Result returned to Claude → Claude continues. This iterative loop requires the real-time Messages API. Batch is appropriate only for single-pass tasks.</p>
+<hr>
+<p><strong>Q3.</strong> A team processes two types of documents through a single Claude extraction pipeline: standard quarterly reports (500/day, reviewed weekly) and urgent incident reports (3–5/day, must trigger alerts within 30 minutes). How should the pipeline route these document types?</p>
+<ul>
+<li>A) Both through real-time API to ensure reliability</li>
+<li>B) Both through batch API for cost savings</li>
+<li>C) Standard reports through real-time API; urgent reports through batch API</li>
+<li>D) Standard reports through batch API for cost savings; urgent reports through real-time API to meet the 30-minute requirement</li>
+</ul>
+<p><strong>Answer:</strong> D</p>
+<p><strong>Explanation:</strong> Standard reports have no latency requirement and high volume — perfect for the Batch API&#39;s 50% cost discount. Urgent reports must produce results within 30 minutes — far tighter than the Batch API&#39;s 24-hour window, so they require the real-time API. Routing by urgency optimises cost without compromising the SLA for critical documents.</p>
+<hr>
+<h2>📌 Quick Revision Summary</h2>
+<ul>
+<li>Batches API: 50% cost discount, up to 24h processing window, no tool call support during processing</li>
+<li>Use Batch for: high-volume, non-urgent, single-pass document processing</li>
+<li>Use Real-Time for: urgent documents, interactive workflows, iterative tool-use</li>
+<li>Rolling batch windows: interval = SLA − 24h; submit every N hours, not once per day</li>
+<li>Handle failures: resubmit only failed documents (chunked) — do not resubmit the whole batch</li>
+<li>Route by urgency: urgent → real-time API; cost-sensitive high-volume → batch API</li>
+</ul>
+<hr>
+<h2>📎 References</h2>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/message-batches">Anthropic Documentation — Message Batches API</a></li>
+</ul>
+<hr>
+<p><em>Notes by certification-study-hub. Chapter 04 — Batch Processing.</em></p>
+
+        
+        <div class="pagination">
+          <a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Mcp Architecture</span>
+        </a>
+          <a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Confidence And Human Review →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

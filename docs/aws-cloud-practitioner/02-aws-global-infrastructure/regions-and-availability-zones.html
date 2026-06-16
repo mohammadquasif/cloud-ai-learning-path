@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regions And Availability Zones | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>AWS Cloud Practitioner</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Cloud Concepts</div>
+        <a href="../../aws-cloud-practitioner/01-cloud-concepts/what-is-cloud.html" class="nav-link">What Is Cloud</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Aws Global Infrastructure</div>
+        <a href="../../aws-cloud-practitioner/02-aws-global-infrastructure/regions-and-availability-zones.html" class="nav-link">Regions And Availability Zones</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Core Services</div>
+        <div class="nav-group">
+        <div class="nav-group-title">Compute</div>
+        <a href="../../aws-cloud-practitioner/03-core-services/compute/ec2-basics.html" class="nav-link">Ec2 Basics</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Database</div>
+        <a href="../../aws-cloud-practitioner/03-core-services/database/rds-vs-dynamodb.html" class="nav-link">Rds Vs Dynamodb</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Storage</div>
+        <a href="../../aws-cloud-practitioner/03-core-services/storage/s3-basics.html" class="nav-link">S3 Basics</a>
+
+      </div>
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Security And Compliance</div>
+        <a href="../../aws-cloud-practitioner/04-security-and-compliance/shared-responsibility-model.html" class="nav-link">Shared Responsibility Model</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Billing And Pricing</div>
+        <a href="../../aws-cloud-practitioner/05-billing-and-pricing/pricing-models.html" class="nav-link">Pricing Models</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">06 Cloud Technology And Services</div>
+        <a href="../../aws-cloud-practitioner/06-cloud-technology-and-services/cloud-adoption-framework.html" class="nav-link">Cloud Adoption Framework</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="nav-link">Ccp Mock Test 65q</a>
+<a href="../../aws-cloud-practitioner/mock-tests/mock-test-01.html" class="nav-link">Mock Test 01</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../aws-cloud-practitioner/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../aws-cloud-practitioner/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../aws-cloud-practitioner/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>AWS Global Infrastructure — Regions, AZs &amp; Edge Locations</h1>
+<blockquote>
+<p><strong>Exam:</strong> AWS Certified Cloud Practitioner (CLF-C02)
+<strong>Domain:</strong> Cloud Technology and Services (34% of exam)
+<strong>Chapter:</strong> 02 — AWS Global Infrastructure
+<strong>Topics:</strong> Regions, Availability Zones, Edge Locations, Local Zones, CloudFront, High Availability vs Disaster Recovery</p>
+</blockquote>
+<hr>
+<h2>Learning Objectives</h2>
+<p>After reading this chapter you will be able to:</p>
+<ul>
+<li>Explain the three-tier AWS global infrastructure hierarchy</li>
+<li>Distinguish between Regions, Availability Zones, and Edge Locations</li>
+<li>Identify which infrastructure layer is used for high availability vs disaster recovery</li>
+<li>Explain how Amazon CloudFront uses Edge Locations</li>
+<li>Choose the correct AWS Region for a given compliance or latency requirement</li>
+</ul>
+<hr>
+<h2>1. AWS Global Infrastructure Overview</h2>
+<p>AWS operates the world&#39;s largest cloud infrastructure — spanning continents, countries, and cities through a layered architecture.</p>
+<pre><code class="language-mermaid">graph TD
+    GLOBAL[&quot;🌐 AWS Global Network&quot;]
+
+    GLOBAL --&gt; R1[&quot;🗺️ Region\n(e.g. Asia Pacific - Mumbai)&quot;]
+    GLOBAL --&gt; R2[&quot;🗺️ Region\n(e.g. US East - N. Virginia)&quot;]
+    GLOBAL --&gt; R3[&quot;🗺️ Region\n(e.g. Europe - Ireland)&quot;]
+
+    R1 --&gt; AZ1[&quot;🏢 AZ — ap-south-1a&quot;]
+    R1 --&gt; AZ2[&quot;🏢 AZ — ap-south-1b&quot;]
+    R1 --&gt; AZ3[&quot;🏢 AZ — ap-south-1c&quot;]
+
+    AZ1 --&gt; DC1[&quot;🖥️ Data Centre&quot;]
+    AZ1 --&gt; DC2[&quot;🖥️ Data Centre&quot;]
+    AZ2 --&gt; DC3[&quot;🖥️ Data Centre&quot;]
+
+    GLOBAL --&gt; EL1[&quot;📡 Edge Location — Mumbai&quot;]
+    GLOBAL --&gt; EL2[&quot;📡 Edge Location — Chennai&quot;]
+    GLOBAL --&gt; EL3[&quot;📡 Edge Location — Hyderabad&quot;]
+    GLOBAL --&gt; EL4[&quot;📡 Edge Location — 400+ cities worldwide&quot;]
+</code></pre>
+<h3>Infrastructure Counts (approximate, grows regularly)</h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Count</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Regions</strong></td>
+<td>33+</td>
+<td>Where you deploy applications and store data</td>
+</tr>
+<tr>
+<td><strong>Availability Zones</strong></td>
+<td>105+ (3+ per Region)</td>
+<td>High availability and fault isolation</td>
+</tr>
+<tr>
+<td><strong>Edge Locations</strong></td>
+<td>400+</td>
+<td>Content delivery and DNS caching</td>
+</tr>
+<tr>
+<td><strong>Local Zones</strong></td>
+<td>30+</td>
+<td>Ultra-low latency for specific cities</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>2. AWS Regions</h2>
+<h3>2.1 Definition</h3>
+<p>An AWS Region is a <strong>physical geographic area</strong> in the world that contains multiple, isolated Availability Zones. Each Region is completely independent of all other Regions — there is no automatic cross-Region data sharing.</p>
+<h3>2.2 Key Region Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Independence</strong></td>
+<td>Fully isolated from all other Regions</td>
+</tr>
+<tr>
+<td><strong>Minimum AZs</strong></td>
+<td>Every Region has at least 3 AZs</td>
+</tr>
+<tr>
+<td><strong>Data sovereignty</strong></td>
+<td>Data in a Region stays in that Region unless you explicitly replicate it</td>
+</tr>
+<tr>
+<td><strong>Service availability</strong></td>
+<td>Not all services are available in all Regions</td>
+</tr>
+<tr>
+<td><strong>Latency</strong></td>
+<td>Choose Region closest to your users</td>
+</tr>
+</tbody></table>
+<h3>2.3 How to Choose a Region</h3>
+<pre><code class="language-mermaid">flowchart TD
+    START([Start: Choosing a Region]) --&gt; Q1{Data Residency\nRequirement?}
+    Q1 --&gt;|Yes| R1[Choose Region\nin that country\ne.g. Mumbai for India]
+    Q1 --&gt;|No| Q2{Compliance\nStandard Required?\ne.g. GDPR}
+    Q2 --&gt;|Yes| R2[Choose Region that\nmeets compliance\ne.g. eu-west-1 for GDPR]
+    Q2 --&gt;|No| Q3{Where are\nyour users?}
+    Q3 --&gt; R3[Choose Region\nclosest to users\nfor lowest latency]
+    R3 --&gt; Q4{Service\nAvailability?}
+    Q4 --&gt;|Service not in preferred Region| R4[Choose nearest\nRegion with that service]
+    Q4 --&gt;|Service available| R5[✅ Region Selected]
+</code></pre>
+<h3>2.4 Key AWS Regions — India Context</h3>
+<table>
+<thead>
+<tr>
+<th>Region Code</th>
+<th>Location</th>
+<th>Common Use Case</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ap-south-1</code></td>
+<td>Mumbai</td>
+<td>Indian users, data residency compliance</td>
+</tr>
+<tr>
+<td><code>ap-south-2</code></td>
+<td>Hyderabad</td>
+<td>Additional India Region (newer)</td>
+</tr>
+<tr>
+<td><code>ap-southeast-1</code></td>
+<td>Singapore</td>
+<td>Southeast Asia users</td>
+</tr>
+<tr>
+<td><code>us-east-1</code></td>
+<td>N. Virginia</td>
+<td>Most services launch here first, US East users</td>
+</tr>
+</tbody></table>
+<h3>2.5 Exam Points — Regions</h3>
+<ul>
+<li>✅ Data does <strong>NOT</strong> automatically cross Regions — you must configure cross-region replication</li>
+<li>✅ &quot;Data must stay in India&quot; → deploy in <code>ap-south-1</code> (Mumbai)</li>
+<li>✅ Not all AWS services are available in every Region — <code>us-east-1</code> typically gets new services first</li>
+<li>✅ Region selection affects: <strong>latency</strong>, <strong>compliance</strong>, <strong>service availability</strong>, <strong>cost</strong> (prices vary by Region)</li>
+</ul>
+<hr>
+<h2>3. Availability Zones (AZs)</h2>
+<h3>3.1 Definition</h3>
+<p>An Availability Zone is one or more <strong>discrete, physically separate data centres</strong> within an AWS Region, each with:</p>
+<ul>
+<li>Redundant power supply</li>
+<li>Independent cooling systems</li>
+<li>Separate network connectivity</li>
+<li>Physical separation from other AZs (typically kilometers apart)</li>
+</ul>
+<h3>3.2 AZ Architecture</h3>
+<pre><code class="language-mermaid">graph TD
+    subgraph REGION[&quot;Mumbai Region (ap-south-1)&quot;]
+        subgraph AZ_A[&quot;AZ ap-south-1a&quot;]
+            DC_A1[&quot;Data Centre 1&quot;]
+            DC_A2[&quot;Data Centre 2&quot;]
+        end
+
+        subgraph AZ_B[&quot;AZ ap-south-1b&quot;]
+            DC_B1[&quot;Data Centre 3&quot;]
+        end
+
+        subgraph AZ_C[&quot;AZ ap-south-1c&quot;]
+            DC_C1[&quot;Data Centre 4&quot;]
+            DC_C2[&quot;Data Centre 5&quot;]
+        end
+
+        AZ_A &lt;--&gt;|&quot;High-speed private\nfibre link&quot;| AZ_B
+        AZ_B &lt;--&gt;|&quot;High-speed private\nfibre link&quot;| AZ_C
+        AZ_A &lt;--&gt;|&quot;High-speed private\nfibre link&quot;| AZ_C
+    end
+</code></pre>
+<h3>3.3 Why Multiple AZs Matter</h3>
+<pre><code class="language-mermaid">graph LR
+    subgraph BEFORE[&quot;❌ Single-AZ Deployment&quot;]
+        APP1[&quot;App Server\n(AZ-a)&quot;]
+        DB1[&quot;Database\n(AZ-a)&quot;]
+        FAIL[&quot;💥 AZ-a fails\n→ Complete outage&quot;]
+        APP1 --&gt; DB1
+        DB1 --&gt; FAIL
+    end
+
+    subgraph AFTER[&quot;✅ Multi-AZ Deployment&quot;]
+        APP2[&quot;App Server\n(AZ-a)&quot;]
+        APP3[&quot;App Server\n(AZ-b)&quot;]
+        DB2[&quot;Primary DB\n(AZ-a)&quot;]
+        DB3[&quot;Standby DB\n(AZ-b)&quot;]
+        LB[&quot;Load Balancer&quot;]
+        RESULT[&quot;✅ AZ-a fails\n→ AZ-b serves\nNo downtime&quot;]
+        LB --&gt; APP2
+        LB --&gt; APP3
+        APP2 --&gt; DB2
+        APP3 --&gt; DB3
+        DB2 -.-&gt;|&quot;Auto failover&quot;| DB3
+    end
+</code></pre>
+<h3>3.4 AZ Key Facts</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Physical separation</strong></td>
+<td>Separate buildings, power grids, flood zones</td>
+</tr>
+<tr>
+<td><strong>Connectivity</strong></td>
+<td>Connected via high-speed, private fibre optic</td>
+</tr>
+<tr>
+<td><strong>Latency between AZs</strong></td>
+<td>Single-digit milliseconds (fast enough for synchronous replication)</td>
+</tr>
+<tr>
+<td><strong>AZ naming</strong></td>
+<td>Each AZ has a code: <code>ap-south-1a</code>, <code>ap-south-1b</code>, <code>ap-south-1c</code></td>
+</tr>
+<tr>
+<td><strong>AZ = physical location</strong></td>
+<td>AZ names are randomised per account — your <code>ap-south-1a</code> may not be the same physical location as someone else&#39;s <code>ap-south-1a</code></td>
+</tr>
+</tbody></table>
+<h3>3.5 Exam Points — AZs</h3>
+<ul>
+<li>✅ <strong>Multi-AZ = High Availability</strong> — application survives one AZ failure</li>
+<li>✅ AZs within a Region are connected by high-speed private links — fast enough for real-time replication</li>
+<li>✅ Deploy across <strong>minimum 2 AZs</strong> for any production workload</li>
+<li>✅ Amazon RDS Multi-AZ automatically replicates to a standby in a different AZ</li>
+</ul>
+<hr>
+<h2>4. Edge Locations</h2>
+<h3>4.1 Definition</h3>
+<p>Edge Locations are <strong>small AWS points of presence (PoPs)</strong> deployed in hundreds of cities worldwide, specifically to deliver content and DNS resolution to end users with minimal latency.</p>
+<p><strong>Important distinction:</strong></p>
+<ul>
+<li>Regions and AZs → where you <strong>run</strong> your applications</li>
+<li>Edge Locations → where AWS <strong>delivers your content</strong> to users</li>
+</ul>
+<h3>4.2 Edge Location Architecture</h3>
+<pre><code class="language-mermaid">graph TD
+    ORIGIN[&quot;🗄️ Origin Server\n(S3 in Mumbai Region)&quot;]
+
+    ORIGIN --&gt; CF[&quot;☁️ Amazon CloudFront\n(CDN Service)&quot;]
+
+    CF --&gt; EL1[&quot;📡 Edge Location\nMumbai&quot;]
+    CF --&gt; EL2[&quot;📡 Edge Location\nDelhi&quot;]
+    CF --&gt; EL3[&quot;📡 Edge Location\nHyderabad&quot;]
+    CF --&gt; EL4[&quot;📡 Edge Location\nDubai&quot;]
+    CF --&gt; EL5[&quot;📡 Edge Location\nLondon&quot;]
+    CF --&gt; EL6[&quot;📡 Edge Location\nSingapore&quot;]
+
+    EL1 --&gt; U1[&quot;👤 User in Mumbai\n~5ms latency&quot;]
+    EL2 --&gt; U2[&quot;👤 User in Delhi\n~8ms latency&quot;]
+    EL3 --&gt; U3[&quot;👤 User in Hyderabad\n~6ms latency&quot;]
+    EL4 --&gt; U4[&quot;👤 User in Dubai\n~10ms latency&quot;]
+</code></pre>
+<h3>4.3 What Runs at Edge Locations</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>What It Does at Edge</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Amazon CloudFront</strong></td>
+<td>Caches website content, images, videos near users</td>
+</tr>
+<tr>
+<td><strong>Amazon Route 53</strong></td>
+<td>Resolves DNS queries from the nearest Edge Location</td>
+</tr>
+<tr>
+<td><strong>AWS Shield</strong></td>
+<td>DDoS protection at the Edge Layer</td>
+</tr>
+<tr>
+<td><strong>AWS WAF</strong> (with CloudFront)</td>
+<td>Blocks web attacks at the Edge before reaching origin</td>
+</tr>
+</tbody></table>
+<h3>4.4 How CloudFront Cache Works</h3>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant User as 👤 User in Delhi
+    participant EL as 📡 Edge Location Delhi
+    participant Origin as 🗄️ Origin (S3 Mumbai)
+
+    User-&gt;&gt;EL: Request: video.mp4
+    EL-&gt;&gt;EL: Cache hit? NO (first request)
+    EL-&gt;&gt;Origin: Fetch video.mp4
+    Origin--&gt;&gt;EL: video.mp4 (cached at Edge)
+    EL--&gt;&gt;User: video.mp4 served fast ✅
+
+    Note over User,EL: Next User in Delhi
+    User-&gt;&gt;EL: Request: video.mp4
+    EL-&gt;&gt;EL: Cache hit? YES
+    EL--&gt;&gt;User: video.mp4 served instantly ⚡
+    Note over EL,Origin: Origin NOT contacted
+</code></pre>
+<h3>4.5 Exam Points — Edge Locations</h3>
+<ul>
+<li>✅ There are <strong>400+ Edge Locations</strong> — far more than Regions (33+)</li>
+<li>✅ Edge Locations are used by <strong>CloudFront</strong> and <strong>Route 53</strong></li>
+<li>✅ Edge Locations are <strong>NOT</strong> where you deploy EC2 or databases</li>
+<li>✅ &quot;Deliver content globally with low latency&quot; → <strong>CloudFront + Edge Locations</strong></li>
+<li>✅ Edge Locations exist in cities that don&#39;t have full Regions (e.g., Delhi, Hyderabad, Kolkata)</li>
+</ul>
+<hr>
+<h2>5. Local Zones and Wavelength Zones</h2>
+<h3>5.1 Local Zones</h3>
+<p>Local Zones are <strong>extensions of AWS Regions</strong> placed in large metropolitan areas — closer to densely populated centres than the nearest Region.</p>
+<pre><code class="language-mermaid">graph LR
+    REGION[&quot;us-west-2\nRegion\n(Oregon)&quot;]
+    LZ[&quot;Local Zone\nLos Angeles&quot;]
+    USER[&quot;👤 User in\nLos Angeles&quot;]
+
+    REGION --&gt;|&quot;~20ms latency\nwithout Local Zone&quot;| USER
+    REGION --&gt; LZ
+    LZ --&gt;|&quot;~5ms latency\nwith Local Zone&quot;| USER
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Purpose</strong></td>
+<td>Single-digit millisecond latency for specific cities</td>
+</tr>
+<tr>
+<td><strong>Services available</strong></td>
+<td>EC2, EBS, RDS, ECS (subset of services)</td>
+</tr>
+<tr>
+<td><strong>Use cases</strong></td>
+<td>Gaming, media rendering, real-time simulations</td>
+</tr>
+<tr>
+<td><strong>Relationship to Region</strong></td>
+<td>Extension of parent Region, not a separate Region</td>
+</tr>
+</tbody></table>
+<h3>5.2 Wavelength Zones</h3>
+<p>Wavelength Zones embed AWS compute and storage services within 5G network providers&#39; data centres.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Purpose</strong></td>
+<td>Ultra-low latency applications using 5G mobile networks</td>
+</tr>
+<tr>
+<td><strong>Use cases</strong></td>
+<td>AR/VR, connected vehicles, IoT</td>
+</tr>
+<tr>
+<td><strong>Exam relevance</strong></td>
+<td>Low — understand what it is, rarely tested at CCP level</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. High Availability vs Disaster Recovery</h2>
+<p>This comparison is heavily tested. Understanding the difference determines whether the answer uses AZs or Regions.</p>
+<pre><code class="language-mermaid">graph TD
+    subgraph HA[&quot;✅ High Availability — Multi-AZ&quot;]
+        HA1[&quot;Goal: Minimize downtime&quot;]
+        HA2[&quot;Deploy across 2-3 AZs&quot;]
+        HA3[&quot;Same Region&quot;]
+        HA4[&quot;Automatic failover within seconds&quot;]
+        HA5[&quot;Best for: production apps that must stay online&quot;]
+    end
+
+    subgraph DR[&quot;🆘 Disaster Recovery — Multi-Region&quot;]
+        DR1[&quot;Goal: Recover from regional failure&quot;]
+        DR2[&quot;Replicate to different Region&quot;]
+        DR3[&quot;Cross-Region replication&quot;]
+        DR4[&quot;RPO/RTO measured in minutes-hours&quot;]
+        DR5[&quot;Best for: business continuity planning&quot;]
+    end
+</code></pre>
+<h3>Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>High Availability</th>
+<th>Disaster Recovery</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Scope</strong></td>
+<td>Within one Region (multiple AZs)</td>
+<td>Across multiple Regions</td>
+</tr>
+<tr>
+<td><strong>Failure handled</strong></td>
+<td>Single data centre / AZ failure</td>
+<td>Entire Region failure</td>
+</tr>
+<tr>
+<td><strong>Failover time</strong></td>
+<td>Seconds to minutes</td>
+<td>Minutes to hours</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>Moderate (same-region replication)</td>
+<td>Higher (cross-region replication)</td>
+</tr>
+<tr>
+<td><strong>AWS Services</strong></td>
+<td>ELB, Auto Scaling, RDS Multi-AZ</td>
+<td>S3 Cross-Region Replication, Route 53 failover</td>
+</tr>
+</tbody></table>
+<h3>Exam Decision Guide</h3>
+<pre><code class="language-mermaid">flowchart TD
+    Q1{What does the\nquestion ask for?}
+
+    Q1 --&gt;|&quot;Application must stay up\nif one data centre fails&quot;| A1[&quot;Answer: Multi-AZ\nin same Region&quot;]
+    Q1 --&gt;|&quot;Application must recover\nif entire Region fails&quot;| A2[&quot;Answer: Multi-Region\nDisaster Recovery&quot;]
+    Q1 --&gt;|&quot;Low-latency content\nto global users&quot;| A3[&quot;Answer: CloudFront\n+ Edge Locations&quot;]
+    Q1 --&gt;|&quot;Data must stay in India&quot;| A4[&quot;Answer: Choose\nMumbai Region only&quot;]
+</code></pre>
+<hr>
+<h2>7. Infrastructure Comparison Summary</h2>
+<pre><code>AWS Global Infrastructure Hierarchy:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🌐 AWS Global Network (backbone)
+│
+├── 🗺️  REGION (33+ worldwide)
+│    ├── Geographically isolated
+│    ├── 3+ AZs minimum
+│    └── Independent from other Regions
+│
+│    └── 🏢 AVAILABILITY ZONE (105+ worldwide)
+│         ├── 1+ physical data centres
+│         ├── Independent power + network
+│         ├── Connected to other AZs via private fibre
+│         └── Used for High Availability
+│
+├── 📡 EDGE LOCATION (400+ worldwide)
+│    ├── Not for running apps
+│    ├── Used by CloudFront for caching
+│    ├── Used by Route 53 for DNS
+│    └── Exists in many cities without a Region
+│
+└── 🏙️ LOCAL ZONE (30+ worldwide)
+     ├── Extension of a Region
+     ├── Subset of AWS services
+     └── Ultra-low latency for specific cities
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</code></pre>
+<hr>
+<h2>8. Exam Focus Points</h2>
+<table>
+<thead>
+<tr>
+<th>Scenario Keyword</th>
+<th>Correct Answer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;High availability,&quot; &quot;survive AZ failure&quot;</td>
+<td>Multi-AZ deployment</td>
+</tr>
+<tr>
+<td>&quot;Disaster recovery,&quot; &quot;survive Region failure&quot;</td>
+<td>Multi-Region deployment</td>
+</tr>
+<tr>
+<td>&quot;Low latency content delivery globally&quot;</td>
+<td>Amazon CloudFront + Edge Locations</td>
+</tr>
+<tr>
+<td>&quot;Data must remain in India&quot;</td>
+<td>Deploy only in Mumbai Region</td>
+</tr>
+<tr>
+<td>&quot;Ultra-low latency for one city&quot;</td>
+<td>AWS Local Zone</td>
+</tr>
+<tr>
+<td>&quot;Identify CPU utilization across multiple AZs&quot;</td>
+<td>Amazon CloudWatch</td>
+</tr>
+<tr>
+<td>&quot;DNS routing and health checks&quot;</td>
+<td>Amazon Route 53</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>9. Quick Revision Points</h2>
+<ul>
+<li><strong>Region</strong> = geographic area, 33+, min 3 AZs each, fully independent</li>
+<li><strong>AZ</strong> = isolated data centre(s) within a Region, 105+ total</li>
+<li><strong>Edge Location</strong> = 400+ cities, content caching, CloudFront + Route 53</li>
+<li><strong>Local Zone</strong> = extension of Region, ultra-low latency for specific cities</li>
+<li>Multi-AZ = <strong>High Availability</strong> (milliseconds failover)</li>
+<li>Multi-Region = <strong>Disaster Recovery</strong> (minutes-hours recovery)</li>
+<li>Data does NOT cross Regions automatically</li>
+<li>AZs within a Region are connected by high-speed private fibre</li>
+<li>CloudFront caches content at Edge Locations near users</li>
+<li><code>ap-south-1</code> = Mumbai Region (primary India Region)</li>
+</ul>
+<hr>
+<p><em>Previous Chapter → <code>01-cloud-concepts/what-is-cloud.md</code></em>
+<em>Next Chapter → <code>03-core-services/compute/ec2-basics.md</code></em></p>
+
+        
+        <div class="pagination">
+          <a href="../../aws-cloud-practitioner/01-cloud-concepts/what-is-cloud.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← What Is Cloud</span>
+        </a>
+          <a href="../../aws-cloud-practitioner/03-core-services/compute/ec2-basics.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Ec2 Basics →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

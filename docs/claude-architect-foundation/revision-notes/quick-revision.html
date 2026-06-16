@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Revision | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Claude Architect Foundation</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Introduction To Claude</div>
+        <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="nav-link">What Is Claude</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Agentic Patterns</div>
+        <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="nav-link">Orchestrator And Workers</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="nav-link">Prompt Chaining And Routing</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="nav-link">Session And Context Management</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="nav-link">What Is An Agent</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Tool Use And Mcp</div>
+        <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="nav-link">Confirmation And Safety Gates</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="nav-link">Designing Good Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="nav-link">Error Handling In Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="nav-link">Introduction To Tool Use</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="nav-link">Mcp Architecture</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Structured Output And Extraction</div>
+        <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="nav-link">Batch Processing</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="nav-link">Confidence And Human Review</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/handling-ambiguity-and-nulls.html" class="nav-link">Handling Ambiguity And Nulls</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="nav-link">Json Schema For Extraction</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="nav-link">Long Document Extraction</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Claude Code And Workflows</div>
+        <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="nav-link">Claude Md And Skills</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="nav-link">Code Review Workflows</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="nav-link">Exploration Patterns</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../claude-architect-foundation/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../claude-architect-foundation/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>⚡ Quick Revision Guide — Day Before the Exam</h1>
+<blockquote>
+<p><strong>Exam:</strong> Claude Architect Foundation
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>🤖 Domain 1 — Claude Fundamentals (~15%)</h2>
+<ul>
+<li><strong>Claude</strong> = AI assistant by <strong>Anthropic</strong> (not Google, not OpenAI, not Amazon)</li>
+<li><strong>HHH</strong> = Helpful, Harmless, Honest — the three core design principles</li>
+<li><strong>Constitutional AI</strong> = Claude self-evaluates responses against guiding principles during training</li>
+<li><strong>Context window</strong> = up to <strong>200K tokens</strong> — shared by: system prompt + tool definitions + history + documents + response</li>
+<li><strong>Stateless</strong> = Claude has NO memory between API calls; your application must re-send conversation history</li>
+<li><strong>Four memory types</strong>: in-context, external (retrieved via tools), cached, in-weights (training)</li>
+<li><strong>When NOT to use Claude</strong>: guaranteed deterministic output, safety-critical real-time decisions, zero-hallucination legal/medical with no human review</li>
+<li><strong>Responsible deployment</strong> = developer&#39;s co-responsibility; a safe model + unsafe deployment = unsafe system</li>
+</ul>
+<hr>
+<h2>🔄 Domain 2 — Agentic Patterns (~25%)</h2>
+<h3>The Agentic Loop</h3>
+<p><strong>Observe → Think → Act → Observe</strong> (repeats until complete)</p>
+<ul>
+<li>Tool results are added to context; Claude reasons about next step each iteration</li>
+</ul>
+<h3>Patterns — Quick Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Structure</th>
+<th>Use When</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Prompt Chaining</strong></td>
+<td>Fixed sequential steps</td>
+<td>Same steps every time; predictable workflow</td>
+</tr>
+<tr>
+<td><strong>Routing</strong></td>
+<td>Classify → dispatch</td>
+<td>Different input types need different handling</td>
+</tr>
+<tr>
+<td><strong>Orchestrator-Workers</strong></td>
+<td>Hub + parallel branches</td>
+<td>Multi-domain, parallel, large-scale</td>
+</tr>
+<tr>
+<td><strong>Single Agent</strong></td>
+<td>Direct tool calls</td>
+<td>Simple focused task</td>
+</tr>
+</tbody></table>
+<h3>Key Rules</h3>
+<ul>
+<li><strong>Human-in-the-loop</strong>: irreversible actions, high-stakes decisions, amounts above threshold</li>
+<li><strong>Escalation = structured handoff</strong>: not just transcript — include diagnosis + next recommended action</li>
+<li><strong>Context fills during long sessions</strong> → accuracy degrades for early content → summarise and use external memory</li>
+<li><strong>Session forking</strong> = two independent branches from same checkpoint; prevents cross-contamination</li>
+<li><strong>Resume sessions</strong> → always brief agent about changes that happened during the pause</li>
+<li><strong>Sliding window</strong> → risky; silently drops critical early information</li>
+</ul>
+<hr>
+<h2>🔧 Domain 3 — Tool Use &amp; MCP (~25%)</h2>
+<h3>Tool Use Fundamentals</h3>
+<ul>
+<li><strong>Claude requests</strong>; <strong>application executes</strong> — Claude never runs tools directly</li>
+<li>Tool definitions consume <strong>context window tokens</strong> — complex schemas reduce document space</li>
+<li><strong>Tool use = guaranteed schema-compliant JSON</strong>; prompt-only JSON = unreliable</li>
+<li>Claude selects tools based on their <strong>descriptions</strong> → write specific, distinct descriptions</li>
+</ul>
+<h3>Tool Design</h3>
+<ul>
+<li><strong>Enum</strong> for fixed value sets; <strong>string</strong> for open-ended user input</li>
+<li>Mark all essential params in <strong><code>required</code> array</strong> — optional params may be omitted</li>
+<li>Include &quot;when NOT to use&quot; in description when tools might be confused with each other</li>
+</ul>
+<h3>Error Handling</h3>
+<table>
+<thead>
+<tr>
+<th>Error Type</th>
+<th>Handle Where</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Transient</strong> (503, timeout)</td>
+<td>Inside tool</td>
+<td>Retry with backoff; surface only if exhausted</td>
+</tr>
+<tr>
+<td><strong>Permanent</strong> (403, not found)</td>
+<td>Surface to Claude</td>
+<td><code>isError: true</code> + errorCategory + isRetryable: false</td>
+</tr>
+<tr>
+<td><strong>Ambiguous</strong> (write timeout)</td>
+<td>Surface to Claude</td>
+<td><code>isError: true</code> + isRetryable: false + warn against retry</td>
+</tr>
+</tbody></table>
+<ul>
+<li>❌ Never throw exceptions from tool handlers</li>
+<li>❌ Never return empty result with no error flag — Claude may fabricate a response</li>
+</ul>
+<h3>MCP</h3>
+<ul>
+<li>MCP = open standard (JSON-RPC) for connecting Claude to external tools and data</li>
+<li><strong>Tools</strong> = actions (side effects possible); <strong>Resources</strong> = readable data (no side effects)</li>
+<li>Resources reduce exploratory tool calls by exposing content catalogs upfront</li>
+<li><strong>Protocol errors</strong> = malformed JSON-RPC structure; <strong>Tool errors</strong> = business logic failures (isError: true)</li>
+<li>MCP tool descriptions must be as specific as built-in tools to win selection</li>
+</ul>
+<h3>Safety Gates</h3>
+<ul>
+<li>Business rules = <strong>application layer enforcement</strong>, NOT prompts alone</li>
+<li><strong>Two-step pattern</strong>: preview (generates token) + execute (requires token)</li>
+<li>Confirmation tokens: scoped to specific action, time-limited, single-use</li>
+<li>Good confirmation dialogs: full content + target account + scheduled time + platform</li>
+</ul>
+<hr>
+<h2>📊 Domain 4 — Structured Output &amp; Extraction (~20%)</h2>
+<h3>Tool Use for Extraction</h3>
+<ul>
+<li>Always use <strong>tool use</strong> for extraction — not &quot;please return JSON&quot;</li>
+<li>Type fields as <code>[&quot;string&quot;, &quot;null&quot;]</code> for optional data; add null instructions</li>
+<li><strong>Null over fabrication</strong> — &quot;Return null if information is not stated in the source&quot;</li>
+<li><strong>Enum + other + detail field</strong> = standard pattern for unanticipated category values</li>
+</ul>
+<h3>Quality Control</h3>
+<ul>
+<li><strong>Confidence scores</strong> (per field) catch semantic errors that schema validation misses</li>
+<li><strong>Route to human review</strong>: low confidence OR ambiguous/conflicting source</li>
+<li><strong>Stratified sampling</strong>: review random ~5% of high-confidence extractions too</li>
+<li>Calibrate thresholds quarterly — document types and failure patterns evolve</li>
+</ul>
+<h3>Batch API</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Batch API</th>
+<th>Real-Time API</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Cost</strong></td>
+<td>50% savings</td>
+<td>Standard</td>
+</tr>
+<tr>
+<td><strong>Speed</strong></td>
+<td>Up to 24 hours</td>
+<td>Seconds</td>
+</tr>
+<tr>
+<td><strong>Tool calls</strong></td>
+<td>❌ Not supported</td>
+<td>✅ Supported</td>
+</tr>
+<tr>
+<td><strong>Use for</strong></td>
+<td>High-volume, non-urgent</td>
+<td>Interactive, urgent</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>Batch window formula</strong>: submit interval = SLA − 24h (e.g., 30h SLA → submit every 6h)</li>
+<li>Handle failures: resubmit only failed docs (chunked), not the whole batch</li>
+</ul>
+<h3>Long Documents</h3>
+<ul>
+<li><strong>Effective context</strong> = 200K − system prompt − tool schema − conversation history</li>
+<li>As context fills → accuracy degrades for content toward the end of documents</li>
+<li><strong>Chunking</strong>: split → extract per chunk → <strong>merge and deduplicate</strong> results</li>
+<li><strong>Chunk overlap</strong>: include last N tokens of previous chunk at next chunk start</li>
+<li>Conflicting values in merge → flag for human review; record both with source locations</li>
+</ul>
+<hr>
+<h2>💻 Domain 5 — Claude Code &amp; Workflows (~15%)</h2>
+<h3>Claude Code Tools</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Use When</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Grep</strong></td>
+<td>Finding patterns across files (preferred over Bash search)</td>
+</tr>
+<tr>
+<td><strong>Glob</strong></td>
+<td>Finding files by name/extension pattern (no content read)</td>
+</tr>
+<tr>
+<td><strong>Read</strong></td>
+<td>Deep understanding of specific file content</td>
+</tr>
+<tr>
+<td><strong>Edit</strong></td>
+<td>Targeted surgical changes (requires unique anchor text)</td>
+</tr>
+<tr>
+<td><strong>Write</strong></td>
+<td>New files or when Edit cannot find unique anchor</td>
+</tr>
+<tr>
+<td><strong>Bash</strong></td>
+<td>When no specialised tool exists for the task</td>
+</tr>
+</tbody></table>
+<h3>CLAUDE.md vs Skills</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>CLAUDE.md</th>
+<th>Skills</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Loaded</strong></td>
+<td>Automatically every session</td>
+<td>Invoked on demand by slash command</td>
+</tr>
+<tr>
+<td><strong>Use for</strong></td>
+<td>Universal instructions, project context, standards</td>
+<td>Multi-step workflows used occasionally</td>
+</tr>
+<tr>
+<td><strong>Project-level</strong></td>
+<td>Committed to repo, applies to all team members</td>
+<td>Same</td>
+</tr>
+<tr>
+<td><strong>User-level</strong></td>
+<td>Personal file, applies to all projects for that user</td>
+<td>Same</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Nested CLAUDE.md: loaded only when working in that subdirectory — good for monorepos</li>
+<li>Keep CLAUDE.md focused → large CLAUDE.md wastes context every session</li>
+</ul>
+<h3>Session Management</h3>
+<ul>
+<li><code>--continue</code> = most recent session; <code>--resume &lt;name&gt;</code> = by name; <code>--session-id</code> = by UUID</li>
+<li>Always <strong>notify agent of changes</strong> when resuming a paused session</li>
+<li><strong>Forking</strong> = two independent branches from same checkpoint</li>
+<li>Fresh start: context completely outdated, fundamental misunderstandings, entirely new task</li>
+</ul>
+<h3>Code Review</h3>
+<ul>
+<li><strong>Independent review</strong> = fresh session, code only, no generator intent context → avoids confirmation bias</li>
+<li><strong>Review chain</strong> = sequential passes: security → style → documentation</li>
+<li><strong>Structured output schema</strong> for reviews: severity + category + file + line + recommendation</li>
+<li>Batch review for non-urgent large queues; real-time for blocking PRs</li>
+</ul>
+<h3>Exploration Patterns</h3>
+<ul>
+<li><strong>Architecture-first</strong>: orient → locate (Grep) → understand (Read) → plan → act</li>
+<li><strong>Plan Mode</strong>: explore without changing; produce plan for user review; essential for large refactors</li>
+<li>Reading test files reveals expected behaviour (often better than reading implementation)</li>
+<li>CLAUDE.md with architecture overview: helps Claude target relevant files without broad exploration</li>
+</ul>
+<hr>
+<h2>🎯 Final Exam Tips</h2>
+<ol>
+<li><strong>Tool Use Domains (Ch03 + Ch04) = ~50% of the exam</strong> — spend the most time here</li>
+<li><strong>Confirmation tokens &gt; dry_run boolean</strong> — always the safer pattern for consequential actions</li>
+<li><strong>Null over fabrication</strong> — a fundamental principle across extraction and schema design</li>
+<li><strong>Application layer &gt; prompts</strong> — for enforcing business rules and safety constraints</li>
+<li><strong>Independent review &gt; self-review</strong> — always a fresh session for unbiased code review</li>
+<li><strong>Batch API does NOT support tool calls during processing</strong> — this eliminates it for iterative workflows</li>
+<li><strong>Stratified sampling</strong> — not just low-confidence extractions; sample high-confidence too</li>
+<li><strong>Chunk overlap</strong> — prevents losing boundary-spanning content in document chunking</li>
+<li><strong>Structured escalation</strong> — a handoff is not just the transcript; it includes diagnosis and next steps</li>
+<li><strong>Architecture-first, Plan before Act</strong> — the two most important Claude Code habits</li>
+</ol>
+<hr>
+<p><em>Quick Revision for certification-study-hub. Claude Architect Foundation.</em></p>
+
+        
+        <div class="pagination">
+          <a href="../../claude-architect-foundation/README.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← README</span>
+        </a>
+          
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

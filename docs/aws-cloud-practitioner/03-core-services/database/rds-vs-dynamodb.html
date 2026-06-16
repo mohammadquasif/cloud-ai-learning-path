@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rds Vs Dynamodb | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>AWS Cloud Practitioner</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Cloud Concepts</div>
+        <a href="../../../aws-cloud-practitioner/01-cloud-concepts/what-is-cloud.html" class="nav-link">What Is Cloud</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Aws Global Infrastructure</div>
+        <a href="../../../aws-cloud-practitioner/02-aws-global-infrastructure/regions-and-availability-zones.html" class="nav-link">Regions And Availability Zones</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Core Services</div>
+        <div class="nav-group">
+        <div class="nav-group-title">Compute</div>
+        <a href="../../../aws-cloud-practitioner/03-core-services/compute/ec2-basics.html" class="nav-link">Ec2 Basics</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Database</div>
+        <a href="../../../aws-cloud-practitioner/03-core-services/database/rds-vs-dynamodb.html" class="nav-link">Rds Vs Dynamodb</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Storage</div>
+        <a href="../../../aws-cloud-practitioner/03-core-services/storage/s3-basics.html" class="nav-link">S3 Basics</a>
+
+      </div>
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Security And Compliance</div>
+        <a href="../../../aws-cloud-practitioner/04-security-and-compliance/shared-responsibility-model.html" class="nav-link">Shared Responsibility Model</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Billing And Pricing</div>
+        <a href="../../../aws-cloud-practitioner/05-billing-and-pricing/pricing-models.html" class="nav-link">Pricing Models</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">06 Cloud Technology And Services</div>
+        <a href="../../../aws-cloud-practitioner/06-cloud-technology-and-services/cloud-adoption-framework.html" class="nav-link">Cloud Adoption Framework</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../../aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="nav-link">Ccp Mock Test 65q</a>
+<a href="../../../aws-cloud-practitioner/mock-tests/mock-test-01.html" class="nav-link">Mock Test 01</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../../aws-cloud-practitioner/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../../aws-cloud-practitioner/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../../aws-cloud-practitioner/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>AWS Database Services: RDS, DynamoDB, and More</h1>
+<blockquote>
+<p><strong>Exam:</strong> AWS Certified Cloud Practitioner (CLF-C02)
+<strong>Domain:</strong> 3.0 Cloud Technology and Services
+<strong>Weight:</strong> 34%
+<strong>Difficulty:</strong> Intermediate
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>🎯 Learning Objectives</h2>
+<p>After reading this chapter, you will be able to:</p>
+<ol>
+<li>Distinguish between Relational (SQL) and Non-Relational (NoSQL) databases.</li>
+<li>Select the correct AWS database service based on application requirements.</li>
+<li>Understand the use cases for Amazon RDS, Aurora, DynamoDB, Redshift, and ElastiCache.</li>
+<li>Explain database migration tools like AWS DMS.</li>
+</ol>
+<hr>
+<h2>🏛️ Architecture Overview: Relational vs. Non-Relational</h2>
+<pre><code class="language-mermaid">flowchart TD
+    App[Application] --&gt; |Needs structured data| SQL[Relational Database]
+    App --&gt; |Needs flexible data| NoSQL[Non-Relational Database]
+    
+    SQL --&gt; |Standard Engines| RDS[Amazon RDS]
+    SQL --&gt; |Enterprise Scale| Aurora[Amazon Aurora]
+    SQL --&gt; |Analytics &amp; Reporting| Redshift[Amazon Redshift]
+    
+    NoSQL --&gt; |Key-Value/Document| DynamoDB[Amazon DynamoDB]
+    NoSQL --&gt; |In-Memory Caching| ElastiCache[Amazon ElastiCache]
+    NoSQL --&gt; |Graph Data| Neptune[Amazon Neptune]
+</code></pre>
+<hr>
+<h2>📘 Concept Definitions</h2>
+<h3>1. Amazon RDS (Relational Database Service)</h3>
+<p>Amazon RDS is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud. It automates time-consuming administration tasks such as hardware provisioning, database setup, patching, and backups.</p>
+<ul>
+<li><strong>Engines Supported:</strong> PostgreSQL, MySQL, MariaDB, Oracle, SQL Server, and Amazon Aurora.</li>
+<li><strong>Use Case:</strong> Traditional applications, ERP, CRM, and e-commerce platforms requiring complex joins and structured data.</li>
+</ul>
+<h3>2. Amazon Aurora</h3>
+<p>Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built specifically for the cloud. It provides the performance and availability of commercial-grade databases at a fraction of the cost.</p>
+<ul>
+<li><strong>Architecture:</strong> Storage is decoupled from compute and auto-scales up to 128 TiB.</li>
+<li><strong>Availability:</strong> Replicates 6 copies of your data across 3 Availability Zones.</li>
+</ul>
+<h3>3. Amazon DynamoDB</h3>
+<p>Amazon DynamoDB is a fully managed, serverless, key-value and document database (NoSQL) designed to run high-performance applications at any scale.</p>
+<ul>
+<li><strong>Performance:</strong> Provides single-digit millisecond latency.</li>
+<li><strong>Use Case:</strong> Mobile backends, gaming leaderboards, IoT sensor data, and applications requiring flexible schemas.</li>
+</ul>
+<h3>4. Amazon Redshift</h3>
+<p>Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud.</p>
+<ul>
+<li><strong>Use Case:</strong> Big data analytics, complex queries against large datasets, and business intelligence (BI) reporting.</li>
+</ul>
+<h3>5. Amazon ElastiCache</h3>
+<p>Amazon ElastiCache is a managed, in-memory caching service that accelerates application performance by retrieving data from fast, managed, in-memory caches instead of relying entirely on slower disk-based databases.</p>
+<ul>
+<li><strong>Engines:</strong> Redis and Memcached.</li>
+<li><strong>Use Case:</strong> Caching database queries, session management, and real-time analytics.</li>
+</ul>
+<h3>6. AWS DMS (Database Migration Service)</h3>
+<p>A service that helps you migrate databases to AWS securely and easily while the source database remains fully operational during the migration.</p>
+<hr>
+<h2>⚖️ Service Comparison Matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Amazon RDS / Aurora</th>
+<th>Amazon DynamoDB</th>
+<th>Amazon Redshift</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Data Type</strong></td>
+<td>Relational (SQL)</td>
+<td>Non-Relational (NoSQL)</td>
+<td>Relational Data Warehouse</td>
+</tr>
+<tr>
+<td><strong>Schema</strong></td>
+<td>Fixed / Rigid</td>
+<td>Flexible (Key-Value)</td>
+<td>Fixed (Columnar)</td>
+</tr>
+<tr>
+<td><strong>Scaling</strong></td>
+<td>Vertical (Compute) &amp; Horizontal (Read Replicas)</td>
+<td>Seamless Horizontal</td>
+<td>Massive Parallel Processing (MPP)</td>
+</tr>
+<tr>
+<td><strong>Best For</strong></td>
+<td>Transactions (OLTP), complex queries</td>
+<td>High-throughput, simple reads/writes</td>
+<td>Analytics (OLAP), Business Intelligence</td>
+</tr>
+<tr>
+<td><strong>Serverless</strong></td>
+<td>Aurora Serverless available</td>
+<td>Yes (Fully Serverless)</td>
+<td>Redshift Serverless available</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🗺️ Decision Guide: Which Database to Choose?</h2>
+<pre><code class="language-mermaid">flowchart TD
+    Start[Choose a Database] --&gt; Q1{Is the data structured with complex relationships?}
+    Q1 -- Yes (SQL) --&gt; Q2{Is it for Analytics/BI or Transactions?}
+    Q1 -- No (NoSQL) --&gt; Q3{What type of NoSQL?}
+    
+    Q2 -- Analytics (OLAP) --&gt; Redshift[Amazon Redshift]
+    Q2 -- Transactions (OLTP) --&gt; Q4{Need enterprise performance?}
+    
+    Q4 -- Yes --&gt; Aurora[Amazon Aurora]
+    Q4 -- No --&gt; RDS[Amazon RDS]
+    
+    Q3 -- Key-Value / Document --&gt; DynamoDB[Amazon DynamoDB]
+    Q3 -- In-Memory Cache --&gt; ElastiCache[Amazon ElastiCache]
+    Q3 -- Graph / Relationships --&gt; Neptune[Amazon Neptune]
+</code></pre>
+<hr>
+<h2>⚡ Exam Focus Points</h2>
+<ul>
+<li>✅ <strong>Keyword:</strong> If you see &quot;Data Warehouse&quot;, &quot;BI&quot;, or &quot;Analytics&quot;, the answer is <strong>Amazon Redshift</strong>.</li>
+<li>✅ <strong>Keyword:</strong> If you see &quot;Millisecond latency&quot;, &quot;Key-Value&quot;, or &quot;Serverless database&quot;, the answer is <strong>Amazon DynamoDB</strong>.</li>
+<li>✅ <strong>Keyword:</strong> If you see &quot;In-memory&quot; or &quot;Sub-millisecond latency&quot;, the answer is <strong>Amazon ElastiCache</strong>.</li>
+<li>✅ <strong>Aurora vs RDS:</strong> Aurora is AWS&#39;s proprietary engine that is fully compatible with MySQL and PostgreSQL, offering much higher performance and automatic storage scaling compared to standard RDS.</li>
+<li>✅ <strong>DMS:</strong> If the question mentions moving an on-premises database to AWS with minimal downtime, look for <strong>AWS Database Migration Service</strong>.</li>
+</ul>
+<hr>
+<h2>📝 Quick Revision</h2>
+<ul>
+<li><strong>RDS:</strong> Standard relational database (MySQL, PostgreSQL, etc.).</li>
+<li><strong>Aurora:</strong> AWS-optimized relational database, high performance, replicates across 3 AZs.</li>
+<li><strong>DynamoDB:</strong> NoSQL, key-value, serverless, highly scalable.</li>
+<li><strong>Redshift:</strong> Data warehousing for analytics.</li>
+<li><strong>ElastiCache:</strong> In-memory cache for speed (Redis/Memcached).</li>
+<li><strong>DMS:</strong> Database migration without downtime.</li>
+</ul>
+
+        
+        <div class="pagination">
+          <a href="../../../aws-cloud-practitioner/03-core-services/compute/ec2-basics.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Ec2 Basics</span>
+        </a>
+          <a href="../../../aws-cloud-practitioner/03-core-services/storage/s3-basics.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">S3 Basics →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../../assets/script.js"></script>
+</body>
+</html>

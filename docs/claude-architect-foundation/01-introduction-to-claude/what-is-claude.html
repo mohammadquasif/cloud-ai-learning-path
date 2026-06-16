@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Is Claude | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Claude Architect Foundation</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Introduction To Claude</div>
+        <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="nav-link">What Is Claude</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Agentic Patterns</div>
+        <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="nav-link">Orchestrator And Workers</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="nav-link">Prompt Chaining And Routing</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="nav-link">Session And Context Management</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="nav-link">What Is An Agent</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Tool Use And Mcp</div>
+        <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="nav-link">Confirmation And Safety Gates</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="nav-link">Designing Good Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="nav-link">Error Handling In Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="nav-link">Introduction To Tool Use</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="nav-link">Mcp Architecture</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Structured Output And Extraction</div>
+        <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="nav-link">Batch Processing</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="nav-link">Confidence And Human Review</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/handling-ambiguity-and-nulls.html" class="nav-link">Handling Ambiguity And Nulls</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="nav-link">Json Schema For Extraction</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="nav-link">Long Document Extraction</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Claude Code And Workflows</div>
+        <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="nav-link">Claude Md And Skills</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="nav-link">Code Review Workflows</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="nav-link">Exploration Patterns</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../claude-architect-foundation/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../claude-architect-foundation/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>What is Claude? — Introduction</h1>
+<blockquote>
+<p><strong>Exam:</strong> Claude Architect Foundation
+<strong>Chapter:</strong> 01 — Introduction to Claude
+<strong>Difficulty:</strong> Beginner
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>📖 What Is This Topic About?</h2>
+<p>Claude is an AI assistant created by <strong>Anthropic</strong>. It is built to be helpful, harmless, and honest — making safety a design principle, not an afterthought.</p>
+<p>Unlike a search engine (which finds documents) or a calculator (which runs fixed logic), Claude understands natural language, reasons across long documents, and generates coherent responses. It is a <strong>Large Language Model (LLM)</strong> trained to be a thoughtful, capable, and safe AI system.</p>
+<hr>
+<h2>🧠 Key Concepts</h2>
+<ul>
+<li><strong>Claude</strong> — An AI assistant by Anthropic; not affiliated with OpenAI, Google, or Amazon</li>
+<li><strong>Anthropic</strong> — The AI safety company that created Claude; its core mission is the responsible development and maintenance of advanced AI for the long-term benefit of humanity</li>
+<li><strong>Constitutional AI (CAI)</strong> — Anthropic&#39;s training method that teaches Claude to evaluate its own outputs against a set of guiding principles, rather than purely optimising for human approval</li>
+<li><strong>HHH Principles</strong> — Helpful, Harmless, Honest; the three core values that guide all of Claude&#39;s responses</li>
+<li><strong>Context Window</strong> — The maximum amount of text (measured in tokens) that Claude can read and consider in a single conversation</li>
+</ul>
+<hr>
+<h2>📘 Detailed Explanation</h2>
+<h3>What Makes Claude Different?</h3>
+<p>Many AI models are trained simply to generate text that humans rate highly. The problem: humans sometimes rate confident-sounding but wrong answers more favourably than honest, uncertain ones.</p>
+<p>Anthropic took a different approach. They designed a training method — <strong>Constitutional AI</strong> — where Claude learns to evaluate its own outputs against a set of principles before finalising a response. This makes Claude more honest, more cautious about harmful content, and more willing to say &quot;I don&#39;t know.&quot;</p>
+<h3>The Three H&#39;s — HHH Principles</h3>
+<table>
+<thead>
+<tr>
+<th>Principle</th>
+<th>What It Means</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Helpful</strong></td>
+<td>Genuinely useful, addressing what the user actually needs</td>
+<td>Answering the real question, not just the literal one</td>
+</tr>
+<tr>
+<td><strong>Harmless</strong></td>
+<td>Avoiding content that causes physical, emotional, or social harm</td>
+<td>Refusing to provide instructions for dangerous activities</td>
+</tr>
+<tr>
+<td><strong>Honest</strong></td>
+<td>Truthful; expressing uncertainty rather than fabricating confident answers</td>
+<td>Saying &quot;I&#39;m not certain, please verify&quot; instead of guessing</td>
+</tr>
+</tbody></table>
+<h3>Claude vs Other AI Systems</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Claude</th>
+<th>Traditional Chatbot</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Training focus</td>
+<td>Safety + capability</td>
+<td>Task completion</td>
+</tr>
+<tr>
+<td>Uncertainty handling</td>
+<td>Explicitly states uncertainty</td>
+<td>May hallucinate</td>
+</tr>
+<tr>
+<td>Harm avoidance</td>
+<td>Designed in at training</td>
+<td>Usually rule-based filters</td>
+</tr>
+<tr>
+<td>Context window</td>
+<td>Up to 200K tokens</td>
+<td>Often much smaller</td>
+</tr>
+</tbody></table>
+<h3>Claude&#39;s Context Window</h3>
+<p>Claude can process up to <strong>200,000 tokens</strong> in a single conversation (approximately 150,000 words — longer than most novels). This means:</p>
+<ul>
+<li>You can paste in entire codebases for analysis</li>
+<li>Long legal or medical documents can be reviewed in one go</li>
+<li>Multi-turn conversations can maintain context without losing earlier details</li>
+</ul>
+<blockquote>
+<p><strong>Important for the exam:</strong> The context window includes everything — system prompts, conversation history, documents you paste in, and tool definitions. All of these consume tokens.</p>
+</blockquote>
+<hr>
+<h2>🇮🇳 Indian Real-Life Example</h2>
+<p><strong>Think of Claude like a very knowledgeable professor at IIT:</strong></p>
+<p>Imagine a professor who:</p>
+<ul>
+<li>Genuinely wants you to understand the subject, not just pass the exam (<strong>Helpful</strong>)</li>
+<li>Will not help you cheat or do something unethical, even if you ask nicely (<strong>Harmless</strong>)</li>
+<li>Honestly tells you &quot;I am not sure about this specific regulation, please check the official gazette&quot; instead of making up an answer (<strong>Honest</strong>)</li>
+<li>Can hold in memory an entire semester&#39;s worth of notes and refer back to any part during the conversation (<strong>Long Context Window</strong>)</li>
+</ul>
+<hr>
+<h2>🔑 Exam-Focused Points</h2>
+<ul>
+<li>✅ Claude is created by <strong>Anthropic</strong> — not Google, OpenAI, Microsoft, or Amazon (though Claude is available through Amazon Bedrock)</li>
+<li>✅ The three core principles are <strong>Helpful, Harmless, Honest</strong> (HHH)</li>
+<li>✅ <strong>Constitutional AI</strong> is how Anthropic trains Claude — self-evaluation against principles</li>
+<li>✅ Claude&#39;s context window can be up to <strong>200,000 tokens</strong> — everything in a conversation counts toward this limit</li>
+<li>✅ Claude is designed <strong>safety-first</strong> — safety is baked into training, not bolted on after</li>
+<li>✅ Claude will express <strong>uncertainty</strong> rather than fabricate confident but wrong answers</li>
+</ul>
+<hr>
+<h2>🧩 Scenario-Based Thinking</h2>
+<p><strong>Scenario:</strong> A company wants to deploy an AI assistant for customer support. The support team is worried the assistant might give confident but incorrect answers about refund policies, misleading customers.</p>
+<p><strong>Which Claude principle most directly addresses this concern?</strong></p>
+<p><strong>Think it through:</strong></p>
+<ol>
+<li>The concern is about confident but <em>wrong</em> answers — this is a truth/accuracy problem</li>
+<li>&quot;Helpful&quot; is about usefulness — not directly about accuracy</li>
+<li>&quot;Harmless&quot; is about avoiding harm — closer, but the key issue is truth</li>
+<li>&quot;Honest&quot; is exactly this — Claude is trained to express uncertainty rather than state incorrect information with false confidence</li>
+</ol>
+<p><strong>Answer: Honesty</strong> — Claude acknowledges when it is uncertain rather than generating plausible-but-wrong responses.</p>
+<hr>
+<h2>💡 Memory Tricks</h2>
+<p><strong>The 3H Rule:</strong> <em>&quot;A great friend gives Helpful advice, never causes Harm, and is always Honest.&quot;</em> That is Claude.</p>
+<p><strong>Context Window = Hotel Room:</strong> Everything in your hotel room (your bags, your belongings, the furniture) takes up space. Similarly, everything in a conversation — your message, the system prompt, uploaded documents, tool definitions — all takes up context window space.</p>
+<hr>
+<h2>❓ Chapter Practice Questions</h2>
+<p><strong>Q1.</strong> Which company created Claude?</p>
+<ul>
+<li>A) OpenAI</li>
+<li>B) Google DeepMind</li>
+<li>C) Anthropic</li>
+<li>D) Amazon</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> Claude is created by Anthropic, an AI safety company. It is <em>available</em> through Amazon Bedrock, but that does not mean Amazon created it. OpenAI makes ChatGPT; Google DeepMind makes Gemini.</p>
+<hr>
+<p><strong>Q2.</strong> What are the three core principles that guide Claude&#39;s design and training?</p>
+<ul>
+<li>A) Fast, Scalable, Secure</li>
+<li>B) Helpful, Harmless, Honest</li>
+<li>C) Intelligent, Responsive, Efficient</li>
+<li>D) Creative, Accurate, Consistent</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> The HHH principles — Helpful, Harmless, Honest — are the foundation of Claude&#39;s design. These principles are instilled during training through Constitutional AI, not enforced through external filters alone.</p>
+<hr>
+<p><strong>Q3.</strong> A developer reports that Claude sometimes says &quot;I am not certain about this — please verify with the official documentation&quot; instead of giving a direct answer. This is an example of which principle?</p>
+<ul>
+<li>A) Helpful — Claude is being helpful by admitting its limits</li>
+<li>B) Harmless — Claude is avoiding causing harm through bad information</li>
+<li>C) Honest — Claude is expressing genuine uncertainty rather than fabricating a confident answer</li>
+<li>D) Constitutional AI — Claude is following its training rules</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> Expressing uncertainty is a direct manifestation of the Honesty principle. Claude is trained to acknowledge what it does not know rather than hallucinate a confident response.</p>
+<hr>
+<h2>📌 Quick Revision Summary</h2>
+<ul>
+<li>Claude = AI assistant by Anthropic (not Google, not OpenAI)</li>
+<li>HHH Principles: Helpful, Harmless, Honest</li>
+<li>Constitutional AI = Anthropic&#39;s training method; Claude evaluates its own outputs against guiding principles</li>
+<li>Context window = up to 200K tokens; everything in a conversation counts toward this limit</li>
+<li>Claude expresses uncertainty rather than fabricating confident answers</li>
+<li>Safety is baked into training — it is a core design goal, not a filter</li>
+</ul>
+<hr>
+<h2>📎 References</h2>
+<ul>
+<li><a href="https://www.anthropic.com">Anthropic Official Website — anthropic.com</a></li>
+<li><a href="https://claude.ai">Claude Official Page — claude.ai</a></li>
+<li><a href="https://www.anthropic.com/model-card">Anthropic&#39;s Model Card — anthropic.com/model-card</a></li>
+</ul>
+<hr>
+<p><em>Notes by certification-study-hub. Chapter 01 — Introduction to Claude.</em></p>
+
+        
+        <div class="pagination">
+          <a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← How Claude Thinks</span>
+        </a>
+          <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Orchestrator And Workers →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

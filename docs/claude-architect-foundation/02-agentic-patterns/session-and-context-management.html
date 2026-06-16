@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session And Context Management | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Claude Architect Foundation</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Introduction To Claude</div>
+        <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="nav-link">What Is Claude</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Agentic Patterns</div>
+        <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="nav-link">Orchestrator And Workers</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="nav-link">Prompt Chaining And Routing</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="nav-link">Session And Context Management</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="nav-link">What Is An Agent</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Tool Use And Mcp</div>
+        <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="nav-link">Confirmation And Safety Gates</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="nav-link">Designing Good Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="nav-link">Error Handling In Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="nav-link">Introduction To Tool Use</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="nav-link">Mcp Architecture</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Structured Output And Extraction</div>
+        <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="nav-link">Batch Processing</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="nav-link">Confidence And Human Review</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/handling-ambiguity-and-nulls.html" class="nav-link">Handling Ambiguity And Nulls</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="nav-link">Json Schema For Extraction</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="nav-link">Long Document Extraction</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Claude Code And Workflows</div>
+        <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="nav-link">Claude Md And Skills</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="nav-link">Code Review Workflows</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="nav-link">Exploration Patterns</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../claude-architect-foundation/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../claude-architect-foundation/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>Session &amp; Context Management — Memory Across Long Conversations</h1>
+<blockquote>
+<p><strong>Exam:</strong> Claude Architect Foundation
+<strong>Chapter:</strong> 02 — Agentic Patterns
+<strong>Difficulty:</strong> Intermediate
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>📖 What Is This Topic About?</h2>
+<p>As conversations grow long — spanning many tool calls, many turns, and sometimes hours of work — two challenges emerge: the context window fills up, and the conversation becomes expensive to process. This chapter covers strategies for managing context over long sessions: session resumption, context summarisation, forking sessions for parallel exploration, and external memory.</p>
+<hr>
+<h2>🧠 Key Concepts</h2>
+<ul>
+<li><strong>Session</strong> — A single conversation thread with Claude, containing all turns from start to current</li>
+<li><strong>Session Resumption</strong> — Continuing a previous session by loading its transcript back into a new API call</li>
+<li><strong>Context Pressure</strong> — The state where a long conversation has consumed most of the context window, reducing performance</li>
+<li><strong>Context Summarisation</strong> — Compressing earlier turns into a shorter summary that preserves key facts without keeping the full raw text</li>
+<li><strong>Session Forking</strong> — Creating two independent branches from the same conversation checkpoint, for exploring alternative approaches</li>
+<li><strong>External Memory</strong> — Storing structured facts (entity IDs, statuses, decisions) outside the context window and retrieving them via tools</li>
+</ul>
+<hr>
+<h2>📘 Detailed Explanation</h2>
+<h3>The Context Window Filling Problem</h3>
+<p>Every message, tool call, and tool result adds tokens to the context window. Over a long investigation or multi-issue support session, the window fills:</p>
+<pre><code>┌──────────────────────────────────── CONTEXT WINDOW ────────────────────────────────┐
+│                                                                                     │
+│  Turn 1–10   Turn 11–20   Turn 21–30   Turn 31–40   Turn 41–50   ???               │
+│  [▓▓▓▓▓▓▓]  [▓▓▓▓▓▓▓▓]  [▓▓▓▓▓▓▓▓]  [▓▓▓▓▓▓▓▓]  [▓▓▓▓▓▓▓▓]  [NO ROOM!]         │
+│                                                                                     │
+│  As the window fills:                                                               │
+│  • Early turns get less &quot;attention&quot; from the model                                  │
+│  • Accuracy on information from early turns degrades                                │
+│  • Eventually: context_length_exceeded error                                        │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h3>Strategy 1: Context Summarisation</h3>
+<p>Instead of keeping every raw turn, compress earlier turns into a concise summary and discard the verbose originals:</p>
+<pre><code>BEFORE SUMMARISATION (raw, verbose):
+Turn 1: &quot;Hi I need help with my order&quot;
+Turn 2: &quot;Sure, what&#39;s your order ID?&quot; 
+Turn 3: &quot;It&#39;s ORD-4921&quot;
+Turn 4: [tool call: lookup_order(&quot;ORD-4921&quot;)]
+Turn 5: [tool result: {id: &quot;ORD-4921&quot;, item: &quot;Laptop&quot;, price: 85000, status: &quot;shipped&quot;, tracking: &quot;TR7892&quot;}]
+Turn 6: &quot;Your laptop was shipped 3 days ago, tracking number TR7892&quot;
+... (6 turns = ~800 tokens)
+
+AFTER SUMMARISATION (compressed):
+&quot;CONTEXT SUMMARY: Customer&#39;s order ORD-4921 (Laptop, ₹85,000) was shipped. Tracking: TR7892. 
+Customer is now asking about delivery date.&quot;
+(1 turn = ~60 tokens — 93% reduction)
+</code></pre>
+<p><strong>Key rule:</strong> Extract and preserve <em>structured facts</em> (IDs, amounts, statuses) precisely. Do not summarise these into vague natural language — you may lose precision.</p>
+<hr>
+<h3>Strategy 2: External Persistent Memory</h3>
+<p>For long-running workflows or returning customers, the best approach is to persist structured data outside the context window entirely — in a database, file, or structured store:</p>
+<pre><code>┌────────────────────────────────────────────────────────────────────┐
+│                    EXTERNAL MEMORY PATTERN                         │
+│                                                                    │
+│  AGENT                         EXTERNAL STORE (DB/file)           │
+│   │                                   │                           │
+│   │  extract_key_facts()               │                           │
+│   │ ─────────────────────────────────►│                           │
+│   │                                   │ Stores:                   │
+│   │                                   │ {customer_id, order_ids,  │
+│   │                                   │  open_issues, decisions}  │
+│   │                                   │                           │
+│   │ ◄─────────── stored ──────────────│                           │
+│   │                                   │                           │
+│   [new session starts]                │                           │
+│   │                                   │                           │
+│   │  retrieve_context(customer_id)    │                           │
+│   │ ─────────────────────────────────►│                           │
+│   │ ◄───────── structured facts ──────│                           │
+│   │                                   │                           │
+│   [agent continues with rich context] │                           │
+└────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h3>Strategy 3: Session Forking</h3>
+<p>Sometimes you want to explore two different approaches to the same problem, without letting one approach&#39;s reasoning contaminate the other. <strong>Forking</strong> creates two independent branches from the same checkpoint:</p>
+<pre><code>┌──────────────────────────────────────────────────────────────┐
+│                     SESSION FORKING                          │
+│                                                              │
+│  ORIGINAL SESSION (30 turns of analysis)                     │
+│  &quot;We&#39;ve identified two approaches to refactor this module:   │
+│   (A) Extract as microservice  (B) Refactor in place&quot;        │
+│                    │                                         │
+│          ┌─────────┴─────────┐                               │
+│          │  FORK HERE         │                               │
+│          ▼                   ▼                               │
+│  BRANCH A                BRANCH B                            │
+│  Explore microservice    Explore in-place                    │
+│  extraction approach     refactoring approach                │
+│  (independent context)   (independent context)               │
+│          │                   │                               │
+│          ▼                   ▼                               │
+│  Developer compares results and chooses one approach         │
+└──────────────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>Why forking beats sequential exploration:</strong></p>
+<ul>
+<li>Branch A&#39;s reasoning does not contaminate Branch B&#39;s</li>
+<li>Both explorations start from the same knowledge base</li>
+<li>Truly independent, comparable results</li>
+</ul>
+<hr>
+<h3>Session Resumption</h3>
+<p>When a session is interrupted (connection drops, end of workday, system restart), you can resume it:</p>
+<ul>
+<li><strong>By name</strong> — If the session was given a name (<code>--resume session-name</code>), resume by that name</li>
+<li><strong>By ID</strong> — If you have the session UUID from the transcript, use <code>--session-id UUID</code></li>
+<li><strong>With a summary</strong> — Inject a summary of prior findings as context for a fresh session</li>
+</ul>
+<p><strong>When resuming, always inform the agent of any changes</strong> that happened while the session was paused (e.g., files changed, new commits merged). The agent&#39;s knowledge is a snapshot from when it was last active.</p>
+<hr>
+<h3>Sliding Window Context (Anti-Pattern Warning)</h3>
+<p>Sliding window context keeps only the most recent N turns. While simple to implement, it has a dangerous flaw:</p>
+<pre><code>PROBLEM WITH SLIDING WINDOW:
+Turn 1:  Customer gives order ID: ORD-4921
+Turn 2:  Agent looks up order details
+...
+Turn 35: Window slides, Turn 1 and Turn 2 are DROPPED
+Turn 36: Agent tries to reference order details → no longer in context → error
+</code></pre>
+<p>Sliding windows can silently lose critical information. <strong>Prefer summarisation + external storage</strong> over sliding windows.</p>
+<hr>
+<h2>🇮🇳 Indian Real-Life Example</h2>
+<p><strong>Context Management = A Court Case File:</strong></p>
+<p>Imagine a lawyer handling a complex case that spans months of hearings. The lawyer cannot memorise every word of every hearing. Instead:</p>
+<ul>
+<li>After each hearing, they summarise key decisions in a case file (context summarisation)</li>
+<li>The original hearing transcripts go to the archive (external memory)</li>
+<li>For each new hearing, the lawyer reads the case file summary (retrieving external memory)</li>
+<li>If two lawyers want to argue alternative legal strategies, they work from separate copies of the case file (session forking)</li>
+</ul>
+<hr>
+<h2>🔑 Exam-Focused Points</h2>
+<ul>
+<li>✅ Context window fills over long sessions → accuracy degrades → eventually <code>context_length_exceeded</code></li>
+<li>✅ <strong>Summarisation</strong> = compress early turns into concise facts; preserve structured data (IDs, amounts) precisely</li>
+<li>✅ <strong>External memory</strong> = persist structured facts in a DB or file; retrieve via tools in new sessions</li>
+<li>✅ <strong>Session forking</strong> = creates two independent branches from the same checkpoint; prevents cross-contamination between alternative approaches</li>
+<li>✅ When resuming a paused session, <strong>inform the agent of any changes</strong> that occurred during the pause</li>
+<li>✅ Sliding window = simple but risky; silently drops potentially critical earlier information</li>
+</ul>
+<hr>
+<h2>🧩 Scenario-Based Thinking</h2>
+<p><strong>Scenario:</strong> A developer was investigating a complex payment module for 2 hours, building significant context. The connection dropped overnight. A teammate merged a PR that renamed two utility functions. The developer wants to continue the same investigation.</p>
+<p><strong>What is the most effective approach?</strong></p>
+<ul>
+<li>A) Start a completely fresh session</li>
+<li>B) Resume the paused session and inform the agent about the renamed functions</li>
+<li>C) Resume the session without mentioning the changes — architecture knowledge is still valid</li>
+<li>D) Start a fresh session with a manually written summary of findings</li>
+</ul>
+<p><strong>Answer:</strong> B — Resume the session (preserving 2 hours of accumulated context) AND inform the agent about the renamed functions. The architecture knowledge is valid; only the specific function names changed. Silently resuming without mentioning the change (C) risks the agent making incorrect references to the old function names.</p>
+<hr>
+<h2>💡 Memory Tricks</h2>
+<p><strong>Context Window = Laptop RAM:</strong> If you open too many tabs, performance suffers. Close (summarise) older tabs to free up RAM. Important data goes to the hard drive (external storage).</p>
+<p><strong>Forking = Git Branch:</strong> Just like <code>git checkout -b new-feature</code> creates an independent branch from the current commit, session forking creates an independent conversation branch from the current turn.</p>
+<hr>
+<h2>❓ Chapter Practice Questions</h2>
+<p><strong>Q1.</strong> A customer support agent handles a long conversation covering three separate issues across 47 turns. Approaching turn 48, the agent is asked to recap the first issue. What is the most effective context management strategy to ensure accuracy on earlier information?</p>
+<ul>
+<li>A) Use a sliding window that always keeps the last 30 turns</li>
+<li>B) Rely on the model to recall earlier turns from its in-weights memory</li>
+<li>C) Extract and persist structured issue data (issue type, order IDs, resolution status) into a separate context layer, retrievable on demand</li>
+<li>D) Restart the conversation from turn 30 to reduce context size</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> Structured external memory is more reliable than relying on the raw context or sliding windows. Extracting key facts (issue type, IDs, statuses) into a separate structured store and retrieving them when needed is the recommended approach for long, multi-issue conversations. Sliding windows risk silently dropping critical earlier information.</p>
+<hr>
+<p><strong>Q2.</strong> An engineer spent 30 minutes analysing a legacy authentication module, identifying two possible refactoring approaches. They want to have the agent explore specific code changes for each approach before choosing one to implement.</p>
+<p><strong>What is the most effective way to structure this exploration?</strong></p>
+<ul>
+<li>A) Start two fresh sessions, manually providing a summary of findings to each</li>
+<li>B) Continue in the original session, exploring Approach A then Approach B sequentially</li>
+<li>C) Resume the session and explore Approach A, then start a new session for Approach B</li>
+<li>D) Use session forking to create two independent branches from the current analysis checkpoint</li>
+</ul>
+<p><strong>Answer:</strong> D</p>
+<p><strong>Explanation:</strong> Session forking creates two branches from the same knowledge base, allowing independent exploration of each approach. This prevents Approach A&#39;s code-level reasoning from contaminating Approach B&#39;s, and both branches start with the full 30-minute analysis context. Sequential exploration (B) allows contamination; fresh sessions (A) lose the accumulated context.</p>
+<hr>
+<p><strong>Q3.</strong> A team stores an entire 400-turn conversation history and sends it with every API call to ensure the agent has full context. What is the primary risk of this approach?</p>
+<ul>
+<li>A) Sending historical turns violates Anthropic&#39;s usage policy</li>
+<li>B) Claude ignores turns older than 100 turns</li>
+<li>C) Token costs grow linearly with conversation length, and performance degrades as the context window fills</li>
+<li>D) External APIs cannot receive requests larger than 200K tokens</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> Sending the full raw history with every API call has two compounding problems: rapidly increasing token costs (you pay for all input tokens every call) and degrading model performance as the context window fills. The recommended approach is to summarise earlier turns and persist structured facts in external storage, keeping the active context window lean.</p>
+<hr>
+<h2>📌 Quick Revision Summary</h2>
+<ul>
+<li>Context window fills during long sessions → performance degrades → context_length_exceeded error</li>
+<li>Summarisation: compress early turns into brief structured summaries; preserve IDs/amounts precisely</li>
+<li>External memory: persist facts in DB/file; retrieve via tools in new or resumed sessions</li>
+<li>Session forking: two independent branches from same checkpoint; prevents cross-contamination</li>
+<li>Session resumption: by name or session ID; always notify agent of changes during the pause</li>
+<li>Sliding window: risky — silently drops critical earlier information; prefer summarisation</li>
+</ul>
+<hr>
+<h2>📎 References</h2>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/long-context">Anthropic Documentation — Long Context Best Practices</a></li>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code">Anthropic Documentation — Claude Code Session Management</a></li>
+</ul>
+<hr>
+<p><em>Notes by certification-study-hub. Chapter 02 — Session &amp; Context Management.</em></p>
+
+        
+        <div class="pagination">
+          <a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Prompt Chaining And Routing</span>
+        </a>
+          <a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">What Is An Agent →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

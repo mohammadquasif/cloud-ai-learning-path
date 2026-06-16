@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exploration Patterns | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Claude Architect Foundation</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Introduction To Claude</div>
+        <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="nav-link">What Is Claude</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Agentic Patterns</div>
+        <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="nav-link">Orchestrator And Workers</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="nav-link">Prompt Chaining And Routing</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="nav-link">Session And Context Management</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="nav-link">What Is An Agent</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Tool Use And Mcp</div>
+        <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="nav-link">Confirmation And Safety Gates</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="nav-link">Designing Good Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="nav-link">Error Handling In Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="nav-link">Introduction To Tool Use</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="nav-link">Mcp Architecture</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Structured Output And Extraction</div>
+        <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="nav-link">Batch Processing</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="nav-link">Confidence And Human Review</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/handling-ambiguity-and-nulls.html" class="nav-link">Handling Ambiguity And Nulls</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="nav-link">Json Schema For Extraction</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="nav-link">Long Document Extraction</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Claude Code And Workflows</div>
+        <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="nav-link">Claude Md And Skills</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="nav-link">Code Review Workflows</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="nav-link">Exploration Patterns</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../claude-architect-foundation/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../claude-architect-foundation/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>Exploration Patterns — How Claude Code Investigates Codebases</h1>
+<blockquote>
+<p><strong>Exam:</strong> Claude Architect Foundation
+<strong>Chapter:</strong> 05 — Claude Code &amp; Developer Workflows
+<strong>Difficulty:</strong> Intermediate
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>📖 What Is This Topic About?</h2>
+<p>Before making changes to a codebase, Claude Code must <em>understand</em> the codebase. How it explores — starting with architecture or diving into files, using Grep or Read, breadth-first or depth-first — determines how quickly and accurately it builds a working model of the code. This chapter covers the most effective exploration patterns.</p>
+<hr>
+<h2>🧠 Key Concepts</h2>
+<ul>
+<li><strong>Architecture-First Exploration</strong> — Starting by understanding high-level structure (directory layout, key modules, entry points) before reading individual files</li>
+<li><strong>File-First Exploration</strong> — Reading specific files directly, often less efficient for unfamiliar codebases</li>
+<li><strong>Adaptive Investigation</strong> — Adjusting the exploration strategy based on what is discovered (start broad, narrow to relevant areas)</li>
+<li><strong>Breadth-First</strong> — Exploring many areas shallowly before reading any area deeply</li>
+<li><strong>Depth-First</strong> — Reading one area completely before moving to the next</li>
+<li><strong>Plan Mode Exploration</strong> — Using Plan Mode to explore and form a plan without making any file changes</li>
+</ul>
+<hr>
+<h2>📘 Detailed Explanation</h2>
+<h3>Architecture-First vs File-First</h3>
+<p>For unfamiliar codebases, architecture-first is almost always more efficient:</p>
+<pre><code>FILE-FIRST EXPLORATION (less efficient):
+1. Read routes/user.py → understand user endpoints
+2. Read routes/products.py → understand product endpoints
+3. Read models/user.py → understand User model
+... (read 25 files before understanding how they connect)
+Problem: Lots of reading before understanding the structure
+
+ARCHITECTURE-FIRST EXPLORATION (more efficient):
+1. List the top-level directories → understand project layout
+2. Read CLAUDE.md / README.md → understand project overview
+3. Glob for entry points (main.py, app.py, manage.py)
+4. Read the main entry point → understand how the app is initialised
+5. Grep for key class/function imports → understand module relationships
+6. THEN read specific files for the areas relevant to the task
+
+Result: Understand structure first, then read only what&#39;s needed
+</code></pre>
+<hr>
+<h3>The Adaptive Investigation Pattern</h3>
+<p>For most real-world tasks, the best approach is adaptive: start broad, then narrow to what matters:</p>
+<pre><code>┌──────────────────────────────────────────────────────────────────┐
+│                   ADAPTIVE INVESTIGATION                         │
+│                                                                  │
+│  PHASE 1: ORIENT (broad view)                                    │
+│  ────────────────────────────────────────────────────────────    │
+│  • List directory structure                                      │
+│  • Read README / CLAUDE.md                                       │
+│  • Identify main entry points                                    │
+│  • Understand technology stack                                   │
+│  Goal: Form a map of the codebase                               │
+│                     │                                            │
+│                     ▼                                            │
+│  PHASE 2: LOCATE (narrow to relevant area)                       │
+│  ────────────────────────────────────────────────────────────    │
+│  • Grep for the class, function, or concept related to the task  │
+│  • Glob for relevant file patterns (*.model.ts, *service.py)     │
+│  • Identify the 3–5 most relevant files                          │
+│  Goal: Narrow from hundreds of files to the handful that matter  │
+│                     │                                            │
+│                     ▼                                            │
+│  PHASE 3: UNDERSTAND (read deeply)                               │
+│  ────────────────────────────────────────────────────────────    │
+│  • Read the identified relevant files                            │
+│  • Follow imports to understand dependencies                     │
+│  • Read test files to understand expected behaviour              │
+│  Goal: Build deep understanding of the specific area to change   │
+│                     │                                            │
+│                     ▼                                            │
+│  PHASE 4: PLAN then ACT                                          │
+│  ────────────────────────────────────────────────────────────    │
+│  • Document the planned changes (Plan Mode)                      │
+│  • Identify all files that must change                           │
+│  • Execute changes in dependency order                           │
+└──────────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h3>When to Use Grep vs When to Read</h3>
+<pre><code>USE GREP WHEN:
+• You&#39;re looking for a specific pattern across many files
+• &quot;Find all usages of deprecated function X&quot;
+• &quot;Find all files that import module Y&quot;
+• &quot;Find all TODO comments&quot;
+• &quot;Find all API endpoints that accept POST requests&quot;
+→ Grep returns targeted results without reading entire files
+
+USE READ WHEN:
+• You need to understand the full context of specific code
+• &quot;What does this authentication function actually do, step by step?&quot;
+• &quot;What are all the config options in this settings file?&quot;
+• &quot;Understand the complete test suite for this module&quot;
+→ Read gives full file content for deep understanding
+
+THE DECISION:
+&quot;Do I know what I&#39;m looking for (pattern)?&quot; → GREP
+&quot;Do I need to understand a complete section?&quot; → READ
+</code></pre>
+<hr>
+<h3>Plan Mode — Explore Without Changing</h3>
+<p>For large or risky changes, use Plan Mode: Claude explores the codebase fully and produces a detailed plan before making any file changes.</p>
+<pre><code>PLAN MODE WORKFLOW:
+
+Claude Code enters Plan Mode when asked for complex changes:
+&quot;Refactor the user authentication module to use JWT tokens instead of session cookies&quot;
+
+Step 1: EXPLORE
+→ Read the current authentication implementation
+→ Grep for all session-related code across the codebase
+→ Identify all files that must change
+→ Understand test coverage of auth module
+
+Step 2: PLAN
+→ Document: &quot;I will change these files in this order:
+   1. models/session.py → models/token.py (new model)
+   2. services/auth.py → Update token generation
+   3. middleware/auth.py → Update token validation
+   4. tests/test_auth.py → Update 14 test cases&quot;
+
+Step 3: USER REVIEWS PLAN
+→ User can approve, modify, or reject before any file changes happen
+
+Step 4: EXECUTE (only after approval)
+→ Make changes in the planned order
+
+BENEFIT:
+If the plan is wrong, you caught it BEFORE any files were changed.
+</code></pre>
+<hr>
+<h3>Depth-First vs Breadth-First — When Each Helps</h3>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Description</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Depth-First</strong></td>
+<td>Fully understand one module before moving to the next</td>
+<td>Deeply understanding one specific component (e.g., &quot;how does auth work?&quot;)</td>
+</tr>
+<tr>
+<td><strong>Breadth-First</strong></td>
+<td>Survey all relevant areas shallowly first</td>
+<td>Understanding cross-cutting concerns (e.g., &quot;where is auth used?&quot;)</td>
+</tr>
+<tr>
+<td><strong>Adaptive (recommended)</strong></td>
+<td>Start breadth-first for orientation, shift to depth-first for relevant areas</td>
+<td>Most real-world tasks</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🇮🇳 Indian Real-Life Example</h2>
+<p><strong>Think of codebase exploration like a new CBI investigator arriving at a case:</strong></p>
+<ol>
+<li><strong>Orient:</strong> Read the case summary and all prior reports first — before examining any specific evidence. (Architecture-first)</li>
+<li><strong>Locate:</strong> Identify which specific exhibits or witnesses are relevant to the current investigation question. (Grep/Glob)</li>
+<li><strong>Understand:</strong> Read those specific exhibits thoroughly. (Read)</li>
+<li><strong>Plan:</strong> Document the investigation approach before taking any actions.</li>
+</ol>
+<p>An investigator who immediately starts reading unrelated case files wastes time. An investigator who understands the case layout first, then focuses on relevant evidence, solves the case faster.</p>
+<hr>
+<h2>🔑 Exam-Focused Points</h2>
+<ul>
+<li>✅ <strong>Architecture-first</strong> exploration is more efficient than file-first for unfamiliar codebases</li>
+<li>✅ <strong>Adaptive investigation</strong>: Orient (broad) → Locate (narrow) → Understand (deep) → Plan → Act</li>
+<li>✅ <strong>Grep</strong> for finding patterns across files; <strong>Read</strong> for deep understanding of specific files</li>
+<li>✅ <strong>Plan Mode</strong>: explore and plan without making changes; user reviews before execution</li>
+<li>✅ For large changes: ALWAYS explore and plan before touching files — prevents cascading mistakes</li>
+<li>✅ Read test files as part of understanding: they reveal expected behaviour better than implementation</li>
+</ul>
+<hr>
+<h2>🧩 Scenario-Based Thinking</h2>
+<p><strong>Scenario:</strong> Claude Code is asked to add a new field to a database model. The model is part of a large Django application with 50+ models. Claude immediately writes a migration file and edits the model. After running tests, 12 tests fail because several serialisers, views, and admin registrations that Claude didn&#39;t investigate also need to be updated.</p>
+<p><strong>What exploration step did Claude skip?</strong></p>
+<ul>
+<li>A) Reading the project&#39;s CLAUDE.md</li>
+<li>B) Using Grep to locate all usages of the model (serialisers, views, admin registrations) before making changes</li>
+<li>C) Reading the migration files directory</li>
+<li>D) Using Plan Mode&#39;s test suite analysis</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> The adaptive investigation pattern requires locating all usages of what you&#39;re changing before making changes. Grepping for the model name across the codebase would have revealed the serialisers, views, and admin registrations that also needed updating. Making the model change first without this investigation caused cascading failures.</p>
+<hr>
+<h2>💡 Memory Tricks</h2>
+<p><strong>Orient → Locate → Understand → Plan → Act:</strong> OLUPA — &quot;Only Logical Understanding Prevents Accidents.&quot; Each step is a safety check before the next.</p>
+<p><strong>Grep = Compass:</strong> Tells you which direction to go (where the pattern appears). Read = Map: Shows you exactly what&#39;s in that territory. You use the compass to choose which map to read.</p>
+<hr>
+<h2>❓ Chapter Practice Questions</h2>
+<p><strong>Q1.</strong> Claude Code is asked to remove a deprecated API endpoint from a large Express.js application. What exploration approach most effectively identifies all code that must change?</p>
+<ul>
+<li>A) Read all files in the routes/ directory</li>
+<li>B) Use Glob to find all *.js files, then read each one</li>
+<li>C) Use Grep to find all references to the deprecated endpoint across the codebase (route definition, documentation, tests, client calls, middleware), then read only those files</li>
+<li>D) Read only the routes/api.js file where the endpoint is defined</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> Architecture-first with Grep: search for the endpoint name/path across all files to find every location that references it. This surfaces route definitions, documentation, tests, client code, and middleware — all of which may need updating. Reading only the routes file (D) will cause cascading failures from all the other references.</p>
+<hr>
+<p><strong>Q2.</strong> A developer asks Claude Code to refactor a payment processing module that is used by 8 other modules across the application. What is the most appropriate initial step?</p>
+<ul>
+<li>A) Start editing the payment module immediately to avoid wasting context on exploration</li>
+<li>B) Enter Plan Mode: Grep for all imports and usages of the payment module, identify all 8 dependent modules, read them to understand coupling, then document a complete list of files to change before making any edits</li>
+<li>C) Ask the developer to provide a list of all files that need changing before starting</li>
+<li>D) Read the payment module fully, then start making changes module by module</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> A refactoring with 8 dependent modules is exactly the scenario where Plan Mode is essential. Grep for all usages, understand all coupling, document the complete change plan, and get the user&#39;s approval BEFORE making any changes. Starting to edit immediately (A) risks making breaking changes to the payment module before understanding all dependencies.</p>
+<hr>
+<p><strong>Q3.</strong> A developer reports that Claude Code is spending excessive time reading files that turn out to be irrelevant to the task. For a task involving database query optimisation, Claude has read 35+ files including unrelated frontend components. What is the most likely cause and fix?</p>
+<ul>
+<li>A) Claude Code should always read all files for complete context; this is expected behaviour</li>
+<li>B) The lack of a CLAUDE.md explaining project structure means Claude must explore broadly; adding a CLAUDE.md with architecture overview would help Claude target relevant areas faster</li>
+<li>C) Claude Code should be restricted to only the backend directory</li>
+<li>D) The task description is too vague; be more specific about which database queries to optimise</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> Without a CLAUDE.md explaining project structure, Claude must discover the architecture through exploration — which often includes reading irrelevant files before understanding which files are relevant. A CLAUDE.md with an architecture overview (&quot;backend is in /api/, frontend in /web/, queries optimised via /api/repositories/&quot;) allows Claude to immediately target the relevant area. This is one of CLAUDE.md&#39;s key value propositions.</p>
+<hr>
+<h2>📌 Quick Revision Summary</h2>
+<ul>
+<li>Architecture-first: understand structure before reading individual files → more efficient</li>
+<li>Adaptive investigation: Orient → Locate (Grep) → Understand (Read) → Plan → Act</li>
+<li>Grep: finding patterns across files; Read: understanding specific file content in full</li>
+<li>Plan Mode: explore and plan without making changes; essential for large/risky refactors</li>
+<li>Read test files: reveal expected behaviour, which tests must stay passing after changes</li>
+<li>CLAUDE.md with architecture overview: helps Claude target relevant areas faster, reduces unnecessary exploration</li>
+</ul>
+<hr>
+<h2>📎 References</h2>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code">Anthropic Documentation — Claude Code Best Practices</a></li>
+</ul>
+<hr>
+<p><em>Notes by certification-study-hub. Chapter 05 — Exploration Patterns.</em></p>
+
+        
+        <div class="pagination">
+          <a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Code Review Workflows</span>
+        </a>
+          <a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Introduction To Claude Code →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

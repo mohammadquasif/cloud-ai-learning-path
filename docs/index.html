@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certification Study Hub | Interactive Courses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --aws: #ff9900;
+      --claude: #8b5cf6;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    p.subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      max-width: 600px;
+    }
+    .cards {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 900px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      width: 350px;
+      border: 1px solid #334155;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card.aws:hover { box-shadow: 0 10px 30px rgba(255, 153, 0, 0.15); border-color: rgba(255, 153, 0, 0.4); }
+    .card.claude:hover { box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2); border-color: rgba(139, 92, 246, 0.4); }
+    
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .card.aws .card-title { color: var(--aws); }
+    .card.claude .card-title { color: var(--claude); }
+    
+    .card-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: opacity 0.2s, background 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+    
+    .btn-primary.aws { background: var(--aws); color: #000; }
+    .btn-primary.claude { background: var(--claude); color: #fff; }
+    
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--muted);
+      color: var(--text);
+    }
+    .btn-secondary:hover {
+      border-color: var(--text);
+      background: rgba(255,255,255,0.05);
+    }
+    
+    .footer {
+      margin-top: 4rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .footer a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>☁️ Certification Study Hub</h1>
+  <p class="subtitle">Free, interactive study guides and mock tests for your cloud certifications.</p>
+
+  <div class="cards">
+    <!-- AWS Card -->
+    <div class="card aws">
+      <div>
+        <div class="card-title">AWS Cloud Practitioner</div>
+        <div class="card-desc">
+          Master AWS global infrastructure, core services, security, and billing. Complete study guide + interactive 65-question mock test.
+        </div>
+      </div>
+      <div class="btn-group">
+        <a href="aws-cloud-practitioner/README.html" class="btn btn-primary aws">📖 Read Study Guide</a>
+        <a href="aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="btn btn-secondary">🚀 Take 65-Q Mock Test</a>
+      </div>
+    </div>
+
+    <!-- Claude Card -->
+    <div class="card claude">
+      <div>
+        <div class="card-title">Claude Architect Foundation</div>
+        <div class="card-desc">
+          Validate your understanding of Agentic Patterns, Tool Use, MCP Design, and Structured Outputs. Complete study guide + interactive mock test.
+        </div>
+      </div>
+      <div class="btn-group">
+        <a href="claude-architect-foundation/README.html" class="btn btn-primary claude">📖 Read Study Guide</a>
+        <a href="claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="btn btn-secondary">🚀 Take 60-Q Mock Test</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Created with ❤️ by the community. <br><br>
+    <a href="https://github.com/mohammadquasif/certification-study-hub">Return to GitHub Repository</a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mcp Architecture | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Claude Architect Foundation</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Introduction To Claude</div>
+        <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="nav-link">What Is Claude</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Agentic Patterns</div>
+        <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="nav-link">Orchestrator And Workers</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="nav-link">Prompt Chaining And Routing</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="nav-link">Session And Context Management</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="nav-link">What Is An Agent</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Tool Use And Mcp</div>
+        <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="nav-link">Confirmation And Safety Gates</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="nav-link">Designing Good Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="nav-link">Error Handling In Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="nav-link">Introduction To Tool Use</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="nav-link">Mcp Architecture</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Structured Output And Extraction</div>
+        <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="nav-link">Batch Processing</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="nav-link">Confidence And Human Review</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/handling-ambiguity-and-nulls.html" class="nav-link">Handling Ambiguity And Nulls</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="nav-link">Json Schema For Extraction</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="nav-link">Long Document Extraction</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Claude Code And Workflows</div>
+        <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="nav-link">Claude Md And Skills</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="nav-link">Code Review Workflows</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="nav-link">Exploration Patterns</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../claude-architect-foundation/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../claude-architect-foundation/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>MCP Architecture — Model Context Protocol</h1>
+<blockquote>
+<p><strong>Exam:</strong> Claude Architect Foundation
+<strong>Chapter:</strong> 03 — Tool Use &amp; MCP
+<strong>Difficulty:</strong> Intermediate
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>📖 What Is This Topic About?</h2>
+<p>The <strong>Model Context Protocol (MCP)</strong> is an open standard that defines how AI models like Claude connect to external tools, data sources, and services. Instead of building custom tool integrations for every service, developers build a single MCP server that Claude can connect to. Understanding MCP architecture, its components, and how to design MCP servers well is a key exam topic.</p>
+<hr>
+<h2>🧠 Key Concepts</h2>
+<ul>
+<li><strong>MCP (Model Context Protocol)</strong> — An open standard protocol for connecting AI models to external data and tools, using JSON-RPC over a standardised interface</li>
+<li><strong>MCP Server</strong> — A service that exposes tools and/or resources to Claude via the MCP protocol</li>
+<li><strong>MCP Client</strong> — The AI system (Claude) that connects to and uses MCP servers</li>
+<li><strong>Tool (in MCP)</strong> — A function exposed by the MCP server that Claude can call to perform actions</li>
+<li><strong>Resource (in MCP)</strong> — Data that the MCP server exposes as readable content (files, database records, documentation)</li>
+<li><strong>JSON-RPC</strong> — The underlying communication format MCP uses; structured request-response messages</li>
+<li><strong>Protocol Error</strong> — An MCP-level error for malformed requests (wrong message format, missing required fields)</li>
+<li><strong>Tool Error</strong> — An application-level error returned as a tool result with <code>isError: true</code></li>
+</ul>
+<hr>
+<h2>📘 Detailed Explanation</h2>
+<h3>How MCP Fits Into the Architecture</h3>
+<pre><code>╔══════════════════════════════════════════════════════════════════════╗
+║                    MCP ARCHITECTURE OVERVIEW                         ║
+╠══════════════════════════════════════════════════════════════════════╣
+║                                                                      ║
+║  ┌─────────────────────────────────────────────────────────────┐    ║
+║  │                    USER / APPLICATION                        │    ║
+║  └───────────────────────────┬─────────────────────────────────┘    ║
+║                               │                                      ║
+║                               ▼                                      ║
+║  ┌─────────────────────────────────────────────────────────────┐    ║
+║  │                  CLAUDE (MCP CLIENT)                         │    ║
+║  │  • Connects to one or more MCP servers                      │    ║
+║  │  • Discovers available tools and resources                  │    ║
+║  │  • Calls tools via JSON-RPC                                 │    ║
+║  │  • Reads resources to populate context                      │    ║
+║  └────────────┬──────────────────┬──────────────────┬──────────┘    ║
+║               │ MCP              │ MCP              │ MCP           ║
+║               ▼                  ▼                  ▼               ║
+║  ┌────────────────┐  ┌─────────────────┐  ┌───────────────────┐   ║
+║  │  MCP SERVER A  │  │   MCP SERVER B  │  │    MCP SERVER C   │   ║
+║  │  (Issue        │  │  (Documentation │  │  (Database        │   ║
+║  │   Tracker)     │  │   Wiki)         │  │   Explorer)       │   ║
+║  │                │  │                 │  │                   │   ║
+║  │  Tools:        │  │  Tools:         │  │  Tools:           │   ║
+║  │  search_issues │  │  search_docs    │  │  run_query        │   ║
+║  │  get_issue     │  │  get_doc        │  │  get_schema       │   ║
+║  │  create_comment│  │  list_spaces    │  │  list_databases   │   ║
+║  │                │  │                 │  │                   │   ║
+║  │  Resources:    │  │  Resources:     │  │  Resources:       │   ║
+║  │  issue_catalog │  │  doc_hierarchy  │  │  db_schema_map    │   ║
+║  └────────────────┘  └─────────────────┘  └───────────────────┘   ║
+╚══════════════════════════════════════════════════════════════════════╝
+</code></pre>
+<hr>
+<h3>Tools vs Resources in MCP</h3>
+<p>MCP servers expose two types of content:</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Tool</th>
+<th>Resource</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>What it is</strong></td>
+<td>An executable function</td>
+<td>Readable data/content</td>
+</tr>
+<tr>
+<td><strong>How it works</strong></td>
+<td>Claude calls it with parameters; action happens</td>
+<td>Claude reads the content into its context</td>
+</tr>
+<tr>
+<td><strong>Examples</strong></td>
+<td><code>create_issue()</code>, <code>run_query()</code>, <code>send_message()</code></td>
+<td>Issue catalog, database schema, documentation hierarchy</td>
+</tr>
+<tr>
+<td><strong>Side effects</strong></td>
+<td>May cause side effects (creates, updates, deletes)</td>
+<td>Read-only — no side effects</td>
+</tr>
+<tr>
+<td><strong>Usage</strong></td>
+<td>Claude invokes when it needs to take an action</td>
+<td>Claude reads to understand what&#39;s available before taking actions</td>
+</tr>
+</tbody></table>
+<p><strong>Why resources matter:</strong> Without resources, Claude must make many exploratory tool calls to understand what content each server contains. By exposing a resource like &quot;issue_catalog&quot; (a summary of all issues), Claude can quickly understand the scope before deciding which tools to call. This dramatically reduces unnecessary exploratory calls.</p>
+<hr>
+<h3>MCP Error Handling — Protocol Errors vs Tool Errors</h3>
+<p>MCP distinguishes between two types of errors:</p>
+<pre><code>PROTOCOL ERROR (JSON-RPC error):
+• Triggered by: malformed requests, missing required JSON-RPC fields,
+  calling methods that don&#39;t exist
+• Format: JSON-RPC error response (error code + message)
+• When to use: The request itself was structurally wrong before any
+  business logic was reached
+
+{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;error&quot;: {
+    &quot;code&quot;: -32602,
+    &quot;message&quot;: &quot;Invalid params: &#39;user_id&#39; is required but was not provided&quot;
+  }
+}
+
+TOOL ERROR (application-level error):
+• Triggered by: business logic failures — user not found, service down,
+  permission denied, validation failure
+• Format: Tool result with isError: true
+• When to use: The request was valid, but the application-level operation failed
+
+{
+  &quot;content&quot;: [{&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;User ID &#39;usr_99&#39; not found in directory&quot;}],
+  &quot;isError&quot;: true
+}
+</code></pre>
+<p><strong>The decision rule:</strong></p>
+<ul>
+<li>Wrong message format / missing JSON-RPC structure → <strong>Protocol Error</strong></li>
+<li>Business logic failure (user not found, service unavailable) → <strong>Tool Error (isError: true)</strong></li>
+</ul>
+<hr>
+<h3>Designing MCP Servers for Good Tool Selection</h3>
+<p>The same principles that apply to standalone tools apply to MCP tools — but MCP adds extra complexity because Claude may be connected to multiple servers simultaneously:</p>
+<pre><code>COMMON PROBLEM:
+MCP Server: analyze_dependencies — &quot;Analyzes dependency graph&quot;
+Built-in: Grep — &quot;Search file contents for a pattern using regular expressions. 
+               Returns matching lines with line numbers and surrounding context.&quot;
+
+Claude uses Grep for dependency analysis because its description is more specific.
+
+FIX:
+MCP: analyze_dependencies — &quot;Builds a complete dependency graph showing direct 
+imports, transitive dependencies, and circular dependency cycles. Returns a 
+structured graph, not raw text matches. Use this instead of Grep for 
+dependency analysis.&quot;
+</code></pre>
+<p>When Claude has both MCP tools and built-in tools, <strong>MCP tool descriptions must be at least as specific</strong> as built-in tool descriptions to win the selection competition.</p>
+<hr>
+<h2>🇮🇳 Indian Real-Life Example</h2>
+<p><strong>Think of MCP like a Universal Power Adapter Standard:</strong></p>
+<p>Before universal standards, every country had a different plug shape. Travellers needed dozens of adapters. An international standard means one adapter works everywhere.</p>
+<p>MCP is the universal adapter standard for AI tools. Instead of building a custom integration for each AI system, you build one MCP server that any MCP-compatible AI can connect to. Claude connects to your MCP server and immediately knows all the tools and resources available — no custom integration code needed.</p>
+<p><strong>Tools = What you can plug into the outlet (actions you can take)</strong>
+<strong>Resources = What the outlet&#39;s label tells you about its voltage/amperage (information about what&#39;s available)</strong></p>
+<hr>
+<h2>🔑 Exam-Focused Points</h2>
+<ul>
+<li>✅ MCP = open standard protocol for connecting Claude to external tools and data (JSON-RPC)</li>
+<li>✅ MCP exposes <strong>Tools</strong> (actions) and <strong>Resources</strong> (readable data/content)</li>
+<li>✅ Resources reduce exploratory tool calls by exposing content catalogs upfront</li>
+<li>✅ Protocol errors = malformed JSON-RPC requests; Tool errors = business logic failures with <code>isError: true</code></li>
+<li>✅ MCP tool descriptions must be specific enough to win selection vs built-in tools like Grep</li>
+<li>✅ Claude can connect to <strong>multiple MCP servers simultaneously</strong>; description clarity matters more</li>
+</ul>
+<hr>
+<h2>🧩 Scenario-Based Thinking</h2>
+<p><strong>Scenario:</strong> An MCP server provides a calendar availability tool. Testing reveals three error conditions:</p>
+<ol>
+<li>The request is missing required JSON-RPC fields</li>
+<li>The specified user doesn&#39;t exist in the calendar system</li>
+<li>The calendar service is temporarily unavailable (503)</li>
+</ol>
+<p><strong>How should each error be reported?</strong></p>
+<ul>
+<li>A) All three as JSON-RPC protocol errors</li>
+<li>B) All three as tool results with <code>isError: true</code></li>
+<li>C) Malformed request as JSON-RPC protocol error; user-not-found and service unavailable as tool results with <code>isError: true</code></li>
+<li>D) Malformed request and user-not-found as protocol errors; service unavailable as a tool result</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> Malformed requests (missing required JSON-RPC fields) are structural errors at the protocol level — they should be JSON-RPC protocol errors. User-not-found and service unavailable are application-level failures on otherwise valid requests — they should be tool results with <code>isError: true</code> and appropriate errorCategory metadata.</p>
+<hr>
+<h2>💡 Memory Tricks</h2>
+<p><strong>MCP = USB-C for AI:</strong> USB-C is a universal connector standard — once a device supports it, any USB-C cable works. MCP is the same — once a service implements MCP, any MCP-compatible AI can connect to it.</p>
+<p><strong>Protocol Error = Post Office Won&#39;t Accept the Package:</strong> The package (request) was addressed incorrectly — missing recipient, wrong format. Rejected before it even reaches the recipient. <strong>Tool Error = Package Reached Recipient but Gift Inside Was Broken:</strong> The delivery was valid, but the content had a problem. Two different kinds of failure.</p>
+<hr>
+<h2>❓ Chapter Practice Questions</h2>
+<p><strong>Q1.</strong> An MCP server exposes tools for searching, reading, and listing content across a company&#39;s knowledge base. Despite the server being healthy and the tools appearing in the available list, Claude consistently uses its built-in search function instead of the MCP tools. What is the most effective fix?</p>
+<ul>
+<li>A) Remove the built-in search tools when the MCP server is connected</li>
+<li>B) Add routing instructions in the system prompt directing Claude to always use MCP tools for knowledge base queries</li>
+<li>C) Expand MCP tool descriptions to be more specific — detail what data sources are searched, what the output format is, and when to prefer these tools over generic search</li>
+<li>D) Split the MCP search tool into smaller, more granular tools</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> Claude selects tools based on description specificity. A vague MCP tool description loses the selection competition to a detailed built-in tool description. Expanding MCP tool descriptions to clearly explain capabilities, output format, and when to prefer them will improve selection. System prompt routing (B) adds complexity and can conflict with the model&#39;s natural reasoning.</p>
+<hr>
+<p><strong>Q2.</strong> What is the primary benefit of exposing an <strong>MCP Resource</strong> (such as a content catalog or schema summary) compared to only exposing MCP Tools?</p>
+<ul>
+<li>A) Resources are faster to access than tools</li>
+<li>B) Resources reduce the number of exploratory tool calls by giving Claude upfront visibility into what content each server contains, enabling more targeted tool use</li>
+<li>C) Resources allow Claude to write data back to the server</li>
+<li>D) Resources are required for MCP servers to function properly</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> Without resources, Claude must make multiple exploratory tool calls to discover what content is available (e.g., listing all databases, listing all document spaces). By exposing a resource like a schema map or content hierarchy, Claude can read this overview upfront and immediately make targeted tool calls. This reduces round-trips and context consumption.</p>
+<hr>
+<p><strong>Q3.</strong> A developer builds a productivity agent connected to three MCP servers: an issue tracker, a documentation wiki, and a database explorer. When engineers ask cross-system questions, the agent makes 8–10 sequential tool calls and exhausts context space. What MCP architectural change best addresses this?</p>
+<ul>
+<li>A) Consolidate all three servers into one unified MCP server</li>
+<li>B) Expose each server&#39;s content catalog as MCP resources — issue summaries, documentation hierarchy, database schemas</li>
+<li>C) Add an orchestrator tool that routes questions to one server based on keywords</li>
+<li>D) Add a <code>prepare_investigation</code> tool to each server</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> The root cause is that Claude must make many exploratory calls to understand what each server contains. Exposing content catalogs as MCP resources gives Claude immediate visibility into all three servers&#39; content — enabling it to plan targeted tool calls rather than exploring blindly. This reduces both the number of tool calls and context consumption.</p>
+<hr>
+<h2>📌 Quick Revision Summary</h2>
+<ul>
+<li>MCP = open protocol (JSON-RPC) connecting Claude to external tools and data sources</li>
+<li>MCP exposes: Tools (actions with side effects) and Resources (readable, no side effects)</li>
+<li>Resources reduce exploratory tool calls by exposing content catalogs upfront</li>
+<li>Protocol errors = malformed JSON-RPC; Tool errors = business logic failures (isError: true)</li>
+<li>MCP tool descriptions must be as specific as built-in tools to win selection</li>
+<li>Claude can connect to multiple MCP servers; description clarity is critical</li>
+</ul>
+<hr>
+<h2>📎 References</h2>
+<ul>
+<li><a href="https://modelcontextprotocol.io">MCP Official Documentation — modelcontextprotocol.io</a></li>
+<li><a href="https://docs.anthropic.com/en/docs/mcp">Anthropic Documentation — MCP Integration</a></li>
+</ul>
+<hr>
+<p><em>Notes by certification-study-hub. Chapter 03 — MCP Architecture.</em></p>
+
+        
+        <div class="pagination">
+          <a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Introduction To Tool Use</span>
+        </a>
+          <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Batch Processing →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

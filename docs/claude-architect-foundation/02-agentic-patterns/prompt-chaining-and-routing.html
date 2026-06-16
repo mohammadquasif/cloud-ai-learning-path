@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Chaining And Routing | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Claude Architect Foundation</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Introduction To Claude</div>
+        <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="nav-link">What Is Claude</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Agentic Patterns</div>
+        <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="nav-link">Orchestrator And Workers</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="nav-link">Prompt Chaining And Routing</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="nav-link">Session And Context Management</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="nav-link">What Is An Agent</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Tool Use And Mcp</div>
+        <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="nav-link">Confirmation And Safety Gates</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="nav-link">Designing Good Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="nav-link">Error Handling In Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="nav-link">Introduction To Tool Use</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="nav-link">Mcp Architecture</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Structured Output And Extraction</div>
+        <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="nav-link">Batch Processing</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="nav-link">Confidence And Human Review</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/handling-ambiguity-and-nulls.html" class="nav-link">Handling Ambiguity And Nulls</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="nav-link">Json Schema For Extraction</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="nav-link">Long Document Extraction</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Claude Code And Workflows</div>
+        <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="nav-link">Claude Md And Skills</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="nav-link">Code Review Workflows</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="nav-link">Exploration Patterns</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../claude-architect-foundation/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../claude-architect-foundation/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>Prompt Chaining &amp; Routing — Sequential &amp; Conditional Patterns</h1>
+<blockquote>
+<p><strong>Exam:</strong> Claude Architect Foundation
+<strong>Chapter:</strong> 02 — Agentic Patterns
+<strong>Difficulty:</strong> Intermediate
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>📖 What Is This Topic About?</h2>
+<p>Not every task needs a full orchestrator-workers setup. Two simpler but powerful patterns — <strong>prompt chaining</strong> and <strong>routing</strong> — cover a large portion of real-world agentic workflows. Prompt chaining breaks a task into sequential steps. Routing classifies the input first, then sends it down the appropriate path. Knowing when to use which is an important exam skill.</p>
+<hr>
+<h2>🧠 Key Concepts</h2>
+<ul>
+<li><strong>Prompt Chaining</strong> — Breaking a task into a fixed sequence of steps where each step&#39;s output becomes the next step&#39;s input</li>
+<li><strong>Routing</strong> — Classifying an input first, then routing to a different sub-prompt or sub-agent optimised for that category</li>
+<li><strong>Gate</strong> — A validation or review step between chain links that can approve or reject before proceeding</li>
+<li><strong>Parallelisation</strong> — Running multiple independent chain steps simultaneously (combining chaining with workers)</li>
+<li><strong>Workflow</strong> — The overall structure of how prompts and steps connect to produce a final output</li>
+</ul>
+<hr>
+<h2>📘 Detailed Explanation</h2>
+<h3>Pattern 1: Prompt Chaining (Sequential Steps)</h3>
+<p>Prompt chaining is like an assembly line. Each step produces something that the next step uses.</p>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                    PROMPT CHAINING                              │
+│                                                                 │
+│  INPUT                                                          │
+│    │                                                            │
+│    ▼                                                            │
+│  ┌──────────────┐                                              │
+│  │  Step 1      │  e.g., &quot;Translate contract to English&quot;       │
+│  └──────┬───────┘                                              │
+│         │ output                                               │
+│         ▼                                                       │
+│  ┌──────────────┐                                              │
+│  │  Step 2      │  e.g., &quot;Extract key clauses from translation&quot;│
+│  └──────┬───────┘                                              │
+│         │ output                                               │
+│         ▼                                                       │
+│  ┌──────────────┐                                              │
+│  │  Step 3      │  e.g., &quot;Flag any clauses with legal risk&quot;    │
+│  └──────┬───────┘                                              │
+│         │ output                                               │
+│         ▼                                                       │
+│  FINAL OUTPUT                                                   │
+└─────────────────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>When to use prompt chaining:</strong></p>
+<ul>
+<li>The task follows a predictable, fixed sequence of steps</li>
+<li>Each step genuinely needs the output of the previous step</li>
+<li>You want to isolate and test each step independently</li>
+<li>You want a gate between steps (e.g., human review before proceeding)</li>
+</ul>
+<p><strong>Classic examples:</strong></p>
+<ul>
+<li>Research report: search → summarise sources → write report</li>
+<li>Code review: style check → security check → documentation check (sequential version)</li>
+<li>Contract analysis: extract → classify clauses → generate risk summary</li>
+</ul>
+<hr>
+<h3>Adding Gates Between Steps</h3>
+<p>A gate is a validation step between two chain links. The system only proceeds if the gate passes:</p>
+<pre><code>Step 1 Output → [GATE: Is output valid?] → Yes → Step 2
+                                        → No  → Retry Step 1 / Flag for human
+</code></pre>
+<p>Gates are used for:</p>
+<ul>
+<li>Quality checks (did Step 1 produce complete output?)</li>
+<li>Compliance checks (does Step 2&#39;s output meet policy requirements?)</li>
+<li>Human review checkpoints (does a human approve before Step 3 executes?)</li>
+</ul>
+<hr>
+<h3>Pattern 2: Routing (Classify → Dispatch)</h3>
+<p>Routing is used when different types of inputs need fundamentally different handling. Instead of one universal prompt, you first classify the input and then use a specialised path for each category.</p>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                         ROUTING                                 │
+│                                                                 │
+│  INPUT: Customer message                                        │
+│         │                                                       │
+│         ▼                                                       │
+│  ┌──────────────────────────────────────────┐                  │
+│  │  CLASSIFIER                               │                  │
+│  │  &quot;What type of request is this?&quot;          │                  │
+│  │  → refund_request                         │                  │
+│  │  → technical_support                      │                  │
+│  │  → billing_inquiry                        │                  │
+│  └───┬──────────────┬───────────────┬────────┘                 │
+│      │              │               │                           │
+│      ▼              ▼               ▼                           │
+│  ┌───────┐     ┌───────┐     ┌───────────┐                    │
+│  │Refund │     │Tech   │     │Billing    │                    │
+│  │Agent  │     │Support│     │Agent      │                    │
+│  │Prompt │     │Prompt │     │Prompt     │                    │
+│  └───────┘     └───────┘     └───────────┘                    │
+└─────────────────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>When to use routing:</strong></p>
+<ul>
+<li>Different types of inputs require very different expertise or tool access</li>
+<li>You want optimised, specialised prompts for each category</li>
+<li>You want to send different request types to different models (cost optimisation)</li>
+<li>Natural language input needs to map to a structured category</li>
+</ul>
+<hr>
+<h3>Pattern Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Prompt Chaining</th>
+<th>Routing</th>
+<th>Orchestrator-Workers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Structure</strong></td>
+<td>Linear sequence</td>
+<td>Classify → branch</td>
+<td>Hub and spoke</td>
+</tr>
+<tr>
+<td><strong>Steps</strong></td>
+<td>Fixed, known upfront</td>
+<td>Single classification + one path</td>
+<td>Dynamic, determined by orchestrator</td>
+</tr>
+<tr>
+<td><strong>Use when</strong></td>
+<td>Task has predictable steps</td>
+<td>Input type determines handling</td>
+<td>Task is complex + parallel subtasks</td>
+</tr>
+<tr>
+<td><strong>Complexity</strong></td>
+<td>Low</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td>Translate → Extract → Summarise</td>
+<td>Classify intent → Run specialist</td>
+<td>Analyse codebase across 5 areas</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Combining Patterns</h3>
+<p>Real-world systems often combine patterns:</p>
+<pre><code>ROUTING + CHAINING:
+  Classify input → Route to specialist chain → Execute steps
+
+CHAINING + PARALLELISATION:
+  Step 1 (sequential) → [Step 2A ∥ Step 2B ∥ Step 2C] (parallel) → Step 3 (synthesis)
+</code></pre>
+<hr>
+<h2>🇮🇳 Indian Real-Life Example</h2>
+<p><strong>Prompt Chaining = Tiffin Box Assembly Line:</strong></p>
+<p>At a large corporate cafeteria, preparing 500 tiffin boxes follows a fixed chain:</p>
+<ol>
+<li>Cook rice (Step 1)</li>
+<li>Prepare dal using today&#39;s cooked rice as base (Step 2)</li>
+<li>Pack both into tiffin using today&#39;s dal and rice (Step 3)</li>
+</ol>
+<p>Each step uses the output of the previous step. The sequence never changes.</p>
+<p><strong>Routing = Hospital Reception Desk:</strong></p>
+<p>When a patient arrives at a hospital:</p>
+<ol>
+<li>Receptionist determines their need: Emergency? OPD? Lab test? Pharmacy?</li>
+<li>Routes them to the appropriate department</li>
+</ol>
+<p>A cardiologist shouldn&#39;t be handling pharmacy queries. Routing sends each patient to the right specialist.</p>
+<hr>
+<h2>🔑 Exam-Focused Points</h2>
+<ul>
+<li>✅ <strong>Prompt Chaining</strong> = fixed sequential steps, each using the previous step&#39;s output</li>
+<li>✅ <strong>Routing</strong> = classify first, then dispatch to a specialised path or sub-prompt</li>
+<li>✅ Gates between chain steps = validation/review checkpoints that can pause or fail</li>
+<li>✅ Chaining is simpler than orchestrator-workers; use chaining for predictable linear workflows</li>
+<li>✅ Routing is best when different <strong>types</strong> of inputs need different handling</li>
+<li>✅ Patterns can be combined: routing + chaining, chaining + parallelisation</li>
+</ul>
+<hr>
+<h2>🧩 Scenario-Based Thinking</h2>
+<p><strong>Scenario:</strong> A code review assistant must always perform three analyses for every pull request: code style compliance, potential security issues, and documentation completeness — in that defined order.</p>
+<p><strong>Which pattern is most appropriate?</strong></p>
+<ul>
+<li>A) Routing — classify PR type first, route to different review prompts</li>
+<li>B) Orchestrator-workers — central LLM dynamically determines needed checks</li>
+<li>C) Single comprehensive prompt — handle all three simultaneously</li>
+<li>D) Prompt chaining — three sequential analysis steps, each building on prior output</li>
+</ul>
+<p><strong>Answer:</strong> D — Prompt chaining. The three steps are the same for every PR (no classification needed, so routing doesn&#39;t apply). The steps follow a defined order. This is a classic prompt chain: three sequential steps with each step potentially referencing prior analysis.</p>
+<hr>
+<h2>💡 Memory Tricks</h2>
+<p><strong>Chain = Train:</strong> Each carriage follows the previous one, in a fixed order. The train can&#39;t leave until all carriages are hitched.</p>
+<p><strong>Routing = Traffic Roundabout:</strong> Traffic comes in, gets assessed (which exit?), and is sent down the correct road. No two cars take the same exit unless they have the same destination.</p>
+<hr>
+<h2>❓ Chapter Practice Questions</h2>
+<p><strong>Q1.</strong> A system receives customer messages in English, Hindi, and Tamil. The system must first translate non-English messages, then classify the intent, then route to a specialist. Which pattern does this best describe?</p>
+<ul>
+<li>A) Pure routing</li>
+<li>B) Pure prompt chaining</li>
+<li>C) Routing embedded within a prompt chain</li>
+<li>D) Orchestrator-workers with three subagents</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> The overall flow is a chain (translate → classify → route to specialist). The routing step is embedded within the chain. The first two steps are sequential (translate feeds into classify), and then routing dispatches to a specialist. This is chaining with routing as one of the steps.</p>
+<hr>
+<p><strong>Q2.</strong> A system must generate a marketing email in three steps: (1) draft the content, (2) review for compliance, (3) send via the email API. During testing, compliance review fails 15% of the time. What mechanism should be added between Steps 2 and 3?</p>
+<ul>
+<li>A) A retry loop that re-runs Step 1 with a different temperature</li>
+<li>B) A gate that blocks execution of Step 3 if Step 2 fails compliance review</li>
+<li>C) A parallel worker that handles failed compliance reviews simultaneously</li>
+<li>D) A router that classifies whether the email needs compliance review</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> A gate between Steps 2 and 3 prevents the email from being sent if it fails compliance review. The gate checks the Step 2 output and either allows the chain to proceed to Step 3 or halts and flags for revision. This is the standard pattern for preventing downstream execution when a mid-chain validation fails.</p>
+<hr>
+<p><strong>Q3.</strong> Which pattern is MOST appropriate when a customer support system handles three completely different types of requests — returns, billing disputes, and product questions — each requiring different tool access and different specialised knowledge?</p>
+<ul>
+<li>A) Prompt chaining — three sequential steps for all request types</li>
+<li>B) Routing — classify the request type, then dispatch to a specialist sub-prompt with the appropriate tools</li>
+<li>C) Orchestrator-workers — use all three specialists in parallel for every request</li>
+<li>D) Single comprehensive prompt — include all three specialisations in one system prompt</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> Routing is ideal when the <em>type</em> of input determines the handling. Each request type needs different tools and different expertise. Routing classifies the request and sends it to the most appropriate specialised sub-prompt. Running all three specialists in parallel for every request (C) is wasteful. A single giant prompt (D) dilutes specialisation.</p>
+<hr>
+<h2>📌 Quick Revision Summary</h2>
+<ul>
+<li>Prompt Chaining = fixed sequential steps, each using prior output; simple and predictable</li>
+<li>Routing = classify input first, dispatch to specialised path or sub-prompt</li>
+<li>Gate = validation checkpoint between chain steps; blocks or retries on failure</li>
+<li>Chaining is simpler than orchestrator-workers; use it for linear, predictable workflows</li>
+<li>Routing is best when different input types need fundamentally different handling</li>
+<li>Patterns combine: routing + chaining, chaining + parallelisation — both are common</li>
+</ul>
+<hr>
+<h2>📎 References</h2>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/prompt-chaining">Anthropic Documentation — Prompt Chaining</a></li>
+<li><a href="https://docs.anthropic.com/en/docs/agents">Anthropic Documentation — Building Effective Agents</a></li>
+</ul>
+<hr>
+<p><em>Notes by certification-study-hub. Chapter 02 — Prompt Chaining &amp; Routing.</em></p>
+
+        
+        <div class="pagination">
+          <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Orchestrator And Workers</span>
+        </a>
+          <a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Session And Context Management →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

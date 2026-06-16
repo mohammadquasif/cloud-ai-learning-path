@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Is Cloud | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>AWS Cloud Practitioner</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Cloud Concepts</div>
+        <a href="../../aws-cloud-practitioner/01-cloud-concepts/what-is-cloud.html" class="nav-link">What Is Cloud</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Aws Global Infrastructure</div>
+        <a href="../../aws-cloud-practitioner/02-aws-global-infrastructure/regions-and-availability-zones.html" class="nav-link">Regions And Availability Zones</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Core Services</div>
+        <div class="nav-group">
+        <div class="nav-group-title">Compute</div>
+        <a href="../../aws-cloud-practitioner/03-core-services/compute/ec2-basics.html" class="nav-link">Ec2 Basics</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Database</div>
+        <a href="../../aws-cloud-practitioner/03-core-services/database/rds-vs-dynamodb.html" class="nav-link">Rds Vs Dynamodb</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Storage</div>
+        <a href="../../aws-cloud-practitioner/03-core-services/storage/s3-basics.html" class="nav-link">S3 Basics</a>
+
+      </div>
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Security And Compliance</div>
+        <a href="../../aws-cloud-practitioner/04-security-and-compliance/shared-responsibility-model.html" class="nav-link">Shared Responsibility Model</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Billing And Pricing</div>
+        <a href="../../aws-cloud-practitioner/05-billing-and-pricing/pricing-models.html" class="nav-link">Pricing Models</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">06 Cloud Technology And Services</div>
+        <a href="../../aws-cloud-practitioner/06-cloud-technology-and-services/cloud-adoption-framework.html" class="nav-link">Cloud Adoption Framework</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="nav-link">Ccp Mock Test 65q</a>
+<a href="../../aws-cloud-practitioner/mock-tests/mock-test-01.html" class="nav-link">Mock Test 01</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../aws-cloud-practitioner/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../aws-cloud-practitioner/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../aws-cloud-practitioner/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>Cloud Computing — Concepts, Models &amp; Advantages</h1>
+<blockquote>
+<p><strong>Exam:</strong> AWS Certified Cloud Practitioner (CLF-C02)
+<strong>Domain:</strong> Cloud Concepts (24% of exam)
+<strong>Chapter:</strong> 01 — Cloud Concepts
+<strong>Topics:</strong> Cloud definition, Service Models, Deployment Models, 6 Advantages, CapEx vs OpEx</p>
+</blockquote>
+<hr>
+<h2>Learning Objectives</h2>
+<p>After reading this chapter you will be able to:</p>
+<ul>
+<li>Define cloud computing using the standard NIST definition</li>
+<li>Distinguish between IaaS, PaaS, and SaaS with AWS examples</li>
+<li>Identify the correct deployment model for a given business requirement</li>
+<li>List and apply all 6 advantages of cloud computing in scenario questions</li>
+<li>Explain the difference between Capital Expenditure and Operational Expenditure</li>
+</ul>
+<hr>
+<h2>1. What Is Cloud Computing?</h2>
+<p>Cloud computing is the <strong>on-demand delivery of IT resources over the internet with pay-as-you-go pricing</strong>.</p>
+<p>Instead of buying, owning, and maintaining physical data centers and servers, organisations access technology services — such as computing power, storage, and databases — on an as-needed basis from a cloud provider like Amazon Web Services (AWS).</p>
+<p>The <strong>NIST definition</strong> identifies five essential characteristics of cloud:</p>
+<table>
+<thead>
+<tr>
+<th>Characteristic</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>On-demand self-service</strong></td>
+<td>Provision resources without human interaction from the provider</td>
+</tr>
+<tr>
+<td><strong>Broad network access</strong></td>
+<td>Available over the network from standard devices</td>
+</tr>
+<tr>
+<td><strong>Resource pooling</strong></td>
+<td>Provider serves multiple customers from shared resources</td>
+</tr>
+<tr>
+<td><strong>Rapid elasticity</strong></td>
+<td>Scale up or down quickly, often automatically</td>
+</tr>
+<tr>
+<td><strong>Measured service</strong></td>
+<td>Usage is metered and billed on consumption</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>2. Cloud Service Models</h2>
+<p>There are three primary service models. The key difference is <strong>how much you manage vs how much AWS manages</strong>.</p>
+<pre><code class="language-mermaid">graph TD
+    A[IT Stack Layers] --&gt; B[Applications]
+    A --&gt; C[Data]
+    A --&gt; D[Runtime]
+    A --&gt; E[Middleware]
+    A --&gt; F[OS]
+    A --&gt; G[Virtualisation]
+    A --&gt; H[Servers]
+    A --&gt; I[Storage]
+    A --&gt; J[Networking]
+
+    subgraph IaaS [&quot;☁️ IaaS — You manage top 5&quot;]
+        B
+        C
+        D
+        E
+        F
+    end
+
+    subgraph PaaS [&quot;☁️ PaaS — You manage top 2&quot;]
+        B2[Applications]
+        C2[Data]
+    end
+
+    subgraph SaaS [&quot;☁️ SaaS — AWS manages everything&quot;]
+        X[Just use the software]
+    end
+</code></pre>
+<h3>2.1 Infrastructure as a Service (IaaS)</h3>
+<p>AWS provides raw infrastructure. You control the operating system and everything above it.</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>You manage</strong></td>
+<td>OS, runtime, middleware, applications, data</td>
+</tr>
+<tr>
+<td><strong>AWS manages</strong></td>
+<td>Hypervisor, physical servers, storage, networking, data centre</td>
+</tr>
+<tr>
+<td><strong>AWS Examples</strong></td>
+<td>Amazon EC2, Amazon VPC, Amazon EBS</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>Lift-and-shift migrations, full OS control needed</td>
+</tr>
+<tr>
+<td><strong>Analogy</strong></td>
+<td>Renting an empty flat — you furnish and maintain the inside</td>
+</tr>
+</tbody></table>
+<h3>2.2 Platform as a Service (PaaS)</h3>
+<p>AWS manages the platform. You deploy code and manage data only.</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>You manage</strong></td>
+<td>Applications, data</td>
+</tr>
+<tr>
+<td><strong>AWS manages</strong></td>
+<td>OS, runtime, middleware, infrastructure</td>
+</tr>
+<tr>
+<td><strong>AWS Examples</strong></td>
+<td>AWS Elastic Beanstalk, AWS Lambda (partially), Amazon RDS</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>Developers who want to focus on code, not servers</td>
+</tr>
+<tr>
+<td><strong>Analogy</strong></td>
+<td>Renting a fully furnished service apartment</td>
+</tr>
+</tbody></table>
+<h3>2.3 Software as a Service (SaaS)</h3>
+<p>AWS or a vendor provides a complete application. You just use it.</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>You manage</strong></td>
+<td>Your data only</td>
+</tr>
+<tr>
+<td><strong>AWS manages</strong></td>
+<td>Everything else</td>
+</tr>
+<tr>
+<td><strong>AWS Examples</strong></td>
+<td>Amazon WorkMail, Amazon Chime, products from AWS Marketplace</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>End users who need ready-to-use software</td>
+</tr>
+<tr>
+<td><strong>Analogy</strong></td>
+<td>Using Gmail — no server knowledge required</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Cloud Deployment Models</h2>
+<pre><code class="language-mermaid">graph LR
+    subgraph PUBLIC [&quot;Public Cloud&quot;]
+        P1[All resources on AWS]
+        P2[No on-premises hardware]
+        P3[Fully managed by AWS]
+    end
+
+    subgraph PRIVATE [&quot;Private Cloud&quot;]
+        R1[All resources on-premises]
+        R2[Customer manages hardware]
+        R3[Cloud-like management tools]
+    end
+
+    subgraph HYBRID [&quot;Hybrid Cloud&quot;]
+        H1[Some on AWS]
+        H2[Some on-premises]
+        H3[Connected via Direct Connect or VPN]
+        H4[AWS Outposts enables this]
+    end
+
+    PUBLIC --- HYBRID
+    PRIVATE --- HYBRID
+</code></pre>
+<h3>Deployment Model Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Infrastructure Owner</th>
+<th>Use Case</th>
+<th>AWS Solution</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Public Cloud</strong></td>
+<td>AWS</td>
+<td>Startups, web apps, modern workloads</td>
+<td>Standard AWS services</td>
+</tr>
+<tr>
+<td><strong>Private Cloud</strong></td>
+<td>Customer</td>
+<td>Banks, defence, strict compliance</td>
+<td>On-premises managed software</td>
+</tr>
+<tr>
+<td><strong>Hybrid Cloud</strong></td>
+<td>Both</td>
+<td>Compliance + cloud flexibility needed</td>
+<td><strong>AWS Outposts</strong></td>
+</tr>
+<tr>
+<td><strong>Multi-Cloud</strong></td>
+<td>Multiple providers</td>
+<td>Avoid vendor lock-in</td>
+<td>AWS + Azure + GCP together</td>
+</tr>
+</tbody></table>
+<p><strong>Exam Tip:</strong> When a question says <em>&quot;company must keep some workloads on-premises due to compliance but wants to use AWS for others&quot;</em> → answer is <strong>Hybrid Cloud using AWS Outposts</strong>.</p>
+<hr>
+<h2>4. The 6 Advantages of Cloud Computing</h2>
+<p>AWS officially defines 6 advantages. <strong>These are directly tested.</strong> Know all 6 precisely.</p>
+<pre><code class="language-mermaid">mindmap
+  root((6 Cloud Advantages))
+    Trade CapEx for OpEx
+      No upfront cost
+      Pay-as-you-go
+    Economies of Scale
+      AWS buys in bulk
+      Passes savings to customers
+    Stop Guessing Capacity
+      Scale on demand
+      Elastic infrastructure
+    Increase Speed and Agility
+      Resources in minutes
+      Fast experimentation
+    Stop Spending on Data Centers
+      AWS manages physical infra
+      Focus on product
+    Go Global in Minutes
+      Deploy in any Region
+      Low latency worldwide
+</code></pre>
+<h3>4.1 Trade Capital Expense for Variable Expense</h3>
+<p>Instead of investing heavily in data centres and servers before you know how you are going to use them, you can pay only when you consume computing resources and pay only for how much you consume.</p>
+<p><strong>CapEx vs OpEx breakdown:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>CapEx (On-Premises)</th>
+<th>OpEx (Cloud)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Payment timing</strong></td>
+<td>Large upfront investment</td>
+<td>Pay as you use</td>
+</tr>
+<tr>
+<td><strong>Budget planning</strong></td>
+<td>3–5 year hardware cycles</td>
+<td>Monthly variable bills</td>
+</tr>
+<tr>
+<td><strong>Risk</strong></td>
+<td>Over/under provisioning</td>
+<td>Pay exact usage</td>
+</tr>
+<tr>
+<td><strong>Accounting</strong></td>
+<td>Capitalised on balance sheet</td>
+<td>Operating expense</td>
+</tr>
+<tr>
+<td><strong>Exam keyword</strong></td>
+<td>&quot;Reduce upfront costs&quot;</td>
+<td>&quot;Variable expense&quot;</td>
+</tr>
+</tbody></table>
+<h3>4.2 Benefit from Massive Economies of Scale</h3>
+<p>Because usage from hundreds of thousands of customers is aggregated in the cloud, providers like AWS can achieve higher economies of scale — which translates to lower pay-as-you-go prices.</p>
+<p><strong>Exam keyword:</strong> <em>&quot;AWS achieves lower pricing by aggregating usage across many customers&quot;</em> → <strong>Economies of Scale</strong></p>
+<h3>4.3 Stop Guessing Capacity</h3>
+<p>Eliminate guessing on your infrastructure capacity needs. When you make a capacity decision prior to deploying an application, you often end up either sitting on expensive idle resources or dealing with limited capacity.</p>
+<p><strong>Exam keyword:</strong> <em>&quot;Seasonal traffic,&quot; &quot;unpredictable demand,&quot; &quot;elastic scaling&quot;</em> → <strong>Stop guessing capacity</strong></p>
+<h3>4.4 Increase Speed and Agility</h3>
+<p>In a cloud computing environment, new IT resources are only a click away — which means that you reduce the time to make those resources available to your developers from weeks to minutes.</p>
+<p><strong>Exam keyword:</strong> <em>&quot;Faster time to market,&quot; &quot;rapid provisioning,&quot; &quot;launch in minutes&quot;</em> → <strong>Increase speed and agility</strong></p>
+<h3>4.5 Stop Spending Money on Running and Maintaining Data Centres</h3>
+<p>Focus on projects that differentiate your business, not the infrastructure. Let AWS manage the heavy lifting of racking, stacking, and powering servers.</p>
+<p><strong>Exam keyword:</strong> <em>&quot;Eliminate data centre management costs&quot;</em> → <strong>Stop spending on data centres</strong></p>
+<h3>4.6 Go Global in Minutes</h3>
+<p>Easily deploy your application in multiple AWS Regions around the world with just a few clicks. This means you can provide lower latency and a better experience for your customers at minimal cost.</p>
+<p><strong>Exam keyword:</strong> <em>&quot;Deploy worldwide,&quot; &quot;serve international users,&quot; &quot;low latency globally&quot;</em> → <strong>Go Global in minutes</strong></p>
+<hr>
+<h2>5. CapEx vs OpEx — Deep Dive</h2>
+<pre><code class="language-mermaid">graph LR
+    subgraph CAPEX [&quot;CapEx Model — On-Premises&quot;]
+        C1[&quot;💰 Buy servers upfront&quot;]
+        C2[&quot;🏢 Build/rent data centre&quot;]
+        C3[&quot;👷 Hire IT staff&quot;]
+        C4[&quot;⏳ 3-5 year refresh cycle&quot;]
+        C5[&quot;📉 Assets depreciate&quot;]
+        C1 --&gt; C2 --&gt; C3 --&gt; C4 --&gt; C5
+    end
+
+    subgraph OPEX [&quot;OpEx Model — AWS Cloud&quot;]
+        O1[&quot;💳 No upfront hardware&quot;]
+        O2[&quot;⚡ Launch servers in minutes&quot;]
+        O3[&quot;📊 Pay per hour/second&quot;]
+        O4[&quot;📈 Scale on demand&quot;]
+        O5[&quot;🔄 AWS handles upgrades&quot;]
+        O1 --&gt; O2 --&gt; O3 --&gt; O4 --&gt; O5
+    end
+</code></pre>
+<hr>
+<h2>6. Elasticity vs Scalability</h2>
+<p>These two terms are closely related but differ in an important way:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Definition</th>
+<th>Direction</th>
+<th>AWS Mechanism</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Scalability</strong></td>
+<td>Ability to handle growing load by adding resources</td>
+<td>Scale Up (vertical) or Scale Out (horizontal)</td>
+<td>EC2 instance resizing, adding instances</td>
+</tr>
+<tr>
+<td><strong>Elasticity</strong></td>
+<td>Ability to scale automatically based on real-time demand</td>
+<td>Both Up and Down, automatically</td>
+<td>EC2 Auto Scaling Groups</td>
+</tr>
+</tbody></table>
+<p><strong>Key Difference:</strong> Scalability is the <em>capability</em>. Elasticity is <em>automated</em> scalability that also scales back down when demand drops.</p>
+<hr>
+<h2>7. Exam Focus Points</h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>What the Exam Tests</th>
+<th>Correct Answer Pattern</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Reduce upfront costs</td>
+<td>Which cloud advantage</td>
+<td>Trade CapEx for OpEx</td>
+</tr>
+<tr>
+<td>Economies of scale</td>
+<td>Why AWS prices drop</td>
+<td>Aggregated usage = lower prices</td>
+</tr>
+<tr>
+<td>Seasonal traffic</td>
+<td>Which advantage eliminates over-provisioning</td>
+<td>Stop guessing capacity</td>
+</tr>
+<tr>
+<td>Launch new features fast</td>
+<td>Which advantage</td>
+<td>Increase speed and agility</td>
+</tr>
+<tr>
+<td>Global deployment</td>
+<td>Which advantage</td>
+<td>Go global in minutes</td>
+</tr>
+<tr>
+<td>On-premises + AWS</td>
+<td>Which deployment model</td>
+<td>Hybrid using Outposts</td>
+</tr>
+<tr>
+<td>Just upload code</td>
+<td>Which service model</td>
+<td>PaaS</td>
+</tr>
+<tr>
+<td>Full OS control</td>
+<td>Which service model</td>
+<td>IaaS</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>8. Commonly Confused Concepts</h2>
+<h3>Public Cloud vs Hybrid Cloud vs Private Cloud</h3>
+<table>
+<thead>
+<tr>
+<th>If the question says...</th>
+<th>Answer is</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;Company uses only AWS&quot;</td>
+<td>Public Cloud</td>
+</tr>
+<tr>
+<td>&quot;Company must keep data on-premises but wants cloud features&quot;</td>
+<td>Hybrid Cloud</td>
+</tr>
+<tr>
+<td>&quot;Company runs all IT in their own data centre with cloud-like tools&quot;</td>
+<td>Private Cloud</td>
+</tr>
+<tr>
+<td>&quot;Company uses AWS and Azure together&quot;</td>
+<td>Multi-Cloud</td>
+</tr>
+</tbody></table>
+<h3>IaaS vs PaaS — Shared Responsibility Boundary</h3>
+<pre><code class="language-mermaid">graph TD
+    subgraph IaaS_Customer [&quot;IaaS — Customer Manages&quot;]
+        A1[Application Code]
+        A2[Runtime &amp; Middleware]
+        A3[Guest OS &amp; Patching]
+        A4[Data &amp; Encryption]
+    end
+
+    subgraph IaaS_AWS [&quot;IaaS — AWS Manages&quot;]
+        B1[Physical Servers]
+        B2[Data Centre Security]
+        B3[Hypervisor]
+        B4[Network Hardware]
+    end
+
+    subgraph PaaS_Customer [&quot;PaaS — Customer Manages&quot;]
+        C1[Application Code]
+        C2[Data]
+    end
+
+    subgraph PaaS_AWS [&quot;PaaS — AWS Manages&quot;]
+        D1[OS + Patching]
+        D2[Runtime]
+        D3[Middleware]
+        D4[Physical Infrastructure]
+    end
+</code></pre>
+<hr>
+<h2>9. Quick Revision Points</h2>
+<ul>
+<li>Cloud = on-demand IT resources over internet with pay-as-you-go pricing</li>
+<li><strong>IaaS</strong> = you manage OS and above → EC2</li>
+<li><strong>PaaS</strong> = you manage code and data only → Elastic Beanstalk</li>
+<li><strong>SaaS</strong> = you just use it → WorkMail</li>
+<li><strong>Public Cloud</strong> = everything on AWS</li>
+<li><strong>Hybrid Cloud</strong> = on-premises + AWS → enabled by <strong>AWS Outposts</strong></li>
+<li><strong>6 Advantages:</strong> Trade CapEx, Economies of Scale, Stop Guessing Capacity, Speed &amp; Agility, Stop Spending on DC, Go Global</li>
+<li><strong>CapEx</strong> = upfront fixed cost; <strong>OpEx</strong> = ongoing variable cost</li>
+<li>Cloud converts CapEx to OpEx — this is the primary financial benefit</li>
+<li><strong>Elasticity</strong> = automatic scale up AND down; <strong>Scalability</strong> = ability to handle more load</li>
+</ul>
+<hr>
+<p><em>Next Chapter → <code>02-aws-global-infrastructure/regions-and-availability-zones.md</code></em></p>
+
+        
+        <div class="pagination">
+          
+          <a href="../../aws-cloud-practitioner/02-aws-global-infrastructure/regions-and-availability-zones.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Regions And Availability Zones →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

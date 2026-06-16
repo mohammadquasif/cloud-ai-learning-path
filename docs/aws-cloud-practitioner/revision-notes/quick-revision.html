@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Revision | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>AWS Cloud Practitioner</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Cloud Concepts</div>
+        <a href="../../aws-cloud-practitioner/01-cloud-concepts/what-is-cloud.html" class="nav-link">What Is Cloud</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Aws Global Infrastructure</div>
+        <a href="../../aws-cloud-practitioner/02-aws-global-infrastructure/regions-and-availability-zones.html" class="nav-link">Regions And Availability Zones</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Core Services</div>
+        <div class="nav-group">
+        <div class="nav-group-title">Compute</div>
+        <a href="../../aws-cloud-practitioner/03-core-services/compute/ec2-basics.html" class="nav-link">Ec2 Basics</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Database</div>
+        <a href="../../aws-cloud-practitioner/03-core-services/database/rds-vs-dynamodb.html" class="nav-link">Rds Vs Dynamodb</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Storage</div>
+        <a href="../../aws-cloud-practitioner/03-core-services/storage/s3-basics.html" class="nav-link">S3 Basics</a>
+
+      </div>
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Security And Compliance</div>
+        <a href="../../aws-cloud-practitioner/04-security-and-compliance/shared-responsibility-model.html" class="nav-link">Shared Responsibility Model</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Billing And Pricing</div>
+        <a href="../../aws-cloud-practitioner/05-billing-and-pricing/pricing-models.html" class="nav-link">Pricing Models</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">06 Cloud Technology And Services</div>
+        <a href="../../aws-cloud-practitioner/06-cloud-technology-and-services/cloud-adoption-framework.html" class="nav-link">Cloud Adoption Framework</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../aws-cloud-practitioner/mock-tests/ccp-mock-test-65q.html" class="nav-link">Ccp Mock Test 65q</a>
+<a href="../../aws-cloud-practitioner/mock-tests/mock-test-01.html" class="nav-link">Mock Test 01</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../aws-cloud-practitioner/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../aws-cloud-practitioner/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../aws-cloud-practitioner/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>⚡ Ultimate Quick Revision Guide (Read Day Before Exam)</h1>
+<blockquote>
+<p><strong>Exam:</strong> AWS Certified Cloud Practitioner (CLF-C02)
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>🏛️ 1. Global Infrastructure</h2>
+<ul>
+<li><strong>Region:</strong> A geographical area containing 2 or more Availability Zones.</li>
+<li><strong>Availability Zone (AZ):</strong> One or more discrete data centers with redundant power and networking.</li>
+<li><strong>Edge Location:</strong> Used by CloudFront (CDN) to cache content closer to users for lower latency.</li>
+</ul>
+<h2>💻 2. Compute</h2>
+<ul>
+<li><strong>EC2:</strong> Virtual servers. You manage the OS.<ul>
+<li><em>On-Demand:</em> Pay by the second. No long-term commitment.</li>
+<li><em>Reserved:</em> 1 or 3-year commitment. Huge discount.</li>
+<li><em>Spot:</em> Unused capacity. Cheapest, but AWS can terminate it with a 2-minute warning.</li>
+</ul>
+</li>
+<li><strong>Lambda:</strong> Serverless compute. Run code without provisioning servers. Pay per millisecond.</li>
+<li><strong>Elastic Beanstalk:</strong> PaaS. You upload code, AWS handles deployment, capacity, and scaling.</li>
+</ul>
+<h2>💾 3. Storage</h2>
+<ul>
+<li><strong>S3:</strong> Object storage. Good for files, images, backups. Not for OS or databases.<ul>
+<li><em>S3 Standard:</em> Frequently accessed data.</li>
+<li><em>S3 IA:</em> Infrequently accessed, but needs rapid access when needed.</li>
+<li><em>S3 Glacier Deep Archive:</em> Cheapest, for archiving. 12+ hour retrieval.</li>
+</ul>
+</li>
+<li><strong>EBS:</strong> Block storage. Hard drive attached to an EC2 instance.</li>
+<li><strong>EFS:</strong> File storage. Shared network drive for multiple Linux EC2 instances.</li>
+</ul>
+<h2>🗄️ 4. Databases</h2>
+<ul>
+<li><strong>RDS:</strong> Relational database (MySQL, PostgreSQL).</li>
+<li><strong>Aurora:</strong> AWS-proprietary relational database. Very fast, scales up to 128 TiB.</li>
+<li><strong>DynamoDB:</strong> NoSQL database. Key-value. Single-digit millisecond latency.</li>
+<li><strong>Redshift:</strong> Data warehouse for Analytics / Business Intelligence.</li>
+<li><strong>ElastiCache:</strong> In-memory cache (Redis/Memcached) for sub-millisecond latency.</li>
+</ul>
+<h2>🔒 5. Security</h2>
+<ul>
+<li><strong>IAM:</strong> Manage users, groups, roles, and policies.<ul>
+<li><em>Roles:</em> Used by AWS services (e.g., EC2) to access other services safely.</li>
+</ul>
+</li>
+<li><strong>WAF:</strong> Web Application Firewall. Protects against SQL injection and XSS.</li>
+<li><strong>Shield:</strong> DDoS protection.</li>
+<li><strong>KMS:</strong> Manages encryption keys.</li>
+<li><strong>CloudTrail:</strong> API logging. Tracks &quot;who did what&quot;.</li>
+<li><strong>Config:</strong> Tracks resource configuration changes over time.</li>
+<li><strong>Artifact:</strong> Download AWS compliance reports (SOC, ISO).</li>
+</ul>
+<h2>💰 6. Billing &amp; Pricing</h2>
+<ul>
+<li><strong>Pricing Calculator:</strong> Estimate costs <em>before</em> building.</li>
+<li><strong>Cost Explorer:</strong> View graphs of past spending and forecast future costs.</li>
+<li><strong>Budgets:</strong> Set spending limits and get email alerts.</li>
+<li><strong>Organizations:</strong> Consolidated billing for volume discounts.</li>
+<li><strong>Trusted Advisor:</strong> Automated checks for Cost, Performance, Security, Fault Tolerance, and Limits.</li>
+</ul>
+
+        
+        <div class="pagination">
+          <a href="../../aws-cloud-practitioner/README.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← README</span>
+        </a>
+          
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

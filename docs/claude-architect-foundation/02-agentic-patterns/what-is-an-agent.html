@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Is An Agent | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Claude Architect Foundation</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Introduction To Claude</div>
+        <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="nav-link">What Is Claude</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Agentic Patterns</div>
+        <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="nav-link">Orchestrator And Workers</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="nav-link">Prompt Chaining And Routing</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="nav-link">Session And Context Management</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="nav-link">What Is An Agent</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Tool Use And Mcp</div>
+        <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="nav-link">Confirmation And Safety Gates</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="nav-link">Designing Good Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="nav-link">Error Handling In Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="nav-link">Introduction To Tool Use</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="nav-link">Mcp Architecture</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Structured Output And Extraction</div>
+        <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="nav-link">Batch Processing</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="nav-link">Confidence And Human Review</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/handling-ambiguity-and-nulls.html" class="nav-link">Handling Ambiguity And Nulls</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="nav-link">Json Schema For Extraction</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="nav-link">Long Document Extraction</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Claude Code And Workflows</div>
+        <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="nav-link">Claude Md And Skills</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="nav-link">Code Review Workflows</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="nav-link">Exploration Patterns</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../claude-architect-foundation/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../claude-architect-foundation/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>What Is an Agent? — The Agentic Loop</h1>
+<blockquote>
+<p><strong>Exam:</strong> Claude Architect Foundation
+<strong>Chapter:</strong> 02 — Agentic Patterns
+<strong>Difficulty:</strong> Beginner → Intermediate
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>📖 What Is This Topic About?</h2>
+<p>A <strong>Claude agent</strong> is not just a chatbot that answers questions. It is a system where Claude can take actions in the real world — calling APIs, reading files, writing code, sending messages — in order to complete a goal over multiple steps. Understanding the agentic loop is fundamental to every other topic in this exam.</p>
+<hr>
+<h2>🧠 Key Concepts</h2>
+<ul>
+<li><strong>Agent</strong> — A Claude-powered system that uses tools to take actions and make decisions over multiple steps to achieve a goal</li>
+<li><strong>Agentic Loop</strong> — The repeating cycle of Observe → Think → Act → Observe that an agent follows until a task is complete</li>
+<li><strong>Tool Use</strong> — The mechanism by which Claude calls external functions (APIs, databases, file systems) during an agentic loop</li>
+<li><strong>Tool Call</strong> — A structured request Claude sends to the application layer, asking it to execute a specific function with specific parameters</li>
+<li><strong>Tool Result</strong> — The output the application sends back to Claude after executing a tool</li>
+<li><strong>Human-in-the-Loop</strong> — A design pattern where human confirmation is required before certain agent actions are executed</li>
+</ul>
+<hr>
+<h2>📘 Detailed Explanation</h2>
+<h3>What Makes a System &quot;Agentic&quot;?</h3>
+<p>Not every Claude application is an agent. The distinction is:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>What It Does</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Single-turn Q&amp;A</strong></td>
+<td>User asks, Claude answers, done</td>
+<td>&quot;What is the capital of France?&quot;</td>
+</tr>
+<tr>
+<td><strong>Multi-turn Chat</strong></td>
+<td>Conversation with memory across turns</td>
+<td>Customer support chatbot</td>
+</tr>
+<tr>
+<td><strong>Agentic System</strong></td>
+<td>Claude takes actions, observes results, decides next step, repeats</td>
+<td>Research assistant that searches, reads, and writes a report</td>
+</tr>
+</tbody></table>
+<p>An agentic system is characterised by:</p>
+<ol>
+<li>Access to <strong>tools</strong> (ability to take real-world actions)</li>
+<li><strong>Multiple steps</strong> — the goal requires a sequence of actions, not just one response</li>
+<li><strong>Decision-making</strong> — Claude decides which tool to call next based on what it observes</li>
+</ol>
+<hr>
+<h3>The Agentic Loop — Step by Step</h3>
+<pre><code>╔═══════════════════════════════════════════════════════════════╗
+║                     THE AGENTIC LOOP                          ║
+╠═══════════════════════════════════════════════════════════════╣
+║                                                               ║
+║  ┌──────────────────────────────────────────────────────┐    ║
+║  │  USER / ORCHESTRATOR gives Claude a goal             │    ║
+║  │  &quot;Find all open invoices over ₹50,000 and send       │    ║
+║  │   payment reminders to each client&quot;                  │    ║
+║  └─────────────────────┬────────────────────────────────┘    ║
+║                         │                                     ║
+║              ┌──────────▼──────────┐                         ║
+║              │   1. OBSERVE        │                         ║
+║              │   Claude reads the  │                         ║
+║              │   current context   │                         ║
+║              │   (goal + history   │                         ║
+║              │   + tool results)   │                         ║
+║              └──────────┬──────────┘                         ║
+║                         │                                     ║
+║              ┌──────────▼──────────┐                         ║
+║              │   2. THINK          │                         ║
+║              │   Claude reasons:   │                         ║
+║              │   &quot;What do I know?  │                         ║
+║              │   What do I need?   │                         ║
+║              │   What tool helps?&quot; │                         ║
+║              └──────────┬──────────┘                         ║
+║                         │                                     ║
+║              ┌──────────▼──────────┐                         ║
+║              │   3. ACT            │                         ║
+║              │   Claude calls a    │                         ║
+║              │   tool OR generates │                         ║
+║              │   final answer      │                         ║
+║              └──────────┬──────────┘                         ║
+║                         │  (if tool call)                    ║
+║              ┌──────────▼──────────┐                         ║
+║              │   4. RECEIVE RESULT │                         ║
+║              │   Tool result added │                         ║
+║              │   to context →      │                         ║
+║              │   Loop back to      │                         ║
+║              │   OBSERVE           │                         ║
+║              └──────────┬──────────┘                         ║
+║                         │  (if final answer)                 ║
+║              ┌──────────▼──────────┐                         ║
+║              │   5. COMPLETE       │                         ║
+║              │   Claude delivers   │                         ║
+║              │   the final result  │                         ║
+║              └─────────────────────┘                         ║
+╚═══════════════════════════════════════════════════════════════╝
+</code></pre>
+<hr>
+<h3>A Concrete Walk-Through</h3>
+<p>Goal: &quot;Check the weather in Mumbai and send an alert to the team if it&#39;s raining.&quot;</p>
+<table>
+<thead>
+<tr>
+<th>Loop Iteration</th>
+<th>Claude Thinks</th>
+<th>Claude Acts</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Turn 1</td>
+<td>&quot;I need to check the weather. I have a <code>get_weather</code> tool.&quot;</td>
+<td>Calls <code>get_weather(city=&quot;Mumbai&quot;)</code></td>
+<td>Returns: &quot;Heavy rain, 28°C&quot;</td>
+</tr>
+<tr>
+<td>Turn 2</td>
+<td>&quot;It is raining. I should send an alert. I have a <code>send_slack_message</code> tool.&quot;</td>
+<td>Calls <code>send_slack_message(channel=&quot;#ops&quot;, message=&quot;Rain alert: Mumbai is experiencing heavy rain.&quot;)</code></td>
+<td>Returns: &quot;Message sent successfully&quot;</td>
+</tr>
+<tr>
+<td>Turn 3</td>
+<td>&quot;Both steps are complete. I can now confirm to the user.&quot;</td>
+<td>Generates final response: &quot;Done! Weather checked (heavy rain in Mumbai) and alert sent to #ops.&quot;</td>
+<td>Loop ends</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Human-in-the-Loop — When Agents Should Pause</h3>
+<p>Not all actions should proceed automatically. For irreversible or high-stakes actions, agents should <strong>pause and ask for confirmation</strong>:</p>
+<pre><code>┌────────────────────────────────────────────────────────┐
+│           WHEN TO REQUIRE HUMAN CONFIRMATION           │
+│                                                        │
+│  ✅ Irreversible actions (deleting files, records)     │
+│  ✅ Financial actions above a threshold (e.g., &gt;₹5000) │
+│  ✅ Sending communications to external parties         │
+│  ✅ Actions on production systems                      │
+│  ✅ When the agent is uncertain about the correct path │
+│  ✅ When the user explicitly requests a human          │
+└────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h3>Escalation to a Human</h3>
+<p>A well-designed agent always has an <strong>escalation path</strong>. Claude should escalate when:</p>
+<ul>
+<li>The customer explicitly requests a human</li>
+<li>The issue requires a policy exception beyond the agent&#39;s authority</li>
+<li>The agent cannot make meaningful progress after reasonable attempts</li>
+<li>The situation involves risk (fraud, safety, legal)</li>
+</ul>
+<p>When escalating, the agent should provide a <strong>structured handoff</strong> — not just the raw conversation, but a summary of: what the user needed, what actions were taken, what was discovered, and what the recommended next step is.</p>
+<hr>
+<h2>🇮🇳 Indian Real-Life Example</h2>
+<p><strong>Think of an agent like a junior CA (Chartered Accountant) doing your tax filing:</strong></p>
+<ol>
+<li><strong>Observe:</strong> Reads your Form 16, bank statements, and investment proofs</li>
+<li><strong>Think:</strong> &quot;I need to check Section 80C deductions and compute tax liability&quot;</li>
+<li><strong>Act:</strong> Searches the tax rules database, runs the calculation</li>
+<li><strong>Observe Result:</strong> Sees that you may owe ₹12,000 in taxes</li>
+<li><strong>Think:</strong> &quot;This is above the threshold — I should confirm with the senior CA before filing&quot;</li>
+<li><strong>Act:</strong> Escalates to the senior for confirmation (Human-in-the-Loop)</li>
+</ol>
+<p>The junior CA does not just do one thing — they iterate, check, verify, and escalate when needed. That is exactly how a Claude agent works.</p>
+<hr>
+<h2>🔑 Exam-Focused Points</h2>
+<ul>
+<li>✅ The agentic loop is: <strong>Observe → Think → Act → Observe</strong> (repeating until goal is achieved)</li>
+<li>✅ Claude decides which tool to call next <strong>based on the tool results it observes</strong> — not from a pre-planned sequence</li>
+<li>✅ Tool results are added to the context window and Claude reasons about the next step</li>
+<li>✅ <strong>Human-in-the-loop</strong> is required for irreversible, high-stakes, or uncertain situations</li>
+<li>✅ Escalation should include a <strong>structured handoff</strong> — not just the transcript</li>
+<li>✅ Escalate when: customer requests a human, policy exception required, agent cannot progress, safety risk</li>
+</ul>
+<hr>
+<h2>🧩 Scenario-Based Thinking</h2>
+<p><strong>Scenario:</strong> An e-commerce agent calls <code>lookup_order</code> and receives the order details. The order was placed 45 days ago. The agent must decide whether to call <code>process_refund</code> or <code>escalate_to_human</code>.</p>
+<p><strong>How does the agent make this decision?</strong></p>
+<ul>
+<li>A) A pre-configured decision tree maps order age to action</li>
+<li>B) The orchestration layer routes to the next tool automatically</li>
+<li>C) The order details are added to the context and Claude reasons about the next step based on policy guidelines in the system prompt</li>
+<li>D) Claude calls <code>process_refund</code> by default unless it fails</li>
+</ul>
+<p><strong>Answer:</strong> C — Claude reasons based on the information in the context window (order details + system prompt policy). This is the core of the agentic loop — Claude <em>thinks</em> about what to do next based on what it observes.</p>
+<hr>
+<h2>💡 Memory Tricks</h2>
+<p><strong>OTAO Loop:</strong> Observe, Think, Act, Observe. <strong>&quot;Only Tigers Attract Attention&quot;</strong> — O, T, A, O.</p>
+<p><strong>Agent vs Chatbot:</strong> A chatbot <em>answers</em>. An agent <em>acts</em>. The agent keeps going until the job is done.</p>
+<hr>
+<h2>❓ Chapter Practice Questions</h2>
+<p><strong>Q1.</strong> What is the key characteristic that distinguishes a Claude <em>agent</em> from a simple question-answering Claude application?</p>
+<ul>
+<li>A) Agents use a different version of the Claude model</li>
+<li>B) Agents have access to tools and take multiple actions over several steps to achieve a goal, reasoning about what to do next based on results</li>
+<li>C) Agents do not require a system prompt</li>
+<li>D) Agents store memory permanently in the model&#39;s weights</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> An agent is characterised by: tools (to take real-world actions), multiple steps, and dynamic decision-making at each step based on observed results. Simple Q&amp;A applications have none of these — they send a message and receive a text response.</p>
+<hr>
+<p><strong>Q2.</strong> In an agentic loop, when the model calls <code>get_customer_profile</code> and receives the result, what determines what the model does next?</p>
+<ul>
+<li>A) A hardcoded decision tree in the application layer</li>
+<li>B) The result is added to the context window, and Claude reasons about the next appropriate action</li>
+<li>C) The tool result contains a <code>next_action</code> field that Claude reads</li>
+<li>D) The model returns to the beginning of the loop and re-reads the original goal only</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> Tool results are added to the conversation context. Claude then goes through the Observe → Think → Act cycle again, now with the new information. Claude decides the next action based on all the context — original goal, prior tool results, and system prompt guidance.</p>
+<hr>
+<p><strong>Q3.</strong> A billing agent has successfully verified that a customer is entitled to a refund of ₹8,500. The system&#39;s policy allows the agent to process refunds up to ₹5,000 autonomously. What should the agent do?</p>
+<ul>
+<li>A) Process the refund anyway, since the customer is clearly entitled</li>
+<li>B) Decline the refund because it exceeds the automated limit</li>
+<li>C) Ask the customer to call back during business hours</li>
+<li>D) Compile a structured handoff with refund details and escalate to a human agent</li>
+</ul>
+<p><strong>Answer:</strong> D</p>
+<p><strong>Explanation:</strong> The refund exceeds the agent&#39;s authorisation limit. The agent should not exceed its authority (even if the refund is legitimate) nor simply refuse or deflect. The correct design is to escalate with a structured handoff — customer ID, verification status, refund amount, policy reference — so the human agent can resolve it efficiently.</p>
+<hr>
+<h2>📌 Quick Revision Summary</h2>
+<ul>
+<li>Agent = Claude + tools + multi-step reasoning toward a goal</li>
+<li>Agentic loop: Observe → Think → Act → Observe (repeats until complete)</li>
+<li>Tool results are added to context; Claude reasons about the next step each time</li>
+<li>Human-in-the-loop: required for irreversible, high-stakes, or uncertain actions</li>
+<li>Escalation = structured handoff (not just transcript) with diagnosis + recommended action</li>
+<li>Escalate when: user requests human, policy exception needed, agent cannot progress, safety risk</li>
+</ul>
+<hr>
+<h2>📎 References</h2>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/agents">Anthropic Documentation — Agents Overview</a></li>
+<li><a href="https://docs.anthropic.com/en/docs/tool-use">Anthropic Documentation — Tool Use</a></li>
+</ul>
+<hr>
+<p><em>Notes by certification-study-hub. Chapter 02 — What Is an Agent.</em></p>
+
+        
+        <div class="pagination">
+          <a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Session And Context Management</span>
+        </a>
+          <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Confirmation And Safety Gates →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

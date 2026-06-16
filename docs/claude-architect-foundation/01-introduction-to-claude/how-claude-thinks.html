@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Claude Thinks | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Claude Architect Foundation</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Introduction To Claude</div>
+        <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="nav-link">What Is Claude</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Agentic Patterns</div>
+        <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="nav-link">Orchestrator And Workers</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="nav-link">Prompt Chaining And Routing</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="nav-link">Session And Context Management</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="nav-link">What Is An Agent</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Tool Use And Mcp</div>
+        <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="nav-link">Confirmation And Safety Gates</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="nav-link">Designing Good Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="nav-link">Error Handling In Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="nav-link">Introduction To Tool Use</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="nav-link">Mcp Architecture</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Structured Output And Extraction</div>
+        <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="nav-link">Batch Processing</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="nav-link">Confidence And Human Review</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/handling-ambiguity-and-nulls.html" class="nav-link">Handling Ambiguity And Nulls</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="nav-link">Json Schema For Extraction</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="nav-link">Long Document Extraction</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Claude Code And Workflows</div>
+        <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="nav-link">Claude Md And Skills</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="nav-link">Code Review Workflows</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="nav-link">Exploration Patterns</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../claude-architect-foundation/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../claude-architect-foundation/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>How Claude Thinks — Context, Memory &amp; The Request Loop</h1>
+<blockquote>
+<p><strong>Exam:</strong> Claude Architect Foundation
+<strong>Chapter:</strong> 01 — Introduction to Claude
+<strong>Difficulty:</strong> Beginner
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>📖 What Is This Topic About?</h2>
+<p>To build well with Claude, you need to understand <em>how</em> it processes information — what it can see, what it remembers, and how it decides what to do next. This chapter covers the request-response loop, the context window, the different types of memory available to Claude, and what &quot;stateless&quot; means for developers.</p>
+<hr>
+<h2>🧠 Key Concepts</h2>
+<ul>
+<li><strong>Context Window</strong> — The total amount of text Claude can process in one request (input + output combined)</li>
+<li><strong>Tokens</strong> — The unit used to measure context window size; roughly 1 token ≈ 0.75 English words</li>
+<li><strong>Stateless</strong> — Claude does not automatically remember previous conversations; each API call starts fresh unless history is explicitly included</li>
+<li><strong>In-Context Memory</strong> — Information available because it is in the current conversation window</li>
+<li><strong>External Memory</strong> — Information stored outside Claude (databases, files) and retrieved via tools</li>
+<li><strong>System Prompt</strong> — Instructions sent to Claude at the start of every conversation; sets behaviour, persona, and constraints</li>
+</ul>
+<hr>
+<h2>📘 Detailed Explanation</h2>
+<h3>The Request-Response Loop</h3>
+<p>Every interaction with Claude follows the same loop:</p>
+<pre><code>┌─────────────────────────────────────────────────────────┐
+│                   APPLICATION / USER                    │
+│                                                         │
+│  ┌───────────────────────────────────────────────┐     │
+│  │  1. BUILD REQUEST                             │     │
+│  │     • System prompt (instructions)            │     │
+│  │     • Conversation history (all prior turns)  │     │
+│  │     • Current user message                    │     │
+│  │     • Tool definitions (if using tools)       │     │
+│  └───────────────┬───────────────────────────────┘     │
+│                  │  API Call                            │
+│  ┌───────────────▼───────────────────────────────┐     │
+│  │  2. CLAUDE PROCESSES (reads everything above) │     │
+│  │     • Understands context                     │     │
+│  │     • Reasons about the best response         │     │
+│  │     • Generates a reply (or tool call)        │     │
+│  └───────────────┬───────────────────────────────┘     │
+│                  │  Response                            │
+│  ┌───────────────▼───────────────────────────────┐     │
+│  │  3. APPLICATION RECEIVES RESPONSE             │     │
+│  │     • Displays to user, OR                    │     │
+│  │     • Executes tool call, OR                  │     │
+│  │     • Stores in DB and loops back to Step 1   │     │
+│  └───────────────────────────────────────────────┘     │
+└─────────────────────────────────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>Key insight for the exam:</strong> Claude does NOT automatically remember previous messages. Your application must send the full conversation history with every API call.</p>
+</blockquote>
+<hr>
+<h3>The Context Window — What Counts as &quot;Space&quot;?</h3>
+<p>The context window is like a fixed-size whiteboard. Everything on the whiteboard counts toward the limit:</p>
+<pre><code>┌──────────────────── CONTEXT WINDOW (200K tokens) ──────────────────┐
+│                                                                     │
+│  ┌─────────────────┐  ┌──────────────────┐  ┌──────────────────┐  │
+│  │  System Prompt  │  │   Tool           │  │  Conversation    │  │
+│  │  (instructions, │  │   Definitions    │  │  History         │  │
+│  │   persona,      │  │   (JSON schema   │  │  (all prior      │  │
+│  │   constraints)  │  │   of each tool)  │  │  turns)          │  │
+│  │   ~500–2000     │  │   ~200–3000      │  │   varies         │  │
+│  │   tokens        │  │   tokens         │  │                  │  │
+│  └─────────────────┘  └──────────────────┘  └──────────────────┘  │
+│                                                                     │
+│  ┌──────────────────────────────────────────────────────────────┐  │
+│  │  Documents / Pasted Content (can be very large)              │  │
+│  │  e.g., a 190,000-token contract + 2,500 token tool schema    │  │
+│  │  = very close to the 200K limit → performance degrades      │  │
+│  └──────────────────────────────────────────────────────────────┘  │
+│                                                                     │
+│  ┌──────────────────────────────────────────────────────────────┐  │
+│  │  Claude&#39;s Response (output also counts toward total)         │  │
+│  └──────────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>Why this matters:</strong> If your document is 190,000 tokens and your system prompt + tool definitions use 5,000 tokens, you are at 195,000/200,000 — leaving only 5,000 tokens for Claude&#39;s response. This can cause accuracy problems, especially for content toward the end of the document.</p>
+<hr>
+<h3>Memory Types</h3>
+<p>Claude can &quot;remember&quot; things in four different ways, depending on how the system is designed:</p>
+<table>
+<thead>
+<tr>
+<th>Memory Type</th>
+<th>Where it Lives</th>
+<th>Who Manages It</th>
+<th>Lifespan</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>In-Context</strong></td>
+<td>Inside the context window</td>
+<td>Application sends it</td>
+<td>Current request only</td>
+<td>Previous messages in a chat</td>
+</tr>
+<tr>
+<td><strong>External (retrieved)</strong></td>
+<td>Database, files, vector store</td>
+<td>Application + tools</td>
+<td>Persistent</td>
+<td>Customer history in a CRM</td>
+</tr>
+<tr>
+<td><strong>In-Cache</strong> (prompt caching)</td>
+<td>Anthropic&#39;s servers</td>
+<td>Anthropic API feature</td>
+<td>Minutes to hours</td>
+<td>Reusing a large system prompt</td>
+</tr>
+<tr>
+<td><strong>In-Weights</strong></td>
+<td>Claude&#39;s model parameters</td>
+<td>Anthropic (at training)</td>
+<td>Permanent</td>
+<td>General knowledge, language</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>What &quot;Stateless&quot; Means for Developers</h3>
+<p>Claude is <strong>stateless</strong> by default. This means:</p>
+<pre><code>Conversation Turn 1:
+  You: &quot;My name is Priya.&quot;
+  Claude: &quot;Hello Priya, how can I help you?&quot;
+
+Conversation Turn 2 — WITHOUT sending Turn 1 history:
+  You: &quot;What is my name?&quot;
+  Claude: &quot;I&#39;m sorry, I don&#39;t have access to that information.&quot;
+               ↑ Claude genuinely has no memory of Turn 1
+</code></pre>
+<pre><code>Conversation Turn 2 — WITH Turn 1 history sent again:
+  You: &quot;What is my name?&quot;
+  Claude: &quot;Your name is Priya.&quot;
+               ↑ Claude can &quot;remember&quot; because history was included
+</code></pre>
+<p>**Your application is responsible for:</p>
+<ol>
+<li>Storing the conversation history</li>
+<li>Including it in every subsequent API call</li>
+<li>Deciding when to summarise or truncate to manage context window limits**</li>
+</ol>
+<hr>
+<h2>🇮🇳 Indian Real-Life Example</h2>
+<p><strong>Think of Claude like a highly skilled consultant who has no memory between meetings:</strong></p>
+<p>Imagine you hire a top consultant. Each meeting, they are brilliant — but they have a unique rule: <strong>they forget everything after the meeting ends</strong>. Every new meeting, you must bring the notes from previous meetings yourself, and hand them over at the start.</p>
+<p>This is how Claude works:</p>
+<ul>
+<li>No memory between API calls</li>
+<li>Your system must store and re-send conversation history</li>
+<li>The &quot;notes you bring&quot; = conversation history in your API request</li>
+<li>The consultant&#39;s desk has limited space = context window</li>
+</ul>
+<hr>
+<h2>🔑 Exam-Focused Points</h2>
+<ul>
+<li>✅ Claude is <strong>stateless</strong> — it does not retain memory between API calls unless the application explicitly sends previous history</li>
+<li>✅ The context window includes: system prompt + tool definitions + conversation history + documents + Claude&#39;s response</li>
+<li>✅ <strong>Tool definitions consume tokens</strong> — complex tool schemas with many fields reduce the space available for documents</li>
+<li>✅ As a conversation approaches the context limit, <strong>accuracy on late-appearing content degrades</strong></li>
+<li>✅ Four memory types: in-context, external (retrieved via tools), cached, in-weights (training knowledge)</li>
+<li>✅ Developers must manage context by <strong>summarising earlier turns</strong> or using <strong>external storage</strong> for long conversations</li>
+</ul>
+<hr>
+<h2>🧩 Scenario-Based Thinking</h2>
+<p><strong>Scenario:</strong> A support agent built on Claude handles long customer conversations. After 30+ turns, the agent starts forgetting things the customer said in the first 10 turns — even though those turns are still in the conversation history.</p>
+<p><strong>What is the most likely cause?</strong></p>
+<ol>
+<li>The combined conversation history has grown very large</li>
+<li>Claude is selective about which parts of history it uses</li>
+<li>The context window is approaching its limit, so earlier content gets less attention</li>
+<li>The system prompt is overriding the conversation history</li>
+</ol>
+<p><strong>Answer:</strong> The context window is approaching its limit. As the total tokens approach 200K, Claude&#39;s ability to attend to content from early in the conversation degrades. The solution is to <strong>summarise earlier turns</strong> and store only the essential facts, rather than keeping the full raw history.</p>
+<hr>
+<h2>💡 Memory Tricks</h2>
+<p><strong>The Whiteboard Analogy:</strong> The context window is a whiteboard with limited space. You, system prompts, tools, docs, and responses all share it. When it&#39;s full, you must erase some earlier notes to make room.</p>
+<p><strong>Stateless = Each Phone Call Starts Fresh:</strong> Imagine calling customer support. Each time you call, you get a fresh agent who knows nothing about your previous calls. You have to briefly re-explain your history each time. That&#39;s Claude without application-managed history.</p>
+<hr>
+<h2>❓ Chapter Practice Questions</h2>
+<p><strong>Q1.</strong> A developer builds a chatbot using Claude. Users report that the bot &quot;forgets&quot; their name and preferences after a few messages. What is the most likely root cause?</p>
+<ul>
+<li>A) Claude&#39;s context window is too small to hold user preferences</li>
+<li>B) The conversation history is not being included in subsequent API requests</li>
+<li>C) The system prompt is overriding user-provided information</li>
+<li>D) Claude&#39;s in-weights memory was not trained on the user&#39;s data</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> Claude is stateless — it does not remember previous API calls. The developer&#39;s application must store and re-send the conversation history with every API request. Without this, Claude starts each turn with no knowledge of prior messages.</p>
+<hr>
+<p><strong>Q2.</strong> A document extraction system processes 180,000-token contracts using a 12-field tool schema (approximately 2,500 tokens). Claude&#39;s context window is 200,000 tokens. Which statement best explains why extraction accuracy drops for content near the end of the contract?</p>
+<ul>
+<li>A) Tool schemas prevent Claude from reading document content</li>
+<li>B) Claude processes documents in chunks, missing later sections</li>
+<li>C) The combined size of the document, tool schema, and system prompt approaches the context limit, leaving little room for the model to process late-appearing content effectively</li>
+<li>D) Claude prioritises tool definitions over document content when context is tight</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> All elements — system prompt, tool definitions, and document content — share the same context window. When the total approaches 200K, the model&#39;s attention is spread very thin, and content toward the end of the document receives less effective processing.</p>
+<hr>
+<p><strong>Q3.</strong> Which type of memory persists across sessions and can be retrieved on demand using tools, without being part of the context window?</p>
+<ul>
+<li>A) In-context memory</li>
+<li>B) In-weights memory</li>
+<li>C) Cached memory</li>
+<li>D) External memory</li>
+</ul>
+<p><strong>Answer:</strong> D</p>
+<p><strong>Explanation:</strong> External memory lives in databases, files, or vector stores outside Claude. The application retrieves relevant records using tool calls and injects them into the context window when needed. This is the standard approach for persistent, long-term memory in Claude-based systems.</p>
+<hr>
+<h2>📌 Quick Revision Summary</h2>
+<ul>
+<li>Claude is stateless — your application must send conversation history with every API call</li>
+<li>Context window = up to 200K tokens — shared by system prompt, tool definitions, history, documents, and response</li>
+<li>Tool definitions consume tokens; large schemas reduce space available for documents</li>
+<li>Four memory types: in-context, external (retrieved), cached, in-weights (training)</li>
+<li>Approaching context limits → accuracy degrades for content at the end of long documents</li>
+<li>Solution for long conversations: summarise early turns; use external storage for persistent facts</li>
+</ul>
+<hr>
+<h2>📎 References</h2>
+<ul>
+<li><a href="https://docs.anthropic.com">Anthropic Documentation — Context Windows</a></li>
+<li><a href="https://docs.anthropic.com/en/api/messages">Claude API Reference — Messages</a></li>
+</ul>
+<hr>
+<p><em>Notes by certification-study-hub. Chapter 01 — How Claude Thinks.</em></p>
+
+        
+        <div class="pagination">
+          <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Constitutional Ai And Safety</span>
+        </a>
+          <a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">What Is Claude →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

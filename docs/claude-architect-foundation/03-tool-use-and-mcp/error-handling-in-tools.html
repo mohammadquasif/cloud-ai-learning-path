@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error Handling In Tools | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Claude Architect Foundation</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Introduction To Claude</div>
+        <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="nav-link">What Is Claude</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Agentic Patterns</div>
+        <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="nav-link">Orchestrator And Workers</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="nav-link">Prompt Chaining And Routing</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="nav-link">Session And Context Management</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="nav-link">What Is An Agent</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Tool Use And Mcp</div>
+        <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="nav-link">Confirmation And Safety Gates</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="nav-link">Designing Good Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="nav-link">Error Handling In Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="nav-link">Introduction To Tool Use</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="nav-link">Mcp Architecture</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Structured Output And Extraction</div>
+        <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="nav-link">Batch Processing</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="nav-link">Confidence And Human Review</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/handling-ambiguity-and-nulls.html" class="nav-link">Handling Ambiguity And Nulls</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="nav-link">Json Schema For Extraction</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="nav-link">Long Document Extraction</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Claude Code And Workflows</div>
+        <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="nav-link">Claude Md And Skills</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="nav-link">Code Review Workflows</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="nav-link">Exploration Patterns</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../claude-architect-foundation/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../claude-architect-foundation/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>Error Handling in Tools — Structured Errors &amp; Recovery</h1>
+<blockquote>
+<p><strong>Exam:</strong> Claude Architect Foundation
+<strong>Chapter:</strong> 03 — Tool Use &amp; MCP
+<strong>Difficulty:</strong> Intermediate
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>📖 What Is This Topic About?</h2>
+<p>Tools fail. APIs go down. Records don&#39;t exist. Permissions are denied. How your tool communicates failures to Claude determines whether the agent can recover gracefully or collapses into unhelpful responses. This chapter covers the <code>isError</code> pattern, structured error metadata, the difference between transient and permanent errors, and what NOT to do.</p>
+<hr>
+<h2>🧠 Key Concepts</h2>
+<ul>
+<li><strong>isError</strong> — A flag in the tool result that signals to Claude that an error occurred; Claude can then decide how to respond</li>
+<li><strong>Transient Error</strong> — An error that is temporary and may succeed if retried (e.g., network timeout, 503 Service Unavailable)</li>
+<li><strong>Permanent Error</strong> — An error that will not be resolved by retrying (e.g., 403 Permission Denied, record not found)</li>
+<li><strong>errorCategory</strong> — A structured field in the error response that classifies the error type (transient/validation/permission)</li>
+<li><strong>isRetryable</strong> — A boolean field indicating whether the operation is worth retrying</li>
+<li><strong>Retry Logic</strong> — Automatically attempting the same operation again after a transient failure</li>
+</ul>
+<hr>
+<h2>📘 Detailed Explanation</h2>
+<h3>The Problem with Unstructured Errors</h3>
+<p>Without structured error information, Claude receives the same signal for all types of failures:</p>
+<pre><code>UNSTRUCTURED ERROR RESPONSE (bad):
+{
+  &quot;isError&quot;: true,
+  &quot;content&quot;: [{&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;Operation failed&quot;}]
+}
+
+What does Claude know from this?
+• ❌ Was it a temporary network issue?
+• ❌ Did the record not exist?
+• ❌ Was the permission denied?
+• ❌ Should it retry?
+• ❌ Should it ask the user?
+• ❌ Should it escalate?
+
+Claude cannot distinguish, so it behaves inconsistently.
+</code></pre>
+<h3>The Structured Error Pattern (Correct Approach)</h3>
+<pre><code>STRUCTURED ERROR RESPONSE (good):
+{
+  &quot;isError&quot;: true,
+  &quot;errorCategory&quot;: &quot;transient&quot;,
+  &quot;isRetryable&quot;: true,
+  &quot;description&quot;: &quot;Database temporarily unavailable due to maintenance window. 
+                  Expected to recover within 5 minutes.&quot;,
+  &quot;httpStatus&quot;: 503,
+  &quot;suggestedAction&quot;: &quot;Wait briefly and retry the operation.&quot;
+}
+</code></pre>
+<p>Now Claude can make an informed decision:</p>
+<ul>
+<li><code>errorCategory: &quot;transient&quot;</code> + <code>isRetryable: true</code> → retry after a brief wait</li>
+<li><code>errorCategory: &quot;permission&quot;</code> + <code>isRetryable: false</code> → inform the user they lack access; do not retry</li>
+<li><code>errorCategory: &quot;validation&quot;</code> + <code>isRetryable: false</code> → the input was invalid; ask for correction</li>
+</ul>
+<hr>
+<h3>Error Category Decision Tree</h3>
+<pre><code>┌──────────────────────────────────────────────────────────────────┐
+│                    ERROR HANDLING DECISION TREE                  │
+│                                                                  │
+│  Tool returns error                                              │
+│         │                                                        │
+│         ▼                                                        │
+│  What category?                                                  │
+│         │                                                        │
+│    ┌────┴────────────────────────┬─────────────────────────┐    │
+│    ▼                             ▼                          ▼    │
+│  TRANSIENT                    VALIDATION               PERMISSION│
+│  (network, 503)               (bad input)              (403)     │
+│         │                         │                        │     │
+│         ▼                         ▼                        ▼     │
+│  isRetryable: true          isRetryable: false      isRetryable: │
+│  → Retry with               → Ask user to           false        │
+│    backoff                    correct input         → Inform user │
+│                                                      they can&#39;t  │
+│                                                      do this;    │
+│                                                      escalate    │
+└──────────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h3>Transient vs Permanent Errors — Where to Handle</h3>
+<table>
+<thead>
+<tr>
+<th>Error Type</th>
+<th>Examples</th>
+<th>Handle Where</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Transient</strong></td>
+<td>Network timeout, 503 Service Unavailable</td>
+<td><strong>Inside the tool</strong></td>
+<td>Automatic retry with exponential backoff; return to Claude only if all retries exhausted</td>
+</tr>
+<tr>
+<td><strong>Permanent (validation)</strong></td>
+<td>Invalid parameter format, missing required field</td>
+<td><strong>Surface to Claude</strong></td>
+<td>Return structured error; Claude can ask user to provide correct input</td>
+</tr>
+<tr>
+<td><strong>Permanent (permission)</strong></td>
+<td>403 Forbidden, unauthorised access</td>
+<td><strong>Surface to Claude</strong></td>
+<td>Return structured error; Claude informs user and may escalate</td>
+</tr>
+<tr>
+<td><strong>Permanent (not found)</strong></td>
+<td>Record doesn&#39;t exist</td>
+<td><strong>Surface to Claude</strong></td>
+<td>Return structured error; Claude informs user or asks for correct identifier</td>
+</tr>
+<tr>
+<td><strong>Ambiguous (timeout)</strong></td>
+<td>Request timed out — may or may not have executed</td>
+<td><strong>Surface to Claude</strong></td>
+<td>Return <code>isError: true</code> with uncertainty message — warn against retry to prevent duplicates</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>The Dangerous Ambiguous Case — Timeouts</h3>
+<p>When a tool times out before receiving a response, the operation may or may not have executed:</p>
+<pre><code>SCENARIO: Send notification → 30s timeout → No response received
+
+DID THE NOTIFICATION GET SENT? 
+  ┌─────────────────┐
+  │  UNKNOWN        │  The server may have received and processed the
+  │                 │  request but timed out before sending a response.
+  │  DO NOT RETRY   │  Retrying risks sending the SAME notification TWICE.
+  └─────────────────┘
+
+CORRECT ERROR RESPONSE:
+{
+  &quot;isError&quot;: true,
+  &quot;errorCategory&quot;: &quot;ambiguous&quot;,
+  &quot;isRetryable&quot;: false,
+  &quot;description&quot;: &quot;Request timed out. The operation may or may not have 
+                  completed. Do not retry automatically — manual verification 
+                  is recommended before attempting again.&quot;
+}
+</code></pre>
+<p>This communicates uncertainty to Claude, preventing duplicate operations.</p>
+<hr>
+<h3>What NOT to Do</h3>
+<pre><code>❌ Throw an exception from the tool handler
+   → The agent framework crashes; Claude gets no actionable information
+
+❌ Return empty result with no error flag
+   → Claude thinks the tool succeeded but returned no data; 
+     may fabricate a response based on missing data
+
+❌ Log the error server-side and return success
+   → Claude thinks everything worked; downstream failures are mysterious
+
+❌ Uniform error messages for all error types
+   → Claude cannot distinguish transient from permanent errors; 
+     may retry permanently failed operations or fail to retry transient ones
+</code></pre>
+<hr>
+<h2>🇮🇳 Indian Real-Life Example</h2>
+<p><strong>Think of structured error handling like a delivery status system:</strong></p>
+<p>When a courier company can&#39;t deliver your parcel, a good company doesn&#39;t just say &quot;Delivery failed.&quot; They tell you:</p>
+<ul>
+<li><strong>Why</strong> it failed: &quot;Recipient not available&quot; (permanent — don&#39;t try same time)</li>
+<li><strong>Or:</strong> &quot;Vehicle breakdown&quot; (transient — will retry today)</li>
+<li><strong>Or:</strong> &quot;Address not found&quot; (validation — please provide correct address)</li>
+<li><strong>What to do next:</strong> &quot;Call to reschedule&quot; / &quot;We&#39;ll retry tomorrow&quot; / &quot;Update address&quot;</li>
+</ul>
+<p>A bad courier company just says &quot;Unable to deliver&quot; — you don&#39;t know what to do next. That&#39;s what unstructured errors do to Claude.</p>
+<hr>
+<h2>🔑 Exam-Focused Points</h2>
+<ul>
+<li>✅ Always return errors as <strong>tool results with <code>isError: true</code></strong> — never throw exceptions or return empty results</li>
+<li>✅ Include <strong>errorCategory</strong> (transient/validation/permission/ambiguous) so Claude can act appropriately</li>
+<li>✅ Include <strong>isRetryable</strong> boolean — Claude should not retry permanent failures</li>
+<li>✅ Handle <strong>transient errors</strong> (503, timeouts) inside the tool with automatic retry; surface to Claude only after exhausting retries</li>
+<li>✅ <strong>Ambiguous outcomes</strong> (timeout on write operations) — warn against retry to prevent duplicates</li>
+<li>✅ Surface <strong>permanent errors</strong> to Claude with descriptive messages so it can explain to the user or escalate</li>
+</ul>
+<hr>
+<h2>🧩 Scenario-Based Thinking</h2>
+<p><strong>Scenario:</strong> An agent&#39;s tool calls an external logistics API that sometimes returns 503 errors. The current implementation raises a Python exception when a 503 is received, causing the agent to produce unhelpful responses.</p>
+<p><strong>What is the most effective improvement?</strong></p>
+<ul>
+<li>A) Add retry logic with exponential backoff inside the tool for 503 errors; if retries are exhausted, return a structured error result with <code>isError: true</code> and a description that the service is temporarily unavailable</li>
+<li>B) Surface the 503 directly to Claude as a tool result with <code>isError: true</code></li>
+<li>C) Ignore the 503 and return empty results to avoid confusing Claude</li>
+<li>D) Add a try-except block that swallows the exception and retries 10 times with no delay</li>
+</ul>
+<p><strong>Answer:</strong> A</p>
+<p><strong>Explanation:</strong> Transient errors like 503 should be handled inside the tool with automatic retry. If all retries fail, return a structured error result to Claude with <code>isError: true</code> and clear description. This prevents cascading failures while giving Claude actionable information if the service is truly down.</p>
+<hr>
+<h2>💡 Memory Tricks</h2>
+<p><strong>isError = Warning Light on Car Dashboard:</strong> The light (isError) tells you something is wrong. But you need more info: is it fuel (transient — fill up and go) or engine failure (permanent — needs the garage)? errorCategory is the specific warning type.</p>
+<p><strong>Transient = Retry Inside. Permanent = Tell Claude.</strong> Handle transient errors yourself inside the tool. Tell Claude about permanent errors so it can communicate to the user.</p>
+<hr>
+<h2>❓ Chapter Practice Questions</h2>
+<p><strong>Q1.</strong> A tool returns the following error response. What is the most significant problem with it?</p>
+<pre><code class="language-json">{&quot;isError&quot;: true, &quot;content&quot;: [{&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;Operation failed&quot;}]}
+</code></pre>
+<ul>
+<li>A) The <code>isError</code> field is not a valid JSON type</li>
+<li>B) The error message is too short and should be longer</li>
+<li>C) The response lacks structured metadata (errorCategory, isRetryable, description), so Claude cannot determine whether to retry, escalate, or ask for user input</li>
+<li>D) Tool errors should always raise exceptions, not return results</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> A uniform &quot;Operation failed&quot; message provides no information about the type of failure. Claude cannot determine whether this is a transient error (retry), a validation error (ask user), or a permission error (escalate). Structured metadata (errorCategory, isRetryable, description) enables Claude to respond appropriately.</p>
+<hr>
+<p><strong>Q2.</strong> A billing tool sends payment confirmation emails. During testing, it occasionally times out before receiving a response. What should the tool return in this situation?</p>
+<ul>
+<li>A) An empty success response, since the email may have been sent</li>
+<li>B) An <code>isError: true</code> response noting the uncertain state and recommending against automatic retry to prevent duplicate emails</li>
+<li>C) An <code>isRetryable: true</code> response prompting Claude to retry immediately</li>
+<li>D) Raise an exception and let the framework handle the timeout</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> Timeouts on write operations create an ambiguous state — the operation may or may not have completed. Returning <code>isRetryable: false</code> with a message explaining the uncertainty prevents Claude from automatically retrying (which would risk sending duplicate emails). The agent or human can investigate the actual state before retrying.</p>
+<hr>
+<p><strong>Q3.</strong> When should retry logic with exponential backoff be implemented <strong>inside the tool</strong> rather than being left to Claude to decide?</p>
+<ul>
+<li>A) Always — Claude should never decide when to retry</li>
+<li>B) Never — the agent should control all retry decisions</li>
+<li>C) For transient errors (network timeouts, 503 responses) — these are temporary conditions the tool can handle internally without burdening Claude with retry decisions</li>
+<li>D) Only when the tool has a dedicated retry configuration parameter</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> Transient errors are predictable, temporary conditions that the tool is well-positioned to handle internally. Implementing retry with exponential backoff inside the tool for 503s and timeouts keeps this implementation detail away from Claude. Claude should only see the error if all retries are exhausted — at that point, it needs to inform the user or escalate.</p>
+<hr>
+<h2>📌 Quick Revision Summary</h2>
+<ul>
+<li>Always return errors as tool results with <code>isError: true</code> — never throw exceptions</li>
+<li>Include errorCategory (transient/validation/permission/ambiguous) and isRetryable</li>
+<li>Transient errors (503, timeout): handle inside tool with retry; surface only if all retries fail</li>
+<li>Permanent errors (403, not found): surface to Claude immediately with clear description</li>
+<li>Ambiguous timeouts: <code>isRetryable: false</code> + warn against retry to prevent duplicates</li>
+<li>Empty result with no error flag = silent failure — Claude may fabricate responses on missing data</li>
+</ul>
+<hr>
+<h2>📎 References</h2>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/tool-use">Anthropic Documentation — Error Handling in Tool Use</a></li>
+<li><a href="https://docs.anthropic.com/en/docs/mcp">Anthropic Documentation — MCP Error Handling</a></li>
+</ul>
+<hr>
+<p><em>Notes by certification-study-hub. Chapter 03 — Error Handling in Tools.</em></p>
+
+        
+        <div class="pagination">
+          <a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Designing Good Tools</span>
+        </a>
+          <a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Introduction To Tool Use →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

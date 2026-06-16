@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}} | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ROOT_PATH}}assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="{{ROOT_PATH}}index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>{{COURSE_NAME}}</h3>
+      </div>
+      <nav class="sidebar-nav">
+        {{SIDEBAR}}
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        {{CONTENT}}
+        
+        <div class="pagination">
+          {{PREV_LINK}}
+          {{NEXT_LINK}}
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="{{ROOT_PATH}}assets/script.js"></script>
+</body>
+</html>

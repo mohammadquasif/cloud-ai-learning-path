@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session Management | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Claude Architect Foundation</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Introduction To Claude</div>
+        <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="nav-link">What Is Claude</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Agentic Patterns</div>
+        <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="nav-link">Orchestrator And Workers</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="nav-link">Prompt Chaining And Routing</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="nav-link">Session And Context Management</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="nav-link">What Is An Agent</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Tool Use And Mcp</div>
+        <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="nav-link">Confirmation And Safety Gates</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="nav-link">Designing Good Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="nav-link">Error Handling In Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="nav-link">Introduction To Tool Use</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="nav-link">Mcp Architecture</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Structured Output And Extraction</div>
+        <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="nav-link">Batch Processing</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="nav-link">Confidence And Human Review</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/handling-ambiguity-and-nulls.html" class="nav-link">Handling Ambiguity And Nulls</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="nav-link">Json Schema For Extraction</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="nav-link">Long Document Extraction</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Claude Code And Workflows</div>
+        <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="nav-link">Claude Md And Skills</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="nav-link">Code Review Workflows</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="nav-link">Exploration Patterns</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../claude-architect-foundation/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../claude-architect-foundation/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>Session Management — Continue, Resume &amp; Fork</h1>
+<blockquote>
+<p><strong>Exam:</strong> Claude Architect Foundation
+<strong>Chapter:</strong> 05 — Claude Code &amp; Developer Workflows
+<strong>Difficulty:</strong> Beginner → Intermediate
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>📖 What Is This Topic About?</h2>
+<p>Claude Code sessions are not disposable. After spending 45 minutes investigating a codebase, that accumulated knowledge is valuable. Session management covers how to <strong>continue</strong> an ongoing session, <strong>resume</strong> a previously paused one, and <strong>fork</strong> a session to explore alternative approaches — all without losing the context built up so far.</p>
+<hr>
+<h2>🧠 Key Concepts</h2>
+<ul>
+<li><strong>Session</strong> — A Claude Code conversation thread that includes all tool calls, file reads, and reasoning from start to current</li>
+<li><strong><code>--continue</code></strong> — Resumes the most recent session without specifying a name or ID</li>
+<li><strong><code>--resume &lt;name&gt;</code></strong> — Resumes a previously named session by its name</li>
+<li><strong><code>--session-id &lt;UUID&gt;</code></strong> — Resumes a session by its unique identifier</li>
+<li><strong>Session Fork</strong> — Creates two independent branches from the same session checkpoint; each branch can explore a different approach without contaminating the other</li>
+<li><strong>Session Naming</strong> — Giving a session a memorable name (e.g., <code>auth-module-refactor</code>) so it can be resumed by name</li>
+</ul>
+<hr>
+<h2>📘 Detailed Explanation</h2>
+<h3>Why Session Management Matters</h3>
+<p>When a session ends (connection drop, end of day, system restart), the default behaviour is a fresh start — all accumulated knowledge is lost. Session management prevents this:</p>
+<pre><code>WITHOUT SESSION MANAGEMENT:
+Day 1: 2 hours investigating the payment processing module
+        → Session ends → Context lost
+Day 2: Start fresh → 2 more hours to rebuild understanding
+        → Total: 4 hours of investigation for one task
+
+WITH SESSION MANAGEMENT:
+Day 1: 2 hours investigating the payment processing module
+        → Named session: &quot;payment-module-investigation&quot;
+        → Session paused
+Day 2: Resume &quot;payment-module-investigation&quot;
+        → Continue from exactly where you stopped
+        → Total: 2 hours (+ brief catch-up on overnight changes)
+</code></pre>
+<hr>
+<h3>The Three Resume Options</h3>
+<pre><code>┌───────────────────────────────────────────────────────────────────┐
+│                    SESSION RESUME OPTIONS                          │
+│                                                                    │
+│  1. --continue (most recent session)                              │
+│  ─────────────────────────────────────────────────────────────    │
+│  $ claude --continue                                              │
+│  → Picks up the last session automatically                        │
+│  → No need to remember a session name                             │
+│  → Best for: returning to work interrupted moments ago            │
+│                                                                    │
+│  2. --resume &lt;name&gt; (named session)                               │
+│  ─────────────────────────────────────────────────────────────    │
+│  $ claude --resume payment-module-investigation                   │
+│  → Resumes the session you named                                  │
+│  → Good for: returning to a long-running investigation or feature  │
+│  → Best practice: name sessions with descriptive kebab-case names │
+│                                                                    │
+│  3. --session-id &lt;UUID&gt; (by session identifier)                   │
+│  ─────────────────────────────────────────────────────────────    │
+│  $ claude --session-id 7f3a9b21-4c8d-11ef-b864-0242ac120002      │
+│  → Resumes using the UUID from the session&#39;s log file             │
+│  → Good for: automation scripts, referencing a specific session    │
+│              precisely                                             │
+└───────────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h3>Critical Rule: Notify the Agent of Changes During Pause</h3>
+<p>When resuming a session, Claude&#39;s knowledge is a <strong>snapshot from when the session was paused</strong>. If anything changed while the session was inactive, Claude doesn&#39;t know:</p>
+<pre><code>EXAMPLE:
+Session paused at 6 PM: &quot;The auth module uses AuthService class&quot;
+Overnight: A colleague renamed AuthService to JWTAuthService in a PR
+Session resumed at 9 AM: Claude still believes the class is AuthService
+
+WHAT HAPPENS WITHOUT NOTIFICATION:
+Claude calls grep for &quot;AuthService&quot; → finds nothing
+Claude is confused, may spend time investigating the &quot;missing&quot; class
+
+WHAT HAPPENS WITH NOTIFICATION:
+&quot;Before we continue: AuthService was renamed to JWTAuthService 
+ in a PR merged overnight.&quot;
+→ Claude immediately updates its understanding and proceeds correctly
+</code></pre>
+<p><strong>Always brief the agent at the start of a resumed session about:</strong></p>
+<ul>
+<li>Files that changed while the session was paused</li>
+<li>PRs that were merged or reverted</li>
+<li>Environment changes (config updates, dependency upgrades)</li>
+<li>Any decisions made by the team while the agent was inactive</li>
+</ul>
+<hr>
+<h3>Session Forking — Exploring Two Paths Simultaneously</h3>
+<p>When you reach a decision point and want to explore two approaches without one contaminating the other:</p>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                     SESSION FORKING                             │
+│                                                                 │
+│  ORIGINAL SESSION:                                             │
+│  &quot;We&#39;ve analysed the authentication module for 40 minutes.     │
+│   It has a known performance bottleneck.                        │
+│   Two approaches are possible:                                  │
+│   (A) Implement Redis caching                                   │
+│   (B) Optimise the DB query directly&quot;                           │
+│                    │                                            │
+│         ┌──────────┴──────────┐                                │
+│         │                     │                                │
+│      FORK A                FORK B                              │
+│  &quot;Explore Redis             &quot;Explore DB query                   │
+│   caching approach&quot;          optimisation approach&quot;            │
+│   (independent context)      (independent context)             │
+│         │                     │                                │
+│         ▼                     ▼                                │
+│  Developer reviews both branches&#39; findings                     │
+│  and selects the better approach                               │
+│         │                                                      │
+│  CONTINUE with chosen approach                                 │
+└─────────────────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>Why not just explore both in one session sequentially?</strong></p>
+<ul>
+<li>Approach A&#39;s exploration influences Approach B&#39;s</li>
+<li>If Approach A leads to a dead end, the context is polluted with failed attempts</li>
+<li>Forking gives clean, independent, comparable results from the same starting knowledge base</li>
+</ul>
+<hr>
+<h3>When to Start Fresh vs Resume</h3>
+<pre><code>START FRESH WHEN:
+✅ The previous session&#39;s context is no longer relevant
+✅ The codebase has changed so significantly that prior knowledge is misleading
+✅ You&#39;re starting a completely different task
+✅ The session ran into fundamental misunderstandings that were never corrected
+
+RESUME WHEN:
+✅ The task is not yet complete and the prior investigation is still valid
+✅ Only minor changes occurred during the pause
+✅ You explicitly inform the agent of any changes before continuing
+✅ The accumulated understanding of the codebase is valuable
+</code></pre>
+<hr>
+<h2>🇮🇳 Indian Real-Life Example</h2>
+<p><strong>Session Management = A Court Case File at a Law Office:</strong></p>
+<p>A junior advocate working on a complex corporate case doesn&#39;t start from scratch every morning. They have a case file (session) with all the research, notes, and findings from previous days.</p>
+<ul>
+<li><strong><code>--continue</code></strong> = picking up the file from your desk where you left it last night</li>
+<li><strong><code>--resume case-name</code></strong> = retrieving a specific case file from the filing cabinet</li>
+<li><strong>Forking</strong> = making a photocopy of the current case file to explore two different legal strategies in parallel without mixing their notes</li>
+<li><strong>Briefing after pause</strong> = &quot;Before we continue, the opposing counsel filed a new exhibit this morning — here it is&quot;</li>
+</ul>
+<hr>
+<h2>🔑 Exam-Focused Points</h2>
+<ul>
+<li>✅ <code>--continue</code> = resume most recent session; <code>--resume &lt;name&gt;</code> = resume by name</li>
+<li>✅ Session knowledge is a <strong>snapshot from when the session was paused</strong> — always notify agent of changes</li>
+<li>✅ <strong>Forking</strong> = two independent branches from same checkpoint; prevents cross-contamination</li>
+<li>✅ Fork for: exploring two approaches, comparing implementations, avoiding dead-end contamination</li>
+<li>✅ Start fresh when: context is outdated, task completely changed, fundamental misunderstandings persist</li>
+<li>✅ Resume when: task is incomplete, prior knowledge is valid, changes can be summarised briefly</li>
+</ul>
+<hr>
+<h2>🧩 Scenario-Based Thinking</h2>
+<p><strong>Scenario:</strong> A developer spent 2 hours with Claude Code analysing a large monolith and identifying its module boundaries. They now want Claude to simultaneously draft architecture diagrams for two different decomposition strategies: microservices and modular monolith. How should they structure this?</p>
+<ul>
+<li>A) Have Claude draft both architectures in the same session — more efficient</li>
+<li>B) Fork the session at the current point; explore microservices in Branch A, modular monolith in Branch B</li>
+<li>C) Start two completely fresh sessions with a summary of the analysis</li>
+<li>D) Resume the session and complete one architecture, then continue for the second</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> Forking preserves the full 2-hour analysis in both branches and prevents each strategy&#39;s design decisions from contaminating the other. Starting fresh (C) loses the accumulated analysis (or requires time to re-state it). Doing both in sequence (D) means the second architecture is influenced by the reasoning developed during the first.</p>
+<hr>
+<h2>💡 Memory Tricks</h2>
+<p><strong><code>--continue</code> = Ctrl+Z for your whole session:</strong> Just un-close what you had. The last session comes right back.</p>
+<p><strong>Forking = Git Branch:</strong> Just like <code>git branch feature-A</code> creates a diverging path from <code>main</code>, session forking creates a diverging path from the current session checkpoint. Both can be compared and one can be chosen.</p>
+<hr>
+<h2>❓ Chapter Practice Questions</h2>
+<p><strong>Q1.</strong> A developer was debugging a complex race condition in a payment service for 90 minutes when their laptop crashed. They restart and want to continue. What is the most efficient approach?</p>
+<ul>
+<li>A) Start a fresh session and rebuild the investigation from scratch</li>
+<li>B) Use <code>--continue</code> to resume the most recent session and then brief Claude on the crash and whether any files changed during recovery</li>
+<li>C) Use <code>--resume</code> with the session ID found in the session log file</li>
+<li>D) Summarise the 90 minutes of findings in a new session prompt</li>
+</ul>
+<p><strong>Answer:</strong> B (or C — both are correct; B is more convenient for the most recent session)</p>
+<p><strong>Explanation:</strong> <code>--continue</code> is the simplest way to pick up the most recent session. After resuming, briefly inform Claude that the laptop crashed and whether any files were auto-saved or reverted. This preserves all investigation context without having to re-discover the race condition location, attempted solutions, and analysis.</p>
+<hr>
+<p><strong>Q2.</strong> After resuming a Claude Code session, a developer notices Claude references a service class that was deleted and replaced by a completely different class during the session pause. Claude&#39;s suggestions are therefore incorrect. What is the primary cause and fix?</p>
+<ul>
+<li>A) Claude&#39;s in-weights knowledge is outdated; nothing can be done</li>
+<li>B) The developer failed to notify Claude of the structural change at the start of the resumed session; they should now inform Claude of the deleted class and its replacement to update its working understanding</li>
+<li>C) The session should be abandoned because any prior analysis is now invalid</li>
+<li>D) Resume sessions should not be used when code changes occur</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> Claude&#39;s session knowledge is a snapshot from the pause point. It doesn&#39;t automatically detect changes. The fix is straightforward: inform Claude of the change (&quot;ServiceA was deleted and replaced by ServiceB with these key differences...&quot;). After this briefing, Claude can update its working model and continue effectively.</p>
+<hr>
+<p><strong>Q3.</strong> A developer wants to compare two caching strategies for a database-heavy API. They have accumulated 45 minutes of analysis about the API&#39;s data access patterns. What approach best supports exploring both strategies without one influencing the other?</p>
+<ul>
+<li>A) Explore Strategy A until complete, then continue in the same session with Strategy B</li>
+<li>B) Start two fresh sessions with a brief summary of the data access patterns</li>
+<li>C) Fork the session at the 45-minute checkpoint; explore Strategy A in Branch A and Strategy B in Branch B independently</li>
+<li>D) Add both strategies to the same session and let Claude choose the better one</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> Forking creates two independent branches from the same 45-minute analysis. Each branch explores its strategy in a clean context, uninfluenced by the other&#39;s findings. This preserves the accumulated analysis in both branches and allows a genuine, uncontaminated comparison. Sequential exploration (A) introduces contamination; fresh starts (B) lose 45 minutes of valuable context.</p>
+<hr>
+<h2>📌 Quick Revision Summary</h2>
+<ul>
+<li><code>--continue</code>: resume most recent session; <code>--resume &lt;name&gt;</code>: resume by session name; <code>--session-id &lt;UUID&gt;</code>: precise resume</li>
+<li>Session knowledge is a snapshot from pause time — always brief the agent on changes after resuming</li>
+<li>Forking: two independent branches from same checkpoint; for exploring alternative approaches</li>
+<li>Start fresh: outdated context, completely new task, fundamental misunderstandings</li>
+<li>Resume: task incomplete, prior knowledge valid, changes can be summarised briefly</li>
+<li>Forking ≠ starting fresh — forking preserves accumulated knowledge in both branches</li>
+</ul>
+<hr>
+<h2>📎 References</h2>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code">Anthropic Documentation — Claude Code Session Management</a></li>
+</ul>
+<hr>
+<p><em>Notes by certification-study-hub. Chapter 05 — Session Management.</em></p>
+
+        
+        <div class="pagination">
+          <a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Introduction To Claude Code</span>
+        </a>
+          <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Caf Mock Test 60q →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>

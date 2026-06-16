@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Md And Skills | Certification Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  
+  <header class="topbar">
+    <div class="topbar-content">
+      <a href="../../index.html" class="logo">☁️ Certification Study Hub</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Claude Architect Foundation</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+        <div class="nav-group-title">01 Introduction To Claude</div>
+        <a href="../../claude-architect-foundation/01-introduction-to-claude/constitutional-ai-and-safety.html" class="nav-link">Constitutional Ai And Safety</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/how-claude-thinks.html" class="nav-link">How Claude Thinks</a>
+<a href="../../claude-architect-foundation/01-introduction-to-claude/what-is-claude.html" class="nav-link">What Is Claude</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">02 Agentic Patterns</div>
+        <a href="../../claude-architect-foundation/02-agentic-patterns/orchestrator-and-workers.html" class="nav-link">Orchestrator And Workers</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/prompt-chaining-and-routing.html" class="nav-link">Prompt Chaining And Routing</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/session-and-context-management.html" class="nav-link">Session And Context Management</a>
+<a href="../../claude-architect-foundation/02-agentic-patterns/what-is-an-agent.html" class="nav-link">What Is An Agent</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">03 Tool Use And Mcp</div>
+        <a href="../../claude-architect-foundation/03-tool-use-and-mcp/confirmation-and-safety-gates.html" class="nav-link">Confirmation And Safety Gates</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/designing-good-tools.html" class="nav-link">Designing Good Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/error-handling-in-tools.html" class="nav-link">Error Handling In Tools</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/introduction-to-tool-use.html" class="nav-link">Introduction To Tool Use</a>
+<a href="../../claude-architect-foundation/03-tool-use-and-mcp/mcp-architecture.html" class="nav-link">Mcp Architecture</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">04 Structured Output And Extraction</div>
+        <a href="../../claude-architect-foundation/04-structured-output-and-extraction/batch-processing.html" class="nav-link">Batch Processing</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/confidence-and-human-review.html" class="nav-link">Confidence And Human Review</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/handling-ambiguity-and-nulls.html" class="nav-link">Handling Ambiguity And Nulls</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/json-schema-for-extraction.html" class="nav-link">Json Schema For Extraction</a>
+<a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="nav-link">Long Document Extraction</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">05 Claude Code And Workflows</div>
+        <a href="../../claude-architect-foundation/05-claude-code-and-workflows/claude-md-and-skills.html" class="nav-link">Claude Md And Skills</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="nav-link">Code Review Workflows</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/exploration-patterns.html" class="nav-link">Exploration Patterns</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/introduction-to-claude-code.html" class="nav-link">Introduction To Claude Code</a>
+<a href="../../claude-architect-foundation/05-claude-code-and-workflows/session-management.html" class="nav-link">Session Management</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Mock Tests</div>
+        <a href="../../claude-architect-foundation/mock-tests/caf-mock-test-60q.html" class="nav-link">Caf Mock Test 60q</a>
+
+      </div><div class="nav-group">
+        <div class="nav-group-title">Practice Questions</div>
+        <a href="../../claude-architect-foundation/practice-questions/chapter-wise-questions.html" class="nav-link">Chapter Wise Questions</a>
+
+      </div><a href="../../claude-architect-foundation/README.html" class="nav-link">README</a>
+<div class="nav-group">
+        <div class="nav-group-title">Revision Notes</div>
+        <a href="../../claude-architect-foundation/revision-notes/quick-revision.html" class="nav-link">Quick Revision</a>
+
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>CLAUDE.md &amp; Skills — Project-Level Instructions and On-Demand Workflows</h1>
+<blockquote>
+<p><strong>Exam:</strong> Claude Architect Foundation
+<strong>Chapter:</strong> 05 — Claude Code &amp; Developer Workflows
+<strong>Difficulty:</strong> Intermediate
+<strong>Last Updated:</strong> 2026-06</p>
+</blockquote>
+<hr>
+<h2>📖 What Is This Topic About?</h2>
+<p>Claude Code can be customised and extended in two powerful ways: <strong>CLAUDE.md</strong> files provide always-on instructions that are automatically loaded every session; <strong>Skills</strong> provide on-demand workflows that are activated by name when needed. Knowing the difference between these two mechanisms — and when to use each — is an important exam topic.</p>
+<hr>
+<h2>🧠 Key Concepts</h2>
+<ul>
+<li><strong>CLAUDE.md</strong> — A Markdown file that Claude Code automatically reads at the start of every session; used for universal instructions, project context, and persistent standards</li>
+<li><strong>Skills</strong> — Reusable, on-demand workflow definitions that can be invoked by name (e.g., <code>/run-linter</code>, <code>/generate-report</code>); activated only when called, not loaded for every session</li>
+<li><strong>Project-Level CLAUDE.md</strong> — Placed in the repository root; applies to all team members using Claude Code on that project</li>
+<li><strong>User-Level CLAUDE.md</strong> — Placed in the user&#39;s home directory; applies to all projects for that individual user</li>
+<li><strong>Skill Definition</strong> — A Markdown file (or CLAUDE.md section) that defines the steps, tools, and context for a specific reusable workflow</li>
+<li><strong>Slash Command</strong> — The syntax for invoking a Skill (e.g., <code>/deploy-docs</code>, <code>/run-security-scan</code>)</li>
+</ul>
+<hr>
+<h2>📘 Detailed Explanation</h2>
+<h3>CLAUDE.md — Always-On Instructions</h3>
+<p>CLAUDE.md is loaded automatically at the start of every Claude Code session. Think of it as the &quot;standing orders&quot; for Claude when working on this project:</p>
+<pre><code>┌────────────────────────────────────────────────────────────────────┐
+│                    CLAUDE.md USE CASES                             │
+│                                                                    │
+│  ✅ Project overview and architecture                              │
+│     &quot;This is a Django REST API. The main app is in /api/. Tests   │
+│      live in /tests/ and use pytest.&quot;                              │
+│                                                                    │
+│  ✅ Universal coding standards                                     │
+│     &quot;Use single quotes in Python, not double quotes.               │
+│      Run `ruff check .` before committing.&quot;                        │
+│                                                                    │
+│  ✅ File structure conventions                                     │
+│     &quot;New feature modules go in /api/modules/. Each module has:     │
+│      models.py, views.py, urls.py, tests.py&quot;                       │
+│                                                                    │
+│  ✅ External service instructions                                  │
+│     &quot;This project uses Sentry for error tracking. When adding a   │
+│      new endpoint, ensure it has a try-except with Sentry.capture. │
+│                                                                    │
+│  ✅ Environment-specific information                               │
+│     &quot;Dev DB is at localhost:5432. Do NOT run migration scripts     │
+│      unless the user explicitly confirms.&quot;                         │
+│                                                                    │
+│  ❌ NOT appropriate for CLAUDE.md:                                 │
+│     One-off task instructions (&quot;today, fix the login bug&quot;)        │
+│     Workflow steps rarely needed (&quot;deploy to production&quot;)         │
+│     Instructions relevant only to one developer&#39;s machine         │
+└────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h3>Project vs User CLAUDE.md</h3>
+<pre><code>PROJECT-LEVEL CLAUDE.md (in repo root /CLAUDE.md):
+• Shared across ALL team members who use Claude Code on this repo
+• Contains: project architecture, coding standards, test patterns
+• Committed to version control — subject to code review
+• Affects: everyone who clones and uses Claude Code on this project
+
+USER-LEVEL CLAUDE.md (~/.claude/CLAUDE.md or equivalent):
+• Applies to THIS developer across ALL their projects
+• Contains: personal preferences, preferred comment style, tool aliases
+• NOT committed to the repo — private to the individual
+• Affects: only the individual user, regardless of which project they&#39;re in
+</code></pre>
+<hr>
+<h3>Skills — On-Demand Workflows</h3>
+<p>Unlike CLAUDE.md (always loaded), Skills are activated only when invoked by name. They define reusable workflows:</p>
+<pre><code>EXAMPLE SKILL DEFINITION (in CLAUDE.md or a separate .skills/ file):
+
+## /generate-api-docs
+
+**Description:** Generates API documentation for all routes in a module.
+**Activation:** Type `/generate-api-docs` followed by the module name.
+
+**Steps:**
+1. Glob for all files matching `*routes.py` in the specified module
+2. Read each file and extract route definitions, parameters, and return schemas
+3. Generate a Markdown documentation file in `/docs/api/[module-name].md`
+4. Update `/docs/api/README.md` with a link to the new file
+5. Confirm completion and list the files created/updated
+
+**Example:** `/generate-api-docs payments`
+</code></pre>
+<hr>
+<h3>When to Use CLAUDE.md vs Skills</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>CLAUDE.md</th>
+<th>Skill</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Standards all devs should follow always</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Rarely needed deployment workflow</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Architecture overview for all sessions</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>One-off test generation for a specific module</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Naming conventions for new files</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Weekly report generation process</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Environment variables and secrets location</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Complex multi-step refactoring</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody></table>
+<p><strong>Decision rule:</strong> CLAUDE.md = context and standards that are always relevant. Skills = specific multi-step workflows invoked occasionally.</p>
+<hr>
+<h3>The CLAUDE.md Token Budget Concern</h3>
+<p>CLAUDE.md is loaded into every session&#39;s context. If it is extremely long, it:</p>
+<ol>
+<li>Consumes significant context tokens from the start of every session</li>
+<li>May push actual work context toward the limit faster</li>
+<li>Adds latency to session startup</li>
+</ol>
+<p><strong>Best practice:</strong> Keep CLAUDE.md focused on the most important universal instructions. Move rarely-needed workflows to Skills. For very large projects, use nested CLAUDE.md files (one per subdirectory) so only the relevant subdirectory&#39;s instructions are loaded.</p>
+<hr>
+<h3>Nested CLAUDE.md Files</h3>
+<p>For large monorepos with multiple services:</p>
+<pre><code>/                      ← Root CLAUDE.md: universal project standards
+├── CLAUDE.md
+├── services/
+│   ├── api/
+│   │   └── CLAUDE.md  ← API-specific: DRF patterns, serialiser conventions
+│   ├── frontend/
+│   │   └── CLAUDE.md  ← Frontend-specific: React component patterns, Tailwind
+│   └── ml-pipeline/
+│       └── CLAUDE.md  ← ML-specific: data pipeline conventions, model registry
+</code></pre>
+<p>When Claude Code is working inside <code>/services/api/</code>, both the root CLAUDE.md and the api-level CLAUDE.md are loaded. This prevents the root CLAUDE.md from becoming a massive, unmanageable file.</p>
+<hr>
+<h2>🇮🇳 Indian Real-Life Example</h2>
+<p><strong>CLAUDE.md = Office Standing Orders at an ISRO Mission Control:</strong></p>
+<p>At an ISRO mission control room, there are standing orders posted on the wall — always visible to everyone. &quot;All communications logged. No personal devices. Ground truth is the telemetry feed.&quot; These don&#39;t change and apply to everyone, every day.</p>
+<p><strong>Skills = The Operations Runbook:</strong></p>
+<p>But specific procedures — &quot;what to do during a trajectory correction burn&quot; or &quot;how to handle a communication blackout&quot; — are written in a runbook. Engineers don&#39;t memorise the entire runbook. They activate the relevant procedure when the situation arises.</p>
+<p>CLAUDE.md = standing orders (always visible). Skills = runbook procedures (invoked when needed).</p>
+<hr>
+<h2>🔑 Exam-Focused Points</h2>
+<ul>
+<li>✅ <strong>CLAUDE.md</strong> = loaded automatically every session; for universal instructions and project context</li>
+<li>✅ <strong>Skills</strong> = invoked on demand by slash command; for specific multi-step workflows</li>
+<li>✅ <strong>Project-level</strong> CLAUDE.md = committed to repo, applies to all team members</li>
+<li>✅ <strong>User-level</strong> CLAUDE.md = personal file, applies to all projects for that user, not committed to repo</li>
+<li>✅ CLAUDE.md consumes context tokens every session — keep it focused, not exhaustive</li>
+<li>✅ Nested CLAUDE.md in subdirectories: loaded only when working in that directory — better for monorepos</li>
+</ul>
+<hr>
+<h2>🧩 Scenario-Based Thinking</h2>
+<p><strong>Scenario:</strong> A team has a complex 15-step deployment process to production that is run once per sprint. A junior developer keeps forgetting steps 7 and 12. The team is deciding between adding the deployment process to CLAUDE.md or defining it as a Skill.</p>
+<p><strong>Which approach is more appropriate?</strong></p>
+<ul>
+<li>A) Add it to CLAUDE.md — it&#39;s critical enough to always have available</li>
+<li>B) Define it as a Skill (<code>/deploy-to-production</code>) — it&#39;s a structured workflow run occasionally, not something needed in every session</li>
+<li>C) Both — add a brief reference in CLAUDE.md and define the full steps as a Skill</li>
+<li>D) Neither — use a separate checklist tool outside Claude Code</li>
+</ul>
+<p><strong>Answer:</strong> B (with C being a reasonable choice, but B is the primary answer)</p>
+<p><strong>Explanation:</strong> A 15-step process run once per sprint is an infrequently used, structured workflow — the perfect definition of a Skill. Adding it to CLAUDE.md means the 15 steps consume context tokens in every session (including debugging sessions where deployment is completely irrelevant). A Skill (<code>/deploy-to-production</code>) activates exactly when needed and keeps CLAUDE.md lean.</p>
+<hr>
+<h2>💡 Memory Tricks</h2>
+<p><strong>CLAUDE.md = Reading Glasses:</strong> You put them on every morning automatically — they apply to everything you do all day. Skills = Specialised Safety Equipment: you grab your hard hat or lab coat only when the specific task requires it.</p>
+<p><strong>Project CLAUDE.md = Office Notice Board:</strong> Everyone sees it, no one owns it personally. User CLAUDE.md = Personal Post-It Notes on your own monitor: only you see them, across every office you work in.</p>
+<hr>
+<h2>❓ Chapter Practice Questions</h2>
+<p><strong>Q1.</strong> A team wants to ensure that all team members using Claude Code consistently follow the same database migration safety rules (always run migrations in a transaction, always back up before production migrations). Where is the most appropriate place to document these rules?</p>
+<ul>
+<li>A) A user-level CLAUDE.md file for each developer</li>
+<li>B) A project-level CLAUDE.md file committed to the repository</li>
+<li>C) A Skill definition that developers invoke before each migration</li>
+<li>D) A README section that developers read manually</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> Rules that must apply to ALL team members for ALL sessions on this project belong in the project-level CLAUDE.md. User-level files (A) are personal and won&#39;t apply to the whole team. A Skill (C) requires developers to remember to invoke it — the standing rules (use transactions, back up first) should always be visible, not manually activated.</p>
+<hr>
+<p><strong>Q2.</strong> A developer notices that their CLAUDE.md has grown to 8,000 words, covering project architecture, coding standards, test patterns, deployment processes, and troubleshooting guides. They notice sessions are slower to start and Claude occasionally seems &quot;distracted.&quot; What is the most effective fix?</p>
+<ul>
+<li>A) Split the project into multiple smaller repositories to distribute the CLAUDE.md content</li>
+<li>B) Delete all CLAUDE.md content and rely on Claude&#39;s in-weights training knowledge</li>
+<li>C) Move rarely-invoked workflows (deployment, troubleshooting) to Skills; use nested CLAUDE.md files for service-specific standards; retain only universal, always-relevant instructions in the root CLAUDE.md</li>
+<li>D) Convert all CLAUDE.md content to inline comments in the codebase</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong> A massive CLAUDE.md consumes context tokens in every session, reducing the space available for actual work. The fix is proportional: move workflows to Skills (invoked only when needed), distribute service-specific instructions to nested CLAUDE.md files, and keep the root CLAUDE.md focused on what&#39;s truly universal. This keeps each session lean without losing any guidance.</p>
+<hr>
+<p><strong>Q3.</strong> A developer uses Claude Code on three different projects daily. They have personal conventions that apply everywhere: always use type hints in Python, prefer f-strings over <code>.format()</code>, and use British English spellings in comments. Where should these preferences be documented?</p>
+<ul>
+<li>A) In each project&#39;s CLAUDE.md so Claude follows them on all projects</li>
+<li>B) In the developer&#39;s user-level CLAUDE.md (<code>~/.claude/CLAUDE.md</code>)</li>
+<li>C) In a Skill invoked at the start of each session on each project</li>
+<li>D) In the system prompt when launching Claude Code each time</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong> Personal conventions that apply across all projects for one developer belong in the user-level CLAUDE.md. Adding them to each project&#39;s CLAUDE.md (A) is redundant (multiply maintained) and would impose the developer&#39;s personal preferences on the whole team. The user-level file is the correct place for individual, cross-project preferences.</p>
+<hr>
+<h2>📌 Quick Revision Summary</h2>
+<ul>
+<li>CLAUDE.md: automatically loaded every session; for universal instructions and project context</li>
+<li>Skills: invoked on demand by slash command; for multi-step workflows invoked occasionally</li>
+<li>Project CLAUDE.md: committed to repo, applies to all team members</li>
+<li>User CLAUDE.md: personal, applies to all projects for that user, not committed to repo</li>
+<li>CLAUDE.md consumes context every session — keep it focused; move workflows to Skills</li>
+<li>Nested CLAUDE.md: service-specific instructions loaded only in that subdirectory (good for monorepos)</li>
+</ul>
+<hr>
+<h2>📎 References</h2>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code">Anthropic Documentation — Claude Code Customisation</a></li>
+</ul>
+<hr>
+<p><em>Notes by certification-study-hub. Chapter 05 — CLAUDE.md &amp; Skills.</em></p>
+
+        
+        <div class="pagination">
+          <a href="../../claude-architect-foundation/04-structured-output-and-extraction/long-document-extraction.html" class="page-link prev">
+          <span class="page-link-label">Previous</span>
+          <span class="page-link-title">← Long Document Extraction</span>
+        </a>
+          <a href="../../claude-architect-foundation/05-claude-code-and-workflows/code-review-workflows.html" class="page-link next">
+          <span class="page-link-label">Next</span>
+          <span class="page-link-title">Code Review Workflows →</span>
+        </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/script.js"></script>
+</body>
+</html>
